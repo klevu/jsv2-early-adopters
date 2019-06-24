@@ -17,3 +17,18 @@ however Klevu JSv2 is platform agnostic and Shopify is used due to the ease of g
 You can apply any lessons learnt in these tutorials to your own framework of choice.
 
 **[Click here to begin!](/tutorial/shopify/hello-world)**
+
+## Tell us what you think!
+
+This is just a brief introduction to how changes can be made with JSv2,
+without needing to wait for Klevu to provide the customisation work.
+
+There are countless applications provided by APIv2 and JSv2 which we will be
+detailing more and more as we grow our documentation, tutorials and user guides.
+For the time being, please have a look at the format of the snippets we’ve provided,
+take a look at the source code and see what you think as an initial impression.
+
+We understand that our documentation is currently limited so this is quite difficult,
+but we would welcome any feedback you might have.
+
+Please provide all feedback to your Klevu contact (_the person that told you about this programme_).
