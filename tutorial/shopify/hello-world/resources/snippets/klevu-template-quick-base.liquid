@@ -2,17 +2,11 @@
     <div class="klevu-fluid">
         <div id="klevuSearchingArea" class="klevuQuickSearchingArea">
             <div class="klevuSuggestionsBlock">
-                <!-- Auto Suggestion -->
                 <%=helper.render('klevuQuickAutoSuggestions',scope) %>
-
-                <!-- Pages Suggestions -->
                 <%=helper.render('klevuQuickPageSuggestions',scope) %>
-
-                <!-- Categories Suggestions  -->
                 <%=helper.render('klevuQuickCategorySuggestions',scope) %>
             </div>
-                <!-- Klevu products  -->
-                <%=helper.render('klevuQuickProducts',scope) %>
+            <%=helper.render('klevuQuickProducts',scope) %>
         </div>
       </div>
 </script>

@@ -216,7 +216,6 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
                 }
             });
 
-
             // where to render the responce
             box.getScope().chains.template.render.add({
                 name: "renderResponse",

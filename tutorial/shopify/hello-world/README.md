@@ -11,17 +11,18 @@ _No part of this tutorial requires a credit card or personal credentials._
 - Create a [Shopify free trial](https://www.shopify.com).
 - Install Klevu App:
     - Go to Apps > Visit the Shopify App Store.
-    - Search “Klevu” and click on “Klevu Search” App.
-    - Click on the Add App button.
+    - Search "Klevu" and click on "Klevu Search" App.
+    - Click on the "Add App" button.
     - Follow the instructions to install the App.
-    - Click on the “Enterprise” Sign-Up Now button (its Free, no CC needed).
-    - You should now see the Klevu Merchant Centre (or KMC as we call it).
-- Disable the Klevu App: (why? see introduction notes below)
+    - Click on the "Enterprise Sign-Up Now" button (_its Free, no CC needed_).
+    - You should now see the Klevu Merchant Centre (_or KMC as we call it_).
+- Disable the Klevu App: (_why? see introduction notes below_)
     - Click the ‘Settings’ button at the top of the screen.
-    - Change the setting “Klevu Search on Frontend” to “Disabled”.
+    - Change the setting "Klevu Search on Frontend" to "Disabled".
     - Scroll down and click the Submit button.
 
 **Why do we disable the Klevu App?**
+
 This is to remove Version 1 of the JavaScript Library,
 which is automatically installed with the App.
 We don’t need this since we will be using JSv2.
@@ -34,13 +35,13 @@ By default Klevu API Keys are not enabled for APIv2,
 so please send us yours so we can activate it for you.
 Don’t worry, in the meantime you can use our demo API Key for the rest of this tutorial.
 
-- Click on the “Klevu Search” breadcrumb at the top to return to the KMC
-- Next click the Shop Info link near the top right
-- Copy the value of your “JS API Key” and email it to us
-    - Send this to your Klevu contact (the person that gave you this document!) with email subject: “JSv2 early adopter API Key”
+- Click on the "Klevu Search" breadcrumb at the top to return to the KMC
+- Next click the "Shop Info" link near the top right
+- Copy the value of your "JS API Key" and email it to us
+    - Send this to your Klevu contact (_the person that told you about this programme!_) with email subject: _"JSv2 early adopter API Key"_
     - We will then convert your API key from V1 to V2.
     - In the meantime, please use this API key (it will have different product data to your own Shopify store, but at least you can get started!)
-        - Api Key: `klevu-15192822724627551`
+        - APIv2 Key: `klevu-15192822724627551`
 
 ## Install Klevu JSv2 on Shopify
 
@@ -51,25 +52,22 @@ and running with full control over the search functionality, look and feel.
 ### Theme Modifications
 
 The quickest and easiest way to make the required changes to the theme is to download a copy,
-make the changes and then upload again as a new theme.
-You can also manually make the required changes via the Shopify admin panel,
-but this tutorial will show the easier route. For more information on downloading
+make the changes and then upload again as a new theme. For more information on downloading
 and uploading themes, [click here](https://help.shopify.com/en/themes/customization/troubleshooting/upload-multiple-files).
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Download Theme File.
     - This will email the theme file to you for download.
 - Click the link in your email to download the theme and unzip locally.
-- Next extract the JSv2 ZIP attached and copy the contents of the folder hello-world into your theme.
-    - _Do not copy `add.me.to.theme.liquid`, ignore this file for now._
+- Next extract the copy the contents of [hello-world/resources](/tutorial/shopify/hello-world/resources) into your theme.
 - Zip the theme once again.
 - Navigate to Online Store > Themes.
-- Click the Upload Theme button near the bottom and select your ZIP.
+- Click the Upload Theme button near the bottom and select your Zip.
 - Once imported, select your theme > Actions > Publish.
 
 ### Change Search Results Page Template
 
-Modify the Shopify Page “Search Results” to use the template: `page.klevuSearch.liquid`.
+Modify the Shopify Page "Search Results" to use the template: `page.klevuSearch.liquid`.
 You can leave the Page content as it is, since this is ignored in the above template.
 
 ![Search Results Page](/tutorial/shopify/hello-world/images/search-results-page.jpg)
@@ -84,10 +82,29 @@ You can leave the Page content as it is, since this is ignored in the above temp
 At this stage we have simply uploaded a number of files to our theme,
 they are not actually doing anything just yet. So finally, edit your Theme
 once more and modify the default Shopify layout file `theme.liquid`.
-Add the snippet of HTML contained within add.me.to.theme.liquid just before `</head>`.
-Now visit any page on your Shopify store and start searching!
+Add the following snippet just before `</head>`.
 
-## Make some Changes
+```html
+{% comment %} KLEVU - START {% endcomment %}
+    {{ 'klevu-quick.css' | asset_url | stylesheet_tag }}
+        <script src="{{ '//jsv2.klevu.com/export/klevu.js' }}"></script>
+        <script src="{{ 'klevu-settings.js' | asset_url }}" ></script>
+        <script src="{{ 'klevu-quick.js' | asset_url }}" ></script>
+    {% comment %} KLEVU TEMPLATES QUICK - START {% endcomment %}
+        {% include "klevu-template-quick-base" %}
+        {% include "klevu-template-quick-autoSuggestions" %}
+        {% include "klevu-template-quick-pageSuggestions" %}
+        {% include "klevu-template-quick-categorySuggestions" %}
+        {% include "klevu-template-quick-products" %}
+        {% include "klevu-template-quick-productBlock" %}
+        {% include "klevu-template-quick-noResultFound" %}
+    {% comment %} KLEVU TEMPLATES QUICK - END {% endcomment %}
+{% comment %} KLEVU - END {% endcomment %}
+```
+
+**Now visit any page on your Shopify store and start searching!**
+
+## Make some Changes!
 
 Now you have Klevu functionality entirely hosted on your own infrastructure
 (apart from `jsv2.klevu.com/export/klevu.js`, but feel free to download this
