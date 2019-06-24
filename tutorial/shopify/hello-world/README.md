@@ -111,5 +111,5 @@ if you wanted to make any changes you’d need to contact our support.
 
 1. [Add a Sort-By Dropdown.](/tutorial/shopify/sort)
 1. [Add a Pagination Limit Dropdown.](/tutorial/shopify/limit)
-1. [Add a Content tab.](/tutorial/shopify/tab-results)
+1. [Search Shopify Pages and Articles.](/tutorial/shopify/tab-results)
 1. [Using your own API Key.](/tutorial/shopify/your-api-key)
