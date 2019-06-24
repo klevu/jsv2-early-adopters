@@ -1,0 +1,21 @@
+<div class="contentList klevuMeta" data-section="contentList">
+    <div class="kuResultContent">
+        <%=helper.render('filters',scope,data,"contentList") %>
+        <div class="kuResultWrap <%=(data.query.contentList.filters.length == 0 )?'kuBlockFullwidth':''%>">
+            <%=helper.render('sortBy',scope,data,"contentList") %>
+            <%=helper.render('limit',scope,data,"contentList") %>
+            <%=helper.render('pagination',scope,data,"contentList") %>
+            <div class="kuClearBoth"></div>
+            <div class="kuResults kuGridView">
+                <ul>
+                    <% helper.each(data.query.contentList.result,function(key,item){ %>
+                        <% if(item.typeOfRecord == "KLEVU_CMS") { %>
+                            <%=helper.render('contentBlock',scope,data,item) %>
+                        <% }%>
+                    <% }); %>
+                </ul>
+                <div class="kuClearBoth"></div>
+            </div>
+        </div>
+    </div>
+</div>

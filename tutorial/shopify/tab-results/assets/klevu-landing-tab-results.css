@@ -1,0 +1,9 @@
+.productList,
+.contentList {
+    display: none;
+}
+
+.productListActive .productList,
+.contentListActive .contentList {
+    display: block;
+}
