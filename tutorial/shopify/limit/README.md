@@ -16,12 +16,14 @@ in that tutorial but with the following assets and code snippets:
 {% include "klevu-template-landing-limit" %}
 ```
 
-```html
+```js
 <%=helper.render('limit',scope,data,"productList") %>
 ```
 
 The Assets and Snippets you will need for this module can be found
 in the [resources](/tutorial/shopify/limit/resources) folder.
 
+## What's next?
+
 Next let's try something a little more interesting,
-we'll add [a new tab to the search results to display Shopify Page and Article results](/tutorial/shopify/tab-results).
+we'll add a new tab to [search Shopify Pages and Articles](/tutorial/shopify/tab-results)!

@@ -57,4 +57,6 @@ Locate the line that renders the pagination, and add a new sortBy render helper 
 Click Save to persist your changes,
 then visit a search results page on your Shopify store to **try the sort ordering**!
 
+## What's next?
+
 Next, let's [add a pagination limit dropdown.](/tutorial/shopify/limit)

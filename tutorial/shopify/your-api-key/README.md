@@ -31,7 +31,7 @@ in the search results.
 - Modify Assets > `klevu-settings.js`
 - Add your own API Key in the appropriate location.
 
-```html
+```js
 function startup(klevu) {
     var options = {
         search : {
