@@ -20,15 +20,15 @@ You can apply any lessons learnt in these tutorials to your own framework of cho
 
 ## Tell us what you think!
 
-This is just a brief introduction to how changes can be made with JSv2,
-without needing to wait for Klevu to provide the customisation work.
+This is just a brief introduction to how changes can be made with JSv2.
 
-There are countless applications provided by APIv2 and JSv2 which we will be
+There are countless applications of Klevu APIv2 and JSv2 which we will be
 detailing more and more as we grow our documentation, tutorials and user guides.
-For the time being, please have a look at the format of the snippets we’ve provided,
-take a look at the source code and see what you think as an initial impression.
 
-We understand that our documentation is currently limited so this is quite difficult,
-but we would welcome any feedback you might have.
+For the time being, please take a look at the snippets we’ve provided,
+the source code and templates and see what you think as an initial impression.
 
-Please provide all feedback to your Klevu contact (_the person that told you about this programme_).
+Please forward any feedback you may have to your Klevu contact
+(_the person that told you about this programme_).
+
+Thank you!
