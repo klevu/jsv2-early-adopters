@@ -1,10 +1,9 @@
 # Hello World Tutorial
 
-Klevu already has a Shopify App which uses Version 1 of our JavaScript Library.
+Klevu already has a [Shopify App](https://apps.shopify.com/klevu-smart-search)
+which uses Version 1 of our JavaScript Library.
 We will use this as the basis for our tutorial, which will automatically create
 a Klevu account and provide you with an API Key for use during this tutorial.
-
-_No part of this tutorial requires a credit card or personal credentials._
 
 ![Klevu Quick Search](/tutorial/shopify/hello-world/images/intro-quick-search.jpg)
 
@@ -32,10 +31,10 @@ We don’t need this since we will be using JSv2, however
 the benefit of installing the App is that it creates us a Klevu API key
 and will begin synchronising your Shopify products immediately.
 
-## Install Klevu JSv2 on Shopify
+## Configure Klevu JSv2 on Shopify
 
 Now you have a Shopify store with the Klevu App installed,
-the next step is to install JSv2 so you can get Klevu search up
+the next step is to configure JSv2 so you can get Klevu search up
 and running with full control over the search functionality, look and feel.
 
 ### Theme Modifications
@@ -83,9 +82,9 @@ once more and modify the default Shopify layout file `theme.liquid`.
 ```html
 {% comment %} KLEVU - START {% endcomment %}
     {{ 'klevu-quick.css' | asset_url | stylesheet_tag }}
-        <script src="{{ '//jsv2.klevu.com/export/klevu.js' }}"></script>
-        <script src="{{ 'klevu-settings.js' | asset_url }}" ></script>
-        <script src="{{ 'klevu-quick.js' | asset_url }}" ></script>
+    <script src="{{ '//jsv2.klevu.com/export/klevu.js' }}"></script>
+    <script src="{{ 'klevu-settings.js' | asset_url }}" ></script>
+    <script src="{{ 'klevu-quick.js' | asset_url }}" ></script>
     {% comment %} KLEVU TEMPLATES QUICK - START {% endcomment %}
         {% include "klevu-template-quick-base" %}
         {% include "klevu-template-quick-autoSuggestions" %}

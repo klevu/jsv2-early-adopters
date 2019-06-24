@@ -24,11 +24,10 @@ This is just a brief introduction to how changes can be made with JSv2.
 
 There are countless applications of Klevu APIv2 and JSv2 which we will be
 detailing more and more as we grow our documentation, tutorials and user guides.
-
-For the time being, please take a look at the snippets we’ve provided,
+For the time being take a look at the snippets we’ve provided,
 the source code and templates and see what you think as an initial impression.
 
 Please forward any feedback you may have to your Klevu contact
 (_the person that told you about this programme_).
 
-Thank you!
+**Thank you!**
