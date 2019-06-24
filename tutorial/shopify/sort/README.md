@@ -8,7 +8,7 @@ The files you will need for this module can be found in the
 [resources](/tutorial/shopify/sort/resources) folder.
 
 Edit the code of your current theme and create some assets and snippets in your theme.
-This time let’s do this directly with the Shopify Theme editor, rather than downloading and Zipping.
+This time let’s do this directly within the Shopify Theme editor, rather than downloading and Zipping.
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
@@ -19,9 +19,9 @@ This time let’s do this directly with the Shopify Theme editor, rather than do
     - Copy + Paste the content and click on Save.
 
 Next we need to include these assets and snippets in our page,
-so edit the template `page.klevuSearch.liquid`.
+so edit Templates > `page.klevuSearch.liquid`.
 
-Add the following snippet near the top of the liquid template:
+Include `klevu-landing-sort.js` by modifying the contents like this:
 
 ```html
 <script src="{{ 'klevu-landing.js' | asset_url }}"></script>
@@ -30,7 +30,7 @@ Add the following snippet near the top of the liquid template:
 
 ```
 
-Near the bottom of the liquid template, add following:
+Include the `klevu-template-landing-sort.liquid` snippet by modifying the contents like this:
 
 ```html
 {% comment %} KLEVU TEMPLATES LANDING - START {% endcomment %}
@@ -40,11 +40,12 @@ Near the bottom of the liquid template, add following:
 {% comment %} KLEVU TEMPLATES LANDING - END {% endcomment %}
 ```
 
-Click Save on this `page.klevuSearch.liquid` template.
+Click Save to persist your changes.
 
 Finally, we need to include this sort dropdown in our main template,
-so find and edit the liquid snippet template `klevu-template-landing-results.liquid`.
-Locate the line that renders the pagination, and add a new rendering helper above it:
+so find and edit Snippets > `klevu-template-landing-results.liquid`.
+
+Locate the line that renders the pagination, and add a new sortBy render helper above it:
 
 ```html
 ...
@@ -53,4 +54,7 @@ Locate the line that renders the pagination, and add a new rendering helper abov
 ...
 ```
 
-Now visit a search results page on your Shopify store and **try the sort ordering**!
+Click Save to persist your changes,
+then visit a search results page on your Shopify store to **try the sort ordering**!
+
+Next, let's [add a pagination limit dropdown.](/tutorial/shopify/limit)
