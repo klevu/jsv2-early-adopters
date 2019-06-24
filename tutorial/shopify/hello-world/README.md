@@ -6,6 +6,8 @@ a Klevu account and provide you with an API Key for use during this tutorial.
 
 _No part of this tutorial requires a credit card or personal credentials._
 
+![Klevu Quick Search](/tutorial/shopify/hello-world/images/intro-quick-search.jpg)
+
 ## Install the Klevu App on Shopify
 
 - Create a [Shopify free trial](https://www.shopify.com).
@@ -48,7 +50,7 @@ and uploading themes, [click here](https://help.shopify.com/en/themes/customizat
         - _This will email the theme file to you for download._
     - Click the link in your email to download the theme and unzip locally.
 - Add JSv2 to Theme
-    - Next extract the copy the contents of [hello-world/resources](/tutorial/shopify/hello-world/resources) into your theme.
+    - Next extract the copy the contents of [resources](/tutorial/shopify/hello-world/resources) into your theme.
     - Zip the theme once again.
     - Navigate to Online Store > Themes.
     - Scroll down and click the "Upload theme" button, then select your Zip.
