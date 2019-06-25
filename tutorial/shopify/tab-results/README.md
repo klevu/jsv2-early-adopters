@@ -3,6 +3,8 @@
 _This tutorial assumes you have already completed and followed
 [hello-world](/tutorial/shopify/hello-world) and [sort](/tutorial/shopify/sort) tutorials._
 
+![Tabbed Search Results](/tutorial/shopify/tab-results/images/tabbed-results.jpg)
+
 ## Upload the Assets and Snippets
 
 Start by uploading the Assets and Snippets in the usual fashion (_either ZIP download/upload
