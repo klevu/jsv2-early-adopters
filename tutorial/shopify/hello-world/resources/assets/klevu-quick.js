@@ -59,7 +59,10 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
         //add translations
         var translatorQuick = klevu.search.quick.getScope().template.getTranslator();
         translatorQuick.addTranslation("Search","Search");
+        translatorQuick.addTranslation("<b>%s</b> productList","<b>%s</b> Products");
+        translatorQuick.addTranslation("<b>%s</b> contentList","<b>%s</b> Other results");
         translatorQuick.mergeToGlobal();
+
         //set currency
         var currencyQuick = klevu.search.quick.getScope().currency;
 
