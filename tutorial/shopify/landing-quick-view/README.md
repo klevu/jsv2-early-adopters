@@ -4,7 +4,7 @@ Add Product Quick view on search results landing page.
 
 ![Quick-view product-grid](/tutorial/shopify/landing-quick-view/images/product-grid.png) 
 
-![Quick-view template](/tutorial/shopify/landing-quick-view/images/landing-quick-view.png) 
+![Quick-view template](/tutorial/shopify/landing-quick-view/images/product-quick-view.png) 
 
 The files you will need for this module can be found in the
 [resources](/tutorial/shopify/landing-quick-view/resources) folder.
