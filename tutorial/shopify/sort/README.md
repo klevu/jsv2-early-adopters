@@ -15,7 +15,7 @@ This time let’s do this directly within the Shopify Theme editor, rather than 
 - Assets > Add a new Asset > Upload `klevu-landing-sort.js`.
 - Snippets > Add a new Snippet:
     - Create a new Snippet called: `klevu-template-landing-sort`
-    - Copy + Paste the content and click on Save.
+    - Copy content from `klevu-template-landing-sort.liquid` + Paste and click on Save.
 
 Next we need to include these assets and snippets in our page,
 so edit Templates > `page.klevuSearch.liquid`.
