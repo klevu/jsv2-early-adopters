@@ -22,6 +22,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         appendTemplateIntoBody();
         var modal = document.querySelector(".kuModal");
         var closeButton = document.querySelector(".close-button");
+        var selected_product = null;
 
         /*
          *	Function to toggle Body scroll style
@@ -41,7 +42,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         function addValueToSelector(selector, text) {
             var element = document.querySelector(selector);
             if (element) {
-                element.innerHTML = text;
+                element.innerHTML = (text !== undefined) ? text : "";
             }
         }
 
@@ -51,7 +52,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         function addAtributeToSelector(selector, attributeName, attributeValue) {
             var element = document.querySelector(selector);
             if (element) {
-                element.setAttribute(attributeName, attributeValue);
+                element.setAttribute(attributeName, (attributeValue !== undefined) ? attributeValue : "");
             }
         }
 
@@ -83,8 +84,20 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             addValueToSelector(".kuModalProductType", i_selectedProduct.type);
 
             addAtributeToSelector(".kuModalProductImage", "src", i_selectedProduct.image);
+            addAtributeToSelector(".kuModalProductImage", "alt", i_selectedProduct.name);
+
             addAtributeToSelector(".kuModalProductURL", "href", i_selectedProduct.url);
             addAtributeToSelector(".kuModalProductCart", "href", i_selectedProduct.url);
+        }
+
+        /**
+         * Function to reset quick view data
+         */
+        function resetContainer() {
+            addAtributeToSelector(".kuModalProductImage", "src", "");
+            addAtributeToSelector(".kuModalProductImage", "alt", "");
+            addAtributeToSelector(".kuModalProductURL", "href", "");
+            addAtributeToSelector(".kuModalProductCart", "href", "");
         }
 
         /*
@@ -95,6 +108,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             modal.classList.toggle("show-modal");
             if (i_selectedProduct) {
                 appendProductDetails(i_selectedProduct);
+            } else {
+                resetContainer();
             }
         }
 
@@ -116,7 +131,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "quickViewButtonClick",
             fire: function(data, scope) {
-                var selected_product = null;
                 var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
                 klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function(key, value) {
                     klevu.event.attach(value, "click", function(event) {
