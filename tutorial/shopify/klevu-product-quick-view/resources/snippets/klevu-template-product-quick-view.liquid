@@ -1,0 +1,68 @@
+<!--
+	Search result product grid quick view modal template file
+-->
+<script type="template/klevu" id="klevuLandingTemplateQuickView">
+	<div class="kuModal">
+		<div class="kuModal-content">
+			<div class="productQuickViewWrapper">
+				<div class="productQuick-Close">
+					<span class="close-button">×</span>
+				</div>
+				<div class="productQuick-imgBlock">
+					<div class="imgWrap">
+						<img src="<%= data.selected_product.image %>" alt="<%=helper.translate('%s',data.selected_product.name)%>" title="
+							<%=helper.translate('%s',data.selected_product.name)%>" />
+						</div>
+					</div>
+					<div class="productQuick-contentBlock">
+						<div class="productQuick-title kuModalProductName"><%=helper.translate('%s',data.selected_product.name)%>
+						</div>
+						<div class="productQuick-sku">
+							<span class="productQuick-label">SKU:</span>
+							<span><%=data.selected_product.sku%>
+							</span>
+						</div>
+						<div class="productQuick-divider"></div>
+						<div class="productQuick-Price">
+							<div class="productQuick-salePrice">
+								<span><%=helper.processCurrency(data.selected_product.currency,parseFloat(data.selected_product.salePrice))%>
+								</span>
+							</div>
+						</div>
+						<div class="productQuick-shortDesc"><% var shortDesc = (data.selected_product.shortDesc) ? data.selected_product.shortDesc + "..." : ""%>
+							<span><%=shortDesc%>
+							</span>
+						</div>
+						<div class="productQuick-extraInfo">
+							<div class="productQuick-stockStatus">
+								<span class="productQuick-label">Stock Status:</span>
+								<span><% var productStock = (data.selected_product.inStock == "yes") ? helper.translate("%s","In Stock") : helper.translate("%s","Out Of Stock") %><%=productStock%>
+								</span>
+							</div>
+							<div class="productQuick-sizeInStock">
+								<span class="productQuick-label">Color Variants:</span>
+								<span><%=data.selected_product.swatchesInfo%>
+								</span>
+							</div>
+							<div class="productQuick-colorInStock">
+								<span class="productQuick-label">Size Variants:</span>
+								<span><%=helper.translate('%s',data.selected_product.size)%>
+								</span>
+							</div>
+							<div class="productQuick-tags">
+								<span class="productQuick-label">Tags:</span>
+								<span><%=helper.translate('%s',data.selected_product.tags)%>
+								</span>
+							</div>
+						</div>
+						<div class="productQuick-addToCart">
+							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary-outline kuModalProductURL">View details
+							</a>
+							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary kuModalProductCart">Add to cart</a>
+						</div>
+					</div>
+					<div class="kuClearfix"></div>
+				</div>
+			</div>
+		</div>
+	</script>

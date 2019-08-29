@@ -1,0 +1,266 @@
+/*
+*   Styels for Product grid quick view
+*/
+
+.kuClearfix {
+    clear: both !important;
+}
+
+.kuModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden !important;
+}
+
+.productQuickView .kuModal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 2.5rem;
+    width: 65%;
+    border-radius: 4px;
+}
+
+.productQuickView .close-button {
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    overflow: visible;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    -webkit-appearance: none;
+    display: block;
+    outline: 0;
+    padding: 0;
+    box-shadow: none;
+    touch-action: manipulation;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 2rem;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+    color: #000;
+}
+
+.productQuickView .close-button:hover {
+    opacity: 1;
+}
+
+.productQuickView .show-modal {
+    z-index: 999;
+    opacity: 1;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.productQuick-imgBlock {
+    float: left;
+    display: inline-block;
+    width: 50%;
+    max-width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+    font-family: inherit;
+}
+
+.productQuick-imgBlock img {
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.productQuick-contentBlock {
+    float: left;
+    display: inline-block;
+    width: 50%;
+    max-width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: inherit;
+}
+
+.productQuickView .imgWrap {
+    padding: 5px;
+    background: transparent;
+    border: 1px solid #F2F2F2;
+    outline: none;
+    text-align: center;
+}
+
+.productQuick-title {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 130%;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.productQuick-divider {
+    display: block;
+    width: 100%;
+    margin: 1rem auto;
+    height: 1px;
+    background: #ddd;
+}
+
+.productQuickView .kuBtn {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    margin-right: 10px;
+}
+
+.productQuickView .kuBtn-primary {
+    background: #000000;
+    color: #FFFFFF;
+    border-color: #000000;
+}
+
+.productQuickView .kuBtn-primary-outline {
+    background: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.productQuickView .kuBtn-primary:hover {
+    background: transparent;
+    color: #000000;
+}
+
+.productQuickView .kuBtn-primary-outline:hover {
+    background: #f9f9f9;
+}
+
+.productQuick-Price {
+    font-size: 1.5rem;
+    line-height: 150%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #000;
+}
+
+span.productQuick-origPrice {
+    display: inline-block;
+    margin-right: 5px;
+    color: #888;
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+.productQuick-shortDesc {
+    font-size: 1.1rem;
+    line-height: 135%;
+    color: inherit;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+span.productQuick-label {
+    font-size: 1rem;
+    opacity: 0.80;
+    color: #444;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.productQuick-extraInfo>div {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.kuQuickView {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    margin-left: -50px;
+    width: 100px;
+    text-align: center;
+}
+
+.kuProdWrap:hover .kuQuickView {
+    right: 5px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.kuQuickViewBtn {
+    background: #ececec;
+    border: 1px solid #d6d5d5;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+.kuQuickViewBtn:hover {
+    opacity: 0.80;
+}
+
+@media (max-width:1366px) {
+    .productQuickView .kuModal-content {
+        width: 85%;
+    }
+}
+
+@media (max-width:850px) {
+    .productQuickView .kuModal-content {
+        width: 65%;
+    }
+
+    .productQuick-imgBlock,
+    .productQuick-contentBlock {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .kuQuickView {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .productQuickView .kuModal-content {
+        overflow: auto;
+        max-height: 96%;
+    }
+}
+
+@media (max-width:640px) {
+    .productQuickView .kuModal-content {
+        width: 85%;
+        padding: 2rem 1rem;
+    }
+
+    .productQuick-title {
+        font-size: 1.25rem;
+    }
+
+    .productQuickView .kuBtn {
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 0.85rem;
+    }
+}
