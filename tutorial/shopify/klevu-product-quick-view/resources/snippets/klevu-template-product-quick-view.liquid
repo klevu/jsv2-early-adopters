@@ -10,15 +10,16 @@
 				</div>
 				<div class="productQuick-imgBlock">
 					<div class="imgWrap">
-						<img src="<%= data.selected_product.image %>" alt="<%=helper.translate('%s',data.selected_product.name)%>" title="
-							<%=helper.translate('%s',data.selected_product.name)%>" />
+						<img src="<%= data.selected_product.image %>" alt="<%=helper.translate(data.selected_product.name)%>" title="
+							<%=helper.translate(data.selected_product.name)%>" />
 						</div>
 					</div>
 					<div class="productQuick-contentBlock">
-						<div class="productQuick-title kuModalProductName"><%=helper.translate('%s',data.selected_product.name)%>
+						<div class="productQuick-title kuModalProductName"><%=helper.translate(data.selected_product.name)%>
 						</div>
 						<div class="productQuick-sku">
-							<span class="productQuick-label">SKU:</span>
+							<span class="productQuick-label"><%=helper.translate("SKU:") %>                            
+                            </span>
 							<span><%=data.selected_product.sku%>
 							</span>
 						</div>
@@ -35,30 +36,30 @@
 						</div>
 						<div class="productQuick-extraInfo">
 							<div class="productQuick-stockStatus">
-								<span class="productQuick-label">Stock Status:</span>
-								<span><% var productStock = (data.selected_product.inStock == "yes") ? helper.translate("%s","In Stock") : helper.translate("%s","Out Of Stock") %><%=productStock%>
+								<span class="productQuick-label"><%=helper.translate("Stock Status:") %></span>
+								<span><% var productStock = (data.selected_product.inStock == "yes") ? helper.translate("In Stock") : helper.translate("Out Of Stock") %><%=productStock%>
 								</span>
 							</div>
 							<div class="productQuick-sizeInStock">
-								<span class="productQuick-label">Color Variants:</span>
+								<span class="productQuick-label"><%=helper.translate("Color Variants:") %></span>
 								<span><%=data.selected_product.swatchesInfo%>
 								</span>
 							</div>
 							<div class="productQuick-colorInStock">
-								<span class="productQuick-label">Size Variants:</span>
-								<span><%=helper.translate('%s',data.selected_product.size)%>
+								<span class="productQuick-label"><%=helper.translate("Size Variants:") %></span>
+								<span><%=helper.translate(data.selected_product.size)%>
 								</span>
 							</div>
 							<div class="productQuick-tags">
-								<span class="productQuick-label">Tags:</span>
-								<span><%=helper.translate('%s',data.selected_product.tags)%>
+								<span class="productQuick-label"><%=helper.translate("Tags:") %></span>
+								<span><%=helper.translate(data.selected_product.tags)%>
 								</span>
 							</div>
 						</div>
 						<div class="productQuick-addToCart">
-							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary-outline kuModalProductURL">View details
+							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary-outline kuModalProductURL"><%=helper.translate("View details") %>
 							</a>
-							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary kuModalProductCart">Add to cart</a>
+							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary kuModalProductCart"><%=helper.translate("Add to cart") %></a>
 						</div>
 					</div>
 					<div class="kuClearfix"></div>
