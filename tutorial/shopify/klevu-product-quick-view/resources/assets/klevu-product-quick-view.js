@@ -33,17 +33,16 @@ klevu.extend({
                 this.toggleBodyScroll();
                 var modalElement = klevu.dom.find("div.kuModal");
                 if (modalElement.length) {
-                    modal = modalElement[0];
-                    modal.classList.toggle("show-modal");
+                    this.modal = modalElement[0];
+                    this.modal.classList.toggle("show-modal");
                 }
             },
             /*
              *	Function to fire on window click event to hide modal
              */
             windowOnClick: function (event) {
-                var self = this;
-                if (event.target === modal) {
-                    self.toggleModal();
+                if (event.target === this.modal) {
+                    this.toggleModal();
                 }
             },
             /**
@@ -53,8 +52,8 @@ klevu.extend({
                 var self = this;
                 var closeElement = klevu.dom.find(".close-button");
                 if (closeElement.length) {
-                    closeButton = closeElement[0];
-                    klevu.event.attach(closeButton, "click", function () {
+                    self.closeButton = closeElement[0];
+                    klevu.event.attach(self.closeButton, "click", function () {
                         self.toggleModal();
                     });
                 }
