@@ -14,6 +14,8 @@ This time let’s do this directly within the Shopify Theme editor, rather than 
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
+- Assets > Add a new Asset > Upload `klevu-quick-view-service.js`.
+- Assets > Add a new Asset > Upload `klevu-add-to-cart-service.js`.
 - Assets > Add a new Asset > Upload `klevu-product-quick-view.js`.
 - Assets > Add a new Asset > Upload `klevu-product-quick-view.css`.
 - Snippets > Add a new Snippet:
@@ -23,10 +25,12 @@ This time let’s do this directly within the Shopify Theme editor, rather than 
 Next we need to include these assets and snippets in our page,
 so edit Templates > `page.klevuSearch.liquid`.
 
-Include `klevu-product-quick-view.js` by modifying the contents like this:
+Include `klevu-quick-view-service.js, klevu-add-to-cart-service.js and klevu-product-quick-view.js` by modifying the contents like this:
 
 ```html
 ...
+<script src="{{ 'klevu-quick-view-service.js' | asset_url }}"></script>
+<script src="{{ 'klevu-add-to-cart-service.js' | asset_url }}"></script>
 <script src="{{ 'klevu-product-quick-view.js' | asset_url }}"></script>
 ...
 
