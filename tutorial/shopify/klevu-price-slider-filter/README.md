@@ -79,7 +79,7 @@ with this code
             <%=filter.label%>
         </div>
         <div class="sliderFilterNames">                           
-            <div class="kuPriceSlider" data-query = "<%=dataLocal%>">
+            <div class="kuPriceSlider klevuSliderFilter" data-query = "<%=dataLocal%>">
                 <div data-querykey = "<%=dataLocal%>" class="noUi-target noUi-ltr noUi-horizontal noUi-background kuSliderFilter kuPriceRangeSliderFilter<%=dataLocal%>"></div>
                 <div class="kuSliderVal">
                     <div class="kuSliderVal-min">

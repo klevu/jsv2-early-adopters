@@ -85,7 +85,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 klevu.dom.find(".maxValue" + querykey)[0].innerHTML = max;
 
                 /** Get Scope */
-                var target = klevu.dom.helpers.getClosest(klevu.dom.find(".kuPriceSlider")[0], ".klevuTarget");
+                var target = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter")[0], ".klevuTarget");
                 if (target === null) {
                     /* DEBUG CODE START */
                     if (klevu.settings.console.type.event) {
@@ -98,7 +98,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 var scope = target.kElem;
                 scope.kScope.data = scope.kObject.resetData(scope.kElem);
 
-                var options = klevu.dom.helpers.getClosest(klevu.dom.find(".kuPriceSlider")[0], ".klevuMeta");
+                var options = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter")[0], ".klevuMeta");
                 if (options === null) {
                     /* DEBUG CODE START */
                     if (klevu.settings.console.type.event) {
