@@ -4,30 +4,29 @@
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "price-slider-filter",
     fire: function () {
-        var landingScope = klevu.search.landing.getScope();
-
+        
         /** Price slider filter request query */
-        landingScope.priceSliderFilterReqQuery = {
+        klevu.search.landing.getScope().priceSliderFilterReqQuery = {
             key: "price",
             minMax: true,
             rangeInterval: 500
         };
 
         /** Function to add range filters in request filter object */
-        landingScope.chains.request.build.addAfter('addProductList', {
+        klevu.search.landing.getScope().chains.request.build.addAfter('addProductList', {
             name: "addPriceSlider",
             fire: function (data, scope) {
                 var requestQueries = data.request.current.recordQueries;
                 requestQueries.forEach(function (req) {
                     if (req.id == "productList") {
-                        req.filters.filtersToReturn.rangeFilterSettings = [landingScope.priceSliderFilterReqQuery];
+                        req.filters.filtersToReturn.rangeFilterSettings = [klevu.search.landing.getScope().priceSliderFilterReqQuery];
                     }
                 });
             }
         });
 
         /** Slider filter object */
-        landingScope.sliderFilter = {
+        klevu.search.landing.getScope().sliderFilter = {
             initSlider: function (data, scope) {
                 var self = this;
                 var priceSliderList = klevu.dom.find("[data-querykey]");
@@ -39,7 +38,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         var contentData = data.template.query[querykey];
                         if (contentData) {
                             contentData.filters.forEach(function (filter) {
-                                if (filter.key == landingScope.priceSliderFilterReqQuery.key && filter.type == "SLIDER") {
+                                if (filter.key == klevu.search.landing.getScope().priceSliderFilterReqQuery.key && filter.type == "SLIDER") {
                                     sliderData = filter;
                                 }
                             });
@@ -146,10 +145,10 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         /**
          *  Initialize slider
          */
-        landingScope.chains.template.events.add({
+        klevu.search.landing.getScope().chains.template.events.add({
             name: "initSliderFilter",
             fire: function (data, scope) {
-                landingScope.sliderFilter.initSlider(data, scope);
+                klevu.search.landing.getScope().sliderFilter.initSlider(data, scope);
             }
         });
 
