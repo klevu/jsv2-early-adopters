@@ -35,6 +35,9 @@ klevu.extend({
              * @param {*} str 
              */
             getColorSwatchesInfoFromString: function (str) {
+                if (str && str[0] && str[0].variantId) {
+                    return str;
+                }
                 var dataArray = str.split(";;;;");
                 var keyValuePair = [];
                 dataArray.forEach(function (str) {
