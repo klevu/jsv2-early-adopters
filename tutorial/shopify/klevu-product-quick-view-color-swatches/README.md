@@ -2,6 +2,8 @@
 
 Add Color swatches on Product Quick view.
 
+![Quick-view color-swatches](/tutorial/shopify/klevu-product-quick-view-color-swatches/images/image001.png)
+
 prerequisite:
 - Add [klevu-product-quick-view](/tutorial/shopify/product-quick-view) module.
 
