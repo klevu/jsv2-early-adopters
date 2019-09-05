@@ -1,4 +1,4 @@
-# Add Color swatched on Product Quick view 
+# Add Color swatches on Product Quick view 
 
 Add Color swatches on Product Quick view.
 
