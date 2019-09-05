@@ -27,7 +27,6 @@ klevu.extend({
                         dataList.push(matchedData);
                     }
                 });
-                console.log(dataList);
                 return dataList;
             },
 
