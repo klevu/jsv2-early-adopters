@@ -33,6 +33,7 @@ Include `klevu-color-swatches-service.js` by modifying the contents like this:
 Include `klevu-color-swatches.css` by modifying the contents like this:
 
 ```html
+...
 {{ 'klevu-color-swatches.css' | asset_url | stylesheet_tag }}
 ...
 
