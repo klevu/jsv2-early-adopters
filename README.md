@@ -6,7 +6,7 @@ so please bear this in mind during testing._
 
 - **[Get started with Shopify](/tutorial/shopify/hello-world)**
 - **[Get started with BigCommerce](/tutorial/hello-world/bigcommerce)**
-- **[Get started with BigCommerce](/tutorial/hello-world/magento2)**
+- **[Get started with Magento 2](/tutorial/hello-world/magento2)**
 
 Once you've completed one of the above, [try some other common customisations here](/tutorial/shopify).
 
