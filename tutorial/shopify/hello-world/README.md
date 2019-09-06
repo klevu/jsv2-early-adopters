@@ -1,10 +1,10 @@
-# Hello World Tutorial
+# Hello World Tutorial for Shopify
 
 Klevu already has a [Shopify App](https://apps.shopify.com/klevu-smart-search)
 which uses Version 1 of our JavaScript Library, will automatically create
 a Klevu account and provide you with an API Key for use during this tutorial.
 
-![Klevu Quick Search](/tutorial/shopify/hello-world/images/intro-quick-search.jpg)
+![Klevu Quick Search](/tutorial/hello-world/images/intro-quick-search.jpg)
 
 ## Install the Klevu App on Shopify
 
@@ -91,5 +91,5 @@ Now visit the frontend of your Shopify store and **try searching for "bag"**.
 Now you have Klevu functionality entirely hosted on your own infrastructure
 and are ready to make some more changes to customise your search results!
 
-1. [Using your own API Key.](/tutorial/your-api-key)
-1. [Try more tutorials.](/tutorial)
+1. [Using your own API Key.](/tutorial/your-api-key/shopify)
+1. [Try more tutorials.](/tutorial/shopify)

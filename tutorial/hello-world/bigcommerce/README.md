@@ -1,12 +1,12 @@
-# Hello World Tutorial
+# Hello World Tutorial for BigCommerce
 
-Klevu is currently working on a [BigCommerce App](https://www.klevu.com/bigcommerce/)
+Klevu is working on a [BigCommerce App](https://www.klevu.com/bigcommerce/)
 which is currently still in beta, so this tutorial will not include this App for now, since
 not everybody will have access to it.
 
-![Klevu Quick Search](/tutorial/hello-world/bigcommerce/images/intro-quick-search.jpg)
+![Klevu Quick Search](/tutorial/hello-world/images/intro-quick-search.jpg)
 
-## Start your BigCommerce free trial
+## Integrate Klevu JSv2 with BigCommerce
 
 First create a [BigCommerce free trial](https://www.bigcommerce.com).
 
