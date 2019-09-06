@@ -52,13 +52,23 @@ Add color swatches UI by the modifying the code as below:
         ...
     </div>
 
-    <% if(data.selected_product.swatchesInfo.length){ %>
+    <% var swatchesInfoList = data.selected_product.swatchesInfo; var quickViewSwatchIndex = 1; %>
+    <% if(swatchesInfoList.length){ %>
         <div class="productQuick-colorInStock">
             <span class="productQuick-label"><%=helper.translate("Color Variants:") %></span>
             <div class="kuSwatches">
-                <% helper.each(data.selected_product.swatchesInfo,function(key,item){ %>
+                <% helper.each(swatchesInfoList,function(key,item){ if(quickViewSwatchIndex > 3){ return true;} %>
                     <div class="kuSwatchItem"><a href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
-                <% });%>
+                <% quickViewSwatchIndex++; });%>
+                <% if(swatchesInfoList.length > 3){ %>
+                    <div class="kuSwatchItem kuSwatchMore">
+                        <a href="<%=data.selected_product.url%>" class="kuSwatchLink">
+                            <span class="kuSwatchMoreText">
+                                +<%=(swatchesInfoList.length-3)%>
+                            </span>
+                        </a>
+                    </div>
+                <% } %>
             </div>								
         </div>
     <% } %>
