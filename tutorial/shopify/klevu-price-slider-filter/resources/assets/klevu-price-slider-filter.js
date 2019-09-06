@@ -84,27 +84,12 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
                 /** Get Scope */
                 var target = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter")[0], ".klevuTarget");
-                if (target === null) {
-                    /* DEBUG CODE START */
-                    if (klevu.settings.console.type.event) {
-                        klevu.logDebug("Event - Filter - No Render Target Defined - Check class declarations");
-                    }
-                    /* DEBUG CODE END */
-                    return;
-                }
-
+                
                 var scope = target.kElem;
                 scope.kScope.data = scope.kObject.resetData(scope.kElem);
 
                 var options = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter")[0], ".klevuMeta");
-                if (options === null) {
-                    /* DEBUG CODE START */
-                    if (klevu.settings.console.type.event) {
-                        klevu.logDebug("Event - Filter - No Meta Defined");
-                    }
-                    /* DEBUG CODE END */
-                    return;
-                }
+               
                 var localQuery = data.localOverrides.query[querykey];
                 var localFilters = localQuery.filters;
                 var sliderFilterReqObj = {
