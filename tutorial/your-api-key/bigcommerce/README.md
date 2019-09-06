@@ -1,4 +1,4 @@
-# Using your own API Key
+# Using your own API Key with BigCommerce
 
 By default Klevu API Keys are not enabled for APIv2,
 so please send us yours so we can activate it for you.
