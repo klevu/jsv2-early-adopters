@@ -91,6 +91,19 @@ klevu.search.landing.getScope().chains.template.render.add({
         }
     }
 });
+
+...
+
+/*
+*	Bind landing page color swatches events
+*/
+klevu.search.landing.getScope().chains.template.events.add({
+    name: "addProductGridColorSwatches",
+    fire: function (data, scope) {
+        klevu.search.landing.getScope().colorSwatchesService.bindColorGridEventsToLandingProducts(data, scope);
+    }
+});
+
 ...
 ```
 
