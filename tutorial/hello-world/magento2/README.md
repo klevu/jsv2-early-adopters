@@ -10,17 +10,18 @@ and will instead be used to showcase the templating and frontend functionality o
 
 First create a new vanilla Magento store with your own preferred approach.
 
-In the resources folder we have included an example extension for getting up and running
-with Magento 2. Note at currently this example is very basic has settings such as the API key
-hard-coded into the JS files, so feel free to use your own preferred approach to move files
-around and make the necessary data configurable via Store Configuration, etc.
+In the resources folder we have included an
+[example extension](/tutorial/hello-world/magento2/resources)
+for getting up and running with Magento 2. 
 
 Add this extension to your demo store, and once you have enabled the extension,
 **try searching for "bag"**.
 
-This is just one simple way to integrate for illustrative purposes.
-JSv2 is as flexible as Magento 2 so once you have completed this tutorial
-you may find your own preferred file structure, layout implementation, etc.
+_Note that JSv2 is as flexible as Magento 2. This example is just one
+way to integrate Klevu JSv2 for illustrative purposes and has settings such
+as the API key hard-coded into the JS files. Feel free to use your own preferred approach
+to move files around, your own layout implementation and make the necessary data
+configurable via Store Configuration, etc._
 
 ## Make some Changes!
 
