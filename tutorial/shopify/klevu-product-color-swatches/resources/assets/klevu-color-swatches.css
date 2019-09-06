@@ -1,0 +1,80 @@
+/*
+*   Color Swatches styles
+*/
+
+.kuSwatches {
+    width: 100%;
+    padding: 5px 2px;
+    border: none;
+    min-height: 30px;
+    max-width: 300px;
+    float: none;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.kuSwatchItem {
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    max-height: 28px;
+    max-width: 28px;
+    border: none;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 28px;
+    vertical-align: top;
+    text-align: center;
+    margin: 2px;
+}
+
+.kuSwatchItem a.kuSwatchLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-size: contain;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    border-radius: 0px;
+    transition: all 0.1s;
+    background-color: transparent;
+    text-decoration: none;
+    color: #000;
+    box-sizing: border-box;
+    outline: 1px solid #dedede;
+}
+
+.kuSwatchItem a.kuSwatchLink.active,
+.kuSwatchItem a.kuSwatchLink:hover,
+.kuSwatchItem a.kuSwatchLink:focus {
+    text-decoration: none;
+    box-shadow: none;
+    outline-width: 2px;
+}
+
+.kuSwatchItem.kuSwatchMore {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    background-color: transparent;
+}
+
+.kuSwatchMoreText {
+
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+}
+
+.kuSwatchItem.kuDefaultSwatch a.kuSwatchLink {
+    background-color: #eee !important;
+}
