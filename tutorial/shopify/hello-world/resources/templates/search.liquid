@@ -1,0 +1,14 @@
+{% comment %} KLEVU - START {% endcomment %}
+    <script src="{{ 'klevu-landing.js' | asset_url }}" ></script>
+    {{ 'klevu-landing.css' | asset_url | stylesheet_tag }}
+    {{ 'klevu-landing-responsive.css' | asset_url | stylesheet_tag }}
+    <div class="klevuLanding"></div>
+    {% comment %} KLEVU TEMPLATES LANDING - START {% endcomment %}
+        {% include "klevu-template-landing-base" %}
+        {% include "klevu-template-landing-noResultFound" %}
+        {% include "klevu-template-landing-pagination" %}
+        {% include "klevu-template-landing-filters" %}
+        {% include "klevu-template-landing-results" %}
+        {% include "klevu-template-landing-productBlock" %}
+    {% comment %} KLEVU TEMPLATES LANDING - END {% endcomment %}
+{% comment %} KLEVU - END {% endcomment %}
