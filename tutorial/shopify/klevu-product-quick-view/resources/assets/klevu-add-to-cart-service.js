@@ -120,6 +120,46 @@ klevu.extend({
                         self.appendUpdatedCartCount(self.getTotalCardCountFromResponse(klXHR.responseText));
                     }
                 });
+            },
+
+            /**
+             * Landing page Add to cart button click event
+             * @param {*} ele 
+             * @param {*} event 
+             * @param {*} productList 
+             */
+            attachProductAddToCartBtnEvent: function (ele, event, productList) {
+                event = event || window.event;
+                event.preventDefault();
+                var selected_product;
+                var target = klevu.dom.helpers.getClosest(ele, ".klevuProduct");
+                var productId = target.getAttribute("data-id");
+                klevu.each(productList, function (key, product) {
+                    if (product.id == productId) {
+                        selected_product = product;
+                    }
+                });
+                if (selected_product) {
+                    ele.selected_product = selected_product;
+                    if (selected_product) {
+                        this.sendAddToCartRequest(selected_product.id, 1);
+                    }
+                }
+            },
+
+            /**
+             * Function to bind events to landing page product add to cart button
+             * @param {*} data 
+             * @param {*} scope 
+             */
+            bindLandingProductAddToCartBtnClickEvent: function (data, scope) {
+                var self = this;
+                var productList = klevu.getObjectPath(data.template.query, 'productList');
+                klevu.each(klevu.dom.find(".kuLandingAddToCartBtn"), function (key, value) {
+                    klevu.event.attach(value, "click", function (event) {
+                        self.attachProductAddToCartBtnEvent(this, event, productList.result);
+                    });
+                });
             }
         };
     }
