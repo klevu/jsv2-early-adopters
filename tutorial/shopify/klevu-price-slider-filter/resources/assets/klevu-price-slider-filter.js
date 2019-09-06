@@ -31,7 +31,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 var self = this;
                 var priceSliderList = klevu.dom.find("[data-querykey]");
                 if (priceSliderList) {
-                    priceSliderList.innerHTML = "";
                     priceSliderList.forEach(function (ele) {
                         var sliderData;
                         var querykey = ele.getAttribute("data-querykey");
