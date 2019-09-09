@@ -60,3 +60,7 @@ Add color swatches UI by the modifying the code as below:
 
 Click Save to persist your changes,
 then visit a search results page on your Shopify store to **try the badges on landing page products**!
+
+Note:
+- Currently mapped stickyLabelHead and stickyLabelTail attributes for displaying offer text.
+- Modify `klevu-product-badge.liquid` based on product data.
