@@ -24,28 +24,33 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                             filters.forEach(function (filter) {
                                 if (filter.key == priorityFilter.key) {
                                     var options = filter.options;
-                                    filter.otherOptionsIndexStart = priorityOptions.length + 1;
-                                    priorityOptions.forEach(function (priorityOption, index) {
-                                        options.forEach(function (option) {
-                                            if (priorityOption.name == option.name) {
-                                                option.sort = index + 1;
-                                            }
+                                    if(options){
+                                        filter.otherOptionsIndexStart = priorityOptions.length + 1;
+                                        priorityOptions.forEach(function (priorityOption, index) {
+                                            options.forEach(function (option) {
+                                                if (priorityOption.name == option.name) {
+                                                    option.sort = index + 1;
+                                                }
+                                            });
                                         });
-                                    });
+                                    }
                                 }
                             });
                         });
                         filters.forEach(function (filter) {
                             var optionsIndex = (filter.otherOptionsIndexStart) ? filter.otherOptionsIndexStart : 1;
-                            filter.options.forEach(function (option) {
-                                if (!option.sort) {
-                                    option.sort = optionsIndex;
-                                    optionsIndex++;
-                                }
-                            });
-                            filter.options.sort(function (a, b) {
-                                return a.sort - b.sort;
-                            });
+                            var options = filter.options;
+                            if (options) {
+                                options.forEach(function (option) {
+                                    if (!option.sort) {
+                                        option.sort = optionsIndex;
+                                        optionsIndex++;
+                                    }
+                                });
+                                options.sort(function (a, b) {
+                                    return a.sort - b.sort;
+                                });
+                            }
                         });
                     }
                 }
