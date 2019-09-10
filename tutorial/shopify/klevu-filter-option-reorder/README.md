@@ -1,6 +1,6 @@
-# Filter list reordering
+# Filter option list reordering
 
-Reorder filters in Search result landing page.
+Reorder filter options in Search result landing page.
 
 Edit the code of your current theme and create some assets and snippets in your theme.
 This time let’s do this directly within the Shopify Theme editor, rather than downloading and Zipping.
