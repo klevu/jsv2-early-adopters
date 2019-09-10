@@ -45,7 +45,7 @@ Include the `klevu-product-badge.liquid` snippet by modifying the contents like 
 
 Click Save to persist your changes.
 
-Next we need to add changes in Quick view UI file.
+Next we need to add changes in product block file.
 So edit Snippets > `klevu-template-landing-productBlock.liquid`
 Add color swatches UI by the modifying the code as below:
 
