@@ -42,7 +42,7 @@ Add color swatches UI by the modifying the code as below:
 ...
 <div class="kuResultsListing">
     
-    <a href="javascript:void(0)" class="kuBtn kuFacetsSlideIn">Filters</a>
+    <a href="javascript:void(0)" class="kuBtn kuFacetsSlideIn"><%=helper.translate("Filters")%></a>
     
     ...
 </div>
@@ -60,7 +60,7 @@ Add color swatches UI by the modifying the code as below:
         ...
 
         <div class="kuFiltersFooter">
-            <a href="javascript:void(0)" class="kuBtn kuFacetsSlideOut kuMobileFilterCloseBtn">Close</a>
+            <a href="javascript:void(0)" class="kuBtn kuFacetsSlideOut kuMobileFilterCloseBtn"><%=helper.translate("Close")%></a>
   		</div>
     </div>
 ...
