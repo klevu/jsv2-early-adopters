@@ -2,6 +2,8 @@
 
 Add custom pagination bar on search result landing page.
 
+![custom-pagination-bar](/tutorial/shopify/klevu-custom-pagination/images/image001.png)
+
 Edit the code of your current theme and create some assets and snippets in your theme.
 This time let’s do this directly within the Shopify Theme editor, rather than downloading and Zipping.
 
