@@ -1,0 +1,345 @@
+/*===============================================================
+========= CSS for Klevu Quick Search Autosuggest layout =========
+=================================================================*/
+.klevuClearLeft {
+    clear: left;
+}
+.klevuClearRight {
+    clear: left;
+}
+.klevuClearBoth {
+    clear: both;
+}
+.klevuTarget * {
+    box-sizing: border-box;
+}
+/* Klevu search result Area*/
+.klevuTarget.klevu-fluid > div {
+    position: absolute;
+    z-index: 20000000000;
+    width: 35%;
+    max-width: 450px;
+    font-family: inherit;
+    font-size: 13px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    color: #333333;
+}
+.klevuQuickSearchingArea {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #dddddd;
+    -webkit-box-shadow: 0 3px 5px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: 0 3px 5px rgba(50, 50, 50, 0.25);
+    box-shadow: 0 3px 5px rgba(50, 50, 50, 0.25);
+}
+/* Auto suggestion style */
+.klevuSuggestionsBlock {
+    position: relative;
+}
+.klevuSuggestionHeading {
+    overflow: visible;
+    padding-left: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.klevuSuggestionsBlock .klevuLoader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    padding: 6px 10px;
+}
+.klevuQuickSearchingArea .klevuLoader img {
+    display: inline-block;
+    width: 22px !important;
+}
+.klevuQuickSearchingArea span.klevuLoader img {
+    margin-right: 10px;
+}
+.klevuSuggestionHeading .klevuHeadingText {
+    color: #333333;
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 12px;
+    margin-right: 12px;
+}
+.klevuSuggestionHeading a {
+    float: right;
+    margin-right: 10px;
+    color: #333333;
+    font-weight: normal;
+    text-decoration: none;
+}
+.klevuSuggestionHeading a:hover {
+    text-decoration: underline;
+}
+.klevuAutoSuggestionsWrap {
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 10px;
+}
+.klevuAutoSuggestionsWrap ul {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+.klevuAutoSuggestionsWrap ul li {
+    display: block;
+    list-style: none;
+    margin: 0px;
+    cursor: default;
+    text-align: left;
+}
+.klevuAutoSuggestionsWrap ul li a {
+    display: block;
+    padding: 4px 10px 4px 20px;
+    line-height: 14px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 13px;
+}
+.klevuAutoSuggestionsWrap ul li:hover {
+    background-color: #f5f5f5;
+}
+.klevuAutoSuggestionsWrap ul li.klevu-hovered {
+    background-color: #f5f5f5;
+}
+.klevuAutoSuggestionsWrap ul li ul li a {
+    padding-left: 35px
+}
+.klevuAutoSuggestionsWrap ul li strong {
+    color: #333333;
+}
+/* List of search result products */
+.klevuQuickSearchResults {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.klevuQuickSearchResults ul {
+    margin: 0px;
+    padding-left: 0px;
+    text-align: left;
+}
+.klevuQuickSearchResults .klevuProductsViewAll {
+    display: inline-block;
+    position: absolute;
+    top: -24px;
+    right: 0;
+    padding: 3px 6px;
+}
+.klevuProductsViewAll a {
+    float: right;
+    margin-right: 10px;
+    color: #333333;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    border-bottom: 2px solid #CCC;
+}
+.klevuProductsViewAll a:hover {
+    text-decoration: nonr;
+    color: #333333;
+    border-bottom: 2px solid #000;
+}
+.klevuQuickSearchResults ul li {
+    display: block;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    position: relative;
+    border-bottom: 1px solid #dddddd;
+}
+.klevuQuickSearchResults ul li a.klevuQuickProductInnerBlock {
+    text-decoration: none;
+    color: #333333;
+    outline: none;
+    display: block;
+    padding: 8px;
+    height: auto;
+    line-height: 20px;
+}
+/* Product left/top block*/
+.klevuQuickSearchResults .klevuProductItemTop {
+    margin: 0px;
+    box-sizing: border-box;
+    float: left;
+    padding: 5px;
+    position: relative;
+    width: 20%;
+}
+/* Product right/bottom block*/
+.klevuQuickSearchResults .klevuProductItemBottom {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 5px;
+    position: relative;
+    min-height: 60px;
+    float: left;
+    width: 80%;
+}
+/* Image thumbnail for top products */
+.klevuQuickSearchResults .klevuQuickImgWrap {
+    float: none;
+    overflow: hidden;
+    width: 100% !important;
+    height: 70px !important;
+    text-align: center;
+}
+/* image style for top products */
+.klevuQuickSearchResults img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto;
+    height: auto;
+    border: none;
+    outline: none;
+    display: inline-block;
+    margin: 0 auto;
+    opacity: 1;
+}
+.klevuQuickSearchResults .klevuQuickDiscountBadge {
+    background: #ffcc01;
+    padding: 0px 5px;
+    color: #333333;
+    font-size: 9px;
+    position: absolute;
+    top: 6px;
+    left: 4px;
+}
+.klevuQuickSearchResults .klevuQuickDiscountBadge strong {
+    color: #333333;
+}
+/* product title and description of top products */
+.klevuQuickSearchResults ul li .klevuQuickProductDescBlock {
+    float: left;
+    width: 100%;
+    margin-left: 8px;
+}
+/* style for product title */
+.klevuQuickSearchResults ul li .klevuQuickProductName {
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333333;
+    word-wrap: break-word;
+    text-transform: none;
+}
+/* style for product description */
+.klevuQuickSearchResults ul li .klevuQuickProductDesc {
+    color: #333333;
+    font-size: 13px;
+}
+/* Price container */
+/* style for saleprice */
+.klevuQuickSearchResults ul li .klevuQuickSalePrice {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #333333;
+}
+/* style for original price */
+.klevuQuickSearchResults ul li .klevuQuickOrigPrice {
+    margin-left: 5px;
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #333333;
+}
+.klevuQuickSearchResults ul li:hover {
+    background-color: #f5f5f5;
+}
+.klevuQuickSearchResults ul li a.klevuQuickProductInnerBlock:hover .klevuQuickProductName {
+    text-decoration: underline;
+}
+.klevuQuickSearchResults ul li:hover .klevuQuickSearchResults ul li div {
+    color: #FFFFFF !important;
+}
+/* No result found css*/
+.klevuQuickNoResults {
+    text-align: center;
+    font-size: 13px;
+    padding: 0px;
+}
+.klevuQuickNoResults .klevuQuickNoResultsInner {
+    padding: 15px;
+    margin: 0px;
+}
+/* noresult message*/
+.klevuQuickNoResultsMessage {
+    background: transparent;
+    font-size: 13px;
+    padding: 20px;
+    text-align: center;
+    border: none;
+}
+/* For Rupee Symbol*/
+@font-face {
+    font-family: 'WebRupee';
+    src: url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.eot');
+    src: local('WebRupee'), url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.ttf') format('truetype'), url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.woff') format('woff'), url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.klevuwebrupee {
+    font-family: 'WebRupee';
+}
+/*for Ruble Symbol*/
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.eot?v=4.5.0');
+    src: url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.klevu-ruble {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.klevu-ruble:before {
+    content: "\f158";
+}
+/*---------------iPad & Samsung Galaxy Tablets portrait---------------*/
+@media only screen and (max-width: 1024px) {
+    /* Klevu search result box*/
+    .klevuTarget.klevu-fluid > div {
+        width: 50%;
+    }
+    .klevuQuickSearchResults .klevuQuickImgWrap {
+        height: 55px !important;
+    }
+}
+/*---------------iPhone & Samsung Mobiles landscape---------------*/
+@media only screen and (min-width: 641px) and (max-width: 768px) {}
+/*---------------iPhone & Samsung Mobiles portrait---------------*/
+@media only screen and (max-width: 767px) {
+    .klevuTarget.klevu-fluid > div {
+        width: 70%;
+        max-width: 400px;
+    }
+    .klevuTarget.klevu-fluid > div {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .klevuTarget.klevu-fluid > div {
+        width: 98%;
+        left: 1% !important;
+    }
+    .klevu-fluid .klevuQuickSearchResults ul li .klevuQuickProductDesc {
+        display: none;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .klevuTarget.klevu-fluid > div {
+        max-width: 100%;
+    }
+}

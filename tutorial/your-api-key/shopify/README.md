@@ -1,9 +1,11 @@
-# Using your own API Key
+# Using your own API Key with Shopify
 
 By default Klevu API Keys are not enabled for APIv2,
 so please send us yours so we can activate it for you.
 
-![Shop Info](/tutorial/shopify/your-api-key/images/shop-info.jpg)
+_This tutorial assumes you already completed the
+[Shopify Hello World](/tutorial/shopify/hello-world)
+tutorial, which included installing the Shopify Klevu App on your store._
 
 - Login to your Shopify Store Admin Panel.
 - Navigate to Apps > Klevu Search.
@@ -11,6 +13,8 @@ so please send us yours so we can activate it for you.
 - Copy the value of your “JS API Key” and email it to us.
     - Send this to your Klevu contact (_the person that told you about this programme!_) with email subject: “JSv2 early adopter API Key”
 - We will then convert your API key from V1 to V2.
+
+![Shop Info](/tutorial/your-api-key/images/shop-info.jpg)
 
 ## Add some dummy Products
 
@@ -23,7 +27,7 @@ All you need to do is create the Products and publish them, the Klevu App will d
 ## Once your API Key has been activated
 
 Once we have activated your API Key for APIv2 you can go ahead and change out
-our demo API Key for your own, so you can start making changes to view your own products
+our demo API Key for your own, then you can start customising your own products
 in the search results.
 
 - Navigate to Online Store > Themes.

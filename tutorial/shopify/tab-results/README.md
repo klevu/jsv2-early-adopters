@@ -16,7 +16,7 @@ so edit Templates > `page.klevuSearch.liquid` to add the four new items:
 
 ```html
 ...
-<script src="{{ 'klevu-landing-sort.js' | asset_url }}"></script>
+<script src="{{ 'klevu-landing-tab-results.js' | asset_url }}"></script>
 {{ 'klevu-landing-tab-results.css' | asset_url | stylesheet_tag }}
 ...
 {% comment %} KLEVU TEMPLATES LANDING - START {% endcomment %}

@@ -3,7 +3,7 @@ function startup(klevu) {
     var options = {
         url : {
             search: klevu.settings.url.protocol + '//cs2.ksearchnet.com/cs/v2/search',
-            landing : '/search',
+            landing : '/search.php',
             javascript: null,
             analytics: null,
             cmsSearchUrl: null,
@@ -13,7 +13,7 @@ function startup(klevu) {
         },
         localSettings: true,
         search : {
-            searchBoxSelector : "input.search__input" ,
+            searchBoxSelector : "#search_query" ,
             searchBoxTarget: false,
             minChars : 1 ,
             placeholder : "Search" ,
@@ -26,7 +26,7 @@ function startup(klevu) {
     };
 
     klevu(options);
-}
+};
 //once klevu is interactive, setup the settings
 klevu.interactive(function(){
     startup(klevu);

@@ -3,7 +3,7 @@ function startup(klevu) {
     var options = {
         url : {
             search: klevu.settings.url.protocol + '//cs2.ksearchnet.com/cs/v2/search',
-            landing : '/search',
+            landing : '/catalogsearch/result/index',
             javascript: null,
             analytics: null,
             cmsSearchUrl: null,
@@ -13,7 +13,7 @@ function startup(klevu) {
         },
         localSettings: true,
         search : {
-            searchBoxSelector : "input.search__input" ,
+            searchBoxSelector : "#search" ,
             searchBoxTarget: false,
             minChars : 1 ,
             placeholder : "Search" ,

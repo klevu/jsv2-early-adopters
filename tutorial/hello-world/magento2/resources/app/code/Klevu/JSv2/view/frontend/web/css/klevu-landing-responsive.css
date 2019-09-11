@@ -1,0 +1,230 @@
+.kuContainer {
+    width: 100% !important;
+}
+@media only screen and (max-width: 1024px) {
+    .kuResultWrap {
+        width: 72%;
+    }
+    .kuFilters {
+        width: 28%;
+    }
+    .kuFilterNames ul li a span.kufacet-text {
+        max-width: 60%;
+        width: 60%;
+    }
+    .kuSortingOpt label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .kuSortHeader {
+        width: 100%;
+    }
+    .kuResults ul li {
+        width: 33%;
+        padding: 5px;
+    }
+    .kuDropdown {
+        min-width: 150px;
+    }
+}
+@media only screen and (max-width:900px) {
+    .kuResults ul li {
+        width: 50%;
+    }
+}
+@media only screen and (max-width:767px) {
+    .kuResults ul li {
+        width: 50%;
+    }
+    .kuFilters {
+        display: block !important;
+        float: none !important;
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+    .kuTotResults {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    .kuResultWrap {
+        float: none;
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+    }
+    .kuSortHeader {
+        margin: 0px;
+    }
+    .kuLandingNoResultsMessage {
+        font-size: 15px;
+        line-height: 1.2em;
+        padding: 10px 5%;
+        text-align: center;
+    }
+}
+/*--- for enabling filters in mobile and filter tags--*/
+@media only screen and (max-width: 640px) {
+    .kuContainer .kuTabs a {
+        display: inline-block;
+    }
+    .kuContainer .kuTabs a:hover {
+        border-bottom: 0px solid #dddddd;
+        text-decoration: none;
+        background: #f5f5f5;
+    }
+    .kuContainer a.kuTabSelected {
+        border-bottom: 0px solid #dddddd;
+        background: #f5f5f5;
+        transition: all 0.3s ease;
+    }
+    .kuFilterRefineMobile {
+        border: none;
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        height: 32px;
+        line-height: 32px;
+        margin: 10px 0px;
+        padding-right: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #333333;
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+    .kuFilterRefineMobile.kuExpand::after {
+        top: 10px
+    }
+    .kuFilterRefineMobile.kuCollapse::after {
+        top: 14px
+    }
+    .kuFilterBox {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .kuFilterRefineMobile .KuFilterLabelTxt {
+        position: relative
+    }
+    .kuFilterRefineMobile.kuExpand .KuFilterLabelTxt::after {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #333333;
+        border-image: none;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        content: "";
+        display: inline-block;
+        padding: 3px;
+        position: absolute;
+        right: -18px;
+        top: 3px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        transition: all 0.3s ease;
+    }
+    .kuFilterRefineMobile.kuCollapse .KuFilterLabelTxt::after {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #333333;
+        border-image: none;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        content: "";
+        display: inline-block;
+        padding: 3px;
+        position: absolute;
+        right: -18px;
+        top: 8px;
+        -webkit-transform: rotate(-135deg);
+        -moz-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        transition: all 0.3s ease;
+    }
+    /* css for filter tags*/
+    .kuContainer #ku-search-filter-tags {
+        display: block !important;
+        color: #333333;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: left;
+        padding-bottom: 8px;
+        padding-left: 0px;
+        position: relative;
+    }
+    .ku-search-filter-tag {
+        background: #eee;
+        border: 0px solid #f8f8f8;
+        margin-right: 4px;
+        border-radius: 0px;
+        font-size: 11px;
+        padding: 0px 5px;
+        color: #333333;
+        margin-bottom: 4px;
+        display: inline-block;
+        line-height: 20px;
+    }
+    .ku-search-filter-remove, .ku-search-filter-remove-all {
+        cursor: pointer;
+        font-size: 12px;
+        color: #333333;
+        text-decoration: none;
+    }
+    .ku-search-filter-remove-all a {
+        color: #333333;
+        font-size: 12px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .ku-search-filter-remove-all a:hover {
+        color: #333333;
+    }
+}
+/* ends filters in mobile and filter tags----------*/
+@media only screen and (max-width: 480px) {
+    .kuOrQueryMessage {
+        margin: 10px 5px;
+    }
+    .kuDropdown {
+        min-width: 140px;
+        margin-right: 5px;
+    }
+    .kuDropdownLabel {
+        display: inline-block;
+        padding: 5px 5px;
+        padding-right: 20px;
+        font-size: 11px;
+    }
+    .kuDropdownLabel:after {
+        right: 5px;
+        padding: 3px;
+        top: 7px;
+    }
+    .kuView {
+        min-width: 60px;
+        margin: 5px;
+    }
+    .kuResults ul li .kuAddtocart, .kuResults ul li .kuPrice {
+        width: 100%;
+        float: none;
+        text-align: left;
+    }
+    .kuSortingOpt {
+        padding: 5px 0px;
+
+    }
+}
+@media only screen and (max-width: 400px) {
+    .kuResults ul li {
+        width: 100%;
+    }
+}
