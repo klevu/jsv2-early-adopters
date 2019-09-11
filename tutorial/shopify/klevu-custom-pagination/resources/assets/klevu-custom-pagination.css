@@ -1,0 +1,49 @@
+/*
+*   Custom pagination bar styles
+*/
+
+.kuPaginationBar {
+    width: auto;
+    float: right;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #FFF;
+    margin: 4px 8px 0px 0px;  
+ }
+ 
+ .kuPaginationBar a{
+   font-style: normal;
+   margin: 0px;
+   position: relative;
+   display: inline-block;
+   padding: 1px 5px;
+   color: #333333;
+   cursor: pointer;
+   text-decoration: none;
+   font-size: 13px;
+   transition:all 0.1s ease;
+   margin-right: 2px;
+ }
+ 
+ .kuPaginationBar .kuActive{
+    background: #333333;
+    color: #fff;
+    border-radius: 2px;
+    border-width: 0px;
+ }
+ 
+ .kuPaginationBar a:hover{
+    background: #ececec;
+ }
+ 
+ .kuPaginationBar .kuActive:hover{
+    background: #333333;
+    color: #fff;
+ }
+ 
+ .kuPaginationBar .kuActive:hover,
+ .kuPaginationBar .kuActive:focus {
+     color: #ffffff !important;
+ }
