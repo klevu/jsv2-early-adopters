@@ -29,9 +29,7 @@ Include `js files` by modifying the contents like this:
 ```html
 ...
 <script src="{{ 'klevu-color-swatches-service.js' | asset_url }}"></script>
-
 <script src="{{ 'klevu-product-quick-view.js' | asset_url }}"></script>
-
 <script src="{{ 'klevu-product-quick-view-color-swatches.js' | asset_url }}"></script>
 ...
 
@@ -79,4 +77,3 @@ Add color swatches UI by the modifying the code as below:
 
 Click Save to persist your changes,
 then visit a search results page on your Shopify store to **try the Quick view color swatches**!
-

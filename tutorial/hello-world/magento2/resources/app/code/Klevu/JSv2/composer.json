@@ -1,0 +1,13 @@
+{
+    "name": "klevu/module-jsv2",
+    "description": "Klevu JSv2 sample implementation.",
+    "type": "magento-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Klevu\\JSv2\\": ""
+        }
+    }
+}

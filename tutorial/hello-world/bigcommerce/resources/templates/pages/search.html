@@ -1,0 +1,19 @@
+{{#partial "page"}}
+<section class="page">
+
+    <script src="{{cdn '/assets/klevu/landing/klevu-landing.js'}}" ></script>
+    {{{stylesheet '/assets/klevu/landing/klevu-landing.css'}}}
+    {{{stylesheet '/assets/klevu/landing/klevu-landing-responsive.css'}}}
+
+    <div class="klevuLanding"></div>
+
+    {{> klevu/landing/base }}
+    {{> klevu/landing/no-results-found }}
+    {{> klevu/landing/pagination }}
+    {{> klevu/landing/filters }}
+    {{> klevu/landing/results }}
+    {{> klevu/landing/product-block }}
+
+</section>
+{{/partial}}
+{{> layout/base}}

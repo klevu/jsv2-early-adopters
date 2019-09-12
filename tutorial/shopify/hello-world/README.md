@@ -1,11 +1,10 @@
-# Hello World Tutorial
+# Hello World Tutorial for Shopify
 
 Klevu already has a [Shopify App](https://apps.shopify.com/klevu-smart-search)
-which uses Version 1 of our JavaScript Library.
-We will use this as the basis for our tutorial, which will automatically create
+which uses Version 1 of our JavaScript Library, will automatically create
 a Klevu account and provide you with an API Key for use during this tutorial.
 
-![Klevu Quick Search](/tutorial/shopify/hello-world/images/intro-quick-search.jpg)
+![Klevu Quick Search](/tutorial/hello-world/images/intro-quick-search.jpg)
 
 ## Install the Klevu App on Shopify
 
@@ -49,23 +48,11 @@ and uploading themes, [click here](https://help.shopify.com/en/themes/customizat
         - _This will email the theme file to you for download._
     - Click the link in your email to download the theme and unzip locally.
 - Add JSv2 to Theme
-    - Next extract the copy the contents of [resources](/tutorial/shopify/hello-world/resources) into your theme.
+    - Next extract the copy the contents of [resources](/shopify/tutorial/hello-world/resources) into your theme.
     - Zip the theme once again.
     - Navigate to Online Store > Themes.
     - Scroll down and click the "Upload theme" button, then select your Zip.
     - Once imported, select your new theme > Actions > Publish.
-
-### Change Search Results Page Template
-
-Modify the Shopify Page "Search Results" to use the template: `page.klevuSearch.liquid`.
-You can leave the Page content as it is, since this is ignored in the above template.
-
-- Navigate to Online Store > Pages.
-- Edit the `Search Results` page.
-- On the right hand side, change the template to `page.klevuSearch`.
-- Save the Page.
-
-![Search Results Page](/tutorial/shopify/hello-world/images/search-results-page.jpg)
 
 ### Activate JSv2
 
@@ -102,13 +89,7 @@ Now visit the frontend of your Shopify store and **try searching for "bag"**.
 ## Make some Changes!
 
 Now you have Klevu functionality entirely hosted on your own infrastructure
-(_apart from `jsv2.klevu.com/export/klevu.js`, but feel free to download this
-and host it yourself if you wish_). In Version 1 of our Klevu JavaScript,
-if you wanted to make any changes you’d need to contact our support.
+and are ready to make some more changes to customise your search results!
 
-**Let’s make some changes ourselves, without that bottleneck!**
-
-1. [Add a Sort-By Dropdown.](/tutorial/shopify/sort)
-1. [Add a Pagination Limit Dropdown.](/tutorial/shopify/limit)
-1. [Search Shopify Pages and Articles.](/tutorial/shopify/tab-results)
-1. [Using your own API Key.](/tutorial/shopify/your-api-key)
+1. [Using your own API Key.](/tutorial/your-api-key/shopify)
+1. [Try more tutorials.](/tutorial/shopify)
