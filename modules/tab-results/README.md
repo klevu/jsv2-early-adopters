@@ -1,36 +1,15 @@
 # Add a new Tab for Content Search Results
 
-_This tutorial assumes you have already completed and followed
-[hello-world](/tutorial/shopify/hello-world) and [sort](/tutorial/shopify/sort) tutorials._
+![Tabbed Search Results](/modules/tab-results/images/tabbed-results.jpg)
 
-![Tabbed Search Results](/tutorial/shopify/tab-results/images/tabbed-results.jpg)
-
-## Upload the Assets and Snippets
-
-Start by uploading the Assets and Snippets in the usual fashion (_either ZIP download/upload
-or manually via the Shopify Theme editor_), from the
-[resources](/tutorial/shopify/tab-results/resources) folder of this tutorial.
-
-Next let's include those new assets and snippets in our search results page,
-so edit Templates > `page.klevuSearch.liquid` to add the four new items:
-
-```html
-...
-<script src="{{ 'klevu-landing-tab-results.js' | asset_url }}"></script>
-{{ 'klevu-landing-tab-results.css' | asset_url | stylesheet_tag }}
-...
-{% comment %} KLEVU TEMPLATES LANDING - START {% endcomment %}
-    ...
-    {% include "klevu-template-landing-contentBlock" %}
-    {% include "klevu-template-landing-tab-results" %}
-    ...
-{% comment %} KLEVU TEMPLATES LANDING - END {% endcomment %}
-```
+You will find the necessary resources for this module available here:
+[resources](/modules/tab-results/resources). Please add these with the
+method appropriate to your chosen framework. 
 
 ## Add the 'tab' container
 
-To add the [X Products] and [X Other results] tabs we need to edit Snippets > 
-`add.me.to.klevu-template-landing-base.liquid` to render our tab-results template.
+To add the [X Products] and [X Other results] tabs we need to edit the landing page
+`base.tpl` template to render our tab-results template.
 
 The line we are adding is: `<%=helper.render('tab-results', scope) %>`.
 It will look something like this:
@@ -52,11 +31,11 @@ It will look something like this:
 
 ## Add the 'Other results' rendering template
 
-Currently the snippet for rendering results only contains HTML for products,
-so let's edit `add.me.to.klevu-template-landing-results.liquid` to add a new div.
+Currently the templates for rendering results only contains HTML for products,
+so let's edit the corresponding landing `results.tpl` to add a new div.
 
 Before the final `</script>` tag, add the following (which is essentially a copy+paste)
-of what is already in the snippet, but with "product" replaced with "content":
+of what is already in the template, but with "product" replaced with "content":
 
 ```html
 <div class="contentList klevuMeta" data-section="contentList">
@@ -97,12 +76,12 @@ Once the above has been modified, the structure should look something like this:
 </script>
 ```
 
-## Add the new API request!
+## Add the new API request
 
 This is the interesting part. Currently only Products are being queried in Klevu,
-so we will introduce a new API request to also ask for some Pages and/or Articles.
+so we will introduce a new API request to also ask for some Pages and CMS Content.
 
-Edit Assets > `klevu-landing.js` and find the line: 
+Edit the JavaScript asset `klevu-landing.js` and find the line: 
 
 ```js
 klevu.search.landing.getScope().chains.request.build.add({
@@ -139,7 +118,3 @@ klevu.search.landing.getScope().chains.request.build.add({
 ```
 
 Now try **searching the frontend for "about"** to see product and content results!
-
-## What's next?
-
-In the meantime, [get your own API Key activated.](/tutorial/shopify/your-api-key)
