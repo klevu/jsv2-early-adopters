@@ -28,5 +28,4 @@ configurable via Store Configuration, etc._
 Now you have Klevu functionality entirely hosted on your own infrastructure
 and are ready to make some more changes to customise your search results!
 
-1. [Using your own API Key.](/tutorial/your-api-key/magento2)
-1. _**More tutorials coming soon!**_
+Next, let's [Add a Sort-By Dropdown](/getting-started/2-sort/magento2)

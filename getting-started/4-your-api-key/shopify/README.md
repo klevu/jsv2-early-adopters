@@ -4,7 +4,7 @@ By default Klevu API Keys are not enabled for APIv2,
 so please send us yours so we can activate it for you.
 
 _This tutorial assumes you already completed the
-[Shopify Hello World](/tutorial/shopify/hello-world)
+[Shopify Hello World](/getting-started/1-hello-world/shopify)
 tutorial, which included installing the Shopify Klevu App on your store._
 
 - Login to your Shopify Store Admin Panel.
@@ -14,7 +14,7 @@ tutorial, which included installing the Shopify Klevu App on your store._
     - Send this to your Klevu contact (_the person that told you about this programme!_) with email subject: “JSv2 early adopter API Key”
 - We will then convert your API key from V1 to V2.
 
-![Shop Info](/tutorial/your-api-key/images/shop-info.jpg)
+![Shop Info](/getting-started/4-your-api-key/images/shop-info.jpg)
 
 ## Add some dummy Products
 

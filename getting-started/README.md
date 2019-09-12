@@ -1,7 +1,6 @@
-# Hello World Tutorials
+# Getting Started
 
-This is the best place to start with Klevu JSv2, with these framework-specific
-tutorials guiding you through the process of getting started.
+Choose your preferred framework for trying out Klevu JSv2 and we'll walk you through the rest.
 
 - **[Get started with Shopify](/getting-started/1-hello-world/shopify)**
 - **[Get started with BigCommerce](/getting-started/1-hello-world/bigcommerce)**

@@ -1,6 +1,6 @@
 # Hello World Tutorial for BigCommerce
 
-Klevu is working on a [BigCommerce App](https://www.klevu.com/bigcommerce/)
+Klevu is working on a [BigCommerce App](https://www.klevu.com/bigcommerce)
 which is currently still in beta, so this tutorial will not include this App for now, since
 not everybody will have access to it.
 
