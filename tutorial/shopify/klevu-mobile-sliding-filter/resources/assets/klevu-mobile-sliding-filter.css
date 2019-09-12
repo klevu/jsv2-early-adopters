@@ -10,6 +10,13 @@
 
 @media only screen and (max-width:768px) {
 
+    .kuResultWrap {
+        float: none;
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
     .kuFiltersHeader,
     .kuFiltersFooter {
         display: block !important;

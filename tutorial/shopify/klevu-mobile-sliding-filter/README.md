@@ -41,9 +41,13 @@ Add color swatches UI by the modifying the code as below:
 ```html
 ...
 <div class="kuResultsListing">
-    
-    <a href="javascript:void(0)" class="kuBtn kuFacetsSlideIn"><%=helper.translate("Filters")%></a>
-    
+    <div class="klevuMeta">
+        <div class="kuResultContent">            
+            <a href="javascript:void(0)" class="kuBtn kuFacetsSlideIn"><%=helper.translate("Filters")%></a>
+
+            ...
+        </div>
+    </div>
     ...
 </div>
 ...
