@@ -78,7 +78,7 @@ with this code
         <div class="kuFilterHead kuCollapse">
             <%=filter.label%>
         </div>
-        <div class="sliderFilterNames">                           
+        <div class="kuFilterNames sliderFilterNames">                           
             <div class="kuPriceSlider klevuSliderFilter" data-query = "<%=dataLocal%>">
                 <div data-querykey = "<%=dataLocal%>" class="noUi-target noUi-ltr noUi-horizontal noUi-background kuSliderFilter kuPriceRangeSliderFilter<%=dataLocal%>"></div>
                 <div class="kuSliderVal">

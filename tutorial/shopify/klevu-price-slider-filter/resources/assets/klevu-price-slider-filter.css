@@ -59,3 +59,7 @@
     display: inline-block;
     opacity: 0.45;
 }
+
+.sliderFilterNames {
+    height: 150px;
+}

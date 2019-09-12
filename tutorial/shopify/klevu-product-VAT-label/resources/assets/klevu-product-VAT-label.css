@@ -1,0 +1,15 @@
+/*
+*   Product VAT label styles
+*/
+
+.kuCaptionVat {
+    display: block;
+    font-size: 11px;
+    color: #767676;
+    width: 100%;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}

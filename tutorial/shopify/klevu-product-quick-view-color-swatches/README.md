@@ -14,18 +14,23 @@ This time let’s do this directly within the Shopify Theme editor, rather than 
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
+- Assets > Add a new Asset > Upload `klevu-product-quick-view-color-swatches.js`.
 - Assets > Add a new Asset > Upload `klevu-color-swatches-service.js`.
 - Assets > Add a new Asset > Upload `klevu-color-swatches.css`.
+- Snippets > Add a new Snippet:
+    - Create a new Snippet called: `klevu-product-quick-view-color-swatches`
+    - Copy content from `klevu-product-quick-view-color-swatches.liquid` + Paste and click on Save.
 
 Next we need to include these assets in our page,
 so edit Templates > `page.klevuSearch.liquid`.
 
-Include `klevu-color-swatches-service.js` by modifying the contents like this:
+Include `js files` by modifying the contents like this:
 
 ```html
 ...
 <script src="{{ 'klevu-color-swatches-service.js' | asset_url }}"></script>
 <script src="{{ 'klevu-product-quick-view.js' | asset_url }}"></script>
+<script src="{{ 'klevu-product-quick-view-color-swatches.js' | asset_url }}"></script>
 ...
 
 ```
@@ -37,6 +42,15 @@ Include `klevu-color-swatches.css` by modifying the contents like this:
 {{ 'klevu-color-swatches.css' | asset_url | stylesheet_tag }}
 ...
 
+```
+
+Include the `klevu-product-quick-view-color-swatches.liquid` snippet by modifying the contents like this:
+
+```html
+{% comment %} KLEVU TEMPLATES LANDING - START {% endcomment %}
+    ...
+    {% include "klevu-product-quick-view-color-swatches" %}
+{% comment %} KLEVU TEMPLATES LANDING - END {% endcomment %}
 ```
 
 Click Save to persist your changes.
@@ -52,26 +66,7 @@ Add color swatches UI by the modifying the code as below:
         ...
     </div>
 
-    <% var swatchesInfoList = data.selected_product.swatchesInfo; var quickViewSwatchIndex = 1; %>
-    <% if(swatchesInfoList.length){ %>
-        <div class="productQuick-colorInStock">
-            <span class="productQuick-label"><%=helper.translate("Color Variants:") %></span>
-            <div class="kuSwatches">
-                <% helper.each(swatchesInfoList,function(key,item){ if(quickViewSwatchIndex > 3){ return true;} %>
-                    <div class="kuSwatchItem"><a href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
-                <% quickViewSwatchIndex++; });%>
-                <% if(swatchesInfoList.length > 3){ %>
-                    <div class="kuSwatchItem kuSwatchMore">
-                        <a href="<%=data.selected_product.url%>" class="kuSwatchLink">
-                            <span class="kuSwatchMoreText">
-                                +<%=(swatchesInfoList.length-3)%>
-                            </span>
-                        </a>
-                    </div>
-                <% } %>
-            </div>								
-        </div>
-    <% } %>
+    <%=helper.render('quickViewProductSwatch',scope,data,data.selected_product) %>
 
     <div class="productQuick-sizeInStock">
         ...
@@ -80,32 +75,5 @@ Add color swatches UI by the modifying the code as below:
 ...
 ```
 
-Click Save to persist your changes.
-
-Next we need to add changes in Asset file.
-So edit Assets > `klevu-product-quick-view.js`
-Add color swatches by the modifying the code as below:
-
-```html
-...
-klevu.addToCartService();
-
-/** Initalize color swatch service */
-klevu.colorSwatchesService();
-
-...
-
-klevu.search.landing.getScope().addToCartService.bindAddToCartEvent();
-klevu.search.landing.getScope().colorSwatchesService.bindColorGridEvents();
-...
-
-...
-klevu.search.landing.getScope().colorSwatchesService.parseProductColorSwatch(data, scope);
-klevu.search.landing.getScope().quickViewService.landingPageTemplateOnLoadEvent(data, scope);
-...
-
-```
-
 Click Save to persist your changes,
 then visit a search results page on your Shopify store to **try the Quick view color swatches**!
-
