@@ -4,11 +4,12 @@ _This is a **beta** version of JSv2 and we expect some changes to occur,
 which will also be based on feedback from early adopters like yourselves,
 so please bear this in mind during testing._
 
-- **[Get started with Shopify](/tutorial/shopify/hello-world)**
-- **[Get started with BigCommerce](/tutorial/hello-world/bigcommerce)**
-- **[Get started with Magento 2](/tutorial/hello-world/magento2)**
+- **[Get started with Shopify](/getting-started/1-hello-world/shopify)**
+- **[Get started with BigCommerce](/getting-started/1-hello-world/bigcommerce)**
+- **[Get started with Magento 2](/getting-started/1-hello-world/magento2)**
 
-Once you've completed one of the above, [try some other common customisations here](/tutorial/shopify).
+Once you've already completed the above,
+[try some other common customisations here](/modules).
 
 ## Tell us what you think!
 
@@ -17,9 +18,26 @@ Please forward any feedback you may have to your Klevu contact
 
 ## Changelog
 
+**12th September 2019**
+
+Re-structured to have 4x tutorials specific to each framework to
+[get started](/getting-started),
+then the remainder of the tutorials are platform agnostic.
+
+Plus [more tutorials](/modules) added:
+
+- filter-collapse
+- filter-option-reorder
+- filter-reorder
+- product-badge
+- product-stoke-label
+- product-VAT-label
+- mobile-sliding-filter
+- custom-pagination
+
 **6th September 2019**
 
-Added various [new tutorials](/tutorial/shopify) and a Hello World guide
+Added various [new tutorials](/modules) and a Hello World guide
 for both BigCommerce and Magento 2.
 
 - product-color-swatches

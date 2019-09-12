@@ -1,0 +1,24 @@
+{{#partial "page"}}
+<section class="page">
+
+    {{!-- KLEVU - START --}}
+        {{!-- KLEVU - JS AND CSS ASSETS --}}
+        <script src="{{cdn '/assets/klevu/js/landing/klevu-landing.js'}}" ></script>
+        {{{stylesheet '/assets/klevu/css/landing/klevu-landing.css'}}}
+        {{{stylesheet '/assets/klevu/css/landing/klevu-landing-responsive.css'}}}
+
+        {{!-- KLEVU - PLACEHOLDER FOR SEARCH RESULTS --}}
+        <div class="klevuLanding"></div>
+
+        {{!-- KLEVU - TEMPLATES FOR LANDING PAGE --}}
+        {{> klevu/landing/landing-base }}
+        {{> klevu/landing/landing-no-results-found }}
+        {{> klevu/landing/landing-pagination }}
+        {{> klevu/landing/landing-filters }}
+        {{> klevu/landing/landing-results }}
+        {{> klevu/landing/landing-product-block }}
+    {{!-- KLEVU - END --}}
+
+</section>
+{{/partial}}
+{{> layout/base}}
