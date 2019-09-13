@@ -1,14 +1,10 @@
 /**
- * Reorder filter list
+ * Extension for reordering filters
  */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "reorderFilters",
-    fire: function () {
-
-        /**
-         * Filter reorder scope
-         */
-        klevu.search.landing.getScope().reorderFilters = {
+klevu.extend({
+    reorderFilters: function (mainScope) {
+        mainScope.reorderFilters = {};
+        mainScope.reorderFilters.base = {
             /**
              * Function to reorder filter list as per the priority list
              * @param {*} data 
@@ -40,6 +36,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 }
             }
         };
+    }
+});
+
+/**
+ * Reorder filter list
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "reorderFilters",
+    fire: function () {
 
         /**
          * Function to set filter priority list and reoder filter list
@@ -55,7 +60,10 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         key: "category"
                     }];
 
-                    klevu.search.landing.getScope().reorderFilters.reorder(data, priorityFilters);
+                    /** Initialize reorderFilters */
+                    klevu.reorderFilters(klevu.search.landing.getScope().element.kScope);
+
+                    klevu.search.landing.getScope().reorderFilters.base.reorder(data, priorityFilters);
                 }
             }
         });
