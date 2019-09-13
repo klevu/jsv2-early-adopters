@@ -4,7 +4,6 @@
 klevu.extend({
     colorSwatchesService: function () {
         klevu.search.landing.getScope().colorSwatchesService = {
-
             /**
              * Function to prepare keyvalue pair object
              * @param {*} keyValuePair 
@@ -267,7 +266,6 @@ klevu.extend({
                     });
                 });
             }
-
         }
     }
 });

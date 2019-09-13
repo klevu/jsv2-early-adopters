@@ -33,6 +33,5 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 klevu.search.landing.getScope().colorSwatchesService.bindColorGridEventsToLandingProducts(data, scope);
             }
         });
-
     }
 });

@@ -1,7 +1,6 @@
 <!--
     Color swatch template for landing page products
 -->
-
 <script type="template/klevu" id="landingPageProductColorSwatches">
     <% if(dataLocal.swatchesInfo.length){ %>
         <div class="kuSwatches">

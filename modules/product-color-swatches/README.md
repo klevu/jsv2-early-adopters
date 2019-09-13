@@ -24,4 +24,5 @@ so edit the corresponding product `productblock.tpl` to add color swatch rendere
 ...
 ```
 
+
 Now try **search result landing color swatches**!
