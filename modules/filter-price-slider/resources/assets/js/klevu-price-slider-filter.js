@@ -1,35 +1,14 @@
 /**
- * Add Price slider paramter in request object functionality
+ * Extension for filter price slider
  */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "price-slider-filter",
-    fire: function () {
-        
-        /** Price slider filter request query */
-        klevu.search.landing.getScope().priceSliderFilterReqQuery = {
-            key: "price",
-            minMax: true,
-            rangeInterval: 500
-        };
-
-        /** Function to add range filters in request filter object */
-        klevu.search.landing.getScope().chains.request.build.addAfter('addProductList', {
-            name: "addPriceSlider",
-            fire: function (data, scope) {
-                var requestQueries = data.request.current.recordQueries;
-                requestQueries.forEach(function (req) {
-                    if (req.id == "productList") {
-                        req.filters.filtersToReturn.rangeFilterSettings = [klevu.search.landing.getScope().priceSliderFilterReqQuery];
-                    }
-                });
-            }
-        });
-
-        /** Slider filter object */
-        klevu.search.landing.getScope().sliderFilter = {
-            initSlider: function (data, scope) {
+klevu.extend({
+    filterPriceSlider: function (mainScope) {
+        mainScope.filterPriceSlider = {};
+        mainScope.filterPriceSlider.base = {
+            initSlider: function (data) {
                 var self = this;
-                var priceSliderList = klevu.dom.find("[data-querykey]");
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                var priceSliderList = klevu.dom.find(".kuPriceSlider [data-querykey]", target);
                 if (priceSliderList) {
                     priceSliderList.forEach(function (ele) {
                         var sliderData;
@@ -37,7 +16,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         var contentData = data.template.query[querykey];
                         if (contentData) {
                             contentData.filters.forEach(function (filter) {
-                                if (filter.key == klevu.search.landing.getScope().priceSliderFilterReqQuery.key && filter.type == "SLIDER") {
+                                if (filter.key == mainScope.priceSliderFilterReqQuery.key && filter.type == "SLIDER") {
                                     sliderData = filter;
                                 }
                             });
@@ -60,7 +39,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                                 klevu.dom.find(".maxValue" + querykey)[0].innerHTML = parseInt(values[1]);
                             });
                             ele.slider.on('change', function (values, handle) {
-                                self.sliderOnUpdateEvent(values, handle, querykey, data, scope, ele);
+                                self.sliderOnUpdateEvent(values, querykey, data, ele);
                             });
                         }
                     });
@@ -70,26 +49,26 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             /**
              * Slider filter on value change event
              * @param {*} values 
-             * @param {*} handle 
              * @param {*} querykey 
              * @param {*} data 
-             * @param {*} scope 
              * @param {*} ele 
              */
-            sliderOnUpdateEvent: function (values, handle, querykey, data, scope, ele) {
+            sliderOnUpdateEvent: function (values, querykey, data, ele) {
                 var min = parseInt(values[0]);
                 var max = parseInt(values[1]);
                 klevu.dom.find(".minValue" + querykey)[0].innerHTML = min;
                 klevu.dom.find(".maxValue" + querykey)[0].innerHTML = max;
 
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+
                 /** Get Scope */
-                var target = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter")[0], ".klevuTarget");
-                
-                var scope = target.kElem;
+                var sliderFilter = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter", target)[0], ".klevuTarget");
+
+                var scope = sliderFilter.kElem;
                 scope.kScope.data = scope.kObject.resetData(scope.kElem);
 
-                var options = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter")[0], ".klevuMeta");
-               
+                var options = klevu.dom.helpers.getClosest(klevu.dom.find(".klevuSliderFilter", target)[0], ".klevuMeta");
+
                 var localQuery = data.localOverrides.query[querykey];
                 var localFilters = localQuery.filters;
                 var sliderFilterReqObj = {
@@ -125,6 +104,35 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
             }
         };
+    }
+});
+
+/**
+ * Add Price slider paramter in request object functionality
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "attachPriceSliderFilter",
+    fire: function () {
+
+        /** Price slider filter request query */
+        klevu.search.landing.getScope().priceSliderFilterReqQuery = {
+            key: "price",
+            minMax: true,
+            rangeInterval: 500
+        };
+
+        /** Function to add range filters in request filter object */
+        klevu.search.landing.getScope().chains.request.build.addAfter('addProductList', {
+            name: "addPriceSlider",
+            fire: function (data, scope) {
+                var requestQueries = data.request.current.recordQueries;
+                requestQueries.forEach(function (req) {
+                    if (req.id == "productList") {
+                        req.filters.filtersToReturn.rangeFilterSettings = [klevu.search.landing.getScope().priceSliderFilterReqQuery];
+                    }
+                });
+            }
+        });
 
         /**
          *  Initialize slider
@@ -132,7 +140,11 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "initSliderFilter",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().sliderFilter.initSlider(data, scope);
+
+                /** Initialize filterPriceSlider */
+                klevu.filterPriceSlider(klevu.search.landing.getScope().element.kScope);
+
+                klevu.search.landing.getScope().filterPriceSlider.base.initSlider(data, scope);
             }
         });
 
