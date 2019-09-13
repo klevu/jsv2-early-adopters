@@ -1,7 +1,7 @@
 # Sliding filter for mobile view
 
-![mobile-filter-slider closed](/module/mobile-sliding-filter/images/image001.png)
-![mobile-filter-slider opened](/module/mobile-sliding-filter/images/image002.png)
+![mobile-filter-slider closed](/modules/mobile-sliding-filter/images/image001.png)
+![mobile-filter-slider opened](/modules/mobile-sliding-filter/images/image002.png)
 
 You will find the necessary resources for this module available here:
 [resources](/modules/mobile-sliding-filter/resources). Please add these with the
