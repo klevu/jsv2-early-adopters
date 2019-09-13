@@ -7,6 +7,7 @@ so please bear this in mind during testing._
 - **[Get started with Shopify](/getting-started/1-hello-world/shopify)**
 - **[Get started with BigCommerce](/getting-started/1-hello-world/bigcommerce)**
 - **[Get started with Magento 2](/getting-started/1-hello-world/magento2)**
+- **[Get started with any other framework](/getting-started/1-hello-world/custom)**
 
 Once you've already completed the above,
 [try some other common customisations here](/modules).
@@ -17,6 +18,11 @@ Please forward any feedback you may have to your Klevu contact
 (_the person that told you about this programme_).
 
 ## Changelog
+
+**13th September 2019**
+
+Added tutorial for [getting started with any other framework](/getting-started/1-hello-world/custom),
+using static HTML, JS and CSS to integrate Klevu JSv2 with just a few lines of code.
 
 **12th September 2019**
 
