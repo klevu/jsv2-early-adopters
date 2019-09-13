@@ -1,14 +1,10 @@
 /**
- * Reorder filter option list
+ * Extension for reordering filter option functionality
  */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "reorderFilterOptions",
-    fire: function () {
-
-        /**
-         * Filter option reorder scope
-         */
-        klevu.search.landing.getScope().reorderFilterOptions = {
+klevu.extend({
+    reorderFilterOptions: function (mainScope) {
+        mainScope.reorderFilterOptions = {};
+        mainScope.reorderFilterOptions.base = {
             /**
              * Function to reorder filter option list as per the priority list
              * @param {*} data 
@@ -24,7 +20,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                             filters.forEach(function (filter) {
                                 if (filter.key == priorityFilter.key) {
                                     var options = filter.options;
-                                    if(options){
+                                    if (options) {
                                         filter.otherOptionsIndexStart = priorityOptions.length + 1;
                                         priorityOptions.forEach(function (priorityOption, index) {
                                             options.forEach(function (option) {
@@ -56,6 +52,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 }
             }
         };
+    }
+});
+
+/**
+ * Reorder filter option list
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "reorderFilterOptions",
+    fire: function () {
 
         /**
          * Function to set filter option priority list and reoder filter option list
@@ -79,7 +84,10 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         }]
                     }];
 
-                    klevu.search.landing.getScope().reorderFilterOptions.reorder(data, priorityFilterOptions);
+                    /** Initialize reorderFilterOptions */
+                    klevu.reorderFilterOptions(klevu.search.landing.getScope().element.kScope);
+
+                    klevu.search.landing.getScope().reorderFilterOptions.base.reorder(data, priorityFilterOptions);
                 }
             }
         });
