@@ -1,14 +1,10 @@
 /**
- * Collapse filter
+ * Extension for collapse filter functionality
  */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "collapseFilters",
-    fire: function () {
-
-        /**
-         * Filter collapse scope
-         */
-        klevu.search.landing.getScope().collapseFilters = {
+klevu.extend({
+    collapseFilters: function (mainScope) {
+        mainScope.collapseFilters = {};
+        mainScope.collapseFilters.base = {
             /**
              * Function to collapse filter list as per the priority list
              * @param {*} data 
@@ -33,6 +29,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 }
             }
         };
+    }
+});
+
+/**
+ * Collapse filter
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "collapseFilters",
+    fire: function () {
 
         /**
          * Function to set filter priority list and reoder filter list
@@ -52,7 +57,10 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         key: "product_type"
                     }];
 
-                    klevu.search.landing.getScope().collapseFilters.collapse(data, collapsedFilters);
+                    /** Initialize collapseFilters module */
+                    klevu.collapseFilters(klevu.search.landing.getScope().element.kScope);
+
+                    klevu.search.landing.getScope().collapseFilters.base.collapse(data, collapsedFilters);
                 }
             }
         });
