@@ -10,8 +10,8 @@ method appropriate to your chosen framework.
 
 # Add product quick view rendering template
 
-Add the template for rendering VAT label for related results,
-so edit the corresponding product `productblock.tpl` to add VAT label renderer template.
+Add the template for rendering Quick view for related results,
+so edit the corresponding product `productblock.tpl` to add Quick view renderer template.
 
 
 ```html
