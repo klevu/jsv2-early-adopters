@@ -1,31 +1,32 @@
 /**
- * Attach Filter slider effect
+ * Extension for mobile sliding filter
  */
-
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "addMobileFilterSliderEvents",
-    fire: function () {
-        klevu.search.landing.getScope().mobileFilterSlider = {
+klevu.extend({
+    mobileFilterSlider: function (mainScope) {
+        mainScope.mobileFilterSlider = {};
+        mainScope.mobileFilterSlider.base = {
             /**
              * Function to manage slider status in target element
              * @param {*} status 
              */
             manageSliderStatus: function (status) {
-                var klevuTarget = klevu.dom.find(".klevuTarget")[0];
-                klevuTarget.isMobileSliderOpen = status;
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                var scope = target.kElem;
+                scope.kScope.isMobileSliderOpen = status;
             },
 
             /**
              * Function to attach event on filter button
              */
-            attachFilterBtnClickEvent: function (data, scope) {
+            attachFilterBtnClickEvent: function () {
                 var self = this;
-                var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
                 klevu.each(klevu.dom.find(".kuMobileFilterBtn", target), function (index, ele) {
                     klevu.event.attach(ele, "click", function (event) {
                         event = event || window.event;
                         event.preventDefault();
                         self.toggleBodyScroll();
+
                         var parentElem = klevu.dom.helpers.getClosest(this, ".klevuMeta");
                         klevu.each(klevu.dom.find(".kuFilters", parentElem), function (index, ele) {
                             ele.classList.add("kuFiltersIn");
@@ -39,14 +40,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             /**
              * Function to add event on slider close button
              */
-            attachFilterCloseBtnClickEvent: function (data, scope) {
+            attachFilterCloseBtnClickEvent: function () {
                 var self = this;
-                var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
                 klevu.each(klevu.dom.find(".kuMobileFilterCloseBtn", target), function (index, ele) {
                     klevu.event.attach(ele, "click", function (event) {
                         event = event || window.event;
                         event.preventDefault();
                         self.toggleBodyScroll();
+
                         var parentElem = klevu.dom.helpers.getClosest(this, ".klevuMeta");
                         klevu.each(klevu.dom.find(".kuFilters", parentElem), function (index, ele) {
                             ele.classList.remove("kuFiltersIn");
@@ -57,11 +59,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 });
             },
 
-            persistFilterPosition: function (data, scope) {
-                var isMobileSliderOpen = klevu.dom.find(".klevuTarget")[0].isMobileSliderOpen;
+            /**
+             * Function to persisting filter slider position
+             */
+            persistFilterPosition: function () {
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                var scope = target.kElem;
+                var isMobileSliderOpen = scope.kScope.isMobileSliderOpen;
                 if (isMobileSliderOpen) {
-                    var kuFilter = klevu.dom.find(".kuFilters")[0];
-                    var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
+                    var kuFilter = klevu.dom.find(".kuFilters", target)[0];
                     klevu.each(klevu.dom.find(".kuMobileFilterBtn", target), function (index, ele) {
                         var parentElem = klevu.dom.helpers.getClosest(ele, ".klevuMeta");
                         var dataSection = parentElem.getAttribute("data-section");
@@ -95,20 +101,33 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             /**
              * Function to attach events on buttons
              */
-            attachButtonEvents: function (data, scope) {
-                this.attachFilterBtnClickEvent(data, scope);
-                this.attachFilterCloseBtnClickEvent(data, scope);
+            attachButtonEvents: function () {
+                this.attachFilterBtnClickEvent();
+                this.attachFilterCloseBtnClickEvent();
             }
         };
+    }
+});
 
+/**
+ * Attach Filter slider effect
+ */
+
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "addMobileFilterSliderEvents",
+    fire: function () {
         /**
          * Function to load on landing page load
          */
         klevu.search.landing.getScope().chains.template.events.add({
             name: "attachMobileSliderFilter",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().mobileFilterSlider.attachButtonEvents(data, scope);
-                klevu.search.landing.getScope().mobileFilterSlider.persistFilterPosition(data, scope);
+
+                /** Initialize mobileFilterSlider */
+                klevu.mobileFilterSlider(klevu.search.landing.getScope().element.kScope);
+
+                klevu.search.landing.getScope().mobileFilterSlider.base.attachButtonEvents();
+                klevu.search.landing.getScope().mobileFilterSlider.base.persistFilterPosition();
             }
         });
 
