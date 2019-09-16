@@ -6,4 +6,5 @@ You will find the necessary resources for this module available here:
 [resources](/modules/quick-search-styles/hide-element/resources). Please add these with the
 method appropriate to your chosen framework.
 
+
 Now try **Quick search**!

@@ -7,10 +7,12 @@
 .klevuAutoSuggestionsWrap.klevuAutosuggestions {
     display: none;
 }
+
 /* to hide CMS/Pages suggestions block */
 .klevuAutoSuggestionsWrap.klevuCmsSuggestions {
     display: none;
 }
+
 /* to hide Category suggestions block */
 .klevuAutoSuggestionsWrap.klevuCategorySuggestions {
     display: none;
