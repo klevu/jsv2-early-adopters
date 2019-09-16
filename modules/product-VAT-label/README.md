@@ -28,6 +28,6 @@ so edit the corresponding product `productblock.tpl` to add VAT label renderer t
 
 Now try **VAT label on landing page products**!
 
+
 Note:
-- Currently mapped inclusiveVAT attribute for displaying VAT label.
-- Modify `product-VAT-label.tpl` based on product data.
+-  Currently the mapped attribute in the template is `inclusiveVAT`, which is not a default Klevu attribute. Please update this attribute in template file based on the data you have available in your search response data.
