@@ -13,11 +13,12 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
         /** Initialize Quick view service */
         klevu.quickViewService();
-        /** Initialize add to cart service */
-        klevu.addToCartService();
 
         /** Add Quick view wrapper container in body */
         klevu.search.landing.getScope().quickViewService.appendTemplateIntoBody();
+
+        /** Initalize add to cart service */
+        klevu.addToCartQuickView(klevu.search.landing.getScope().element.kScope);
 
         /*
          *	Add Quick view template and update data into that
@@ -34,7 +35,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 scope.kScope.template.insertTemplate(target, element);
 
                 klevu.search.landing.getScope().quickViewService.bindCloseBtnClick();
-                klevu.search.landing.getScope().addToCartService.bindAddToCartEvent();
+                klevu.search.landing.getScope().addToCart.quickView.bindAddToCartEvent();
             }
         });
 

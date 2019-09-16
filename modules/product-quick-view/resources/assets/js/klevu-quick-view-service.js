@@ -50,7 +50,7 @@ klevu.extend({
              */
             bindCloseBtnClick: function () {
                 var self = this;
-                var closeElement = klevu.dom.find(".close-button");
+                var closeElement = klevu.dom.find(".close-button", '.productQuickView');
                 if (closeElement.length) {
                     self.closeButton = closeElement[0];
                     klevu.event.attach(self.closeButton, "click", function () {
