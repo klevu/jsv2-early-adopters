@@ -32,3 +32,7 @@ Now try **stock label on products**!
 Note:
 - Currently mapped inStock attribute for displaying stock label.
 - Modify `product-stock-label.tpl` based on product data.
+
+
+Note:
+-  Currently the mapped attribute in the template is `inStock`. Please update this attribute in template file based on the data you have available in your search response data.
