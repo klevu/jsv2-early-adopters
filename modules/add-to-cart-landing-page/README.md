@@ -3,7 +3,7 @@
 ![Search-landing color swatches](/modules/add-to-cart-landing-page/images/image001.png)
 
 Prerequisite:
-- Add color swatches base module first to use base functionalities. Base module necessary [resources](/modules/add-to-cart/resources).
+- Add add to cart base module first to use base functionalities. Base module necessary [resources](/modules/add-to-cart/resources).
 
 You will find the necessary resources for this module available here:
 [resources](/modules/add-to-cart-landing-page/resources). Please add these with the
