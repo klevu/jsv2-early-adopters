@@ -11,7 +11,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         /** Set Template */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductAddToCart"), "landingPageProductAddToCart", true);
 
-        /** Initalize color swatch service */
+        /** Initalize add to cart service */
         klevu.addToCartLanding(klevu.search.landing.getScope().element.kScope);
 
         /*
