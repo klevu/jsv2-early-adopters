@@ -12,7 +12,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.quickView = klevu.chain();
 
         /** Initialize Quick view service */
-        klevu.quickViewService();
+        klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
 
         /** Add Quick view wrapper container in body */
         klevu.search.landing.getScope().quickViewService.appendTemplateIntoBody();
@@ -52,8 +52,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "quickViewButtonClick",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().quickViewService.landingPageTemplateOnLoadEvent(data, scope);
+                klevu.search.landing.getScope().quickViewService.landingPageTemplateOnLoadEvent(data);
             }
         });
     }
-});
+})

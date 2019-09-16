@@ -2,8 +2,8 @@
  * Quick view service file
  */
 klevu.extend({
-    quickViewService: function () {
-        klevu.search.landing.getScope().quickViewService = {
+    quickViewService: function (mainScope) {
+        mainScope.quickViewService = {
             modal: null,
             closeButton: null,
             selected_product: null,
@@ -31,7 +31,7 @@ klevu.extend({
              */
             toggleModal: function () {
                 this.toggleBodyScroll();
-                var modalElement = klevu.dom.find("div.kuModal");
+                var modalElement = klevu.dom.find("div.kuModal", '.productQuickView');
                 if (modalElement.length) {
                     this.modal = modalElement[0];
                     this.modal.classList.toggle("show-modal");
@@ -63,9 +63,9 @@ klevu.extend({
              * @param {*} data 
              * @param {*} scope 
              */
-            landingPageTemplateOnLoadEvent: function (data, scope) {
+            landingPageTemplateOnLoadEvent: function (data) {
                 var self = this;
-                var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
                 klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function (key, value) {
                     klevu.event.attach(value, "click", function (event) {
                         event = event || window.event;
@@ -84,7 +84,7 @@ klevu.extend({
                         if (target && target[0]) {
                             target[0].selected_product = selected_product;
                         }
-                        klevu.event.fireChain(scope.kScope, "chains.quickView", scope, scope.kScope.data, event);
+                        klevu.event.fireChain(mainScope, "chains.quickView", mainScope.element, mainScope.data, event);
                         self.toggleModal();
                     });
                 });
