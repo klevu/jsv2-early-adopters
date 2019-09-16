@@ -4,6 +4,9 @@
 
 ![Quick-view template](/modules/product-quick-view/images/product-quick-view.png) 
 
+Prerequisite:
+- Add add to cart base module first to use base functionalities. Base module necessary [resources](/modules/add-to-cart/resources).
+
 You will find the necessary resources for this module available here:
 [resources](/modules/product-quick-view/resources). Please add these with the
 method appropriate to your chosen framework. 
