@@ -27,8 +27,11 @@ You will notice these resources are structured in a slightly different format
 so you will need to make the following amendments:
 
 - upload `js/klevu-landing-limit.js` to your Shopify Assets
-- rename `landing-limit.tpl` to `klevu-landing-limit.liquid`
-- upload `klevu-template-landing-limit.liquid` as a new Shopify Snippet
+- create a new snippet called `klevu-landing-limit`
+- copy + paste the contents from `templates/landing-limit.tpl`
+
+Click Save to persist your changes,
+then visit a search results page on your Shopify store to **try the pagination limit**!
 
 ## What's next?
 

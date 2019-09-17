@@ -29,6 +29,8 @@ so you will need to make the following amendments:
 - copy `js/klevu-landing-limit.js` to `view/frontend/web/js/landing/klevu-landing-limit.js`
 - copy `landing-limit.tpl` to `view/frontend/templates/landing/landing-limit.phtml`
 
+Flush your cache then visit a search results page on your Magento website to **try the pagination limit**!
+
 ## What's next?
 
 There are various other tutorials available for you to try,

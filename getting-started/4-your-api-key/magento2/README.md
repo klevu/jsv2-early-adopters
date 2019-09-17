@@ -28,3 +28,7 @@ function startup(klevu) {
 ```
 
 Flush your Magento cache then reload the frontend to **search your own data!**
+
+## What's next?
+
+- [Click here for more tutorials](/modules)!

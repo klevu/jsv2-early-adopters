@@ -87,6 +87,13 @@ once more and modify the default Shopify layout file `theme.liquid`.
 
 Now visit the frontend of your Shopify store and **try searching for "bag"**.
 
+## Using an alternative Search Results Landing Page
+
+This tutorial uses the native Shopify `/search` page, which will still process Shopify logic in the background
+to generate search results even though we are replacing the entire page with Klevu, so you may prefer to use another
+landing page for better performance. If you would like to use a different SRLP,
+[please follow these steps](/getting-started/1-hello-world/shopify/alternate-landing-page).
+
 ## Make some Changes!
 
 Now you have Klevu functionality entirely hosted on your own infrastructure

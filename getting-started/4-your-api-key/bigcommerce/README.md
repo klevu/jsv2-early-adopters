@@ -31,3 +31,7 @@ function startup(klevu) {
 
 Use `npm install` and `stencil bundle` to repackage the theme and upload once more.
 Activate the new copy of your theme, then reload the frontend to **search your own data!**
+
+## What's next?
+
+- [Click here for more tutorials](/modules)!
