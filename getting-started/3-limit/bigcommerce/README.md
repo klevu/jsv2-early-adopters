@@ -29,6 +29,9 @@ so you will need to make the following amendments:
 - copy `js/klevu-landing-limit.js` to `assets/klevu/js/landing/klevu-landing-limit.js`
 - copy `landing-limit.tpl` to `templates/klevu/landing/landing-limit.html`
 
+Upload your changes in the usual fashion
+then visit a search results page on your BigCommerce store to **try the pagination limit**!
+
 ## What's next?
 
 There are various other tutorials available for you to try,

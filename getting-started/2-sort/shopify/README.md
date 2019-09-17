@@ -8,7 +8,7 @@ The files you will need for this module can be found in the
 [resources](/getting-started/2-sort/shopify/resources) folder.
 
 Edit the code of your current theme and create some assets and snippets in your theme.
-This time let’s do this directly within the Shopify Theme editor, rather than downloading and Zipping.
+This time let’s do this directly within the Shopify Theme editor, rather than downloading and zipping.
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
@@ -18,7 +18,7 @@ This time let’s do this directly within the Shopify Theme editor, rather than 
     - Copy the content from `klevu-landing-sort.liquid` and and click on Save.
 
 Next we need to include these assets and snippets in our page,
-so edit Templates > `page.klevuSearch.liquid`.
+so edit Templates > `search.liquid`.
 
 Include `klevu-landing-sort.js` by modifying the contents like this:
 

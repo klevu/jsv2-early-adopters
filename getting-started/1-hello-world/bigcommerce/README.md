@@ -13,7 +13,7 @@ First create a [BigCommerce free trial](https://www.bigcommerce.com).
 ### Theme Modifications
 
 This tutorial will assume the default BigCommerce Stencil theme 'Cornerstone' is being used.
-JSv2 is supported on legacy Blueprint Themes, you will simply need to adjust some of the file paths
+JSv2 is supported on legacy Blueprint Themes where you will need to adjust some of the file paths
 and syntax for the including of assets and templates.
 
 The only way to make changes to a Stencil theme is to download a copy,

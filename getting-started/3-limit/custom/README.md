@@ -29,6 +29,8 @@ so you will need to make the following amendments:
 - copy `js/klevu-landing-limit.js` to `assets/js/landing/klevu-landing-limit.js`
 - copy `landing-limit.tpl` to `templates/landing/landing-limit.tpl`
 
+Then visit a search results page on your website to **try the pagination limit**!
+
 ## What's next?
 
 There are various other tutorials available for you to try,

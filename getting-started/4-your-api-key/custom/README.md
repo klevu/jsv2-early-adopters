@@ -28,3 +28,7 @@ function startup(klevu) {
 ```
 
 Reload your page to **search your own data!**
+
+## What's next?
+
+- [Click here for more tutorials](/modules)!
