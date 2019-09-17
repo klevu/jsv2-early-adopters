@@ -5,7 +5,7 @@ uses the native Shopify `/search` page, which will still process Shopify logic
 in the background to generate search results even though we are replacing the entire
 page with Klevu, so you may prefer to use another landing page for better performance.
 
-### Theme Modifications
+## Theme Modifications
 
 First we need to create a new template to use for the landing page.
 
@@ -27,7 +27,7 @@ Next let's create a new CMS Page to use this template.
 Now we have a new page wich can be accessed via our frontend for seach results,
 for example `/pages/search-results?q=bag`.
 
-### Javascript Modifications
+## Javascript Modifications
 
 Finally we need to update Klevu JSv2 to tell it where to send search queries.
 

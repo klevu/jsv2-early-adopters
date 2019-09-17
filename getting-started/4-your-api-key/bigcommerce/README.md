@@ -15,9 +15,9 @@ our demo API Key for your own, then you can start customising your own products
 in the search results.
 
 Since BigCommerce requires `stencil bundle` to modify JavaScript files,
-please download your theme as per the hello world tutorial. Modify the
-following file: `assets/klevu/klevu-settings.js` to add your own API Key
-in the appropriate location.
+please download your theme as per the [Hello World](/getting-started/1-hello-world/bigcommerce)
+tutorial, then modify the following file: `assets/klevu/js/klevu-settings.js`
+to add your own API Key in the appropriate location.
 
 ```js
 function startup(klevu) {
