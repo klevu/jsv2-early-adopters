@@ -40,11 +40,11 @@
 								<span><% var productStock = (data.selected_product.inStock == "yes") ? helper.translate("In Stock") : helper.translate("Out Of Stock") %><%=productStock%>
 								</span>
 							</div>
-							<div class="productQuick-colorInStock">
-								<span class="productQuick-label"><%=helper.translate("Color Variants:") %></span>
-								<span><%=data.selected_product.swatchesInfo%>
-								</span>
-							</div>
+                            
+                            
+                            <%=helper.render('quickViewProductSwatch',scope,data,data.selected_product) %>
+                            
+                            
 							<div class="productQuick-sizeInStock">
 								<span class="productQuick-label"><%=helper.translate("Size Variants:") %></span>
 								<span><%=helper.translate(data.selected_product.size)%>
