@@ -27,11 +27,11 @@ klevu.extend({
                             }
                             ele.sliderData = sliderData;
                             ele.slider = noUiSlider.create(ele, {
-                                start: [sliderData.start, sliderData.end],
+                                start: [parseInt(sliderData.start), parseInt(sliderData.end)],
                                 connect: true,
                                 range: {
-                                    'min': [sliderData.min],
-                                    'max': [sliderData.max]
+                                    'min': [parseInt(sliderData.min)],
+                                    'max': [parseInt(sliderData.max)]
                                 }
                             });
                             ele.slider.on('update', function (values, handle) {
@@ -116,9 +116,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
         /** Price slider filter request query */
         klevu.search.landing.getScope().priceSliderFilterReqQuery = {
-            key: "price",
-            minMax: true,
-            rangeInterval: 500
+            key: "klevu_price",
+            minMax: true
         };
 
         /** Function to add range filters in request filter object */
