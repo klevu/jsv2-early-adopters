@@ -24,10 +24,11 @@ with this code
 ...
 <% } else if(filter.type == "SLIDER")  { %>
     <div class="kuFilterBox klevuFilter data-filter="<%=filter.key%>">
-        <div class="kuFilterHead kuCollapse">
-            <%=filter.label%>
+        <div class="kuFilterHead <%=(filter.isCollapsed) ? 'kuExpand' : 'kuCollapse'%>">
+            <% var filter_label = (filter.label=="klevu_price") ? "price" : filter.label; %>
+            <%=filter_label%>
         </div>
-        <div class="kuFilterNames sliderFilterNames">                           
+        <div class="kuFilterNames sliderFilterNames <%=(filter.isCollapsed) ? 'kuFilterCollapse' : ''%>">                           
             <div class="kuPriceSlider klevuSliderFilter" data-query = "<%=dataLocal%>">
                 <div data-querykey = "<%=dataLocal%>" class="noUi-target noUi-ltr noUi-horizontal noUi-background kuSliderFilter kuPriceRangeSliderFilter<%=dataLocal%>"></div>
                 <div class="kuSliderVal">
