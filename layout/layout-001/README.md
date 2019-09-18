@@ -32,5 +32,5 @@ This layout consists below modules:
 - custom-pagination
 - product-quick-view
 
-![layout-001](/layout/layout-001/images/image001.png)
+![layout-001](/layout/layout-001/images/image001.jpg)
 
