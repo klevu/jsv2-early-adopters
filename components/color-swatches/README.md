@@ -15,10 +15,10 @@ method appropriate to your chosen framework.
 
 ```html
 /** Initalize base component to the scope*/
-klevu.colorSwatches(_TARGET_SCOPE_);
+klevu.colorSwatches(TARGET_SCOPE);
 
 /** Usage of base component functions */
-_TARGET_SCOPE_.colorSwatches.base._FUNCTION_NAME()_;
+TARGET_SCOPE.colorSwatches.base.FUNCTION_NAME();
 ```
 
 Try accessing color swatches base component.
