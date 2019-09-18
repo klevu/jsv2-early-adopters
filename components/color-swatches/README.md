@@ -15,14 +15,15 @@ method appropriate to your chosen framework.
 
 ```html
 /** Initalize base component to the scope*/
-klevu.colorSwatches(TARGET_SCOPE);
+klevu.colorSwatches(_TARGET_SCOPE_);
 
 /** Usage of base component functions */
-TARGET_SCOPE.colorSwatches.base.FUNCTION_NAME();
+_TARGET_SCOPE_.colorSwatches.base._FUNCTION_NAME()_;
 ```
 
 Try accessing color swatches base component.
 
-Modules based on extention of this component:
+### Example modules based on this component
+
 - [Landing page product color swatches](/modules/color-swatches-landing-page)
 - [Product quick view color swatches](/modules/color-swatches-quick-view)
