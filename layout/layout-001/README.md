@@ -19,7 +19,6 @@ This layout consists below modules:
 - add-to-cart
 - add-to-cart-landing-page
 - add-to-cart-quick-view
-- add-to-cart-quick-view
 - color-swatches
 - color-swatches-landing-page
 - color-swatches-quick-view
