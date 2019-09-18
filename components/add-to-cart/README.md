@@ -13,14 +13,14 @@ method appropriate to your chosen framework.
 - In the initialization, this shows how to enable base component to the targeted scope. 
 
 ```html
-    /** Initalize base component to the scope*/
-    klevu.addToCart(TARGET_SCOPE);
-    
-    /** Usage of base component functions */
-    TARGET_SCOPE.addToCart.base.FUNCTION_NAME();
+/** Initalize base component to the scope*/
+klevu.addToCart(TARGET_SCOPE);
+
+/** Usage of base component functions */
+TARGET_SCOPE.addToCart.base.FUNCTION_NAME();
 ```
 
-Try accessing addToCart base module.
+Try accessing addToCart base component.
 
 Modules based on extention of this component:
 - [Landing page product add to cart](/modules/add-to-cart-landing-page)
