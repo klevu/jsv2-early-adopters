@@ -3,7 +3,7 @@
  */
 
 klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "addAddToCardButtonLandingPage",
+    name: "addAddToCartButtonLandingPage",
     fire: function () {
 
         /** Include addToCart base module first to use base functionalities */
