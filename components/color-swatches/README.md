@@ -23,7 +23,7 @@ _TARGET_SCOPE_.colorSwatches.base._FUNCTION_NAME()_;
 
 Try accessing color swatches base component.
 
-## Example modules based on this component
+## Modules based on this component
 
 - [Landing page product color swatches](/modules/color-swatches-landing-page)
 - [Product quick view color swatches](/modules/color-swatches-quick-view)
