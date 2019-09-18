@@ -57,7 +57,7 @@
 
 
 <script type="template/klevu" id="klevuLandingTemplateFilters">
-    <% if(data.query[dataLocal].filters.length > 0 ) { var dataList = data.query[dataLocal].filters; dataList.push({"key": "price","label": "Price","type": "SLIDER","min":0,"max":2000,"start":0,"end":1200}); %>
+    <% if(data.query[dataLocal].filters.length > 0 ) { %>
         <div class="kuFilters">
         	
             <% helper.each(data.query[dataLocal].filters,function(key,filter){ %>
@@ -249,11 +249,6 @@
 <script type="template/klevu" id="klevuLandingTemplateContentBlock">
     <li class="klevuProduct" data-id="<%=dataLocal.id%>">
         <div class="kuProdWrap">
-            <%if(dataLocal.stickyLabelHead && dataLocal.stickyLabelHead != "") { %>
-                <div class="kuDiscountBadge">
-                    <span class="kuiscountTxt"><%=dataLocal.stickyLabelHead%><span><%=dataLocal.stickyLabelTail%></span></span>
-                </div>
-            <% } %>
             <div class="kuProdTop">
                 <% if(dataLocal["image"] != undefined && dataLocal.image !== "") { %>
                 <div class="klevuImgWrap">
@@ -508,8 +503,8 @@
 -->
 
 <script type="template/klevu" id="searchResultProductBadge">
-    <%if(dataLocal.badgeLabel && dataLocal.badgeLabel != "") { %>
-        <div class="kuDiscountBadge"><span class="kuDiscountTxt"><%=dataLocal.badgeLabel%></span></div>
+    <%if(dataLocal.sku && dataLocal.sku != "") { %>
+        <div class="kuDiscountBadge"><span class="kuDiscountTxt"><%=dataLocal.sku%></span></div>
     <% } %>
 </script>
 

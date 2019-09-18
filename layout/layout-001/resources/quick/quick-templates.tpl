@@ -94,7 +94,7 @@
         <a href="<%=dataLocal.url%>" class="klevuQuickProductInnerBlock trackProductClick">
             <div class="klevuProductItemTop">
                 <div class="klevuQuickImgWrap">
-                    <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.stickyLabelHead%></strong></div>
+                    <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.sku%></strong></div>
                     <img src="<%=dataLocal.image%>" alt="<%=dataLocal.name%>" />
                 </div>
             </div>

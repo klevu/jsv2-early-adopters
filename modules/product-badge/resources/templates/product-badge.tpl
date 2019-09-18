@@ -3,7 +3,7 @@
 -->
 
 <script type="template/klevu" id="searchResultProductBadge">
-    <%if(dataLocal.badgeLabel && dataLocal.badgeLabel != "") { %>
-        <div class="kuDiscountBadge"><span class="kuDiscountTxt"><%=dataLocal.badgeLabel%></span></div>
+    <%if(dataLocal.sku && dataLocal.sku != "") { %>
+        <div class="kuDiscountBadge"><span class="kuDiscountTxt"><%=dataLocal.sku%></span></div>
     <% } %>
 </script>
