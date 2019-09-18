@@ -1,4 +1,4 @@
-# Add Color swatch base module
+# Add Color swatch base component
 
 This is base component for product color swatch functionality. As this is component it won't have any output on UI. It only initialize core functions.
 
