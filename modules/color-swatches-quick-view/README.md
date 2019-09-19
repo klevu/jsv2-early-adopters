@@ -30,7 +30,7 @@ In addition, this module has a dependecy of [colorSwatches](/components/color-sw
 ## Add product quick view color swatch rendering template
 
 Add the template for rendering Quick view color swatch for related product,
-so edit the product quick view template file `quick-view.tpl` to add Quick view color swatch renderer template.
+so edit the product quick view template file `product-quick-view.tpl` to add Quick view color swatch renderer template.
 
 ```html
 ...
