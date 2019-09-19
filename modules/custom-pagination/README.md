@@ -9,7 +9,7 @@ method appropriate to your chosen framework.
 # Add pagination rendering template
 
 Add the template for rendering pagination for related results,
-so edit the corresponding landing `results.tpl` to add pagination renderer template.
+so edit the corresponding landing `landing-results.tpl` to add pagination renderer template.
 
 ```html
 ...
