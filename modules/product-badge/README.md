@@ -6,6 +6,7 @@ You will find the necessary resources for this module available here:
 [resources](/modules/product-badge/resources). Please add these with the
 method appropriate to your chosen framework. 
 
+
 # Add product badge rendering template
 
 Add the template for rendering badge for related results,
