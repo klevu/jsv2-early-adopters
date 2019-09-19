@@ -9,7 +9,7 @@ method appropriate to your chosen framework.
 # Add product VAT label rendering template
 
 Add the template for rendering VAT label for related results,
-so edit the corresponding product `productblock.tpl` to add VAT label renderer template.
+so edit the corresponding product `landing-product-block.tpl` to add VAT label renderer template.
 
 ```html
 ...
