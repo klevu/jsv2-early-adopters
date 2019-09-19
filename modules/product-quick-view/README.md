@@ -8,6 +8,14 @@ You will find the necessary resources for this module available here:
 [resources](/modules/product-quick-view/resources). Please add these with the
 method appropriate to your chosen framework. 
 
+This module will extend the [addToCart](/components/add-to-cart) component. So, you need to first add the below prerequisites first and then add the module resources.
+
+[Extend base for Quick view](/modules/product-quick-view/resources/assets/js/add-to-cart-quick-view.js)
+- In this file, it extends the base component and add functions related to quick view functionality.
+
+[Quick view implementation](/modules/product-quick-view/resources/assets/js/klevu-product-quick-view.js)
+- In this file it has the code for adding functionality to quick view as well as usage of component extension.
+
 ## Prerequisite
 This module has a dependecy of [addToCart](/components/add-to-cart) component. To add the base component add necessary [resources](/components/add-to-cart/resources).
 
