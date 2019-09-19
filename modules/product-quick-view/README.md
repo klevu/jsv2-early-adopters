@@ -4,18 +4,31 @@
 
 ![Quick-view template](/modules/product-quick-view/images/product-quick-view.png) 
 
-Prerequisite:
-- Add add to cart base module first to use base functionalities. Base module necessary [resources](/modules/add-to-cart/resources).
-
 You will find the necessary resources for this module available here:
 [resources](/modules/product-quick-view/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-# Add product quick view rendering template
+## Prerequisite
+This module has a dependecy of [addToCart](/components/add-to-cart) component. To add the base component add necessary [resources](/components/add-to-cart/resources).
+
+[Base file](/components/add-to-cart/resources/assets/js/add-to-cart.js)
+- Base file is for code functions
+
+[Initialization](/components/add-to-cart/resources/assets/js/add-to-cart-initialize.js)
+- In the initialization, this shows how to enable base component to the targeted scope.
+
+```html
+/** Initialize base component */
+klevu.addToCart(TARGET_SCOPE);
+
+/** Usage of base component functions */
+TARGET_SCOPE.addToCart.base.FUNCTION_NAME();
+```
+
+## Add product quick view rendering template
 
 Add the template for rendering Quick view for related results,
-so edit the corresponding product `productblock.tpl` to add Quick view renderer template.
-
+so edit the corresponding `landing-product-block.tpl` to add Quick view renderer template.
 
 ```html
 ...
@@ -28,4 +41,4 @@ so edit the corresponding product `productblock.tpl` to add Quick view renderer 
 ...
 ```
 
-Now try **Quick view**!
+Now, try **Quick view**!
