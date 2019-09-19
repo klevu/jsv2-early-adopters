@@ -579,53 +579,19 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "addSearchResultProductBadges",
     fire: function () {
+        
         /** Set Template */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#searchResultProductBadge"), "landingProductBadge", true);
     }
 });
 
 /**
- * Add to cart base module
+ * Add to cart base component
  */
 klevu.extend({
     addToCart: function (mainScope) {
         mainScope.addToCart = {};
         mainScope.addToCart.base = {
-
-            /**
-             * Function to update cart count UI
-             * @param {*} updatedCartCount 
-             */
-            appendUpdatedCartCount: function (updatedCartCount) {
-                if (parseInt(updatedCartCount)) {
-                    var cartContainer = klevu.dom.find('[data-cart-count-bubble]');
-                    if (cartContainer.length) {
-                        cartContainer[0].classList.remove('hide');
-                    }
-                    var cartCount = klevu.dom.find('[data-cart-count]');
-                    if (cartCount.length) {
-                        cartCount[0].innerHTML = updatedCartCount;
-                    }
-                }
-            },
-
-            /**
-             * Function to get total count from the response
-             * @param {*} res 
-             */
-            getTotalCardCountFromResponse: function (res) {
-                var updatedCount = 0;;
-                var hiddenElement = document.createElement("div");
-                hiddenElement.style.display = "none";
-                hiddenElement.innerHTML = res;
-                var cartCount = klevu.dom.find('[data-cart-count]', hiddenElement);
-                if (cartCount.length) {
-                    updatedCount = cartCount[0].innerHTML;
-                }
-                hiddenElement = "";
-                delete hiddenElement;
-                return updatedCount;
-            },
 
             /**
              * Function to send Add to cart request
@@ -638,6 +604,13 @@ klevu.extend({
                     id: variantId,
                     quantity: quantity
                 };
+
+                /**
+                 * Shopify version of add to cart request.
+                 * Other frameworks may have other type of request for add to cart.
+                 * Hence, modify request code accordingly.
+                 */
+
                 klevu.ajax("/cart/add", {
                     method: "POST",
                     mimeType: "application/json; charset=UTF-8",
@@ -647,24 +620,25 @@ klevu.extend({
                     crossDomain: true,
                     success: function (klXHR) {},
                     error: function (klXHR) {},
-                    done: function (klXHR) {
-                        self.appendUpdatedCartCount(self.getTotalCardCountFromResponse(klXHR.responseText));
-                    }
+                    done: function (klXHR) {}
                 });
+
             }
         };
     }
 });
 
 /**
- * Event to initialize add to cart base module
+ * Event to initialize add to cart base component
  */
 
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "initializeAddToCartBaseModule",
     fire: function () {
+
         /** Initialize add to cart base module in landing scope */
         klevu.addToCart(klevu.search.landing.getScope().element.kScope);
+
     }
 });
 
@@ -1408,11 +1382,11 @@ klevu.extend({
                             }
                             ele.sliderData = sliderData;
                             ele.slider = noUiSlider.create(ele, {
-                                start: [sliderData.start, sliderData.end],
+                                start: [parseInt(sliderData.start), parseInt(sliderData.end)],
                                 connect: true,
                                 range: {
-                                    'min': [sliderData.min],
-                                    'max': [sliderData.max]
+                                    'min': [parseInt(sliderData.min)],
+                                    'max': [parseInt(sliderData.max)]
                                 }
                             });
                             ele.slider.on('update', function (values, handle) {
@@ -1497,9 +1471,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
         /** Price slider filter request query */
         klevu.search.landing.getScope().priceSliderFilterReqQuery = {
-            key: "price",
-            minMax: true,
-            rangeInterval: 500
+            key: "klevu_price",
+            minMax: true
         };
 
         /** Function to add range filters in request filter object */

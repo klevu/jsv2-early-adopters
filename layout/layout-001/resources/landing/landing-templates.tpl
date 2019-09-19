@@ -64,7 +64,8 @@
                 <% if(filter.type == "OPTIONS"){ %>
                     <div class="kuFilterBox klevuFilter <%=(filter.multiselect)?'kuMulticheck':''%>" data-filter="<%=filter.key%>" <% if(filter.multiselect){ %> data-singleselect="false" <% } else { %> data-singleselect="true"<% } %>>
                         <div class="kuFilterHead <%=(filter.isCollapsed) ? 'kuExpand' : 'kuCollapse'%>">
-                            <%=filter.label%>
+                            <% var filter_label = (filter.label=="klevu_price") ? "price" : filter.label; %>
+                            <%=filter_label%>
                         </div>
                         <div class="kuFilterNames <%=(filter.isCollapsed) ? 'kuFilterCollapse' : ''%>">
                             <ul>
@@ -93,7 +94,8 @@
                 <% } else if(filter.type == "SLIDER")  { %>
                 	<div class="kuFilterBox klevuFilter data-filter="<%=filter.key%>">
                         <div class="kuFilterHead <%=(filter.isCollapsed) ? 'kuExpand' : 'kuCollapse'%>">
-                            <%=filter.label%>
+                        	<% var filter_label = (filter.label=="klevu_price") ? "price" : filter.label; %>
+                            <%=filter_label%>
                         </div>
                         <div class="kuFilterNames sliderFilterNames <%=(filter.isCollapsed) ? 'kuFilterCollapse' : ''%>">                           
   							<div class="kuPriceSlider klevuSliderFilter" data-query = "<%=dataLocal%>">
@@ -501,7 +503,6 @@
 <!--
     Search result Product badge template file
 -->
-
 <script type="template/klevu" id="searchResultProductBadge">
     <%if(dataLocal.sku && dataLocal.sku != "") { %>
         <div class="kuDiscountBadge"><span class="kuDiscountTxt"><%=dataLocal.sku%></span></div>
