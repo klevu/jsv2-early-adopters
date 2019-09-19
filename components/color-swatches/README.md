@@ -1,6 +1,6 @@
 # Add Color swatch base component
 
-This is base component for product color swatch functionality. As this is component it won't have any output on UI. It only initialize core functions.
+This is base component for product color swatch functionality. As it is a component it won't have any output on UI. It only initialize core functions.
 
 You will find the necessary resources for this module available here:
 [resources](/components/color-swatches/resources). Please add these with the
