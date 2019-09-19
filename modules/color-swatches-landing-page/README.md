@@ -2,26 +2,39 @@
 
 ![Search-landing color swatches](/modules/color-swatches-landing-page/images/image001.png)
 
-Prerequisite:
-- Add color swatches base module first to use base functionalities. Base module necessary [resources](/modules/color-swatches/resources).
-
 You will find the necessary resources for this module available here:
 [resources](/modules/color-swatches-landing-page/resources). Please add these with the
 method appropriate to your chosen framework.
 
-# Add product color swatch rendering template
+This module will extend the [colorSwatches](/components/color-swatches) component. So, you need to first add the below prerequisites first and then add the module resources.
+
+[Extend base for landing page](/modules/color-swatches-landing-page/resources/assets/js/color-swatches-landing-page.js)
+- In this file, it extends the base component and add functions related to landing page functionality.
+
+[Landing page implementation](/modules/color-swatches-landing-page/resources/assets/js/landing-page-color-swatches-script.js)
+- In this file it has the code for adding functionality to landing page as well as usage of component extension.
+
+## Prerequisite
+
+This module has a dependecy of [colorSwatches](/components/color-swatches) component. To add the base component add necessary [resources](/components/color-swatches/resources).
+
+[Base file](/components/color-swatches/resources/assets/js/color-swatches.js)
+- Base file is for code functions
+
+[Initialization](/components/color-swatches/resources/assets/js/color-swatches-initialize.js)
+- In the initialization, this shows how to enable base component to the targeted scope.
+
+## Add product color swatch rendering template
 
 Add the template for rendering color swatch for related results,
-so edit the corresponding product `productblock.tpl` to add color swatch renderer template.
+so edit the corresponding `landing-product-block.tpl` to add color swatch renderer template.
 
 ```html
 ...
 <div class="kuDesc">
     <%=desc%>
     ...
-
     <%=helper.render('landingProductSwatch',scope,data,dataLocal) %>
-
     ...
 </div>
 ...
