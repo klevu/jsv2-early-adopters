@@ -23,5 +23,5 @@ TARGET_SCOPE.addToCart.base.FUNCTION_NAME();
 Try accessing addToCart base component.
 
 Modules based on extention of this component:
-- [Landing page product add to cart](/modules/add-to-cart-landing-page)
+- [Landing page product add to cart](/modules/add-to-cart/landing)
 - [Quick view product add to cart](/modules/product-quick-view)
