@@ -28,11 +28,11 @@ Modify `landing-product-block.tpl`, to add your button to your preferred locatio
 ## Code Reference
 
 [add-to-cart.js](/components/add-to-cart/resources/assets/js/add-to-cart.js)
-This file contains your framework-specific functionality to connect add to cart to your chosen framework.
+contains your framework-specific functionality to connect add to cart to your chosen framework.
 
 [add-to-cart-landing.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing.js)
-This file connects the base component to your search results landing page implementation.
+connects the base component to your search results landing page implementation.
 
 [add-to-cart-initialize.js](/components/add-to-cart/resources/assets/js/add-to-cart-initialize.js)
-[add-to-cart-landing-script.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing-script.js)
-These files show how to enable the base component for your targeted scope (ie. quick and/or landing).
+and [add-to-cart-landing-script.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing-script.js)
+show how to enable the base component for your targeted scope (ie. quick and/or landing).
