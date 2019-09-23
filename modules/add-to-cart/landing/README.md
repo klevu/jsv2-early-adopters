@@ -1,40 +1,19 @@
-# Add to cart functionality on landing page
+# Add to Cart - Search Results Landing Page
 
-![Search-landing color swatches](/modules/add-to-cart/landing/images/image001.png)
+![Search-landing color swatches](/modules/add-to-cart/images/image001.png)
 
-You will find the necessary resources for this module available here:
-[resources](/modules/add-to-cart/landing/resources). Please add these with the
-method appropriate to your chosen framework.
+This module extends the [add-to-cart](/components/add-to-cart) component.
+You need to add the prerequisites in addition to this module's resources:
 
-This module will extend the [addToCart](/components/add-to-cart) component. So, you need to first add the below prerequisites first and then add the module resources.
+- [Base Component resources](/components/add-to-cart/resources).
+- [This module resources](/modules/add-to-cart/landing/resources).
 
-[Extend base for landing page](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing.js)
-- In this file, it extends the base component and add functions related to landing page functionality.
+If you are not familiar with where to add these resources,
+please follow the appropriate ['hello world'](/getting-started/1-hello-world) tutorial.
 
-[Landing page implementation](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing-script.js)
-- In this file it has the code for adding functionality to landing page as well as usage of component extension.
+## Template Modifications
 
-```html
-/** Initialization of component extension */
-klevu.addToCartLanding(TARGET_SCOPE);
-
-/** Usage of extension method */
-TARGET_SCOPE.addToCart.landing.FUNCTION_NAME();
-```
-
-## Prerequisite
-This module has a dependecy of [addToCart](/components/add-to-cart) component. To add the base component add necessary [resources](/components/add-to-cart/resources).
-
-[Base file](/components/add-to-cart/resources/assets/js/add-to-cart.js)
-- Base file is for code functions
-
-[Initialization](/components/add-to-cart/resources/assets/js/add-to-cart-initialize.js)
-- In the initialization, this shows how to enable base component to the targeted scope.
-
-## Add to cart rendering template
-
-Add the template for rendering Add to cart for related results,
-so edit the corresponding `landing-product-block.tpl` to add addToCart renderer template.
+Modify `landing-product-block.tpl`, to add your button to your preferred location.
 
 ```html
 ...
@@ -46,4 +25,14 @@ so edit the corresponding `landing-product-block.tpl` to add addToCart renderer 
 ...
 ```
 
-Now try **search result landing add to cart**!
+## Code Reference
+
+[add-to-cart.js](/components/add-to-cart/resources/assets/js/add-to-cart.js)
+This file contains your framework-specific functionality to connect add to cart to your chosen framework.
+
+[add-to-cart-landing.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing.js)
+This file connects the base component to your search results landing page implementation.
+
+[add-to-cart-initialize.js](/components/add-to-cart/resources/assets/js/add-to-cart-initialize.js)
+[add-to-cart-landing-script.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing-script.js)
+These files show how to enable the base component for your targeted scope (ie. quick and/or landing).
