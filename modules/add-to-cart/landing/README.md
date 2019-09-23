@@ -2,18 +2,18 @@
 
 ![Search-landing color swatches](/modules/add-to-cart/images/image001.png)
 
-This module extends the [add-to-cart](/components/add-to-cart) component.
-You need to add the prerequisites in addition to this module's resources:
+This module extends the `add-to-cart` component, so you need to
+add the resources from that in addition to this module's resources:
 
-- [Base Component resources](/components/add-to-cart/resources).
-- [This module resources](/modules/add-to-cart/landing/resources).
+- [Base component](/components/add-to-cart/resources).
+- [This module's resources](/modules/add-to-cart/landing/resources).
 
-If you are not familiar with where to add these resources,
-please follow the appropriate ['hello world'](/getting-started/1-hello-world) tutorial.
+_If you are not familiar with where to add these resources,
+please follow the appropriate ['hello world'](/getting-started/1-hello-world) tutorial._
 
 ## Template Modifications
 
-Modify `landing-product-block.tpl`, to add your button to your preferred location.
+Modify `landing-product-block.tpl` to add the 'Add to Cart' button in your preferred location.
 
 ```html
 ...
