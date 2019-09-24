@@ -1,4 +1,4 @@
-# Add to cart base component
+# Add to Cart - Base Component
 
 >**Note:**
 >This is base component for product add to cart functionality. As it is a component it won't have any output on UI. It only initialize core functions. 
