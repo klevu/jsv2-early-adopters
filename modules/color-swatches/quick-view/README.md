@@ -22,9 +22,9 @@ Before adding this module, first add [Product Quick View](/modules/product-quick
 In addition, this module has a dependecy of [colorSwatches](/components/color-swatches) component. To add the base component add necessary [resources](/components/color-swatches/resources).
 
 [Base file](/components/color-swatches/resources/assets/js/color-swatches.js)
-- Base file is for code functions
+- Base file contains the core functionality of module
 
-[Initialization](/components/color-swatches/resources/assets/js/color-swatches-initialize.js)
+[Initialization](/components/color-swatches/resources/assets/js/landing-color-swatches-initialize.js)
 - In the initialization, this shows how to enable base component to the targeted scope.
 
 ## Template Modifications
