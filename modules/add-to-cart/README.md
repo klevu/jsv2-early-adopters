@@ -7,11 +7,10 @@
 
 ![landing add to cart](/modules/add-to-cart/images/image001.png)
 
-You will find the necessary resources for this module available here: [Resources](/modules/add-to-cart/landing). Please add these with the method appropriate to your chosen framework.
+You will find the module available [here](/modules/add-to-cart/landing).
 
 ## Add to Cart - Quick Search Results
 
 ![quick add to cart](/modules/add-to-cart/images/image002.png)
 
-You will find the necessary resources for this module available here: [Resources](/modules/add-to-cart/quick). Please add these with the method appropriate to your chosen framework.
-
+You will find the module available [here](/modules/add-to-cart/quick).
