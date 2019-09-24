@@ -1,7 +1,7 @@
 # Add to Cart - Base Component
 
 >**Note:**
->This is base component for product add to cart functionality. As it is a component it won't have any output on UI. It only initialize core functions. 
+>This is a base component for product add to cart functionality. As it is a component it won't have any output on UI. It only initializes core functions.
 
 You will find the necessary resources for this module available here:
 [resources](/components/add-to-cart/resources). Please add these with the
