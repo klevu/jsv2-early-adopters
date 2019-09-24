@@ -7,7 +7,7 @@ You will find the necessary resources for this module available here:
 [resources](/modules/mobile-sliding-filter/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-# Add sliding filter rendering template
+## Template Modifications
 
 Add the template for rendering sliding filter for related results,
 so edit the corresponding landing `results.tpl` to add sliding filter renderer template.
