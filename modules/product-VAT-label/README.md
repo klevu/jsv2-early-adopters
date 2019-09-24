@@ -6,7 +6,7 @@ You will find the necessary resources for this module available here:
 [resources](/modules/product-VAT-label/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-# Add product VAT label rendering template
+## Template Modifications
 
 Add the template for rendering VAT label for related results,
 so edit the corresponding product `landing-product-block.tpl` to add VAT label renderer template.
