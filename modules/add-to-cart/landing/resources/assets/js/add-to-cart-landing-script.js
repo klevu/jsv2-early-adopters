@@ -14,9 +14,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         /** Initalize add to cart service */
         klevu.addToCartLanding(klevu.search.landing.getScope().element.kScope);
 
-        /*
-         *	Bind landing page add to cart button click event
-         */
+        /** Bind landing page add to cart button click event */
         klevu.search.landing.getScope().chains.template.events.add({
             name: "landingPageProductAddToCartEvent",
             fire: function (data, scope) {
