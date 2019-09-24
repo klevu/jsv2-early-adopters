@@ -1,4 +1,4 @@
-# Add Color swatches for landing page
+# Color Swatches - Search Results Landing Page
 
 ![Search-landing color swatches](/modules/color-swatches/images/image001.png)
 
@@ -24,7 +24,7 @@ This module has a dependecy of [colorSwatches](/components/color-swatches) compo
 [Initialization](/components/color-swatches/resources/assets/js/color-swatches-initialize.js)
 - In the initialization, this shows how to enable base component to the targeted scope.
 
-## Add product color swatch rendering template
+## Template Modifications
 
 Add the template for rendering color swatch for related results,
 so edit the corresponding `landing-product-block.tpl` to add color swatch renderer template.
