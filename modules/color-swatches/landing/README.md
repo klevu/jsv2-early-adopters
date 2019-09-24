@@ -1,6 +1,6 @@
 # Add Color swatches for landing page
 
-![Search-landing color swatches](/modules/color-swatches/landing/images/image001.png)
+![Search-landing color swatches](/modules/color-swatches/images/image001.png)
 
 You will find the necessary resources for this module available here:
 [resources](/modules/color-swatches/landing/resources). Please add these with the
