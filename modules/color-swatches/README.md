@@ -1,7 +1,7 @@
 # Color Swatches
 
 >**Prerequisite:**  
->This module uses [Color Swatches](/components/color-swatches) base component. Before starting the implementation of this module, add base component files and include initialization.  
+>Modules below uses [Color Swatches](/components/color-swatches) base component. Before starting implementation of these modules, add base component files and include initialization.  
 
 ## Color Swatches - Search Results Landing Page
 
