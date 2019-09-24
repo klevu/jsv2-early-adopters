@@ -8,21 +8,16 @@ method appropriate to your chosen framework.
 
 This module will extend the [colorSwatches](/components/color-swatches) component. So, you need to first add the below prerequisites first and then add the module resources.
 
-[Extend base for landing page](/modules/color-swatches/landing/resources/assets/js/color-swatches-landing.js)
-- In this file, it extends the base component and add functions related to landing page functionality.
+[klevu-landing-color-swatches.js](/modules/color-swatches/landing/resources/assets/js/klevu-landing-color-swatches.js)
+- In this file, it extends the base component and add functions related to landing page functionality. Also, it has the code for adding functionality to the landing page as well as the usage of component extension.
 
-[Landing page implementation](/modules/color-swatches/landing/resources/assets/js/color-swatches-landing-script.js)
-- In this file it has the code for adding functionality to landing page as well as usage of component extension.
 
 ## Prerequisite
 
 This module has a dependecy of [colorSwatches](/components/color-swatches) component. To add the base component add necessary [resources](/components/color-swatches/resources).
 
-[Base file](/components/color-swatches/resources/assets/js/color-swatches.js)
-- Base file contains the core functionality of module
+[Base file](/components/color-swatches/resources/assets/js/klevu-color-swatches.js) contains the core logic of the functionality.
 
-[Initialization](/components/color-swatches/resources/assets/js/landing-color-swatches-initialize.js)
-- In the initialization, this shows how to enable base component to the targeted scope.
 
 ## Template Modifications
 
