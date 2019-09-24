@@ -11,6 +11,7 @@ add the resources from that in addition to this module's resources:
 _If you are not familiar with where to add these resources,
 please follow the appropriate ['hello world'](/getting-started/1-hello-world) tutorial._
 
+
 ## Template Modifications
 
 Modify `landing-product-block.tpl` to add the 'Add to Cart' button in your preferred location.
@@ -25,14 +26,10 @@ Modify `landing-product-block.tpl` to add the 'Add to Cart' button in your prefe
 ...
 ```
 
-## Code Reference
+### Code Reference
 
-[add-to-cart.js](/components/add-to-cart/resources/assets/js/add-to-cart.js)
+[klevu-add-to-cart.js](/components/add-to-cart/resources/assets/js/klevu-add-to-cart.js)
 contains your framework-specific functionality to connect add to cart to your chosen framework.
 
-[add-to-cart-landing.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing.js)
-connects the base component to your search results landing page implementation.
-
-[landing-add-to-cart-initialize.js](/components/add-to-cart/resources/assets/js/landing-add-to-cart-initialize.js)
-and [add-to-cart-landing-script.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing-script.js)
-show how to enable the base component for your targeted scope.
+[klevu-landing-add-to-cart.js](/modules/add-to-cart/landing/resources/assets/js/klevu-landing-add-to-cart.js)
+connects the base component to your search results landing page implementation and show how to enable the base component for your targeted scope.
