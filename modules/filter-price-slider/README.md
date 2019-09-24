@@ -4,7 +4,7 @@ You will find the necessary resources for this module available here:
 [resources](/modules/filter-price-slider/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-# Add price slider filter rendering template
+## Template Modifications
 
 Add the template for rendering price slider filter for related results,
 so edit the corresponding landing `filtes.tpl` to add price slider filter renderer template.
