@@ -4,7 +4,7 @@ You will find the necessary resources for this module available here:
 [resources](/modules/filter-collapse/resources). Please add these with the
 method appropriate to your chosen framework.
 
-# Add filter collapse rendering template
+## Template Modifications
 
 Add the template for rendering filter collapse for related results,
 so edit the corresponding landing `landing-filters.tpl` to add filter collapse renderer template.
