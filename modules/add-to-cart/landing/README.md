@@ -1,6 +1,6 @@
 # Add to Cart - Search Results Landing Page
 
-![Search-landing color swatches](/modules/add-to-cart/images/image001.png)
+![Search-landing add-to-cart](/modules/add-to-cart/images/image001.png)
 
 This module extends the `add-to-cart` component, so you need to
 add the resources from that in addition to this module's resources:
@@ -33,6 +33,6 @@ contains your framework-specific functionality to connect add to cart to your ch
 [add-to-cart-landing.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing.js)
 connects the base component to your search results landing page implementation.
 
-[add-to-cart-initialize.js](/components/add-to-cart/resources/assets/js/add-to-cart-initialize.js)
+[landing-add-to-cart-initialize.js](/components/add-to-cart/resources/assets/js/landing-add-to-cart-initialize.js)
 and [add-to-cart-landing-script.js](/modules/add-to-cart/landing/resources/assets/js/add-to-cart-landing-script.js)
-show how to enable the base component for your targeted scope (ie. quick and/or landing).
+show how to enable the base component for your targeted scope.
