@@ -12,7 +12,7 @@ klevu.extend({
              * @param {*} quantity 
              */
             sendAddToCartRequest: function (variantId, quantity) {
-                var self = this;
+                
                 var requestPayload = {
                     id: variantId,
                     quantity: quantity

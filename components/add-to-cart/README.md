@@ -1,18 +1,17 @@
 # Add to cart base component
 
-This is base component for product add to cart functionality. As it is a component it won't have any output on UI. It only initialize core functions. 
+>**Note:**
+>This is base component for product add to cart functionality. As it is a component it won't have any output on UI. It only initialize core functions. 
 
 You will find the necessary resources for this module available here:
 [resources](/components/add-to-cart/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-[Base file](/components/add-to-cart/resources/assets/js/add-to-cart.js)
-- Base file is for code functions
+[Base file](/components/add-to-cart/resources/assets/js/klevu-add-to-cart.js) contains the core logic of the functionality.
 
-[Initialization](/components/add-to-cart/resources/assets/js/add-to-cart-initialize.js)
-- In the initialization, this shows how to enable base component to the targeted scope. 
+Below code snippet is to show, how to initialize and use base component into the relevant scope.
 
-```html
+```javascript
 /** Initalize base component to the scope*/
 klevu.addToCart(TARGET_SCOPE);
 
@@ -22,6 +21,7 @@ TARGET_SCOPE.addToCart.base.FUNCTION_NAME();
 
 Try accessing addToCart base component.
 
-Modules based on extention of this component:
+**Reference modules based on this component:**
 - [Landing page product add to cart](/modules/add-to-cart/landing)
+- [Quick search result products add to cart](/modules/add-to-cart/quick)
 - [Quick view product add to cart](/modules/product-quick-view)
