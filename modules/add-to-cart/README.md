@@ -1,7 +1,7 @@
 # Add to Cart
 
 >**Prerequisite:**  
->Modules below uses [add-to-cart](/components/add-to-cart) base component. Before starting implementation of these modules, add base component files and include initialization.  
+>Modules below use [add-to-cart](/components/add-to-cart) base component. Before starting the implementation of these modules, add base component files and include initialization.  
 
 ## Add to Cart - Search Results Landing Page
 
