@@ -7,7 +7,7 @@ You will find the necessary resources for this module available here:
 method appropriate to your chosen framework. 
 
 
-# Add product badge rendering template
+## Template Modifications
 
 Add the template for rendering badge for related results,
 so edit the corresponding product `landing-product-block.tpl` to add badge renderer template.
