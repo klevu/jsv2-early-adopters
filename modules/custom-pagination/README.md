@@ -6,7 +6,7 @@ You will find the necessary resources for this module available here:
 [resources](/modules/custom-pagination/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-# Add pagination rendering template
+## Template Modifications
 
 Add the template for rendering pagination for related results,
 so edit the corresponding landing `landing-results.tpl` to add pagination renderer template.
