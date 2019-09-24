@@ -1,19 +1,16 @@
-# Add Color swatch base component
+# Color Swatches - Base Component
 
-This is base component for product color swatch functionality. As it is a component it won't have any output on UI. It only initialize core functions.
+>**Note:**
+>This is a base component for product add to cart functionality. As it is a component it won't have any output on UI. It only initializes core functions.
 
 You will find the necessary resources for this module available here:
 [resources](/components/color-swatches/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-[Base file](/components/color-swatches/resources/assets/js/color-swatches.js)
-- Base file is for code functions
-
-[Initialization](/components/color-swatches/resources/assets/js/color-swatches-initialize.js)
-- In the initialization, this shows how to enable base component to the targeted scope. 
+[Base file](/components/color-swatches/resources/assets/js/klevu-color-swatches.js) contains the core logic of the functionality.
 
 
-```html
+```javascript
 /** Initalize base component to the scope*/
 klevu.colorSwatches(TARGET_SCOPE);
 
@@ -21,9 +18,8 @@ klevu.colorSwatches(TARGET_SCOPE);
 TARGET_SCOPE.colorSwatches.base.FUNCTION_NAME();
 ```
 
-Try accessing color swatches base component.
+Try accessing the color swatches base component.
 
-## Modules based on this component
-
+**Reference modules based on this component:**
 - [Landing page product color swatches](/modules/color-swatches-landing-page)
 - [Product quick view color swatches](/modules/color-swatches-quick-view)
