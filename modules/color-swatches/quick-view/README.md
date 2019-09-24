@@ -1,4 +1,4 @@
-# Add Color swatches on Product Quick view 
+# Color Swatches - Landing Page Product Quick View
 
 ![Quick-view color-swatches](/modules/color-swatches/images/image002.png)
 
@@ -27,7 +27,7 @@ In addition, this module has a dependecy of [colorSwatches](/components/color-sw
 [Initialization](/components/color-swatches/resources/assets/js/color-swatches-initialize.js)
 - In the initialization, this shows how to enable base component to the targeted scope.
 
-## Add product quick view color swatch rendering template
+## Template Modifications
 
 Add the template for rendering Quick view color swatch for related product,
 so edit the product quick view template file `product-quick-view.tpl` to add Quick view color swatch renderer template.
