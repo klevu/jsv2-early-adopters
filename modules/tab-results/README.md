@@ -29,10 +29,10 @@ It will look something like this:
 </script>
 ```
 
-## Add the 'Other results' rendering template
+## Template Modifications
 
 Currently the templates for rendering results only contains HTML for products,
-so let's edit the corresponding landing `results.tpl` to add a new div.
+so let's edit the corresponding landing `landing-results.tpl` to add a new div.
 
 Before the final `</script>` tag, add the following (which is essentially a copy+paste)
 of what is already in the template, but with "product" replaced with "content":
