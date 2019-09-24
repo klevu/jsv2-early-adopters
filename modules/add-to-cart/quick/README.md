@@ -6,7 +6,7 @@ This module extends the `add-to-cart` component, so you need to
 add the resources from that in addition to this module's resources:
 
 - [Base component](/components/add-to-cart/resources).
-- [This module's resources](/modules/add-to-cart/landing/resources).
+- [This module's resources](/modules/add-to-cart/quick/resources).
 
 _If you are not familiar with where to add these resources,
 please follow the appropriate ['hello world'](/getting-started/1-hello-world) tutorial._
