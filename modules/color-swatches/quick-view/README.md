@@ -1,6 +1,6 @@
 # Add Color swatches on Product Quick view 
 
-![Quick-view color-swatches](/modules/color-swatches/quick-view/images/image001.png)
+![Quick-view color-swatches](/modules/color-swatches/images/image002.png)
 
 You will find the necessary resources for this module available here:
 [resources](/modules/color-swatches/quick-view/resources). Please add these with the
