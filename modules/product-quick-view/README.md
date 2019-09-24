@@ -33,7 +33,7 @@ klevu.addToCart(TARGET_SCOPE);
 TARGET_SCOPE.addToCart.base.FUNCTION_NAME();
 ```
 
-## Add product quick view rendering template
+## Template Modifications
 
 Add the template for rendering Quick view for related results,
 so edit the corresponding `landing-product-block.tpl` to add Quick view renderer template.
