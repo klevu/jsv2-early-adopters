@@ -6,7 +6,7 @@ You will find the necessary resources for this module available here:
 [resources](/modules/product-stock-label/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-# Add product stock label rendering template
+## Template Modifications
 
 Add the template for rendering badge for related results,
 so edit the corresponding product `landing-product-block.tpl` to add badge renderer template.
