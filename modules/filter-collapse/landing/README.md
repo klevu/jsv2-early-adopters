@@ -5,7 +5,7 @@
 >In this example, filter collapse is based on the filter key.
 
 You will find the necessary resources for this module available here:
-[resources](/modules/filter-collapse/resources). Please add these with the
+[resources](/modules/filter-collapse/landing/resources). Please add these with the
 method appropriate to your chosen framework.
 
 ## Template Modifications
