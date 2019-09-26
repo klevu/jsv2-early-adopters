@@ -1,4 +1,4 @@
-# Filter Reorder - - Search Results Landing Page
+# Filter Reorder - Search Results Landing Page
 
 >**Note:**  
 >In order to modify filter sequence, [klevu-landing-filter-reorder.js](modules/filter-reorder/landing/resources/assets/js/klevu-landing-filter-reorder.js) and update the `priorityFilters` list inside.  
