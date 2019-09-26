@@ -62,6 +62,9 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "reorderFilterOptions",
     fire: function () {
 
+        /** Initialize reorderFilterOptions */
+        klevu.reorderFilterOptions(klevu.search.landing.getScope().element.kScope);
+
         /**
          * Function to set filter option priority list and reoder filter option list
          */
@@ -69,7 +72,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             name: "reorderFilterOptionPosition",
             fire: function (data, scope) {
                 if (data.context.isSuccess) {
-
                     var priorityFilterOptions = [{
                         key: "size",
                         options: [{
@@ -83,10 +85,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                             name: "father's day sale"
                         }]
                     }];
-
-                    /** Initialize reorderFilterOptions */
-                    klevu.reorderFilterOptions(klevu.search.landing.getScope().element.kScope);
-
                     klevu.search.landing.getScope().reorderFilterOptions.base.reorder(data, priorityFilterOptions);
                 }
             }
