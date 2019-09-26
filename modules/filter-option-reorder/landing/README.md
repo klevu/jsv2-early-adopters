@@ -5,7 +5,7 @@
 >In this example, filter reordering is based on the filter key.
 
 You will find the necessary resources for this module available here:
-[resources](/modules/filter-option-reorder/resources). Please add these with the
+[resources](/modules/filter-option-reorder/landing/resources). Please add these with the
 method appropriate to your chosen framework. 
 
 Now try **filters on landing page products**!
