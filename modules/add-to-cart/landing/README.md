@@ -1,5 +1,9 @@
 # Add to Cart - Search Results Landing Page
 
+>**Prerequisite:**  
+>Module below uses [add-to-cart](/components/add-to-cart) base component. Before starting the implementation of the module, add base component files and include initialization.  
+
+
 ![Search-landing add-to-cart](/modules/add-to-cart/images/image001.png)
 
 This module extends the `add-to-cart` component, so you need to
