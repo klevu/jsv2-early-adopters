@@ -10,9 +10,8 @@ You will find the necessary resources for this module available here:
 [resources](/modules/product-quick-view/landing/resources). Please add these with the
 method appropriate to your chosen framework. 
 
-This module will extend the [addToCart](/components/add-to-cart) component. So, you need to first add the below prerequisites first and then add the module resources.
-
-[klevu-landing-product-quick-view.js](/modules/product-quick-view/landing/resources/assets/js/klevu-landing-product-quick-view.js) It extends the base component and add functions related to quick view functionality. Also, it has the code for adding functionality to a quick view as well as usage of component extension.
+[klevu-landing-product-quick-view.js](/modules/product-quick-view/landing/resources/assets/js/klevu-landing-product-quick-view.js)  
+It extends the base component and add functions related to quick view functionality. Also, it has the code for adding functionality to a quick view as well as usage of component extension.
 
 ## Template Modifications
 
