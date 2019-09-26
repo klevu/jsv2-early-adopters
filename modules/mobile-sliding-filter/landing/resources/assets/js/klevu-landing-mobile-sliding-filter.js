@@ -116,16 +116,16 @@ klevu.extend({
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "addMobileFilterSliderEvents",
     fire: function () {
+
+        /** Initialize mobileFilterSlider */
+        klevu.mobileFilterSlider(klevu.search.landing.getScope().element.kScope);
+
         /**
          * Function to load on landing page load
          */
         klevu.search.landing.getScope().chains.template.events.add({
             name: "attachMobileSliderFilter",
             fire: function (data, scope) {
-
-                /** Initialize mobileFilterSlider */
-                klevu.mobileFilterSlider(klevu.search.landing.getScope().element.kScope);
-
                 klevu.search.landing.getScope().mobileFilterSlider.base.attachButtonEvents();
                 klevu.search.landing.getScope().mobileFilterSlider.base.persistFilterPosition();
             }
