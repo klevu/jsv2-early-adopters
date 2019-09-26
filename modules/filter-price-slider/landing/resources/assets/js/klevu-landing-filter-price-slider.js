@@ -114,6 +114,9 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "attachPriceSliderFilter",
     fire: function () {
 
+        /** Initialize filterPriceSlider */
+        klevu.filterPriceSlider(klevu.search.landing.getScope().element.kScope);
+
         /** Price slider filter request query */
         klevu.search.landing.getScope().priceSliderFilterReqQuery = {
             key: "klevu_price",
@@ -139,10 +142,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "initSliderFilter",
             fire: function (data, scope) {
-
-                /** Initialize filterPriceSlider */
-                klevu.filterPriceSlider(klevu.search.landing.getScope().element.kScope);
-
                 klevu.search.landing.getScope().filterPriceSlider.base.initSlider(data, scope);
             }
         });
