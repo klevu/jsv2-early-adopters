@@ -46,6 +46,9 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "reorderFilters",
     fire: function () {
 
+        /** Initialize reorderFilters */
+        klevu.reorderFilters(klevu.search.landing.getScope().element.kScope);
+
         /**
          * Function to set filter priority list and reoder filter list
          */
@@ -53,16 +56,11 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             name: "reorderFilterPosition",
             fire: function (data, scope) {
                 if (data.context.isSuccess) {
-
                     var priorityFilters = [{
                         key: "brand"
                     }, {
                         key: "category"
                     }];
-
-                    /** Initialize reorderFilters */
-                    klevu.reorderFilters(klevu.search.landing.getScope().element.kScope);
-
                     klevu.search.landing.getScope().reorderFilters.base.reorder(data, priorityFilters);
                 }
             }
