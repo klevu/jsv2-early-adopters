@@ -11,7 +11,6 @@ You will find the necessary resources for this module available here:
 [resources](/modules/color-swatches/quick-view/resources). Please add these with the
 method appropriate to your chosen framework.
 
-For color swatches,
 [klevu-quick-view-color-swatches.js](/modules/color-swatches/quick-view/resources/assets/js/klevu-quick-view-color-swatches.js)  
 In this file, it extends the base component and add functions related to quick view functionality. Also, it has the code for adding functionality to quick view as well as usage of component extension.
 
