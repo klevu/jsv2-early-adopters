@@ -1,7 +1,7 @@
 # Add to Cart - Quick Search Results
 
 >**Prerequisite:**  
->Module below uses [add-to-cart](/components/add-to-cart) base component. Before starting the implementation of the module, add base component files and include initialization.  
+>This module uses [add-to-cart](/components/add-to-cart) base component. Before starting the implementation of the module, add base component files and include initialization.  
 
 ![Search-quick add-to-cart](/modules/add-to-cart/images/image002.png)
 
