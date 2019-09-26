@@ -39,6 +39,9 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "collapseFilters",
     fire: function () {
 
+        /** Initialize collapseFilters module */
+        klevu.collapseFilters(klevu.search.landing.getScope().element.kScope);
+
         /**
          * Function to set filter priority list and reoder filter list
          */
@@ -56,9 +59,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     }, {
                         key: "product_type"
                     }];
-
-                    /** Initialize collapseFilters module */
-                    klevu.collapseFilters(klevu.search.landing.getScope().element.kScope);
 
                     klevu.search.landing.getScope().collapseFilters.base.collapse(data, collapsedFilters);
                 }
