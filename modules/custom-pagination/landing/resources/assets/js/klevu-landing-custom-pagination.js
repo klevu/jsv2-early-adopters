@@ -60,6 +60,9 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "addLandingPageCustomPaginationBar",
     fire: function () {
 
+        /** Initializing custom pagination */
+        klevu.customPagination(klevu.search.landing.getScope().element.kScope);
+
         /** Set Template */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#customLandingPagePaginationBar"), "customLandingPagePagination", true);
 
@@ -70,11 +73,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             name: "addCustomPagination",
             fire: function (data, scope) {
 
-                /** Initializing custom pagination */
-                klevu.customPagination(klevu.search.landing.getScope().element.kScope);
-
+                /** Binding events for pagination on landing page */
                 klevu.search.landing.getScope().customPagination.base.bindPaginationEvents(".kuPaginate");
-
             }
         });
 
