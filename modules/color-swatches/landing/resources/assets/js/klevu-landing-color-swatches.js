@@ -126,11 +126,11 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         /** Include Color swatches base module first to use base functionalities */
         klevu.colorSwatches(klevu.search.landing.getScope().element.kScope);
 
-        /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductColorSwatches"), "landingProductSwatch", true);
-
         /** Initalize color swatch service */
         klevu.colorSwatchesLanding(klevu.search.landing.getScope().element.kScope);
+
+        /** Set Template */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductColorSwatches"), "landingProductSwatch", true);
 
         /**
          * Initialize color swatches and service before rendering
