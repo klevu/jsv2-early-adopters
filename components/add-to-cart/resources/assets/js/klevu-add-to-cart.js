@@ -3,21 +3,20 @@
  */
 klevu.extend({
     addToCart: function (mainScope) {
-        mainScope.addToCart = {};
+        if (!mainScope.addToCart) {
+            mainScope.addToCart = {};
+        }
         mainScope.addToCart.base = {
-
             /**
              * Function to send Add to cart request
              * @param {*} variantId 
              * @param {*} quantity 
              */
             sendAddToCartRequest: function (variantId, quantity) {
-                
                 var requestPayload = {
                     id: variantId,
                     quantity: quantity
                 };
-
                 /**
                  * Shopify version of add to cart request.
                  * Other frameworks may have other type of request for add to cart.
