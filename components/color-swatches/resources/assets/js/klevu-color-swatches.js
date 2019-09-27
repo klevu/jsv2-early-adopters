@@ -3,9 +3,10 @@
  */
 klevu.extend({
     colorSwatches: function (mainScope) {
-        mainScope.colorSwatches = {}
+        if (!mainScope.colorSwatches) {
+            mainScope.colorSwatches = {};
+        }
         mainScope.colorSwatches.base = {
-
             /**
              * Function to prepare keyvalue pair object
              * @param {*} keyValuePair 
