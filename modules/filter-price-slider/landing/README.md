@@ -7,7 +7,8 @@ method appropriate to your chosen framework.
 ## Template Modifications
 
 Add the template for rendering price slider filter for related results,
-so edit the corresponding `landing-filters.tpl` to add price slider filter renderer template.
+so edit the corresponding `landing-filters.tpl` to add price slider filter renderer template.  
+Replace below code  
 
 
 ```html
