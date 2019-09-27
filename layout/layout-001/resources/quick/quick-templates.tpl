@@ -127,6 +127,7 @@
             </div>
             <div class="klevuClearLeft"></div>
         </a>
+        <%=helper.render('quickSearchProductAddToCart',scope,data,dataLocal) %>
     </li>
 </script>
 
