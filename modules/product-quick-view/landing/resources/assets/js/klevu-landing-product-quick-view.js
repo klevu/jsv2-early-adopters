@@ -177,15 +177,16 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         /** Initalize add to cart service */
         klevu.addToCartQuickView(klevu.search.landing.getScope().element.kScope);
 
+        /** Initialize Quick view service */
+        klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
+
+        
 
         /** Set template in landing UI */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuLandingTemplateQuickView"), "quick-view", true);
 
         /** Create chain for Quick view */
         klevu.search.landing.getScope().chains.quickView = klevu.chain();
-
-        /** Initialize Quick view service */
-        klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
 
         /** Add Quick view wrapper container in body */
         klevu.search.landing.getScope().quickViewService.appendTemplateIntoBody();
