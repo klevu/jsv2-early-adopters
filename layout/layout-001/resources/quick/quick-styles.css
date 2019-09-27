@@ -350,3 +350,46 @@
 */
 
 
+/*
+*   Styles for quick search Add to cart button 
+*/
+
+.klevuQuickCartBtn {
+    background: #333333;
+    color: #FFFFFF;
+    padding: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0px;
+    border: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: normal;
+    line-height: 100%;
+    border-radius: 3px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.klevuQuickCartBtn:hover,
+.klevuQuickCartBtn:focus {
+    color: #333;
+    background: #ddd;
+    text-decoration: none;
+}
+
+.klevuQuickAddtoCart {
+    margin: 0px;
+    position: absolute;
+    display: inline-block;
+    bottom: 5px;
+    right: 5px;
+    width: auto;
+    padding: 5px;
+}
+

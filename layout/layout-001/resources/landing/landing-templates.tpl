@@ -310,35 +310,42 @@
     </div>
 </script>
 
-<!--
-    Color swatch for Product Quick view. 
+<!-- 
+    Landing page add to cart button template
 -->
 
-<script type="template/klevu" id="quickViewProductColorSwatches">
-    <% var swatchesInfoList = dataLocal.swatchesInfo; var quickViewSwatchIndex = 1; %>
-    <% if(swatchesInfoList.length){ %>
-        <div class="productQuick-colorInStock">
-            <span class="productQuick-label"><%=helper.translate("Color Variants:") %></span>								
-            <div class="kuSwatches">
-                <% helper.each(swatchesInfoList,function(key,item){ if(quickViewSwatchIndex > 3){ return true;} %>
-                    <div class="kuSwatchItem"><a href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
-                <% quickViewSwatchIndex++; });%>
-                <% if(swatchesInfoList.length > 3){ %>
-                    <div class="kuSwatchItem kuSwatchMore">
-                        <a href="<%=dataLocal.url%>" class="kuSwatchLink">
-                            <span class="kuSwatchMoreText">
-                                +<%=(swatchesInfoList.length-3)%>
-                            </span>
-                        </a>
-                    </div>
-                <% } %>
-            </div>								
+<script type="template/klevu" id="landingPageProductAddToCart">
+    <div class="kuAddtocart" data-id="<%=dataLocal.id%>">
+        <div class="kuCartBtn">
+            <a href="javascript:void(0)" class="kuAddtocartBtn kuLandingAddToCartBtn"><%=helper.translate("Add to cart") %></a>
         </div>
-    <% } %>
+    </div>
 </script>
 
 
 
+<!--
+    Color swatch template for landing page products
+-->
+
+<script type="template/klevu" id="landingPageProductColorSwatches">
+    <% if(dataLocal.swatchesInfo.length){ %>
+        <div class="kuSwatches">
+           <% var swatchIndex = 1; helper.each(dataLocal.swatchesInfo,function(key,item){ if(swatchIndex > 3){ return true; } %>
+               <div class="kuSwatchItem"><a href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuLandingSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
+           <% swatchIndex++; });%>
+           <% if(dataLocal.swatchesInfo.length > 3){ %>
+               <div class="kuSwatchItem kuSwatchMore">
+                   <a href="<%=dataLocal.url%>" class="kuSwatchLink">
+                       <span class="kuSwatchMoreText">
+                           +<%=(dataLocal.swatchesInfo.length-3)%>
+                       </span>
+                   </a>
+               </div>
+           <% } %>
+       </div>	
+   <% } %>
+</script>
 
 <!--
 	Search result product grid quick view modal template file
@@ -411,48 +418,34 @@
 	</script>
 
 <!--
-    Color swatch template for landing page products
+    Color swatch for Product Quick view. 
 -->
 
-<script type="template/klevu" id="landingPageProductColorSwatches">
-    <% if(dataLocal.swatchesInfo.length){ %>
-        <div class="kuSwatches">
-           <% var swatchIndex = 1; helper.each(dataLocal.swatchesInfo,function(key,item){ if(swatchIndex > 3){ return true; } %>
-               <div class="kuSwatchItem"><a href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuLandingSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
-           <% swatchIndex++; });%>
-           <% if(dataLocal.swatchesInfo.length > 3){ %>
-               <div class="kuSwatchItem kuSwatchMore">
-                   <a href="<%=dataLocal.url%>" class="kuSwatchLink">
-                       <span class="kuSwatchMoreText">
-                           +<%=(dataLocal.swatchesInfo.length-3)%>
-                       </span>
-                   </a>
-               </div>
-           <% } %>
-       </div>	
-   <% } %>
-</script>
-
-<!--
-    Search result Product stock availability label template file
--->
-
-<script type="template/klevu" id="searchResultProductStock">
-    <% var productStockStatus = (dataLocal.inStock == "yes") ? "In stock" : "Out of stock" %>
-    <div class="<%=(dataLocal.inStock == 'yes') ? 'kuCaptionStockIn' : 'kuCaptionStockOut'%>">
-    	<%= productStockStatus %>
-    </div>
-</script>
-
-<!--
-    Search result Product VAT label template file
--->
-
-<script type="template/klevu" id="searchResultProductVATLabel">
-	<% if(dataLocal.inclusiveVAT == true){ %>
-    	<div class="kuCaptionVat">Incl. VAT</div>
+<script type="template/klevu" id="quickViewProductColorSwatches">
+    <% var swatchesInfoList = dataLocal.swatchesInfo; var quickViewSwatchIndex = 1; %>
+    <% if(swatchesInfoList.length){ %>
+        <div class="productQuick-colorInStock">
+            <span class="productQuick-label"><%=helper.translate("Color Variants:") %></span>								
+            <div class="kuSwatches">
+                <% helper.each(swatchesInfoList,function(key,item){ if(quickViewSwatchIndex > 3){ return true;} %>
+                    <div class="kuSwatchItem"><a href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
+                <% quickViewSwatchIndex++; });%>
+                <% if(swatchesInfoList.length > 3){ %>
+                    <div class="kuSwatchItem kuSwatchMore">
+                        <a href="<%=dataLocal.url%>" class="kuSwatchLink">
+                            <span class="kuSwatchMoreText">
+                                +<%=(swatchesInfoList.length-3)%>
+                            </span>
+                        </a>
+                    </div>
+                <% } %>
+            </div>								
+        </div>
     <% } %>
 </script>
+
+
+
 
 <!--
     Custom pagination bar template
@@ -486,26 +479,33 @@
 </script>
 
 
-<!-- 
-    Landing page add to cart button template
--->
-
-<script type="template/klevu" id="landingPageProductAddToCart">
-    <div class="kuAddtocart" data-id="<%=dataLocal.id%>">
-        <div class="kuCartBtn">
-            <a href="javascript:void(0)" class="kuAddtocartBtn kuLandingAddToCartBtn"><%=helper.translate("Add to cart") %></a>
-        </div>
-    </div>
-</script>
-
-
-
 <!--
     Search result Product badge template file
 -->
 <script type="template/klevu" id="searchResultProductBadge">
     <%if(dataLocal.sku && dataLocal.sku != "") { %>
         <div class="kuDiscountBadge"><span class="kuDiscountTxt"><%=dataLocal.sku%></span></div>
+    <% } %>
+</script>
+
+<!--
+    Search result Product stock availability label template file
+-->
+
+<script type="template/klevu" id="searchResultProductStock">
+    <% var productStockStatus = (dataLocal.inStock == "yes") ? "In stock" : "Out of stock" %>
+    <div class="<%=(dataLocal.inStock == 'yes') ? 'kuCaptionStockIn' : 'kuCaptionStockOut'%>">
+    	<%= productStockStatus %>
+    </div>
+</script>
+
+<!--
+    Search result Product VAT label template file
+-->
+
+<script type="template/klevu" id="searchResultProductVATLabel">
+	<% if(dataLocal.inclusiveVAT == true){ %>
+    	<div class="kuCaptionVat">Incl. VAT</div>
     <% } %>
 </script>
 

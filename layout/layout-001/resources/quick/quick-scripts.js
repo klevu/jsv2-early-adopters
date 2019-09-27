@@ -255,3 +255,219 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
 });
 
 
+/**
+ * Add to cart base component
+ */
+klevu.extend({
+    addToCart: function (mainScope) {
+        if (!mainScope.addToCart) {
+            mainScope.addToCart = {};
+        }
+        mainScope.addToCart.base = {
+            /**
+             * Function to send Add to cart request
+             * @param {*} variantId 
+             * @param {*} quantity 
+             */
+            sendAddToCartRequest: function (variantId, quantity) {
+                var requestPayload = {
+                    id: variantId,
+                    quantity: quantity
+                };
+                /**
+                 * Shopify version of add to cart request.
+                 * Other frameworks may have other type of request for add to cart.
+                 * Hence, modify request code accordingly.
+                 */
+
+                klevu.ajax("/cart/add", {
+                    method: "POST",
+                    mimeType: "application/json; charset=UTF-8",
+                    data: JSON.stringify(requestPayload),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: "json",
+                    crossDomain: true,
+                    success: function (klXHR) {},
+                    error: function (klXHR) {},
+                    done: function (klXHR) {}
+                });
+
+            }
+        };
+    }
+});
+
+/**
+ * Color swatch base extension
+ */
+klevu.extend({
+    colorSwatches: function (mainScope) {
+        if (!mainScope.colorSwatches) {
+            mainScope.colorSwatches = {};
+        }
+        mainScope.colorSwatches.base = {
+            /**
+             * Function to prepare keyvalue pair object
+             * @param {*} keyValuePair 
+             */
+            parseKeyValuePairs: function (keyValuePair) {
+                var dataList = [];
+                keyValuePair.forEach(function (obj, index) {
+                    var dataIndex = index + 1;
+                    var matchedData = {};
+                    keyValuePair.forEach(function (swatch, i) {
+                        var objName = swatch.name;
+                        if (objName.indexOf(dataIndex) > -1) {
+                            objName = objName.replace(dataIndex, "");
+                            matchedData[objName] = swatch.value;
+                            matchedData.isMatched = true;
+                        }
+                    });
+                    if (matchedData.isMatched) {
+                        delete matchedData.isMatched;
+                        dataList.push(matchedData);
+                    }
+                });
+                return dataList;
+            },
+
+            /**
+             * Function to parse swatches info data string
+             * @param {*} str 
+             */
+            getColorSwatchesInfoFromString: function (str) {
+                if (str && str[0] && str[0].variantId) {
+                    return str;
+                }
+                var dataArray = str.split(";;;;");
+                var keyValuePair = [];
+                dataArray.forEach(function (str) {
+                    if (str.length) {
+                        var obj = {};
+                        var trimmedStr = str.trim();
+                        var splitedStr = trimmedStr.split(":");
+                        if (splitedStr.length === 2) {
+                            obj = {
+                                name: splitedStr[0],
+                                value: splitedStr[1]
+                            };
+                        } else if (splitedStr.length > 2) {
+                            var shiftedArray = splitedStr.shift();
+                            obj = {
+                                name: shiftedArray,
+                                value: splitedStr.join(":")
+                            };
+                        }
+                        keyValuePair.push(obj);
+                    }
+                });
+                return this.parseKeyValuePairs(keyValuePair);
+            },
+
+            /**
+             * Function to update data in existing product object
+             * @param {*} data 
+             */
+            parseProductColorSwatch: function (data, listName) {
+                var self = this;
+                var items = klevu.getObjectPath(data.template.query, listName);
+                if (items.result) {
+                    klevu.each(items.result, function (key, value) {
+                        if (value.swatchesInfo && value.swatchesInfo.length) {
+                            value.swatchesInfo = self.getColorSwatchesInfoFromString(value.swatchesInfo);
+                        }
+                    })
+                }
+            }
+        }
+    }
+});
+
+/**
+ * Extend addToCart base module for quick search
+ */
+
+klevu.extend({
+    addToCartQuick: function (mainScope) {
+
+        if (!mainScope.addToCart) {
+            console.log("Add to cart base module is missing!");
+            return;
+        }
+
+        mainScope.addToCart.quick = {
+
+            /**
+             * Quick search Add to cart button click event
+             * @param {*} ele 
+             * @param {*} event 
+             * @param {*} productList 
+             */
+            attachQuickProductAddToCartBtnEvent: function (ele, event, productList) {
+                event = event || window.event;
+                event.preventDefault();
+
+                var selected_product;
+                var target = klevu.dom.helpers.getClosest(ele, ".klevuQuickAddtoCart");
+                var productId = target.getAttribute("data-id");
+                klevu.each(productList, function (key, product) {
+                    if (product.id == productId) {
+                        selected_product = product;
+                    }
+                });
+                if (selected_product) {
+                    if (selected_product) {
+                        mainScope.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
+                    }
+                }
+            },
+
+            /**
+             * Function to bind events to Quick search product add to cart button
+             * @param {*} data 
+             * @param {*} scope 
+             */
+            bindQuickSearchProductAddToCartBtnClickEvent: function (data, listName) {
+                var self = this;
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                var productList = klevu.getObjectPath(data.template.query, listName);
+
+                klevu.each(klevu.dom.find(".klevuQuickCartBtn", target), function (key, value) {
+                    klevu.event.attach(value, "click", function (event) {
+                        self.attachQuickProductAddToCartBtnEvent(this, event, productList.result);
+                    });
+                });
+            }
+        };
+
+    }
+});
+
+/**
+ *  Add to cart button functionality on quick search
+ */
+
+klevu.coreEvent.attach("setRemoteConfigQuick", {
+    name: "addAddToCartButtonQuickSearch",
+    fire: function () {
+        klevu.each(klevu.search.extraSearchBox, function (key, box) {
+            /** Initialize add to cart base module in quick search */
+            klevu.addToCart(box.getScope().element.kScope);
+
+            /** Initalize add to cart service */
+            klevu.addToCartQuick(box.getScope().element.kScope);
+
+            /** Set Template */
+            box.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#quickSearchProductAddToCart"), "quickSearchProductAddToCart", true);
+
+            /** Bind quick page add to cart button click event */
+            box.getScope().chains.template.events.add({
+                name: "quickSearchProductAddToCartEvent",
+                fire: function (data, scope) {
+                    scope.kScope.addToCart.quick.bindQuickSearchProductAddToCartBtnClickEvent(data, "productList");
+                }
+            });
+        });
+    }
+});
+

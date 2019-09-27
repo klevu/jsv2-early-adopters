@@ -561,88 +561,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 });
 
 /**
- * Attach Product VAT label
- */
-
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "addProductVATLabel",
-    fire: function () {
-        /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#searchResultProductVATLabel"), "landingProductVATLabel", true);
-    }
-});
-
-/**
- * Attach Product badge
- */
-
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "addSearchResultProductBadges",
-    fire: function () {
-        
-        /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#searchResultProductBadge"), "landingProductBadge", true);
-    }
-});
-
-/**
- * Add to cart base component
- */
-klevu.extend({
-    addToCart: function (mainScope) {
-        mainScope.addToCart = {};
-        mainScope.addToCart.base = {
-
-            /**
-             * Function to send Add to cart request
-             * @param {*} variantId 
-             * @param {*} quantity 
-             */
-            sendAddToCartRequest: function (variantId, quantity) {
-                var self = this;
-                var requestPayload = {
-                    id: variantId,
-                    quantity: quantity
-                };
-
-                /**
-                 * Shopify version of add to cart request.
-                 * Other frameworks may have other type of request for add to cart.
-                 * Hence, modify request code accordingly.
-                 */
-
-                klevu.ajax("/cart/add", {
-                    method: "POST",
-                    mimeType: "application/json; charset=UTF-8",
-                    data: JSON.stringify(requestPayload),
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: "json",
-                    crossDomain: true,
-                    success: function (klXHR) {},
-                    error: function (klXHR) {},
-                    done: function (klXHR) {}
-                });
-
-            }
-        };
-    }
-});
-
-/**
- * Event to initialize add to cart base component
- */
-
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "initializeAddToCartBaseModule",
-    fire: function () {
-
-        /** Initialize add to cart base module in landing scope */
-        klevu.addToCart(klevu.search.landing.getScope().element.kScope);
-
-    }
-});
-
-/**
  * Extend addToCart base module for landing page
  */
 
@@ -709,347 +627,22 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     fire: function () {
 
         /** Include addToCart base module first to use base functionalities */
-
-        /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductAddToCart"), "landingPageProductAddToCart", true);
+        klevu.addToCart(klevu.search.landing.getScope().element.kScope);
 
         /** Initalize add to cart service */
         klevu.addToCartLanding(klevu.search.landing.getScope().element.kScope);
 
-        /*
-         *	Bind landing page add to cart button click event
-         */
+        /** Set Template */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductAddToCart"), "landingPageProductAddToCart", true);
+        
+
+        /** Bind landing page add to cart button click event */
         klevu.search.landing.getScope().chains.template.events.add({
             name: "landingPageProductAddToCartEvent",
             fire: function (data, scope) {
                 klevu.search.landing.getScope().addToCart.landing.bindLandingProductAddToCartBtnClickEvent(data, "productList");
             }
         });
-    }
-});
-
-/**
- * Extend addToCart base module for Quick view
- */
-
-klevu.extend({
-    addToCartQuickView: function (mainScope) {
-
-        if (!mainScope.addToCart) {
-            console.log("Add to cart base module is missing!");
-            return;
-        }
-
-        mainScope.addToCart.quickView = {
-
-            /*
-             *	Function to toggle Body scroll style
-             */
-            toggleBodyScroll: function () {
-                var body = klevu.dom.find("body")[0];
-                var isScroll = '';
-                if (!body.style.overflow) {
-                    isScroll = "hidden";
-                }
-                body.style.overflow = isScroll;
-            },
-
-            /*
-             *	Function to toggle modal UI
-             */
-            toggleModal: function () {
-                this.toggleBodyScroll();
-                var modalElement = klevu.dom.find("div.kuModal");
-                if (modalElement.length) {
-                    modalElement[0].classList.toggle("show-modal");
-                }
-            },
-
-            /**
-             * Function to attach add to cart button event
-             * @param {*} event 
-             */
-            attachKlevuQuickViewAddToCartBtnEvent: function (event) {
-                event = event || window.event;
-                event.preventDefault();
-                var selected_product;
-                var target = klevu.dom.find(".productQuickView");
-                if (target && target[0]) {
-                    selected_product = target[0].selected_product;
-                }
-                if (selected_product) {
-                    mainScope.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
-                }
-                this.toggleModal();
-            },
-
-            /**
-             * Function to bind add to cart button event
-             */
-            bindAddToCartEvent: function () {
-                var self = this;
-                var addToCartElement = klevu.dom.find(".kuModalProductCart", ".productQuickView");
-                if (addToCartElement.length) {
-                    klevu.event.attach(addToCartElement[0], "click", function (event) {
-                        self.attachKlevuQuickViewAddToCartBtnEvent(event);
-                    });
-                }
-            }
-        };
-
-
-    }
-});
-
-/**
- * Quick view service file
- */
-klevu.extend({
-    quickViewService: function (mainScope) {
-        mainScope.quickViewService = {
-            modal: null,
-            closeButton: null,
-            selected_product: null,
-            /*
-             *	Add container for Product Quick view
-             */
-            appendTemplateIntoBody: function () {
-                var quickViewCont = document.createElement("div");
-                quickViewCont.className = "quickViewWrap productQuickView";
-                window.document.body.appendChild(quickViewCont);
-            },
-            /*
-             *	Function to toggle Body scroll style
-             */
-            toggleBodyScroll: function () {
-                var body = klevu.dom.find("body")[0];
-                var isScroll = '';
-                if (!body.style.overflow) {
-                    isScroll = "hidden";
-                }
-                body.style.overflow = isScroll;
-            },
-            /*
-             *	Function to toggle modal UI
-             */
-            toggleModal: function () {
-                this.toggleBodyScroll();
-                var modalElement = klevu.dom.find("div.kuModal", '.productQuickView');
-                if (modalElement.length) {
-                    this.modal = modalElement[0];
-                    this.modal.classList.toggle("show-modal");
-                }
-            },
-            /*
-             *	Function to fire on window click event to hide modal
-             */
-            windowOnClick: function (event) {
-                if (event.target === this.modal) {
-                    this.toggleModal();
-                }
-            },
-            /**
-             * Function to bind event on close button
-             */
-            bindCloseBtnClick: function () {
-                var self = this;
-                var closeElement = klevu.dom.find(".close-button", '.productQuickView');
-                if (closeElement.length) {
-                    self.closeButton = closeElement[0];
-                    klevu.event.attach(self.closeButton, "click", function () {
-                        self.toggleModal();
-                    });
-                }
-            },
-            /**
-             * Landing page onload event
-             * @param {*} data 
-             * @param {*} scope 
-             */
-            landingPageTemplateOnLoadEvent: function (data) {
-                var self = this;
-                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
-                klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
-                        event = event || window.event;
-                        event.preventDefault();
-                        var selected_product_id = (this.getAttribute("data-id")) ? this.getAttribute("data-id") : null;
-                        var items = klevu.getObjectPath(data.template.query, 'productList');
-                        if (items.result) {
-                            klevu.each(items.result, function (key, value) {
-                                if (value.id == selected_product_id) {
-                                    selected_product = value;
-                                }
-                            })
-                        }
-                        data.template.selected_product = selected_product;
-                        var target = klevu.dom.find(".productQuickView");
-                        if (target && target[0]) {
-                            target[0].selected_product = selected_product;
-                        }
-                        klevu.event.fireChain(mainScope, "chains.quickView", mainScope.element, mainScope.data, event);
-                        self.toggleModal();
-                    });
-                });
-            }
-        };
-    }
-});
-
-/**
- * Add Product Quick view functionality
- */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "product-quick-view",
-    fire: function () {
-
-        /** Set template in landing UI */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuLandingTemplateQuickView"), "quick-view", true);
-
-        /** Create chain for Quick view */
-        klevu.search.landing.getScope().chains.quickView = klevu.chain();
-
-        /** Initialize Quick view service */
-        klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
-
-        /** Add Quick view wrapper container in body */
-        klevu.search.landing.getScope().quickViewService.appendTemplateIntoBody();
-
-        /** Initalize add to cart service */
-        klevu.addToCartQuickView(klevu.search.landing.getScope().element.kScope);
-
-        /*
-         *	Add Quick view template and update data into that
-         */
-        klevu.search.landing.getScope().chains.quickView.add({
-            name: "chainQuickView",
-            fire: function (data, scope) {
-                event = event || window.event;
-                event.preventDefault();
-                scope.kScope.template.setData(data.template);
-                var target = klevu.dom.find("div.quickViewWrap")[0];
-                target.innerHTML = '';
-                var element = scope.kScope.template.convertTemplate(scope.kScope.template.render("quick-view"));
-                scope.kScope.template.insertTemplate(target, element);
-
-                klevu.search.landing.getScope().quickViewService.bindCloseBtnClick();
-                klevu.search.landing.getScope().addToCart.quickView.bindAddToCartEvent();
-            }
-        });
-
-        /**
-         *  Bind body click event
-         */
-        klevu.event.attach(window, "click", function (event) {
-            klevu.search.landing.getScope().quickViewService.windowOnClick(event);
-        });
-
-        /*
-         *	Bind and handle click event on Quick view button 
-         */
-        klevu.search.landing.getScope().chains.template.events.add({
-            name: "quickViewButtonClick",
-            fire: function (data, scope) {
-                klevu.search.landing.getScope().quickViewService.landingPageTemplateOnLoadEvent(data);
-            }
-        });
-    }
-})
-
-/**
- * Color swatch base extension
- */
-klevu.extend({
-    colorSwatches: function (mainScope) {
-        mainScope.colorSwatches = {}
-        mainScope.colorSwatches.base = {
-
-            /**
-             * Function to prepare keyvalue pair object
-             * @param {*} keyValuePair 
-             */
-            parseKeyValuePairs: function (keyValuePair) {
-                var dataList = [];
-                keyValuePair.forEach(function (obj, index) {
-                    var dataIndex = index + 1;
-                    var matchedData = {};
-                    keyValuePair.forEach(function (swatch, i) {
-                        var objName = swatch.name;
-                        if (objName.indexOf(dataIndex) > -1) {
-                            objName = objName.replace(dataIndex, "");
-                            matchedData[objName] = swatch.value;
-                            matchedData.isMatched = true;
-                        }
-                    });
-                    if (matchedData.isMatched) {
-                        delete matchedData.isMatched;
-                        dataList.push(matchedData);
-                    }
-                });
-                return dataList;
-            },
-
-            /**
-             * Function to parse swatches info data string
-             * @param {*} str 
-             */
-            getColorSwatchesInfoFromString: function (str) {
-                if (str && str[0] && str[0].variantId) {
-                    return str;
-                }
-                var dataArray = str.split(";;;;");
-                var keyValuePair = [];
-                dataArray.forEach(function (str) {
-                    if (str.length) {
-                        var obj = {};
-                        var trimmedStr = str.trim();
-                        var splitedStr = trimmedStr.split(":");
-                        if (splitedStr.length === 2) {
-                            obj = {
-                                name: splitedStr[0],
-                                value: splitedStr[1]
-                            };
-                        } else if (splitedStr.length > 2) {
-                            var shiftedArray = splitedStr.shift();
-                            obj = {
-                                name: shiftedArray,
-                                value: splitedStr.join(":")
-                            };
-                        }
-                        keyValuePair.push(obj);
-                    }
-                });
-                return this.parseKeyValuePairs(keyValuePair);
-            },
-
-            /**
-             * Function to update data in existing product object
-             * @param {*} data 
-             */
-            parseProductColorSwatch: function (data, listName) {
-                var self = this;
-                var items = klevu.getObjectPath(data.template.query, listName);
-                if (items.result) {
-                    klevu.each(items.result, function (key, value) {
-                        if (value.swatchesInfo && value.swatchesInfo.length) {
-                            value.swatchesInfo = self.getColorSwatchesInfoFromString(value.swatchesInfo);
-                        }
-                    })
-                }
-            }
-        }
-    }
-});
-
-/**
- * Event to initialize color swatches base module
- */
-
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "initializeColorSwatchBaseModule",
-    fire: function () {
-        /** Initialize color swatch base module in landing scope */
-        klevu.colorSwatches(klevu.search.landing.getScope().element.kScope);
     }
 });
 
@@ -1179,12 +772,13 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     fire: function () {
 
         /** Include Color swatches base module first to use base functionalities */
-
-        /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductColorSwatches"), "landingProductSwatch", true);
+        klevu.colorSwatches(klevu.search.landing.getScope().element.kScope);
 
         /** Initalize color swatch service */
         klevu.colorSwatchesLanding(klevu.search.landing.getScope().element.kScope);
+
+        /** Set Template */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductColorSwatches"), "landingProductSwatch", true);
 
         /**
          * Initialize color swatches and service before rendering
@@ -1210,6 +804,238 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
     }
 });
+
+/**
+ * Extend addToCart base module for Quick view
+ */
+
+klevu.extend({
+    addToCartQuickView: function (mainScope) {
+
+        if (!mainScope.addToCart) {
+            console.log("Add to cart base module is missing!");
+            return;
+        }
+
+        mainScope.addToCart.quickView = {
+
+            /*
+             *	Function to toggle Body scroll style
+             */
+            toggleBodyScroll: function () {
+                var body = klevu.dom.find("body")[0];
+                var isScroll = '';
+                if (!body.style.overflow) {
+                    isScroll = "hidden";
+                }
+                body.style.overflow = isScroll;
+            },
+
+            /*
+             *	Function to toggle modal UI
+             */
+            toggleModal: function () {
+                this.toggleBodyScroll();
+                var modalElement = klevu.dom.find("div.kuModal");
+                if (modalElement.length) {
+                    modalElement[0].classList.toggle("show-modal");
+                }
+            },
+
+            /**
+             * Function to attach add to cart button event
+             * @param {*} event 
+             */
+            attachKlevuQuickViewAddToCartBtnEvent: function (event) {
+                event = event || window.event;
+                event.preventDefault();
+                var selected_product;
+                var target = klevu.dom.find(".productQuickView");
+                if (target && target[0]) {
+                    selected_product = target[0].selected_product;
+                }
+                if (selected_product) {
+                    mainScope.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
+                }
+                this.toggleModal();
+            },
+
+            /**
+             * Function to bind add to cart button event
+             */
+            bindAddToCartEvent: function () {
+                var self = this;
+                var addToCartElement = klevu.dom.find(".kuModalProductCart", ".productQuickView");
+                if (addToCartElement.length) {
+                    klevu.event.attach(addToCartElement[0], "click", function (event) {
+                        self.attachKlevuQuickViewAddToCartBtnEvent(event);
+                    });
+                }
+            }
+        };
+    }
+});
+
+/**
+ * Quick view service file
+ */
+klevu.extend({
+    quickViewService: function (mainScope) {
+        mainScope.quickViewService = {
+            modal: null,
+            closeButton: null,
+            selected_product: null,
+            /*
+             *	Add container for Product Quick view
+             */
+            appendTemplateIntoBody: function () {
+                var quickViewCont = document.createElement("div");
+                quickViewCont.className = "quickViewWrap productQuickView";
+                window.document.body.appendChild(quickViewCont);
+            },
+            /*
+             *	Function to toggle Body scroll style
+             */
+            toggleBodyScroll: function () {
+                var body = klevu.dom.find("body")[0];
+                var isScroll = '';
+                if (!body.style.overflow) {
+                    isScroll = "hidden";
+                }
+                body.style.overflow = isScroll;
+            },
+            /*
+             *	Function to toggle modal UI
+             */
+            toggleModal: function () {
+                this.toggleBodyScroll();
+                var modalElement = klevu.dom.find("div.kuModal", '.productQuickView');
+                if (modalElement.length) {
+                    this.modal = modalElement[0];
+                    this.modal.classList.toggle("show-modal");
+                }
+            },
+            /*
+             *	Function to fire on window click event to hide modal
+             */
+            windowOnClick: function (event) {
+                if (event.target === this.modal) {
+                    this.toggleModal();
+                }
+            },
+            /**
+             * Function to bind event on close button
+             */
+            bindCloseBtnClick: function () {
+                var self = this;
+                var closeElement = klevu.dom.find(".close-button", '.productQuickView');
+                if (closeElement.length) {
+                    self.closeButton = closeElement[0];
+                    klevu.event.attach(self.closeButton, "click", function () {
+                        self.toggleModal();
+                    });
+                }
+            },
+            /**
+             * Landing page onload event
+             * @param {*} data 
+             * @param {*} scope 
+             */
+            landingPageTemplateOnLoadEvent: function (data) {
+                var self = this;
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function (key, value) {
+                    klevu.event.attach(value, "click", function (event) {
+                        event = event || window.event;
+                        event.preventDefault();
+                        var selected_product_id = (this.getAttribute("data-id")) ? this.getAttribute("data-id") : null;
+                        var items = klevu.getObjectPath(data.template.query, 'productList');
+                        if (items.result) {
+                            klevu.each(items.result, function (key, value) {
+                                if (value.id == selected_product_id) {
+                                    selected_product = value;
+                                }
+                            })
+                        }
+                        data.template.selected_product = selected_product;
+                        var target = klevu.dom.find(".productQuickView");
+                        if (target && target[0]) {
+                            target[0].selected_product = selected_product;
+                        }
+                        klevu.event.fireChain(mainScope, "chains.quickView", mainScope.element, mainScope.data, event);
+                        self.toggleModal();
+                    });
+                });
+            }
+        };
+    }
+});
+
+/**
+ * Add Product Quick view functionality
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "product-quick-view",
+    fire: function () {
+
+        /** Include addToCart base module first to use base functionalities */
+        klevu.addToCart(klevu.search.landing.getScope().element.kScope);
+
+        /** Initalize add to cart service */
+        klevu.addToCartQuickView(klevu.search.landing.getScope().element.kScope);
+
+        /** Initialize Quick view service */
+        klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
+
+        
+
+        /** Set template in landing UI */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuLandingTemplateQuickView"), "quick-view", true);
+
+        /** Create chain for Quick view */
+        klevu.search.landing.getScope().chains.quickView = klevu.chain();
+
+        /** Add Quick view wrapper container in body */
+        klevu.search.landing.getScope().quickViewService.appendTemplateIntoBody();
+
+
+        /*
+         *	Add Quick view template and update data into that
+         */
+        klevu.search.landing.getScope().chains.quickView.add({
+            name: "chainQuickView",
+            fire: function (data, scope) {
+                event = event || window.event;
+                event.preventDefault();
+                scope.kScope.template.setData(data.template);
+                var target = klevu.dom.find("div.quickViewWrap")[0];
+                target.innerHTML = '';
+                var element = scope.kScope.template.convertTemplate(scope.kScope.template.render("quick-view"));
+                scope.kScope.template.insertTemplate(target, element);
+
+                klevu.search.landing.getScope().quickViewService.bindCloseBtnClick();
+                klevu.search.landing.getScope().addToCart.quickView.bindAddToCartEvent();
+            }
+        });
+
+        /**
+         *  Bind body click event
+         */
+        klevu.event.attach(window, "click", function (event) {
+            klevu.search.landing.getScope().quickViewService.windowOnClick(event);
+        });
+
+        /*
+         *	Bind and handle click event on Quick view button 
+         */
+        klevu.search.landing.getScope().chains.template.events.add({
+            name: "quickViewButtonClick",
+            fire: function (data, scope) {
+                klevu.search.landing.getScope().quickViewService.landingPageTemplateOnLoadEvent(data);
+            }
+        });
+    }
+})
 
 /**
  * Color swatch Quick view extension
@@ -1314,6 +1140,7 @@ klevu.extend({
     }
 });
 
+
 /**
  * Event to attach product quick view color swatch
  */
@@ -1322,12 +1149,14 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     fire: function () {
 
         /** Include Color swatches base module first to use base functionalities */
-
-        /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#quickViewProductColorSwatches"), "quickViewProductSwatch", true);
+        klevu.colorSwatches(klevu.search.landing.getScope().element.kScope);
 
         /** Initalize color swatch service */
         klevu.colorSwatchesQuickView(klevu.search.landing.getScope().element.kScope);
+
+
+        /** Set Template */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#quickViewProductColorSwatches"), "quickViewProductSwatch", true);
 
         /**
          * parse product color swatch info
@@ -1350,6 +1179,252 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         });
 
 
+    }
+});
+
+/**
+ * Extend klevu object for custom pagination functionality
+ */
+klevu.extend({
+    customPagination: function (mainScope) {
+        mainScope.customPagination = {};
+        mainScope.customPagination.base = {
+
+            /**
+             * Paginate click event
+             * @param {*} scope 
+             * @param {*} event 
+             */
+            paginateClickEvent: function (event) {
+                event = event || window.event;
+                event.preventDefault();
+
+                var element = event.target;
+                var target = klevu.dom.helpers.getClosest(element, ".klevuTarget");
+                if (target === null) {
+                    return;
+                }
+                var scope = target.kElem;
+                scope.kScope.data = scope.kObject.resetData(scope.kElem);
+                scope.kScope.data.context.keyCode = 0;
+                scope.kScope.data.context.eventObject = event;
+                scope.kScope.data.context.event = "keyUp";
+                scope.kScope.data.context.preventDefault = false;
+
+                var options = klevu.dom.helpers.getClosest(element, ".klevuMeta");
+                var offset = element.dataset.offset;
+                offset = (offset < 0) ? 0 : offset;
+
+                klevu.setObjectPath(scope.kScope.data, "localOverrides.query." + options.dataset.section + ".settings.offset", parseInt(offset));
+                klevu.event.fireChain(scope.kScope, "chains.events.keyUp", scope, scope.kScope.data, event);
+            },
+
+            /**
+             * Function to bind pagination events
+             * @param {*} paginateClass paginate link container class
+             */
+            bindPaginationEvents: function (paginateClass) {
+                var self = this;
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(paginateClass, target), function (key, value) {
+                    klevu.event.attach(value, "click", function (event) {
+                        self.paginateClickEvent(event);
+                    }, true);
+                });
+            }
+        };
+    }
+});
+
+
+/**
+ * Add landing page custom pagination bar
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "addLandingPageCustomPaginationBar",
+    fire: function () {
+
+        /** Initializing custom pagination */
+        klevu.customPagination(klevu.search.landing.getScope().element.kScope);
+
+        /** Set Template */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#customLandingPagePaginationBar"), "customLandingPagePagination", true);
+
+        /**
+         * Add pagination events
+         */
+        klevu.search.landing.getScope().chains.template.events.add({
+            name: "addCustomPagination",
+            fire: function (data, scope) {
+
+                /** Binding events for pagination on landing page */
+                klevu.search.landing.getScope().customPagination.base.bindPaginationEvents(".kuPaginate");
+            }
+        });
+
+    }
+});
+
+/**
+ * Extension for collapse filter functionality
+ */
+klevu.extend({
+    collapseFilters: function (mainScope) {
+        mainScope.collapseFilters = {};
+        mainScope.collapseFilters.base = {
+            /**
+             * Function to collapse filter list as per the priority list
+             * @param {*} data 
+             * @param {*} collapsedFilters 
+             */
+            collapse: function (data, collapsedFilters) {
+                if (data && data.template && data.template.query && collapsedFilters) {
+                    var items = klevu.getObjectPath(data.template.query, 'productList');
+                    if (items && items.filters) {
+                        var filters = items.filters;
+                        filters.forEach(function (filter) {
+                            filter.isCollapsed = false;
+                        });
+                        collapsedFilters.forEach(function (collapsedFilter) {
+                            filters.forEach(function (filter) {
+                                if (collapsedFilter.key == filter.key) {
+                                    filter.isCollapsed = true;
+                                }
+                            });
+                        });
+                    }
+                }
+            }
+        };
+    }
+});
+
+/**
+ * Collapse filter
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "collapseFilters",
+    fire: function () {
+
+        /** Initialize collapseFilters module */
+        klevu.collapseFilters(klevu.search.landing.getScope().element.kScope);
+
+        /**
+         * Function to set filter priority list and reoder filter list
+         */
+        klevu.search.landing.getScope().chains.template.render.addBefore("renderResponse", {
+            name: "collapseFilterPosition",
+            fire: function (data, scope) {
+                if (data.context.isSuccess) {
+
+                    var collapsedFilters = [{
+                        key: "tags"
+                    }, {
+                        key: "type"
+                    }, {
+                        key: "shade_color"
+                    }, {
+                        key: "product_type"
+                    }];
+
+                    klevu.search.landing.getScope().collapseFilters.base.collapse(data, collapsedFilters);
+                }
+            }
+        });
+    }
+});
+
+/**
+ * Extension for reordering filter option functionality
+ */
+klevu.extend({
+    reorderFilterOptions: function (mainScope) {
+        mainScope.reorderFilterOptions = {};
+        mainScope.reorderFilterOptions.base = {
+            /**
+             * Function to reorder filter option list as per the priority list
+             * @param {*} data 
+             * @param {*} priorityFilterOptions 
+             */
+            reorder: function (data, priorityFilterOptions) {
+                if (data && data.template && data.template.query) {
+                    var items = klevu.getObjectPath(data.template.query, 'productList');
+                    if (items && items.filters) {
+                        var filters = items.filters;
+                        priorityFilterOptions.forEach(function (priorityFilter, index) {
+                            var priorityOptions = priorityFilter.options;
+                            filters.forEach(function (filter) {
+                                if (filter.key == priorityFilter.key) {
+                                    var options = filter.options;
+                                    if (options) {
+                                        filter.otherOptionsIndexStart = priorityOptions.length + 1;
+                                        priorityOptions.forEach(function (priorityOption, index) {
+                                            options.forEach(function (option) {
+                                                if (priorityOption.name == option.name) {
+                                                    option.sort = index + 1;
+                                                }
+                                            });
+                                        });
+                                    }
+                                }
+                            });
+                        });
+                        filters.forEach(function (filter) {
+                            var optionsIndex = (filter.otherOptionsIndexStart) ? filter.otherOptionsIndexStart : 1;
+                            var options = filter.options;
+                            if (options) {
+                                options.forEach(function (option) {
+                                    if (!option.sort) {
+                                        option.sort = optionsIndex;
+                                        optionsIndex++;
+                                    }
+                                });
+                                options.sort(function (a, b) {
+                                    return a.sort - b.sort;
+                                });
+                            }
+                        });
+                    }
+                }
+            }
+        };
+    }
+});
+
+/**
+ * Reorder filter option list
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "reorderFilterOptions",
+    fire: function () {
+
+        /** Initialize reorderFilterOptions */
+        klevu.reorderFilterOptions(klevu.search.landing.getScope().element.kScope);
+
+        /**
+         * Function to set filter option priority list and reoder filter option list
+         */
+        klevu.search.landing.getScope().chains.template.render.addBefore("renderResponse", {
+            name: "reorderFilterOptionPosition",
+            fire: function (data, scope) {
+                if (data.context.isSuccess) {
+                    var priorityFilterOptions = [{
+                        key: "size",
+                        options: [{
+                            name: "xl"
+                        }, {
+                            name: "small"
+                        }]
+                    }, {
+                        key: "category",
+                        options: [{
+                            name: "father's day sale"
+                        }]
+                    }];
+                    klevu.search.landing.getScope().reorderFilterOptions.base.reorder(data, priorityFilterOptions);
+                }
+            }
+        });
     }
 });
 
@@ -1442,14 +1517,16 @@ klevu.extend({
                 } else {
                     var applyFilters = localFilters.applyFilters.filters;
                     var isUpdated = false;
-                    applyFilters.forEach(function (filter) {
-                        if (filter.key == ele.sliderData.key) {
-                            isUpdated = true;
-                            filter.values = [min.toString(), max.toString()];
+                    if (applyFilters) {
+                        applyFilters.forEach(function (filter) {
+                            if (filter.key == ele.sliderData.key) {
+                                isUpdated = true;
+                                filter.values = [min.toString(), max.toString()];
+                            }
+                        });
+                        if (!isUpdated) {
+                            applyFilters.push(sliderFilterReqObj);
                         }
-                    });
-                    if (!isUpdated) {
-                        applyFilters.push(sliderFilterReqObj);
                     }
                 }
 
@@ -1468,6 +1545,9 @@ klevu.extend({
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "attachPriceSliderFilter",
     fire: function () {
+
+        /** Initialize filterPriceSlider */
+        klevu.filterPriceSlider(klevu.search.landing.getScope().element.kScope);
 
         /** Price slider filter request query */
         klevu.search.landing.getScope().priceSliderFilterReqQuery = {
@@ -1494,10 +1574,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "initSliderFilter",
             fire: function (data, scope) {
-
-                /** Initialize filterPriceSlider */
-                klevu.filterPriceSlider(klevu.search.landing.getScope().element.kScope);
-
                 klevu.search.landing.getScope().filterPriceSlider.base.initSlider(data, scope);
             }
         });
@@ -1506,14 +1582,72 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 });
 
 /**
- * Attach Product stock availability label
+ * Extension for reordering filters
  */
+klevu.extend({
+    reorderFilters: function (mainScope) {
+        mainScope.reorderFilters = {};
+        mainScope.reorderFilters.base = {
+            /**
+             * Function to reorder filter list as per the priority list
+             * @param {*} data 
+             * @param {*} priorityFilters 
+             */
+            reorder: function (data, priorityFilters) {
+                if (data && data.template && data.template.query) {
+                    var items = klevu.getObjectPath(data.template.query, 'productList');
+                    if (items && items.filters) {
+                        var filters = items.filters;
+                        var otherIndexStart = priorityFilters.length + 1;
+                        priorityFilters.forEach(function (priorityFilter, index) {
+                            filters.forEach(function (filter) {
+                                if (filter.key == priorityFilter.key) {
+                                    filter.sort = index + 1;
+                                }
+                            });
+                        });
+                        filters.forEach(function (filter) {
+                            if (!filter.sort) {
+                                filter.sort = otherIndexStart;
+                                otherIndexStart++;
+                            }
+                        });
+                        filters.sort(function (a, b) {
+                            return a.sort - b.sort;
+                        });
+                    }
+                }
+            }
+        };
+    }
+});
 
+/**
+ * Reorder filter list
+ */
 klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "addProductavailabilityLabel",
+    name: "reorderFilters",
     fire: function () {
-        /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#searchResultProductStock"), "landingProductStock", true);
+
+        /** Initialize reorderFilters */
+        klevu.reorderFilters(klevu.search.landing.getScope().element.kScope);
+
+        /**
+         * Function to set filter priority list and reoder filter list
+         */
+        klevu.search.landing.getScope().chains.template.render.addBefore("renderResponse", {
+            name: "reorderFilterPosition",
+            fire: function (data, scope) {
+                if (data.context.isSuccess) {
+                    var priorityFilters = [{
+                        key: "brand"
+                    }, {
+                        key: "category"
+                    }];
+                    klevu.search.landing.getScope().reorderFilters.base.reorder(data, priorityFilters);
+                }
+            }
+        });
     }
 });
 
@@ -1635,16 +1769,16 @@ klevu.extend({
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "addMobileFilterSliderEvents",
     fire: function () {
+
+        /** Initialize mobileFilterSlider */
+        klevu.mobileFilterSlider(klevu.search.landing.getScope().element.kScope);
+
         /**
          * Function to load on landing page load
          */
         klevu.search.landing.getScope().chains.template.events.add({
             name: "attachMobileSliderFilter",
             fire: function (data, scope) {
-
-                /** Initialize mobileFilterSlider */
-                klevu.mobileFilterSlider(klevu.search.landing.getScope().element.kScope);
-
                 klevu.search.landing.getScope().mobileFilterSlider.base.attachButtonEvents();
                 klevu.search.landing.getScope().mobileFilterSlider.base.persistFilterPosition();
             }
@@ -1654,322 +1788,39 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 });
 
 /**
- * Extension for reordering filters
+ * Attach Product badge
  */
-klevu.extend({
-    reorderFilters: function (mainScope) {
-        mainScope.reorderFilters = {};
-        mainScope.reorderFilters.base = {
-            /**
-             * Function to reorder filter list as per the priority list
-             * @param {*} data 
-             * @param {*} priorityFilters 
-             */
-            reorder: function (data, priorityFilters) {
-                if (data && data.template && data.template.query) {
-                    var items = klevu.getObjectPath(data.template.query, 'productList');
-                    if (items && items.filters) {
-                        var filters = items.filters;
-                        var otherIndexStart = priorityFilters.length + 1;
-                        priorityFilters.forEach(function (priorityFilter, index) {
-                            filters.forEach(function (filter) {
-                                if (filter.key == priorityFilter.key) {
-                                    filter.sort = index + 1;
-                                }
-                            });
-                        });
-                        filters.forEach(function (filter) {
-                            if (!filter.sort) {
-                                filter.sort = otherIndexStart;
-                                otherIndexStart++;
-                            }
-                        });
-                        filters.sort(function (a, b) {
-                            return a.sort - b.sort;
-                        });
-                    }
-                }
-            }
-        };
-    }
-});
 
-/**
- * Reorder filter list
- */
 klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "reorderFilters",
+    name: "addSearchResultProductBadges",
     fire: function () {
-
-        /**
-         * Function to set filter priority list and reoder filter list
-         */
-        klevu.search.landing.getScope().chains.template.render.addBefore("renderResponse", {
-            name: "reorderFilterPosition",
-            fire: function (data, scope) {
-                if (data.context.isSuccess) {
-
-                    var priorityFilters = [{
-                        key: "brand"
-                    }, {
-                        key: "category"
-                    }];
-
-                    /** Initialize reorderFilters */
-                    klevu.reorderFilters(klevu.search.landing.getScope().element.kScope);
-
-                    klevu.search.landing.getScope().reorderFilters.base.reorder(data, priorityFilters);
-                }
-            }
-        });
-    }
-});
-
-/**
- * Extension for reordering filter option functionality
- */
-klevu.extend({
-    reorderFilterOptions: function (mainScope) {
-        mainScope.reorderFilterOptions = {};
-        mainScope.reorderFilterOptions.base = {
-            /**
-             * Function to reorder filter option list as per the priority list
-             * @param {*} data 
-             * @param {*} priorityFilterOptions 
-             */
-            reorder: function (data, priorityFilterOptions) {
-                if (data && data.template && data.template.query) {
-                    var items = klevu.getObjectPath(data.template.query, 'productList');
-                    if (items && items.filters) {
-                        var filters = items.filters;
-                        priorityFilterOptions.forEach(function (priorityFilter, index) {
-                            var priorityOptions = priorityFilter.options;
-                            filters.forEach(function (filter) {
-                                if (filter.key == priorityFilter.key) {
-                                    var options = filter.options;
-                                    if (options) {
-                                        filter.otherOptionsIndexStart = priorityOptions.length + 1;
-                                        priorityOptions.forEach(function (priorityOption, index) {
-                                            options.forEach(function (option) {
-                                                if (priorityOption.name == option.name) {
-                                                    option.sort = index + 1;
-                                                }
-                                            });
-                                        });
-                                    }
-                                }
-                            });
-                        });
-                        filters.forEach(function (filter) {
-                            var optionsIndex = (filter.otherOptionsIndexStart) ? filter.otherOptionsIndexStart : 1;
-                            var options = filter.options;
-                            if (options) {
-                                options.forEach(function (option) {
-                                    if (!option.sort) {
-                                        option.sort = optionsIndex;
-                                        optionsIndex++;
-                                    }
-                                });
-                                options.sort(function (a, b) {
-                                    return a.sort - b.sort;
-                                });
-                            }
-                        });
-                    }
-                }
-            }
-        };
-    }
-});
-
-/**
- * Reorder filter option list
- */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "reorderFilterOptions",
-    fire: function () {
-
-        /**
-         * Function to set filter option priority list and reoder filter option list
-         */
-        klevu.search.landing.getScope().chains.template.render.addBefore("renderResponse", {
-            name: "reorderFilterOptionPosition",
-            fire: function (data, scope) {
-                if (data.context.isSuccess) {
-
-                    var priorityFilterOptions = [{
-                        key: "size",
-                        options: [{
-                            name: "xl"
-                        }, {
-                            name: "small"
-                        }]
-                    }, {
-                        key: "category",
-                        options: [{
-                            name: "father's day sale"
-                        }]
-                    }];
-
-                    /** Initialize reorderFilterOptions */
-                    klevu.reorderFilterOptions(klevu.search.landing.getScope().element.kScope);
-
-                    klevu.search.landing.getScope().reorderFilterOptions.base.reorder(data, priorityFilterOptions);
-                }
-            }
-        });
-    }
-});
-
-/**
- * Extension for collapse filter functionality
- */
-klevu.extend({
-    collapseFilters: function (mainScope) {
-        mainScope.collapseFilters = {};
-        mainScope.collapseFilters.base = {
-            /**
-             * Function to collapse filter list as per the priority list
-             * @param {*} data 
-             * @param {*} collapsedFilters 
-             */
-            collapse: function (data, collapsedFilters) {
-                if (data && data.template && data.template.query && collapsedFilters) {
-                    var items = klevu.getObjectPath(data.template.query, 'productList');
-                    if (items && items.filters) {
-                        var filters = items.filters;
-                        filters.forEach(function (filter) {
-                            filter.isCollapsed = false;
-                        });
-                        collapsedFilters.forEach(function (collapsedFilter) {
-                            filters.forEach(function (filter) {
-                                if (collapsedFilter.key == filter.key) {
-                                    filter.isCollapsed = true;
-                                }
-                            });
-                        });
-                    }
-                }
-            }
-        };
-    }
-});
-
-/**
- * Collapse filter
- */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "collapseFilters",
-    fire: function () {
-
-        /**
-         * Function to set filter priority list and reoder filter list
-         */
-        klevu.search.landing.getScope().chains.template.render.addBefore("renderResponse", {
-            name: "collapseFilterPosition",
-            fire: function (data, scope) {
-                if (data.context.isSuccess) {
-
-                    var collapsedFilters = [{
-                        key: "tags"
-                    }, {
-                        key: "type"
-                    }, {
-                        key: "shade_color"
-                    }, {
-                        key: "product_type"
-                    }];
-
-                    /** Initialize collapseFilters module */
-                    klevu.collapseFilters(klevu.search.landing.getScope().element.kScope);
-
-                    klevu.search.landing.getScope().collapseFilters.base.collapse(data, collapsedFilters);
-                }
-            }
-        });
-    }
-});
-
-/**
- * Extend klevu object for custom pagination functionality
- */
-klevu.extend({
-    customPagination: function (mainScope) {
-        mainScope.customPagination = {};
-        mainScope.customPagination.base = {
-
-            /**
-             * Paginate click event
-             * @param {*} scope 
-             * @param {*} event 
-             */
-            paginateClickEvent: function (event) {
-                event = event || window.event;
-                event.preventDefault();
-
-                var element = event.target;
-                var target = klevu.dom.helpers.getClosest(element, ".klevuTarget");
-                if (target === null) {
-                    return;
-                }
-                var scope = target.kElem;
-                scope.kScope.data = scope.kObject.resetData(scope.kElem);
-                scope.kScope.data.context.keyCode = 0;
-                scope.kScope.data.context.eventObject = event;
-                scope.kScope.data.context.event = "keyUp";
-                scope.kScope.data.context.preventDefault = false;
-
-                var options = klevu.dom.helpers.getClosest(element, ".klevuMeta");
-                var offset = element.dataset.offset;
-                offset = (offset < 0) ? 0 : offset;
-
-                klevu.setObjectPath(scope.kScope.data, "localOverrides.query." + options.dataset.section + ".settings.offset", parseInt(offset));
-                klevu.event.fireChain(scope.kScope, "chains.events.keyUp", scope, scope.kScope.data, event);
-            },
-
-            /**
-             * Function to bind pagination events
-             * @param {*} paginateClass paginate link container class
-             */
-            bindPaginationEvents: function (paginateClass) {
-                var self = this;
-                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
-                klevu.each(klevu.dom.find(paginateClass, target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
-                        self.paginateClickEvent(event);
-                    }, true);
-                });
-            }
-        };
-    }
-});
-
-
-/**
- * Add landing page custom pagination bar
- */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "addLandingPageCustomPaginationBar",
-    fire: function () {
-
+        
         /** Set Template */
-        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#customLandingPagePaginationBar"), "customLandingPagePagination", true);
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#searchResultProductBadge"), "landingProductBadge", true);
+    }
+});
 
-        /**
-         * Add pagination events
-         */
-        klevu.search.landing.getScope().chains.template.events.add({
-            name: "addCustomPagination",
-            fire: function (data, scope) {
+/**
+ * Attach Product stock availability label
+ */
 
-                /** Initializing custom pagination */
-                klevu.customPagination(klevu.search.landing.getScope().element.kScope);
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "addProductavailabilityLabel",
+    fire: function () {
+        /** Set Template */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#searchResultProductStock"), "landingProductStock", true);
+    }
+});
 
-                klevu.search.landing.getScope().customPagination.base.bindPaginationEvents(".kuPaginate");
+/**
+ * Attach Product VAT label
+ */
 
-            }
-        });
-
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "addProductVATLabel",
+    fire: function () {
+        /** Set Template */
+        klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#searchResultProductVATLabel"), "landingProductVATLabel", true);
     }
 });
 

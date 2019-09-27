@@ -562,7 +562,7 @@
 /* In GRIDVIEW:  for wrapping the image in fixed size div */
 .kuProdWrap {
     display: block;
-    height: auto;
+    height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -1432,6 +1432,135 @@
 
 
 /*
+*   Styles for Landing page Add to cart button 
+*/
+
+.kuAddtocart {
+    margin: 10px auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    vertical-align: middle;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    transition: all 0.3s ease;
+    float: none;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.kuAddtocart a.kuAddtocartBtn {
+    background: #333333;
+    color: #FFFFFF;
+    padding: 0px 8px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0px;
+    border: none;
+    height: 30px;
+    transition: all 0.3s ease;
+    border-radius: 0px;
+    text-align: right;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+/*
+*   Color Swatches styles
+*/
+
+.kuSwatches {
+    width: 100%;
+    padding: 5px 2px;
+    border: none;
+    min-height: 30px;
+    max-width: 300px;
+    float: none;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.kuSwatchItem {
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    max-height: 28px;
+    max-width: 28px;
+    border: none;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 28px;
+    vertical-align: top;
+    text-align: center;
+    margin: 2px;
+}
+
+.kuSwatchItem a.kuSwatchLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-size: contain;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    border-radius: 0px;
+    transition: all 0.1s;
+    background-color: transparent;
+    text-decoration: none;
+    color: #000;
+    box-sizing: border-box;
+    outline: 1px solid #dedede;
+}
+
+.kuSwatchItem a.kuSwatchLink.active,
+.kuSwatchItem a.kuSwatchLink:hover,
+.kuSwatchItem a.kuSwatchLink:focus {
+    text-decoration: none;
+    box-shadow: none;
+    outline-width: 2px;
+}
+
+.kuSwatchItem.kuSwatchMore {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    background-color: transparent;
+}
+
+.kuSwatchMoreText {
+
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+}
+
+.kuSwatchItem.kuDefaultSwatch a.kuSwatchLink {
+    background-color: #eee !important;
+}
+
+/*
 *   Styels for Product grid quick view
 */
 
@@ -1699,72 +1828,6 @@ span.productQuick-label {
 }
 
 /*
-*   Price slider filter styles
-*/
-
-.kuPriceSlider {
-    width: 350px;
-    max-width: 100%;
-    padding: 10px 20px 80px 20px;
-    margin: 20px auto;
-    position: relative;
-    box-sizing: border-box;
-}
-
-.kuSliderVal {
-    font-size: 1rem;
-    line-height: 130%;
-    margin: 50px 0px 20px 0px;
-    padding: 0px;
-    position: relative;
-}
-
-.kuSliderVal-min,
-.kuSliderVal-max {
-    padding: 5px 10px;
-    display: inline-block;
-    border: 1px solid #ddd;
-    color: #333;
-    outline: none;
-    position: absolute;
-    min-width: 85px;
-    margin: 5px;
-    line-height: 100%;
-    box-sizing: border-box;
-    background: #eee;
-}
-
-.kuSliderVal span.kulabel {
-    position: absolute;
-    top: -24px;
-    left: 0;
-    color: #888;
-    font-size: 90%;
-}
-
-.kuSliderVal-min {
-    left: -17px;
-}
-
-.kuSliderVal-max {
-    right: -10px;
-}
-
-.kuPriceSlider span.kuSliderTo {
-    position: absolute;
-    left: 50%;
-    top: 10px;
-    margin-left: -15px;
-    width: 30px;
-    display: inline-block;
-    opacity: 0.45;
-}
-
-.sliderFilterNames {
-    height: 150px;
-}
-
-/*
 *   Color Swatches styles
 */
 
@@ -1846,75 +1909,136 @@ span.productQuick-label {
 }
 
 /*
-*   Product badge styles
+*   Custom pagination bar styles
 */
-.kuDiscountBadge {
-    top: 6px;
-    right: 6px;
+
+.kuPaginationBar {
+  width: auto;
+  float: right;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+  border: 1px solid #ddd;
+  background: #FFF;
+  margin: 4px 8px 0px 0px;
+  border-radius: 3px;
+}
+
+
+.kuPaginationBar a {
+  font-style: normal;
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  color: #333333;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.1s ease;
+  border-right: 1px solid #ddd;
+  float: left;
+}
+
+.kuPaginationBar .kuActive {
+  background: #333333;
+  color: #fff;
+  border-radius: 0px;
+  border-width: 0px;
+}
+
+.kuPaginationBar a:hover {
+  background: #ececec;
+}
+
+.kuPaginationBar .kuActive:hover {
+  background: #333333;
+  color: #fff;
+}
+
+.kuPaginationBar a:last-child {
+  border-right: 0px;
+}
+
+.kuPaginationBar .kuActive:hover,
+.kuPaginationBar .kuActive:focus {
+  color: #ffffff !important;
+}
+
+.kuPaginationBar a:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.kuPaginationBar a:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/*
+*   Price slider filter styles
+*/
+
+.kuPriceSlider {
+    width: 350px;
+    max-width: 100%;
+    padding: 10px 20px 80px 20px;
+    margin: 20px auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.kuSliderVal {
+    font-size: 1rem;
+    line-height: 130%;
+    margin: 50px 0px 20px 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.kuSliderVal-min,
+.kuSliderVal-max {
+    padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    color: #333;
+    outline: none;
     position: absolute;
-    background: #333333;
-    padding: 0px;
-    color: #FFFFFF;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    font-weight: normal;
-    text-align: center;
-    box-sizing: border-box;
-    z-index: 1;
-    font-size: 12px;
-    font-style: italic;
-    display: flex;
-    align-items: center;
+    min-width: 85px;
+    margin: 5px;
     line-height: 100%;
+    box-sizing: border-box;
+    background: #eee;
 }
 
-.kuDiscountBadge span {
-    width: 100%;
-    align-items: center;
-    text-align: center;
+.kuSliderVal span.kulabel {
+    position: absolute;
+    top: -24px;
+    left: 0;
+    color: #888;
+    font-size: 90%;
 }
 
-/*
-*   Product stock label styles
-*/
+.kuSliderVal-min {
+    left: -17px;
+}
 
-.kuCaptionStockIn {
-    font-size: 11px;
-    color: green;
+.kuSliderVal-max {
+    right: -10px;
+}
+
+.kuPriceSlider span.kuSliderTo {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    margin-left: -15px;
+    width: 30px;
     display: inline-block;
-    padding: 0px;
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 2px 0px;
+    opacity: 0.45;
 }
 
-.kuCaptionStockOut {
-    font-size: 11px;
-    color: Red;
-    display: inline-block;
-    padding: 0px;
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 2px 0px;
-}
-
-/*
-*   Product VAT label styles
-*/
-
-.kuCaptionVat {
-    display: block;
-    font-size: 11px;
-    color: #767676;
-    width: 100%;
-    float: left;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin: 2px 0px;
+.sliderFilterNames {
+    height: 150px;
 }
 
 /*
@@ -2051,198 +2175,74 @@ span.productQuick-label {
 }
 
 /*
-*   Custom pagination bar styles
+*   Product badge styles
 */
-
-.kuPaginationBar {
-  width: auto;
-  float: right;
-  text-align: left;
-  box-sizing: border-box;
-  padding: 0px;
-  border: 1px solid #ddd;
-  background: #FFF;
-  margin: 4px 8px 0px 0px;
-  border-radius: 3px;
-}
-
-
-.kuPaginationBar a {
-  font-style: normal;
-  margin: 0px;
-  position: relative;
-  display: inline-block;
-  padding: 6px 12px;
-  color: #333333;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 13px;
-  transition: all 0.1s ease;
-  border-right: 1px solid #ddd;
-  float: left;
-}
-
-.kuPaginationBar .kuActive {
-  background: #333333;
-  color: #fff;
-  border-radius: 0px;
-  border-width: 0px;
-}
-
-.kuPaginationBar a:hover {
-  background: #ececec;
-}
-
-.kuPaginationBar .kuActive:hover {
-  background: #333333;
-  color: #fff;
-}
-
-.kuPaginationBar a:last-child {
-  border-right: 0px;
-}
-
-.kuPaginationBar .kuActive:hover,
-.kuPaginationBar .kuActive:focus {
-  color: #ffffff !important;
-}
-
-.kuPaginationBar a:first-child {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.kuPaginationBar a:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-/*
-*   Color Swatches styles
-*/
-
-.kuSwatches {
-    width: 100%;
-    padding: 5px 2px;
-    border: none;
-    min-height: 30px;
-    max-width: 300px;
-    float: none;
-    box-sizing: border-box;
-    position: relative;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-.kuSwatchItem {
-    display: inline-block;
-    height: 28px;
-    width: 28px;
-    max-height: 28px;
-    max-width: 28px;
-    border: none;
-    padding: 0px;
-    box-sizing: border-box;
-    line-height: 28px;
-    vertical-align: top;
-    text-align: center;
-    margin: 2px;
-}
-
-.kuSwatchItem a.kuSwatchLink {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0px;
-    margin: 0px;
-    padding: 0px;
-    background-size: contain;
-    background-repeat: no-repeat !important;
-    background-position: center;
-    border-radius: 0px;
-    transition: all 0.1s;
-    background-color: transparent;
-    text-decoration: none;
-    color: #000;
-    box-sizing: border-box;
-    outline: 1px solid #dedede;
-}
-
-.kuSwatchItem a.kuSwatchLink.active,
-.kuSwatchItem a.kuSwatchLink:hover,
-.kuSwatchItem a.kuSwatchLink:focus {
-    text-decoration: none;
-    box-shadow: none;
-    outline-width: 2px;
-}
-
-.kuSwatchItem.kuSwatchMore {
-    font-size: 12px;
-    font-weight: bold;
-    color: #000;
-    background-color: transparent;
-}
-
-.kuSwatchMoreText {
-
-    display: block;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-
-}
-
-.kuSwatchItem.kuDefaultSwatch a.kuSwatchLink {
-    background-color: #eee !important;
-}
-
-/*
-*   Styles for Landing page Add to cart button 
-*/
-
-.kuAddtocart {
-    margin: 10px auto;
+.kuDiscountBadge {
+    top: 6px;
+    right: 6px;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    vertical-align: middle;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: block;
-    transition: all 0.3s ease;
-    float: none;
+    background: #333333;
+    padding: 0px;
+    color: #FFFFFF;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-weight: normal;
     text-align: center;
-    visibility: hidden;
-    opacity: 0;
+    box-sizing: border-box;
+    z-index: 1;
+    font-size: 12px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    line-height: 100%;
 }
 
-.kuAddtocart a.kuAddtocartBtn {
-    background: #333333;
-    color: #FFFFFF;
-    padding: 0px 8px;
-    margin-bottom: 0;
-    vertical-align: middle;
-    cursor: pointer;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    text-decoration: none;
-    font-size: 12px;
-    text-transform: uppercase;
+.kuDiscountBadge span {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+/*
+*   Product stock label styles
+*/
+
+.kuCaptionStockIn {
+    font-size: 11px;
+    color: green;
     display: inline-block;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+.kuCaptionStockOut {
+    font-size: 11px;
+    color: Red;
+    display: inline-block;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+/*
+*   Product VAT label styles
+*/
+
+.kuCaptionVat {
+    display: block;
+    font-size: 11px;
+    color: #767676;
+    width: 100%;
+    float: left;
     margin: 0px;
-    border: none;
-    height: 30px;
-    transition: all 0.3s ease;
-    border-radius: 0px;
-    text-align: right;
-    font-weight: normal;
-    line-height: 30px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 2px 0px;
 }
 
