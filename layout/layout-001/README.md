@@ -1,12 +1,13 @@
-# Include custom layout "layout-001" 
+# Layout - "layout-001" 
+
+>**Prerequisite:**  
+>First, include `//jsv2.klevu.com/export/klevu.js` and `klevu-settings.js`.  
+>Next, include for Klevu quick search add [resources](/layout/layout-001/resources/quick).  
+>then for Klevu search result landing page add [resources](/layout/layout-001/resources/landing).  
 
 You will find the necessary resources for this module available here:
 [resources](/layout/layout-001/resources). Please add these with the
 method appropriate to your chosen framework. 
-
-First, include `//jsv2.klevu.com/export/klevu.js` and `klevu-settings.js`.
-Next, include for Klevu quick search add [resources](/layout/layout-001/resources/quick)
-then for Klevu search result landing page add [resources](/layout/layout-001/resources/landing).
 
 This layout consists below modules:
 - Klevu quick search
