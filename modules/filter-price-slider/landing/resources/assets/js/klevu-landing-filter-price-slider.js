@@ -87,14 +87,16 @@ klevu.extend({
                 } else {
                     var applyFilters = localFilters.applyFilters.filters;
                     var isUpdated = false;
-                    applyFilters.forEach(function (filter) {
-                        if (filter.key == ele.sliderData.key) {
-                            isUpdated = true;
-                            filter.values = [min.toString(), max.toString()];
+                    if (applyFilters) {
+                        applyFilters.forEach(function (filter) {
+                            if (filter.key == ele.sliderData.key) {
+                                isUpdated = true;
+                                filter.values = [min.toString(), max.toString()];
+                            }
+                        });
+                        if (!isUpdated) {
+                            applyFilters.push(sliderFilterReqObj);
                         }
-                    });
-                    if (!isUpdated) {
-                        applyFilters.push(sliderFilterReqObj);
                     }
                 }
 
