@@ -69,11 +69,11 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             /** Initialize add to cart base module in quick search */
             klevu.addToCart(box.getScope().element.kScope);
 
-            /** Set Template */
-            box.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#quickSearchProductAddToCart"), "quickSearchProductAddToCart", true);
-
             /** Initalize add to cart service */
             klevu.addToCartQuick(box.getScope().element.kScope);
+
+            /** Set Template */
+            box.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#quickSearchProductAddToCart"), "quickSearchProductAddToCart", true);
 
             /** Bind quick page add to cart button click event */
             box.getScope().chains.template.events.add({
