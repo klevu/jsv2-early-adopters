@@ -1,16 +1,12 @@
 # Add to Cart
 
->**Prerequisite:**  
->Modules below use [add-to-cart](/components/add-to-cart) base component. Before starting the implementation of these modules, add base component files and include initialization.  
+> **Prerequisite:**  
+> This module requires the [add-to-cart](/components/add-to-cart) base component.
 
-## Add to Cart - Search Results Landing Page
+![landing add to cart](/modules/add-to-cart/images/image002.png)
 
-![landing add to cart](/modules/add-to-cart/images/image001.png)
+Add to Cart can be added to both Quick Search and Search Results Landing Page,
+please find the corresponding instructions for each below:
 
-You will find the module available [here](/modules/add-to-cart/landing).
-
-## Add to Cart - Quick Search Results
-
-![quick add to cart](/modules/add-to-cart/images/image002.png)
-
-You will find the module available [here](/modules/add-to-cart/quick).
+- [Add to Cart in Quick Search results](/modules/add-to-cart/quick).
+- [Add to Cart on the Search Results Landing Page](/modules/add-to-cart/landing).
