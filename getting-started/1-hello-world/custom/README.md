@@ -1,12 +1,12 @@
 # Hello World Tutorial in any framework
 
-This example uses primarily static HTML, JS and CSS to showcase JSv2.
+This example uses primarily static HTML, JS and CSS to showcase Klevu JS Library.
 A tiny bit of PHP is used in order to include the micro-templates,
 but you can use any approach you like to achieve the same outcome.
 
 ![Klevu Quick Search](/getting-started/1-hello-world/images/intro-quick-search.jpg)
 
-## Integrate Klevu JSv2 with static HTML
+## Integrate Klevu JS Library with static HTML
 
 First create a web accessible folder for you to copy the HTML files.
 

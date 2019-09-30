@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSv2 Static Example</title>
+    <title>Klevu JS Library Static Example</title>
 
     <!-- css -->
     <link href='/assets/css/quick/klevu-quick.css' rel='stylesheet'>

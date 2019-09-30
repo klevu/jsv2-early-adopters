@@ -1,6 +1,6 @@
 # Getting Started
 
-Choose your preferred framework for trying out Klevu JSv2 and we'll walk you through the rest.
+Choose your preferred framework for trying out Klevu JS Library and we'll walk you through the rest.
 
 - **[Get started with Shopify](/getting-started/1-hello-world/shopify)**
 - **[Get started with BigCommerce](/getting-started/1-hello-world/bigcommerce)**

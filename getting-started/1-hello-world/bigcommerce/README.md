@@ -6,14 +6,14 @@ not everybody will have access to it.
 
 ![Klevu Quick Search](/getting-started/1-hello-world/images/intro-quick-search.jpg)
 
-## Integrate Klevu JSv2 with BigCommerce
+## Integrate Klevu JS Library with BigCommerce
 
 First create a [BigCommerce free trial](https://www.bigcommerce.com).
 
 ### Theme Modifications
 
 This tutorial will assume the default BigCommerce Stencil theme 'Cornerstone' is being used.
-JSv2 is supported on legacy Blueprint Themes where you will need to adjust some of the file paths
+Klevu JS Library is supported on legacy Blueprint Themes where you will need to adjust some of the file paths
 and syntax for the including of assets and templates.
 
 The only way to make changes to a Stencil theme is to download a copy,
@@ -26,7 +26,7 @@ For more information from BigCommerce on using Stencil to bundle themes,
     - On Current Theme, select Advanced > Download Current Theme.
     - After a few moments the ZIP file containing the theme will download.
     - Unzip the theme locally ready to make some changes.
-- Add JSv2 to Theme
+- Add Klevu JS Library to Theme
     - First remove all existing search functionality
         - Delete the entire folder `templates/components/search`
     - Next extract the copy the contents of [resources](/getting-started/1-hello-world/bigcommerce/resources) into your theme.
@@ -35,7 +35,7 @@ For more information from BigCommerce on using Stencil to bundle themes,
     - Navigate to Storefront > My Themes.
     - Scroll down and click the "Upload Theme" button, then select your Zip.
 
-### Activate JSv2
+### Activate Klevu JS Library
 
 At this stage we have simply uploaded a number of files to a new copy of our theme,
 they are not actually doing anything just yet. So finally, edit your Theme

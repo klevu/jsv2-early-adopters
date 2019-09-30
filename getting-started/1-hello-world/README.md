@@ -1,6 +1,6 @@
 # Hello World Tutorials
 
-This is the best place to start with Klevu JSv2, with these framework-specific
+This is the best place to start with Klevu JS Library, with these framework-specific
 tutorials guiding you through the process of getting started.
 
 - **[Get started with Shopify](/getting-started/1-hello-world/shopify)**

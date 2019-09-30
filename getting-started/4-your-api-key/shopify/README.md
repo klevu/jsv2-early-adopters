@@ -11,7 +11,7 @@ tutorial, which included installing the Shopify Klevu App on your store._
 - Navigate to Apps > Klevu Search.
 - Next click the Shop Info link near the top right.
 - Copy the value of your “JS API Key” and email it to us.
-    - Send this to your Klevu contact (_the person that told you about this programme!_) with email subject: “JSv2 early adopter API Key”
+    - Send this to your Klevu contact (_the person that told you about this programme!_) with email subject: “Klevu JS Library early adopter API Key”
 - We will then convert your API key from V1 to V2.
 
 ![Shop Info](/getting-started/4-your-api-key/images/shop-info.jpg)

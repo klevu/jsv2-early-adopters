@@ -1,6 +1,6 @@
-# Klevu JSv2 Early Adopters Programme
+# Klevu JS Library
 
-_This is a **beta** version of JSv2 and we expect some changes to occur,
+_This is a **beta** version of Klevu JS Library and we expect some changes to occur,
 which will also be based on feedback from early adopters like yourselves,
 so please bear this in mind during testing._
 
@@ -19,10 +19,15 @@ Please forward any feedback you may have to your Klevu contact
 
 ## Changelog
 
+**30th September 2019**
+
+Updated tutorial structure to separate out 'getting-started' for each framework,
+components and modules for a more guided on-boarding process.
+
 **13th September 2019**
 
 Added tutorial for [getting started with any other framework](/getting-started/1-hello-world/custom),
-using static HTML, JS and CSS to integrate Klevu JSv2 with just a few lines of code.
+using static HTML, JS and CSS to integrate Klevu JS Library with just a few lines of code.
 
 **12th September 2019**
 
@@ -58,4 +63,4 @@ for both BigCommerce and Magento 2.
 Added a short introduction to take you from _nothing_ to a Shopify store using
 Klevu Search with our new JavaScript Library Version 2, in around 10-15 minutes.
 We will then introduce some further examples to help you understand more about
-the power of JSv2.
+the power of Klevu JS Library.

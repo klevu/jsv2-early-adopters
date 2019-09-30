@@ -29,7 +29,7 @@ for example `/pages/search-results?q=bag`.
 
 ## Javascript Modifications
 
-Finally we need to update Klevu JSv2 to tell it where to send search queries.
+Finally we need to update Klevu JS Library to tell it where to send search queries.
 
 - Navigate to Online Store > Themes.
 - Current Theme > Actions > Edit code.

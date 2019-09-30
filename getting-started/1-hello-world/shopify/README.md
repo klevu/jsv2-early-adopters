@@ -26,14 +26,14 @@ a Klevu account and provide you with an API Key for use during this tutorial.
 
 This is to remove Version 1 of the JavaScript Library,
 which is automatically installed with the App.
-We don’t need this since we will be using JSv2, however 
+We don’t need this since we will be using Klevu JS Library, however 
 the benefit of installing the App is that it creates us a Klevu API key
 and will begin synchronising your Shopify products immediately.
 
-## Configure Klevu JSv2 on Shopify
+## Configure Klevu JS Library on Shopify
 
 Now you have a Shopify store with the Klevu App installed,
-the next step is to configure JSv2 so you can get Klevu search up
+the next step is to configure Klevu JS Library so you can get search up
 and running with full control over the search functionality, look and feel.
 
 ### Theme Modifications
@@ -47,14 +47,14 @@ and uploading themes, [click here](https://help.shopify.com/en/themes/customizat
     - On Current Theme, select Actions > Download Theme File.
         - _This will email the theme file to you for download._
     - Click the link in your email to download the theme and unzip locally.
-- Add JSv2 to Theme
+- Add Klevu JS Library to Theme
     - Next extract the copy the contents of [resources](/getting-started/1-hello-world/shopify/resources) into your theme.
     - Zip the theme once again.
     - Navigate to Online Store > Themes.
     - Scroll down and click the "Upload theme" button, then select your Zip.
     - Once imported, select your new theme > Actions > Publish.
 
-### Activate JSv2
+### Activate Klevu JS Library
 
 At this stage we have simply uploaded a number of files to our theme,
 they are not actually doing anything just yet. So finally, edit your Theme
