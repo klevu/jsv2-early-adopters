@@ -1,0 +1,132 @@
+/*
+*   Mobile view slider filter 
+*/
+
+.kuFiltersHeader,
+.kuFiltersFooter,
+.kuBtn.kuFacetsSlideIn {
+    display: none !important;
+}
+
+@media only screen and (max-width:768px) {
+
+    .kuResultWrap {
+        float: none;
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .kuFiltersHeader,
+    .kuFiltersFooter {
+        display: block !important;
+    }
+
+    .kuFilters {
+        height: 100%;
+        width: 0 !important;
+        position: fixed;
+        z-index: 101;
+        top: 0;
+        left: 0;
+        background-color: #FFF;
+        overflow-x: hidden;
+        transition: 0.2s;
+        padding: 55px 0px;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .kuFilters .kuFilterHead {
+        padding-left: 0px;
+
+    }
+
+    .kuFilters.kuFiltersIn {
+        width: 100% !important;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .kuFiltersHeader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #F5F5F5;
+        padding: 0px 10px;
+        text-align: left;
+    }
+
+    .kuFiltersFooter {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #F5F5F5;
+        padding: 0px 10px;
+        text-align: right;
+    }
+
+    .kuFilters.kuFiltersIn .kuFiltersHeader,
+    .kuFilters.kuFiltersIn .kuFiltersFooter {
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .kuBtn {
+        display: inline-block;
+        padding: 5px 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin: 10px !important;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        margin-right: 10px !important;
+        font-size: 0.80rem;
+        border-radius: 4px;
+        cursor: pointer;
+        min-width: 70px;
+        text-align: center;
+    }
+
+    .kuBtn.kuFacetsSlideIn {
+        background: #000000;
+        color: #FFF;
+        border-color: #000;
+        z-index: 1;
+        display: inline-block !important;
+        margin: 0px;
+    }
+
+    .kuBtn.kuFacetsSlideOut {
+        background: #000;
+        color: #FFF;
+        border-color: #000;
+        z-index: 2;
+    }
+
+    .kuFiltersHeader .kuBtn.kuFacetsSlideOut {
+        border: none;
+        margin-left: 0px;
+        background: none;
+        color: #000;
+        border: none;
+    }
+
+    .kuBtn:hover,
+    .kuBtn:focus {
+        opacity: 0.80;
+
+    }
+
+    .kuFiltersFooter.kuFixed {
+        position: fixed;
+    }
+
+    .kuMobileFilterCloseBtn {
+        color: #000000 !important;
+        background: #f5f5f5 !important;
+    }
+
+}

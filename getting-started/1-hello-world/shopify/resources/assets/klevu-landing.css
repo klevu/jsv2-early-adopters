@@ -1,0 +1,1188 @@
+/* CSS of Klevu Search Result Landing Page */
+.klevu-fluid, .klevuTarget, .klevuTarget * {
+    font-family: inherit;
+}
+/* klevu container for fix width layout*/
+.kuContainer * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+.kuContainer *:before, .kuContainer *:after, .kuContainer * {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+.kuContainer {
+    width: 100%;
+    margin: 0 auto;
+    font-family: inherit;
+    font-size: 12px;
+    background-color: #ffffff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 1280px;
+}
+.kuBlockFullwidth {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+/* klevu container for fluid layout*/
+.kuProListing {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* klevu filters */
+.kuFilters {
+    float: left;
+    width: 20%;
+}
+/* set the height of each filter*/
+.kuFilterBox {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    background: none;
+    padding-bottom: 18px;
+    position: relative;
+}
+.kuFilterNames {
+    height: 120px;
+    overflow: hidden;
+}
+.kuFilterNames.kuFilterCollapse {
+    height: 0;
+    overflow: hidden;
+}
+.kuFilterNames.kuFilterShowAll {
+    height: auto;
+    overflow: unset;
+}
+/* heading of filters i.e brand, color */
+.kuFilterHead {
+    font-family: inherit;
+    font-size: 13px;
+    padding: 5px 10px;
+    color: #333333;
+    display: block;
+    line-height: 1.8;
+    text-transform: uppercase;
+    border-bottom: 1px solid #c7c8ca;
+    background: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    position: relative;
+}
+/* down arrow div in filters */
+.kuShowOpt {
+    padding: 0px 10px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5px;
+}
+/* up arrow div in filters */
+.kuFilterNames.kuFilterCollapse .kuShowOpt {
+    display: none;
+}
+/* down & up arrow link color in filters */
+.kuShowOpt a, .kuHideOpt a {
+    color: #4d7abf;
+    text-decoration: none;
+}
+/* show more dot icon*/
+.kuFilterDot {
+    height: 5px;
+    width: 5px;
+    background-color: #888888;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+}
+/* set list for filters */
+.kuFilterNames ul {
+    margin: 0px;
+    padding: 0px;
+}
+/* style for each list item in filter */
+.kuFilterNames ul li {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+.kuFilterNames ul li a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 0px;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
+    color: #333333;
+    background: none;
+    margin: 2px 10px;
+}
+/* set color for selected filter */
+.kuFilterNames ul li.kuSelected a {
+    color: #333333;
+}
+.kuFilterNames ul li a span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 120%;
+}
+.kuFilterNames ul li a span.kufacet-text {
+    max-width: 75%;
+    width: 75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+}
+/* Radio button for the filter */
+.kuFilterNames ul li a span.kuFilterIcon {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+.kuFilterIcon:before {
+    content: '';
+    border: 2px solid #CCCCCC;
+    border-radius: 50%;
+    margin: 0px;
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #CCCCCC;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: background 200ms;
+    -webkit-transition: background 200ms;
+    -moz-transition: background 200ms;
+    -webkit-transition: border-color 200ms;
+    -moz-transition: border-color 200ms;
+    transition: border-color 200ms;
+}
+.kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #ffffff;
+}
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #ffffff;
+}
+.kuFilterNames ul li a:hover span.kuFilterIcon:after, .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #333333;
+    top: 5px;
+    left: 5px;
+    border: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 50%;
+}
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    border-color: #333333;
+}
+.kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333333;
+}
+/* total nos of results available for filter & shows cancel button if filter is selected */
+.kuFilterNames ul li a span.kuFilterTotal, .kuFilterNames ul li a span.kuFilterCancel {
+    float: right;
+    text-align: right;
+    margin: 0px;
+    padding: 3px;
+}
+/* set background color on hover of filter */
+.kuFilterNames ul li a:hover {
+    cursor: pointer;
+}
+/* set background color for selected filter */
+.kuFilterNames ul li.kuSelected a {
+    color: #333333;
+}
+.kuMulticheck .kuFilterIcon:before {
+    content: '';
+    border: 1px solid #CCCCCC;
+    border-radius: 0px;
+    margin: 0px;
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #CCCCCC;
+    position: relative;
+}
+.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #ffffff;
+    border: 1px solid #333333;
+}
+.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #ffffff;
+    border: 1px solid #333333;
+}
+.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:after, .kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background: transparent;
+    top: 4px;
+    left: 4px;
+    border: 2px solid #cccccc;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.kuMulticheck .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333333;
+}
+/* klevu results box */
+.kuResultWrap {
+    float: left;
+    width: 80%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin: 0px;
+}
+/* div for Sorting, pagination, change result view icons*/
+.kuSortHeader {
+    padding-top: 0px;
+    margin-top: 0px;
+    float: left;
+    width: 100%;
+}
+.kuResultInfo {
+    border-bottom: 1px solid #c7c8ca;
+    padding: 0px;
+}
+/* div to display total no of results */
+.kuTotalResultsTab {
+    float: left;
+    width: 40%;
+}
+.kuTotResults {
+    text-align: left;
+    margin-bottom: 10px;
+    line-height: 24px;
+    font-weight: bold;
+    font-size: 14px;
+    float: left;
+    color: #333333;
+}
+.kuContainer .kuTabs {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid #eee;
+}
+.kuContainer .kuTabs a {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 5px;
+    transition: background 200ms;
+    -webkit-transition: background 300ms;
+    -moz-transition: background 200ms;
+    color: #333333;
+    display: inline-block;
+    position: relative;
+}
+.kuContainer .kuTabs a:hover {
+    border-bottom: 3px solid #c7c8ca;
+    text-decoration: none;
+}
+.kuContainer a.kuTabSelected {
+    border-bottom: 3px solid #c7c8ca;
+}
+.kuContainer a.kuTabSelected:hover {
+    background: none;
+}
+.kuSortingOpt {
+    width: 100%;
+    padding: 12px 10px;
+}
+/* to display sorting dropdown */
+.kuDropdown {
+    margin: 5px 10px;
+    position: relative;
+    display: inline-block;
+    min-width: 175px;
+    float: left;
+    z-index: 100;
+}
+.kuDropdownLabel {
+    background-color: #FFF;
+    color: #333333;
+    padding: 8px 12px;
+    font-size: 13px;
+    border: none;
+    display: inline-block;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding-right: 35px;
+    position: relative;
+}
+.kuDropdownOptions {
+    display: none;
+    position: absolute;
+    background-color: #efefef;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.kuDropdownOptions .kuDropOption {
+    color: #333333;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+.kuDropdown:hover .kuDropdownOptions {
+    display: block;
+}
+.kuDropdownOptions .kuDropOption:hover, .kuDropdown:hover .kuDropdownLabel {
+    background-color: #ddd;
+}
+/* ends code for sorting dropdown */
+/* Icons to change the view of result (grid/view) */
+.kuView {
+    float: left;
+    min-width: 70px;
+    text-align: center;
+    margin: 8px 5px;
+}
+/* display GRID view icon */
+.kuView .kuGridviewBtn {
+    background: url(https://js.klevu.com/klevu-js-v1/img-1-1/ku-gridview.png) no-repeat 0 0;
+    cursor: pointer;
+}
+/* display LIST view icon */
+.kuView .kuListviewBtn {
+    background: url(https://js.klevu.com/klevu-js-v1/img-1-1/ku-listview.png) no-repeat 0 0;
+    cursor: pointer;
+}
+/* set width and height of view icons box*/
+.kuView a {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-left: 4px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    -webkit-transition: background-position .1s ease-in;
+    -moz-transition: background-position .1s ease-in;
+    -o-transition: background-position .1s ease-in;
+    transition: background-position .1s ease-in;
+}
+/* changing background position on hover of GRID/LIST view icons */
+.kuView a:hover {
+    background-position: 0 -25px;
+    text-decoration: none;
+}
+/* change background position to set current view */
+.kuView a.kuCurrent {
+    background-position: 0 -25px;
+    text-decoration: none;
+}
+/* dropdown to select no of results per page*/
+/*.kuPerPage {
+    float: left;
+    width: 40%;
+    padding-left: 10px;
+    text-align: left;
+    box-sizing: border-box;
+}
+.kuSortingOpt select, .kuBottomPagi select {
+    width: auto !important;
+    height: auto;
+    min-height: 25px;
+    min-width: 60px;
+}*/
+/* div for pagination */
+.kuPagination {
+    width: auto;
+    float: right;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 10px 5px;
+}
+/* style to display page nos in line */
+.kuPagination a {
+    margin: 0px;
+    position: relative;
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 5px;
+    color: #333333;
+    cursor: pointer;
+    text-decoration: none;
+    border-right: 1px solid #c7c8ca;
+    font-size: 13px;
+}
+/* style on hover of page links */
+.kuPagination a:hover {
+    color: #333333;
+}
+/* style to show current page */
+.kuPagination a.kuCurrent {
+    background: #fff;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-weight: bold;
+}
+.kuPagination a:last-child {
+    border-right: none;
+}
+.kuOtherContent .kuPagination {
+    float: right;
+}
+.kuOtherContent .kuPerPage {
+    margin-left: 0px;
+    text-align: left;
+}
+.kuClearLeft {
+    clear: left;
+}
+.kuClearRight {
+    clear: right;
+}
+.kuClearBoth {
+    clear: both;
+}
+.kuDiscountBadge {
+    top: 6px;
+    right: 6px;
+    position: absolute;
+    background: #333333;
+    padding: 0px;
+    color: #FFFFFF;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-weight: normal;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1;
+    font-size: 12px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+}
+.kuDiscountBadge span {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+/* klevu results div */
+.kuResults {
+    margin-top: 10px;
+}
+/* In GRIDVIEW: list style for each result */
+.kuResults ul li {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+    font-style: normal;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 0px;
+    position: relative;
+    float: left;
+}
+.kuProdTop {
+    margin: 0px;
+    box-sizing: border-box;
+    float: none;
+    padding: 10px;
+    position: relative;
+}
+.kuProdBottom {
+    margin: 0px;
+    box-sizing: border-box;
+    float: none;
+    padding: 10px;
+    position: relative;
+    min-height: 170px;
+}
+.kuResults.kuGridView .kuProdBottom {
+    min-height: 185px;
+    padding-bottom: 35px;
+    box-sizing: border-box;
+}
+.kuResults ul li:hover .kuProdWrap {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    transition: box-shadow 400ms ease-out;
+    -moz-transition: box-shadow 400ms ease-out;
+    -webkit-transition: box-shadow 400ms ease-out;
+    -o-transition: box-shadow 400ms ease-out;
+}
+/* In GRIDVIEW:  for wrapping the image in fixed size div */
+.kuProdWrap {
+    display: block;
+    height: auto;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #eeeeee;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.klevuImgWrap {
+    float: none;
+    overflow: hidden;
+    width: 100% !important;
+    height: 130px !important;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 10px;
+}
+.klevuImgWrap .kuprodImgSpan {
+    display: block;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: auto;
+    width: auto;
+}
+/* In GRIDVIEW: thumbnail of the product */
+.klevuImgWrap .kuprodImgSpan img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: auto;
+    width: auto;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: none;
+    outline: none;
+    display: inline-block;
+    position: absolute;
+}
+/* In GRIDVIEW: remove float value for name and description div */
+.kuResults .kuNameDesc {
+    float: none;
+    text-align: left;
+    margin-top: 10px;
+}
+/* In GRIDVIEW: discription is not displayed in grid layout*/
+.kuResults.kuGridView .kuDesc {
+    /*display: none;*/
+    font-size: 12px;
+    line-height: 18px;
+    color: #757575;
+    margin-top: 3px;
+    min-height: 35px;
+}
+.kuResults ul li .kuName {
+    margin-bottom: 5px;
+}
+.kuResults .kuStarsSmall {
+    height: 13px;
+    display: inline-block;
+    vertical-align: bottom;
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-gray.png) top left repeat-x;
+    width: 66px;
+}
+.kuResults .kuStarsSmall .kuRating {
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-yellow.png) top left repeat-x;
+    height: 13px;
+}
+.kuAddtocart {
+    margin: 10px auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    vertical-align: middle;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    transition: all 0.3s ease;
+    float: none;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+}
+.kuAddtocart input[type="text"] {
+    width: 25%;
+    max-width: 48px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 3px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0px;
+    margin-right: -5px;
+    border: 1px solid #333333;
+    vertical-align: middle;
+    outline: none;
+    color: #333;
+    font-size: 13px;
+}
+.kuAddtocart input[type="text"]:focus {
+    outline: none;
+}
+.kuAddtocart a.kuAddtocartBtn {
+    background: #333333;
+    color: #FFFFFF;
+    padding: 0px 8px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0px;
+    border: none;
+    height: 30px;
+    transition: all 0.3s ease;
+    border-radius: 0px;
+    text-align: right;
+    font-weight: normal;
+    line-height: 30px;
+}
+.kuAddtocart a.kuAddtocartBtn:hover, .kuAddtocart a.kuAddtocartBtn:focus {
+    background-color: #666666;
+    outline: none;
+}
+.kuResults ul li:hover .kuAddtocart {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+.kuPriceAndBtnWrap {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+/* In GRIDVIEW: set product name color and font size */
+.kuResults ul li .kuName a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: normal;
+}
+.kuResults ul li .kuName a:hover {
+    text-decoration: underline;
+}
+/* In GRIDVIEW: div to display saleprice and original price */
+.kuResults ul li .kuPrice {
+    margin-top: 12px;
+    text-align: left;
+    color: #333333;
+    width: 100%;
+    box-sizing: border-box;
+}
+/* In GRIDVIEW: div to display saleprice */
+.kuResults ul li .kuSalePrice {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: inherit;
+    text-align: left;
+    display: inline;
+    margin-right: 5px;
+    color: #333333;
+    float:left;
+}
+.kuResults ul li .kuSalePrice.kuSpecialPrice {
+    float: left;
+    display: inline-block;
+}
+.kuAddtocartBtnWrap span.kuStockStatus {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.kuColorGreen {
+    color: #009b46 !important;
+}
+.kuColorBlack {
+    color: #000000 !important;
+}
+.priceGreyText {
+    font-size: 11px;
+    color: #636363;
+}
+/* In GRIDVIEW: div to display original price with line-through style */
+.kuResults ul li .kuOrigPrice {
+    text-decoration: line-through;
+    text-align: left;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    float: left;
+    color: #757575;
+}
+.kuResults ul li .kuVariants {
+    text-align: left;
+}
+/* In GRIDVIEW: set color to highlight search keyowrd in name and description */
+.kuResults ul li strong {
+    color: #2980B9;
+}
+.kuPagination a {
+    font-style: normal;
+}
+/* To Display product results in list view */
+.kuResults.kuListView {
+    width: 100% !important;
+}
+.kuResults.kuListView ul li {
+    display: block;
+    width: 100%;
+    float: left;
+}
+.kuResults.kuListView .kuProdTop {
+    width: 20%;
+    float: left;
+}
+.kuResults.kuListView .kuProdBottom {
+    width: 80%;
+    float: left;
+    min-height: 150px;
+}
+.kuResults.kuListView .kuDesc {
+    display: block;
+    line-height: 18px;
+    font-style: normal;
+    color: #333333;
+    width: 78%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.kuResults.kuListView .klevuImgWrap img {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* To display other content in list view  */
+.contentCompressedActive .kuResults {
+    width: 100% !important;
+}
+.contentCompressedActive .kuView {
+    display: none !important;
+}
+.contentCompressedActive .kuResults {
+    width: 100% !important;
+}
+.contentCompressedActive .kuResults ul li, .contentCompressedActive .kuResults ul li {
+    display: block;
+    width: 100%;
+    float: none;
+}
+.contentCompressedActive .kuResults .kuProdTop, .contentCompressedActive .kuResults .kuProdTop {
+    width: 20%;
+    float: left;
+}
+.contentCompressedActive .kuResults .kuProdBottom {
+    width: 80%;
+    float: left;
+    min-height: 150px;
+}
+.contentCompressedActive .kuResults .kuProdBottom, .contentCompressedActive .kuResults .klevuImgWrap {
+    width: 80%;
+    float: left;
+    min-height: 90px;
+}
+.contentCompressedActive .kuResults .klevuImgWrap {
+    height: 90px !important;
+}
+.contentCompressedActive .kuResults .kuDesc {
+    display: block;
+    line-height: 18px;
+    font-style: normal;
+    color: #333333;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+.contentCompressedActive .kuResults img {
+    margin: 0px auto;
+}
+/* To display product results (by default GridView)*/
+.kuResults ul {
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100%;
+}
+/* div to display No records found message */
+/* No result found css*/
+.kuNoRecordFound {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #333333;
+    font-size: 13px;
+    background: #FFF;
+    display: block;
+}
+.kuLandingNoResults {
+    background: #FFF;
+    width: 100%;
+    margin: 30px auto;
+    max-width: 850px;
+}
+.kuLandingNoResultsMessage {
+    font-size: 18px;
+    padding: 25px 5%;
+    text-align: center;
+}
+.kuLandingNoResultsMessage span {
+    font-weight: bold;
+    font-style: italic;
+}
+/* ends No result found css */
+/* div to display or query message */
+.kuOrQueryMessage {
+    text-align: center;
+    margin-top: 10px;
+    color: #333333;
+    background: #ebebeb;
+    font-size: 13px;
+    padding: 7px 0px !important;
+    margin: 10px 0px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.kuOrQueryMessage span {
+    font-weight: 600;
+}
+/* show variants */
+.kuVariants {
+    font-size: 10px;
+    margin-top: 2px;
+    color: #333333;
+}
+/* height for loader div */
+#loader {
+    height: 400px;
+}
+#loader img {
+    margin-top: 10%;
+    display: inline-block;
+    width: auto !important;
+}
+.kuOtherContent {
+    display: none;
+}
+.disableKuFilter {
+    opacity: 0.3;
+    pointer-events: none;
+}
+/* Klevu Price slider style */
+.kuPriceRangeSlider {
+
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    min-height: 50px;
+}
+.kuPS-target, .kuPS-target * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.kuPS-target {
+    position: relative;
+    direction: ltr;
+}
+.kuPS-base {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+.kuPS-origin {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.kuPS-handle {
+    position: relative;
+    z-index: 1;
+}
+.kuPS-stacking .kuPS-handle {
+    z-index: 10;
+}
+.kuPS-state-tap .kuPS-origin {
+    -webkit-transition: left 0.3s, top 0.3s;
+    transition: left 0.3s, top 0.3s;
+}
+.kuPS-base, .kuPS-handle {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.kuPS-horizontal {
+    height: 4px;
+}
+.kuPS-horizontal .kuPS-handle {
+    width: 18px;
+    height: 18px;
+    left: -9px;
+    top: -7px;
+}
+.kuPS-vertical {
+    width: 18px;
+}
+.kuPS-vertical .kuPS-handle {
+    width: 28px;
+    height: 34px;
+    left: -6px;
+    top: -17px;
+}
+.kuPS-background {
+    background: #c7c8ca;
+}
+.kuPS-connect {
+    background: #333333;
+    -webkit-transition: background 450ms;
+    transition: background 450ms;
+}
+.kuPS-origin {
+    border-radius: 2px;
+}
+.kuPS-target {
+    border-radius: 4px;
+}
+.kuPS-draggable {
+    cursor: w-resize;
+}
+.kuPS-vertical .kuPS-draggable {
+    cursor: n-resize;
+}
+.kuPS-handle {
+    border: 1px solid #333333;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+.kuPS-tooltip {
+    display: block;
+    position: absolute;
+    text-align: center;
+    font-size: 13px;
+    margin-left: -9px;
+    background-color: #ffffff;
+}
+.kuPS-horizontal .kuPS-handle-lower .kuPS-tooltip {
+    bottom: -24px;
+    color: #333333;
+}
+.kuPS-horizontal .kuPS-handle-upper .kuPS-tooltip {
+    bottom: -24px;
+    color: #333333;
+}
+/* set opacity to filter */
+.disableKlevuFilter {
+    opacity: 0.3;
+    pointer-events: none;
+}
+/*--- for enabling filters in mobile  and filter tags ---*/
+/* css for filter tags*/
+.kuContainer .ku-search-filter-tags {
+    display: block;
+    color: #222222;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    position: relative;
+}
+.ku-search-filter-tag {
+    background: #eee;
+    border: none;
+    margin-right: 5px;
+    border-radius: 0px;
+    font-size: 12px;
+    padding: 0px 5px;
+    color: #333333;
+    margin-bottom: 4px;
+    display: inline-block;
+    line-height: 20px;
+}
+.ku-search-filter-remove, .ku-search-filter-remove-all {
+    cursor: pointer;
+    font-size: 12px;
+    color: #222222;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.ku-search-filter-remove-all a {
+    color: #333333;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.ku-search-filter-remove-all a:hover, .ku-search-filter-remove:hover {
+    color: #757575;
+}
+/* ends css for filter tags*/
+.kuFilterHead {
+    cursor: pointer;
+}
+.kuExpand {
+    position: relative !important;
+    transition: all 0.3s ease;
+}
+.kuFilterHead.kuExpand::after, .kuDropdownLabel:after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #333333;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 4px;
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.3s ease 0s;
+}
+.kuCollapse {
+    position: relative !important;
+    transition: all 0.3s ease;
+}
+.kuFilterHead.kuCollapse::after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #333333;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 4px;
+    position: absolute;
+    right: 12px;
+    top: 16px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    transition: all 0.3s ease;
+}
+/* to remove arrow border when filtrs on top*/
+.kuContainer.kuFiltersTop .kuFilterHead.kuCollapse::after {
+    border-width: 1px 0px 0px 1px;
+    position: initial;
+}
+.kuContainer.kuFiltersTop .kuFilterHead.kuExpand::after {
+    border-width: 0 1px 1px 0;
+    position: initial;
+}
+/*-----------------------ends filters in mobile and filter tags------*/
+/* additional CSS */
+.productList {
+    display: block;
+}
+
+/* for result view Icons */
+.kuContainer .kuTabs {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.kuContainer .kuTabs a {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 5px;
+    transition: background 200ms;
+    -webkit-transition: background 300ms;
+    -moz-transition: background 200ms;
+    color: #333333;
+    display: inline-block;
+    position: relative;
+}
+.kuContainer .kuTabs a:hover {
+    border-bottom: 3px solid #DDDDDD;
+    text-decoration: none;
+}
+.kuContainer a.kuTabSelected {
+    border-bottom: 3px solid #DDDDDD;
+}
+.kuContainer a.kuTabSelected:hover {
+    background: none;
+}

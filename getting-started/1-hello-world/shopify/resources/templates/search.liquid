@@ -1,0 +1,17 @@
+{% comment %} KLEVU - START {% endcomment %}
+    {% comment %} KLEVU - JS AND CSS ASSETS {% endcomment %}
+    <script src="{{ 'klevu-landing.js' | asset_url }}" ></script>
+    {{ 'klevu-landing.css' | asset_url | stylesheet_tag }}
+    {{ 'klevu-landing-responsive.css' | asset_url | stylesheet_tag }}
+
+    {% comment %} KLEVU - PLACEHOLDER FOR SEARCH RESULTS {% endcomment %}
+    <div class="klevuLanding"></div>
+
+    {% comment %} KLEVU - TEMPLATES FOR LANDING PAGE {% endcomment %}
+    {% include "klevu-landing-base" %}
+    {% include "klevu-landing-no-results-found" %}
+    {% include "klevu-landing-pagination" %}
+    {% include "klevu-landing-filters" %}
+    {% include "klevu-landing-results" %}
+    {% include "klevu-landing-product-block" %}
+{% comment %} KLEVU - END {% endcomment %}

@@ -1,0 +1,19 @@
+/*
+*   Quicksearch:: Additional CSS changes
+*   Note: Any element can be hide with CSS change like this. you just need to find the class name of that element
+*/
+
+/* to hide autosuggestions block */
+.klevuAutoSuggestionsWrap.klevuAutosuggestions {
+    display: none;
+}
+
+/* to hide CMS/Pages suggestions block */
+.klevuAutoSuggestionsWrap.klevuCmsSuggestions {
+    display: none;
+}
+
+/* to hide Category suggestions block */
+.klevuAutoSuggestionsWrap.klevuCategorySuggestions {
+    display: none;
+}

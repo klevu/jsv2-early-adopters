@@ -1,0 +1,32 @@
+/*
+*   Quicksearch:: Additional CSS changes
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i&display=swap');
+/* Google fonts used for demo purpose
+   Note: No need to add fonts, if required fonts exist in your theme.
+*/
+.klevuQuickSearchingArea {
+    font-family: 'Montserrat', sans-serif;    
+}
+.klevuQuickProductPrice {
+    font-size: 18px;
+}
+.klevuQuickSearchResults ul li .klevuQuickSalePrice {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 6px;
+    display: inline-block;
+}
+.klevuQuickSearchResults ul li .klevuQuickProductName {
+    font-size: 15px;
+    color: #0A4563;
+    font-weight: normal;
+}
+.klevuAutoSuggestionsWrap ul li a {
+    font-size: 14px;
+    line-height: 16px;
+}
+.klevuSuggestionHeading .klevuHeadingText {
+    font-weight: bold;
+    color: #0A4563;
+}

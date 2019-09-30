@@ -1,0 +1,47 @@
+/*
+*   Styles for Landing page Add to cart button 
+*/
+
+.kuAddtocart {
+    margin: 10px auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    vertical-align: middle;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    transition: all 0.3s ease;
+    float: none;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.kuAddtocart a.kuAddtocartBtn {
+    background: #333333;
+    color: #FFFFFF;
+    padding: 0px 8px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0px;
+    border: none;
+    height: 30px;
+    transition: all 0.3s ease;
+    border-radius: 0px;
+    text-align: right;
+    font-weight: normal;
+    line-height: 30px;
+}

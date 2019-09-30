@@ -1,0 +1,26 @@
+/*
+*   Quicksearch:: Additional CSS changes
+*/
+
+.klevuSuggestionHeading {
+    padding: 0px;
+    margin-top:0px;
+}
+.klevuSuggestionHeading .klevuHeadingText {
+   color: #333;
+   display: block;
+   font-size: 14px;
+   text-transform: uppercase;
+   background-color: #eeeeee;
+   margin: 0px;
+   box-sizing: border-box;
+   padding: 4px 5px 4px 15px;
+   font-weight: 500;
+}
+.klevuAutoSuggestionsWrap {
+    border:none;
+}
+
+.klevuQuickSearchResults .klevuProductsViewAll {   
+    top: -34px;   
+}

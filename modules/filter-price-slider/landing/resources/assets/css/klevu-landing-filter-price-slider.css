@@ -1,0 +1,65 @@
+/*
+*   Price slider filter styles
+*/
+
+.kuPriceSlider {
+    width: 350px;
+    max-width: 100%;
+    padding: 10px 20px 80px 20px;
+    margin: 20px auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.kuSliderVal {
+    font-size: 1rem;
+    line-height: 130%;
+    margin: 50px 0px 20px 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.kuSliderVal-min,
+.kuSliderVal-max {
+    padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    color: #333;
+    outline: none;
+    position: absolute;
+    min-width: 85px;
+    margin: 5px;
+    line-height: 100%;
+    box-sizing: border-box;
+    background: #eee;
+}
+
+.kuSliderVal span.kulabel {
+    position: absolute;
+    top: -24px;
+    left: 0;
+    color: #888;
+    font-size: 90%;
+}
+
+.kuSliderVal-min {
+    left: -17px;
+}
+
+.kuSliderVal-max {
+    right: -10px;
+}
+
+.kuPriceSlider span.kuSliderTo {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    margin-left: -15px;
+    width: 30px;
+    display: inline-block;
+    opacity: 0.45;
+}
+
+.sliderFilterNames {
+    height: 150px;
+}

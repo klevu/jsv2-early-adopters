@@ -1,0 +1,29 @@
+/*
+*   Product badge styles
+*/
+.kuDiscountBadge {
+    top: 6px;
+    right: 6px;
+    position: absolute;
+    background: #333333;
+    padding: 0px;
+    color: #FFFFFF;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-weight: normal;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1;
+    font-size: 12px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+}
+
+.kuDiscountBadge span {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}

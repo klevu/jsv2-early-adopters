@@ -1,0 +1,25 @@
+/*
+*   Product stock label styles
+*/
+
+.kuCaptionStockIn {
+    font-size: 11px;
+    color: green;
+    display: inline-block;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+.kuCaptionStockOut {
+    font-size: 11px;
+    color: Red;
+    display: inline-block;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
