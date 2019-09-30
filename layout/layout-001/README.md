@@ -1,15 +1,23 @@
-# Layout - "layout-001" 
+# Layout - "layout-001"
 
->**Prerequisite:**  
->First, include `//jsv2.klevu.com/export/klevu.js` and `klevu-settings.js`.  
->Next, include for Klevu quick search add [resources](/layout/layout-001/resources/quick).  
->then for Klevu search result landing page add [resources](/layout/layout-001/resources/landing).  
+This layout is an example of how you might bundle together various functionality
+from the [modules](/modules) available within this repository, as well as adding
+your own customisations.
 
-You will find the necessary resources for this module available here:
-[resources](/layout/layout-001/resources). Please add these with the
-method appropriate to your chosen framework. 
+You will find the necessary resources for this layout 
+[available here](/layout/layout-001/resources).
+Please add these with the method applicable to your chosen framework.
 
-This layout consists below modules:
+## Usage
+
+- Include `//jsv2.klevu.com/export/klevu.js` and `klevu-settings.js` on every page.
+- Add the [quick search resources](/layout/layout-001/resources/quick) to every page with a search input.
+- Finally add the [landing page resources](/layout/layout-001/resources/landing) to your search landing page.
+
+## Modules
+
+This layout example includes functionality from the below modules:
+
 - Klevu quick search
 - Klevu landing page
 - klevu-landing-sort
@@ -32,5 +40,6 @@ This layout consists below modules:
 - custom-pagination
 - product-quick-view
 
-![layout-001](/layout/layout-001/images/image002.jpg)
+## Screenshots
 
+![layout-001](/layout/layout-001/images/image002.jpg)
