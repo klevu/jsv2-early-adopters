@@ -1,18 +1,16 @@
 # Color Swatches - Landing Page Product Quick View
 
 >**Prerequisite:**  
->Before adding this module, first add [Product Quick View](/modules/product-quick-view) module.  
->This module has a dependecy of [colorSwatches](/components/color-swatches) component. To add the base component add necessary [resources](/components/color-swatches/resources).  
->[Base file](/components/color-swatches/resources/assets/js/klevu-color-swatches.js) contains the core logic of the functionality.  
+> This module extends [Product Quick View](/modules/product-quick-view) module.  
+> This module requires the [colorSwatches](/components/color-swatches) base component.   
 
 ![Quick-view color-swatches](/modules/color-swatches/images/image002.png)
 
-You will find the necessary resources for this module available here:
-[resources](/modules/color-swatches/quick-view/resources). Please add these with the
-method appropriate to your chosen framework.
+This module extends the `color-swatches` component, so you need to
+add the resources from that in addition to this module's resources:
 
-[klevu-quick-view-color-swatches.js](/modules/color-swatches/quick-view/resources/assets/js/klevu-quick-view-color-swatches.js)  
-In this file, it extends the base component and add functions related to quick view functionality. Also, it has the code for adding functionality to quick view as well as usage of component extension.
+- [Base component](/components/color-swatches/resources).
+- [This module's resources](/modules/color-swatches/quick-view/resources).
 
 ## Template Modifications
 
@@ -35,4 +33,11 @@ so edit the product quick view template file `product-quick-view.tpl` to add Qui
 ...
 ```
 
-Now try **Quick view color swatches**!
+### Code Reference
+
+[klevu-color-swatches.js](/components/color-swatches/resources/assets/js/klevu-color-swatches.js)
+contains your framework-specific functionality to connect color swatches to your chosen framework.  
+
+[klevu-quick-view-color-swatches.js](/modules/color-swatches/quick-view/resources/assets/js/klevu-quick-view-color-swatches.js)  
+connects the base component to your search results landing page product quick view implementation
+and show how to enable the base component for your targeted scope.  
