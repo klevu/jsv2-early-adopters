@@ -35,7 +35,7 @@ so edit the product quick view template file `product-quick-view.tpl` to add Qui
 
 ### Code Reference
 
-[klevu-color-swatches.js](/components/color-swatches/resources/assets/js/klevu-color-swatches.js)
+[klevu-color-swatches.js](/components/color-swatches/resources/assets/js/klevu-color-swatches.js)  
 contains your framework-specific functionality to connect color swatches to your chosen framework.  
 
 [klevu-quick-view-color-swatches.js](/modules/color-swatches/quick-view/resources/assets/js/klevu-quick-view-color-swatches.js)  

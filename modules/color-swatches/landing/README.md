@@ -32,7 +32,7 @@ so edit the corresponding `landing-product-block.tpl` to add color swatch render
 
 ### Code Reference
 
-[klevu-color-swatches.js](/components/color-swatches/resources/assets/js/klevu-color-swatches.js)
+[klevu-color-swatches.js](/components/color-swatches/resources/assets/js/klevu-color-swatches.js)  
 contains your framework-specific functionality to connect color swatches to your chosen framework.  
 
 [klevu-landing-color-swatches.js](/modules/color-swatches/landing/resources/assets/js/klevu-landing-color-swatches.js)  
