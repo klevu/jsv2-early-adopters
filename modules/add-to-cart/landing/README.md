@@ -29,7 +29,7 @@ Modify `landing-product-block.tpl` to add the 'Add to Cart' button in your prefe
 ### Code Reference
 
 [klevu-add-to-cart.js](/components/add-to-cart/resources/assets/js/klevu-add-to-cart.js)
-contains your framework-specific functionality to connect add to cart to your chosen framework.
+contains your framework-specific functionality to connect add to cart to your chosen framework.  
 
 [klevu-landing-add-to-cart.js](/modules/add-to-cart/landing/resources/assets/js/klevu-landing-add-to-cart.js)
 connects the base component to your search results landing page implementation
