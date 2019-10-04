@@ -30,6 +30,6 @@ Modify `landing-results.tpl` to add the filter items on the left side of the lan
 
 ### Code Reference 
 
-[klevu-landing-filter-left.js]  
+[klevu-landing-filter-left.js](/modules/filter-left/landing/resources/assets/js/klevu-landing-filter-left.js)  
 connects the base component to your search results landing page implementation
 and show how to enable the base component for your targeted scope.
