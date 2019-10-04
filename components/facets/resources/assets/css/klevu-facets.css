@@ -1,0 +1,293 @@
+/* Common CSS for default filters */
+.kuFilters {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    float: none;
+}
+
+/* set the height of each filter*/
+
+.kuFilterBox {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    background: none;
+    padding-bottom: 18px;
+    position: relative;
+    float: none;
+    width: 100%;
+}
+
+.kuFilterNames {
+    height: 118px;
+    overflow: hidden;
+}
+
+.kuFilterNames.kuFilterShowAll {
+    height: auto;
+    overflow: unset;
+}
+
+/* heading of filters i.e brand, color */
+
+.kuFilterHead {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px;
+    color: #333333;
+    display: block;
+    line-height: 1.8;
+    text-transform: uppercase;
+    border-bottom: 1px solid #EEEEEE;
+    background: none;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* down arrow div in filters */
+
+.kuShowOpt {
+    padding: 0px 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5px;
+}
+
+
+/* up arrow div in filters */
+
+
+/* down & up arrow link color in filters */
+
+.kuShowOpt a,
+.kuHideOpt a {
+    color: #333333;
+    text-decoration: none;
+}
+
+
+/* show more dot icon*/
+
+.kuFilterDot {
+    height: 5px;
+    width: 5px;
+    background-color: #333333;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+}
+
+
+/* set list for filters */
+
+.kuFilterNames ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* style for each list item in filter */
+
+.kuFilterNames ul li {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.kuFilterNames ul li a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 0px;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
+    color: #333333;
+    background: none;
+    margin: 2px;
+    margin-left: 5px;
+}
+
+
+/* set color for selected filter */
+
+.kuFilterNames ul li.kuSelected a {
+    color: #333333;
+}
+
+.kuFilterNames ul li a span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 120%;
+}
+
+.kuFilterNames ul li a span.kufacet-text {
+    max-width: 74%;
+    width: 74%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+
+/* Radio button for the filter */
+
+.kuFilterNames ul li a span.kuFilterIcon {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+
+.kuFilterIcon:before {
+    content: '';
+    border: 2px solid #DDDDDD;
+    border-radius: 50%;
+    margin: 0px;
+    margin-right: 6px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #DDDDDD;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: background 200ms;
+    -webkit-transition: background 200ms;
+    -moz-transition: background 200ms;
+    -webkit-transition: border-color 200ms;
+    -moz-transition: border-color 200ms;
+    transition: border-color 200ms;
+}
+
+.kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #FFFFFF;
+}
+
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #FFFFFF;
+}
+
+.kuFilterNames ul li a:hover span.kuFilterIcon:after,
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #333333;
+    top: 5px;
+    left: 5px;
+    border: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 50%;
+}
+
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    border-color: #333333;
+}
+
+.kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333333;
+}
+
+
+/* total nos of results available for filter & shows cancel button if filter is selected */
+
+.kuFilterNames ul li a span.kuFilterTotal,
+.kuFilterNames ul li a span.kuFilterCancel {
+    float: right;
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* set background color on hover of filter */
+
+.kuFilterNames ul li a:hover {
+    cursor: pointer;
+}
+
+
+/* set background color for selected filter */
+
+.kuFilterNames ul li.kuSelected a {
+    color: #333333;
+}
+
+.kuMulticheck .kuFilterIcon:before {
+    content: '';
+    border: 1px solid #DDDDDD;
+    border-radius: 0px;
+    margin: 0px;
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #DDDDDD;
+    position: relative;
+}
+
+.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #FFFFFF;
+    border: 1px solid #333333;
+}
+
+.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #FFFFFF;
+    border: 1px solid #333333;
+}
+
+.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:after,
+.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background: transparent;
+    top: 4px;
+    left: 4px;
+    border: 2px solid #DDDDDD;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.kuMulticheck .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333333;
+}
