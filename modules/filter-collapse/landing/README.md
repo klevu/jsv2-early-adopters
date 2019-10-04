@@ -1,5 +1,8 @@
 # Filter Collapse - Search Results Landing Page
 
+>**Prerequisite:**  
+>This module requires the [filters](/modules/filter-left) module. 
+
 >**Note:**   
 >In order to modify filter collapse, [klevu-landing-filter-collapse.js](/modules/filter-collapse/landing/resources/assets/js/klevu-landing-filter-collapse.js) and update the `collapsedFilters` list inside.  
 >In this example, filter collapse is based on the filter key.
