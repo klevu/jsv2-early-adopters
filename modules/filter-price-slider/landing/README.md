@@ -1,5 +1,8 @@
 # Filter Price Slider - Search Results Landing Page
 
+>**Prerequisite:**  
+>This module requires the modules based on [filters](/components/facets) component.  
+
 You will find the necessary resources for this module available here:
 [resources](/modules/filter-price-slider/landing/resources). Please add these with the
 method appropriate to your chosen framework. 

@@ -20,3 +20,6 @@ TARGET_SCOPE.facets.base.FUNCTION_NAME();
 ```
 
 Try accessing the Facets base component.
+
+**Reference modules based on this component:**
+- [Landing page filter items on the left side](/modules/filter-left/landing)

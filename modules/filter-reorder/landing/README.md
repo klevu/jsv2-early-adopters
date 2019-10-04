@@ -1,5 +1,8 @@
 # Filter Reorder - Search Results Landing Page
 
+>**Prerequisite:**  
+>This module requires the modules based on [filters](/components/facets) component. 
+
 >**Note:**  
 >In order to modify filter sequence, [klevu-landing-filter-reorder.js](/modules/filter-reorder/landing/resources/assets/js/klevu-landing-filter-reorder.js) and update the `priorityFilters` list inside.  
 >In this example, filter reordering is based on the filter key.  
