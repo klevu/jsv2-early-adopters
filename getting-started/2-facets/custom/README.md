@@ -52,4 +52,4 @@ Reload your page and **try the Facets**!
 
 ## What's next?
 
-Next, let's [add a pagination limit dropdown.](/getting-started/3-sort/custom)
+Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/custom)
