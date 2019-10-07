@@ -33,7 +33,7 @@ Include the `landing-filter-left.tpl` template by modifying `index.php` like thi
 Finally, we need to include this facets in our main template,
 so find and edit `templates/landing/landing-results.tpl`.
 
-Locate the line that renders the pagination, and add a new sortBy render helper above it:
+Locate the line that renders the filters:
 
 ```html
 <div class="kuResultsListing">
