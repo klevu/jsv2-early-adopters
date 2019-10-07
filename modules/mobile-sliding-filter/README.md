@@ -1,7 +1,7 @@
 # Mobile View Filter Slider
 
 >**Prerequisite:**  
->This module requires the modules based on [filters](/components/facets) component. 
+>This module requires the modules based on [facets](/components/facets) component. 
 
 ## Mobile View Filter Slider - Search Results Landing Page
 

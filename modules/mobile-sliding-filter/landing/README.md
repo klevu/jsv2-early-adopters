@@ -1,7 +1,7 @@
 # Mobile View Filter Slider - Search Results Landing Page
 
 >**Prerequisite:**  
->This module requires the modules based on [filters](/components/facets) component. 
+>This module requires the modules based on [facets](/components/facets) component. 
 
 ![mobile-filter-slider closed](/modules/mobile-sliding-filter/images/image001.png)
 ![mobile-filter-slider opened](/modules/mobile-sliding-filter/images/image002.png)
