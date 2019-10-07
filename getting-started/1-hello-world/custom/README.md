@@ -22,4 +22,4 @@ Copy these files to your folder, load up the index.php in your browser and
 Now you have Klevu functionality entirely hosted on your own infrastructure
 and are ready to make some more changes to customise your search results!
 
-Next, let's [Add a Sort-By Dropdown](/getting-started/2-sort/custom)
+Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/custom)

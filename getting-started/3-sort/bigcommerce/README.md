@@ -2,13 +2,13 @@
 
 You may notice that the search results page does not have a sorting option. Let’s add one.
 
-![Sort-By Dropdown](/getting-started/2-sort/images/sort-by-dropdown.jpg)
+![Sort-By Dropdown](/getting-started/3-sort/images/sort-by-dropdown.jpg)
 
 As per the [hello-world](/getting-started/1-hello-world/bigcommerce) tutorial,
 in order to make the required changes to your theme you'll need to download it
 and use `stencil bundle` to compile, so go ahead and download your theme again.
 
-Once downloaded, copy the files from the [resources](/getting-started/2-sort/bigcommerce/resources)
+Once downloaded, copy the files from the [resources](/getting-started/3-sort/bigcommerce/resources)
 folder directly into your theme.
 
 Next we need to include these assets and templates in our page,
@@ -47,4 +47,4 @@ then visit a search results page on your BigCommerce store to **try the sort ord
 
 ## What's next?
 
-Next, let's [add a pagination limit dropdown.](/getting-started/3-limit/bigcommerce)
+Next, let's [add a pagination limit dropdown.](/getting-started/4-limit/bigcommerce)

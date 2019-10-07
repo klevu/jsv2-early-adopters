@@ -14,7 +14,7 @@ tutorial, which included installing the Shopify Klevu App on your store._
     - Send this to your Klevu contact (_the person that told you about this programme!_) with email subject: “Klevu JS Library early adopter API Key”
 - We will then convert your API key from V1 to V2.
 
-![Shop Info](/getting-started/4-your-api-key/images/shop-info.jpg)
+![Shop Info](/getting-started/5-your-api-key/images/shop-info.jpg)
 
 ## Add some dummy Products
 

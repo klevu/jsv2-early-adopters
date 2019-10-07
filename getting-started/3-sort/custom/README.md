@@ -2,12 +2,12 @@
 
 You may notice that the search results page does not have a sorting option. Let’s add one.
 
-![Sort-By Dropdown](/getting-started/2-sort/images/sort-by-dropdown.jpg)
+![Sort-By Dropdown](/getting-started/3-sort/images/sort-by-dropdown.jpg)
 
 In order to make the required changes to you'll need to modify the static HTML files created
 during the [hello-world](/getting-started/1-hello-world/custom) tutorial.
 
-Copy the files from the [resources](/getting-started/2-sort/custom/resources)
+Copy the files from the [resources](/getting-started/3-sort/custom/resources)
 folder directly into your web accessible folder.
 
 Next we need to include these assets and templates in our page,
@@ -45,4 +45,4 @@ Reload your page and **try the sort ordering**!
 
 ## What's next?
 
-Next, let's [add a pagination limit dropdown.](/getting-started/3-limit/custom)
+Next, let's [add a pagination limit dropdown.](/getting-started/4-limit/custom)

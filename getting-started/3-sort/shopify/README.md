@@ -2,10 +2,10 @@
 
 You may notice that the search results page does not have a sorting option. Let’s add one.
 
-![Sort-By Dropdown](/getting-started/2-sort/images/sort-by-dropdown.jpg)
+![Sort-By Dropdown](/getting-started/3-sort/images/sort-by-dropdown.jpg)
 
 The files you will need for this module can be found in the
-[resources](/getting-started/2-sort/shopify/resources) folder.
+[resources](/getting-started/3-sort/shopify/resources) folder.
 
 Edit the code of your current theme and create some assets and snippets in your theme.
 This time let’s do this directly within the Shopify Theme editor, rather than downloading and zipping.
@@ -55,4 +55,4 @@ then visit a search results page on your Shopify store to **try the sort orderin
 
 ## What's next?
 
-Next, let's [add a pagination limit dropdown.](/getting-started/3-limit/shopify)
+Next, let's [add a pagination limit dropdown.](/getting-started/4-limit/shopify)

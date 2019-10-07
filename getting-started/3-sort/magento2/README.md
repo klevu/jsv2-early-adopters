@@ -2,12 +2,12 @@
 
 You may notice that the search results page does not have a sorting option. Let’s add one.
 
-![Sort-By Dropdown](/getting-started/2-sort/images/sort-by-dropdown.jpg)
+![Sort-By Dropdown](/getting-started/3-sort/images/sort-by-dropdown.jpg)
 
 In order to make the required changes to you'll need to modify the extension files created
 during the [hello-world](/getting-started/1-hello-world/magento2) tutorial.
 
-Copy the files from the [resources](/getting-started/2-sort/magento2/resources)
+Copy the files from the [resources](/getting-started/3-sort/magento2/resources)
 folder directly into your extension.
 
 Next we need to include these assets and templates in our page,
@@ -45,4 +45,4 @@ Flush your cache then visit a search results page on your Magento 2 store to **t
 
 ## What's next?
 
-Next, let's [add a pagination limit dropdown.](/getting-started/3-limit/magento2)
+Next, let's [add a pagination limit dropdown.](/getting-started/4-limit/magento2)

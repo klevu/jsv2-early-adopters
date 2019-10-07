@@ -28,4 +28,4 @@ configurable via Store Configuration, etc._
 Now you have Klevu functionality entirely hosted on your own infrastructure
 and are ready to make some more changes to customise your search results!
 
-Next, let's [Add a Sort-By Dropdown](/getting-started/2-sort/magento2)
+Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/magento2)
