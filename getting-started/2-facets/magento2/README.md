@@ -52,4 +52,4 @@ Flush your cache then visit a search results page on your Magento 2 store to **t
 
 ## What's next?
 
-Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/custom)
+Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/magento2)

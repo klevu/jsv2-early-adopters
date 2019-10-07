@@ -54,4 +54,4 @@ then visit a search results page on your BigCommerce store to **try the Facets**
 
 ## What's next?
 
-Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/custom)
+Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/bigcommerce)
