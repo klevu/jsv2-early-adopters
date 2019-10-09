@@ -24,6 +24,8 @@ function startup(klevu) {
 };
 ```
 
+## Include Resources
+
 The assets you will need for this module can be found in the [resources](/getting-started/6-analytics/resources) folder.  
 
 Next, we need to include these assets on our page. So, edit the file `index.php`.  
@@ -35,11 +37,3 @@ Include the `klevu-quick-analytics.js` and `klevu-landing-analytics.js` by modif
 ```
 
 Reload your page to **search your own data!**
-
-## Code Reference
-
-Klevu Analytics can be added to both Quick Search and Search Results Landing Page,
-please find the corresponding instructions for each below:
-
-- [Klevu Analytics in Quick Search results](/getting-started/6-analytics/resources/assets/js/quick).
-- [Klevu Analytics on the Search Results Landing Page](/getting-started/6-analytics/resources/assets/js/landing).
