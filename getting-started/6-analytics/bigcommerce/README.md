@@ -5,6 +5,7 @@
 
 >**Note:**  
 >This tutorial assumes you already completed the [Hello World](/getting-started/1-hello-world/custom) tutorial, and you already have an active Klevu API key.  
+>For activating API key, see [tutorial](/getting-started/5-your-api-key/bigcommerce). 
 
 ## Add Analytics API key
 
