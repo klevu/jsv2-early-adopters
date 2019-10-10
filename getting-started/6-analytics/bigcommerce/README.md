@@ -4,7 +4,7 @@
 > This module requires the [analytics-utils](/components/analytics-utils) base component.
 
 >**Note:**  
->This tutorial assumes you already completed the [Hello World](/getting-started/1-hello-world/custom) tutorial, and you already have an active Klevu API key.  
+>This tutorial assumes you already completed the [Hello World](/getting-started/1-hello-world/bigcommerce) tutorial, and you already have an active Klevu API key.  
 >For activating API key, see [tutorial](/getting-started/5-your-api-key/bigcommerce). 
 
 ## Add Analytics API key
