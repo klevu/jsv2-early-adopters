@@ -16,7 +16,7 @@ to add your own API Key in the appropriate location.
 ```js
 function startup(klevu) {
     var options = {
-        search : {
+        search: {
             apiKey: 'klevu-12345678901234567'
         },
         analytics: {
@@ -31,7 +31,7 @@ function startup(klevu) {
 Once downloaded, copy the files from the [resources](/getting-started/6-analytics/resources)
 folder directly into your theme.
 
-Next we need to include these assets and templates in our page,
+Next, we need to include these assets and templates on our page,
 so edit the file `templates/pages/search.html`.  
 Include `klevu-quick-analytics.js` and `klevu-landing-analytics.js` by modifying the contents like this:
 
