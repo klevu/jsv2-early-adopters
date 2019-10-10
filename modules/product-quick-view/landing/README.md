@@ -1,7 +1,7 @@
 # Product Quick View - Search Results Landing Page
 
 >**Prerequisite:**  
->This module requires the [add-to-cart](/components/add-to-cart) base component.   
+>This module requires the [add-to-cart](/components/add-to-cart) and [analytics-utils](/components/analytics-utils) base components.   
 
 ![Quick-view product-grid](/modules/product-quick-view/images/product-grid.png)
 ![Quick-view template](/modules/product-quick-view/images/product-quick-view.png) 

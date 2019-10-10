@@ -2,7 +2,7 @@
 	Search result product grid quick view modal template file
 -->
 <script type="template/klevu" id="klevuLandingTemplateQuickView">
-	<div class="kuModal">
+	<div class="kuModal"  data-id="<%=data.selected_product.id%>">
 		<div class="kuModal-content">
 			<div class="productQuickViewWrapper">
 				<div class="productQuick-Close">
