@@ -37,8 +37,8 @@ Include `klevu-quick-analytics.js` and `klevu-landing-analytics.js` by modifying
 
 ```html
 ...
-<script src="{{cdn '/assets/klevu/js/quick/klevu-quick-analytics.js.js'}}" ></script>
-<script src="{{cdn '/assets/klevu/js/landing/klevu-landing-analytics.js.js'}}" ></script>
+<script src="{{cdn '/assets/klevu/js/quick/klevu-quick-analytics.js'}}" ></script>
+<script src="{{cdn '/assets/klevu/js/landing/klevu-landing-analytics.js'}}" ></script>
 ```
 
 Use `npm install` and `stencil bundle` to repackage the theme and upload once more.  
