@@ -438,7 +438,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 var target = klevu.getSetting(klevu.search.landing.getScope().settings, "settings.search.searchBoxTarget");
                 klevu.each(klevu.dom.find(".klevuMeta", target), function (key, value) {
                     klevu.event.attach(value, "click", function (event) {
-                        data.context.current = value.dataset.section;
+                        data.context.section = value.dataset.section;
                     });
                 }, true);
                 if (klevu.dom.find(".klevuMeta", target)[0]) {

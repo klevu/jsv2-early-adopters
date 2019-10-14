@@ -471,3 +471,278 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
     }
 });
 
+
+
+/**
+ * Klevu extension for Analytics Utility functions
+ */
+klevu.extend({
+    analyticsUtils: function (mainScope) {
+        if (!mainScope.analyticsUtils) {
+            mainScope.analyticsUtils = {};
+        }
+        mainScope.analyticsUtils.base = {
+            /**
+             * Function to get term options
+             */
+            getTermOptions: function () {
+
+                var analyticsTermOptions = {
+                    term: mainScope.data.context.term,
+                    pageNumber: 1,
+                    currentURL: window.location.href,
+                    filters: false
+                };
+
+                var currentSection = mainScope.data.context.section;
+                if (!currentSection) {
+                    return analyticsTermOptions;
+                }
+
+                var reqQueries = mainScope.data.request.current.recordQueries;
+                if (reqQueries) {
+                    var reqQueryObj = reqQueries.filter(function (obj) {
+                        return obj.id == currentSection;
+                    })[0];
+                    if (reqQueryObj) {
+                        analyticsTermOptions.limit = (reqQueryObj.settings.limit) ? reqQueryObj.settings.limit : "";
+                        analyticsTermOptions.sort = (reqQueryObj.settings.sort) ? reqQueryObj.settings.sort : "";
+                        analyticsTermOptions.src = reqQueryObj.settings.typeOfRecords[0];
+
+                    }
+                }
+                var resQueries = mainScope.data.response.current.queryResults;
+                if (resQueries) {
+                    var resQueryObj = resQueries.filter(function (obj) {
+                        return obj.id == currentSection;
+                    })[0];
+                    if (resQueryObj) {
+
+                        analyticsTermOptions.totalResults = resQueryObj.meta.totalResultsFound;
+                        analyticsTermOptions.typeOfQuery = resQueryObj.meta.typeOfSearch;
+
+                        var productListLimit = resQueryObj.meta.noOfResults;
+                        analyticsTermOptions.pageNumber = Math.ceil(resQueryObj.meta.offset / productListLimit) + 1;
+
+                        var selectedFiltersStr = " [[";
+                        var isAnyFilterSelected = false;
+                        klevu.each(resQueryObj.filters, function (key, filter) {
+                            if (filter.type == "SLIDER") {
+                                if (filter.start != filter.min || filter.end != filter.max) {
+                                    if (isAnyFilterSelected) {
+                                        selectedFiltersStr += ";;";
+                                    }
+                                    isAnyFilterSelected = true;
+                                    selectedFiltersStr += filter.key + ":" + filter.start + " - " + filter.end;
+                                }
+                            } else {
+                                klevu.each(filter.options, function (key, option) {
+                                    if (option.selected) {
+                                        if (isAnyFilterSelected) {
+                                            selectedFiltersStr += ";;";
+                                        }
+                                        isAnyFilterSelected = true;
+                                        selectedFiltersStr += filter.key + ":" + option.name;
+                                    }
+                                });
+                            }
+                        });
+                        selectedFiltersStr += "]]";
+                        if (isAnyFilterSelected) {
+                            analyticsTermOptions.filters = true;
+                            analyticsTermOptions.term += selectedFiltersStr;
+                        }
+                    }
+                }
+                return analyticsTermOptions;
+            },
+            getProductDetailsFromId: function (productId, scope) {
+                var dataListId = scope.data.context.section;
+                var product;
+                var results = scope.data.response.current.queryResults;
+                if (results) {
+                    var productList = results.filter(function (obj) {
+                        return obj.id == dataListId;
+                    })[0];
+                    if (productList) {
+                        var records = productList.records;
+                        var matchedProduct = records.filter(function (prod) {
+                            return prod.id == productId;
+                        })[0];
+                        if (matchedProduct) {
+                            product = matchedProduct;
+                        }
+                    }
+                }
+                return product;
+            },
+            getDetailsFromURLAndName: function (catURL, catName, scope, dataListId) {
+                var category = {};
+                var results = scope.data.response.current.queryResults;
+                if (results) {
+                    var categoryList = results.filter(function (obj) {
+                        return obj.id == dataListId;
+                    })[0];
+                    if (categoryList) {
+                        var records = categoryList.records;
+                        var matchedCategory = records.filter(function (cat) {
+                            return cat.name == catName && cat.url == catURL;
+                        })[0];
+                        if (matchedCategory) {
+                            category = matchedCategory;
+                        }
+                    }
+                }
+                return category;
+            }
+        };
+    }
+});
+
+/**
+ * Quick search extension for Analytics utility
+ */
+klevu.extend({
+    analyticsUtilsQuickSearch: function (mainScope) {
+        if (!mainScope.analyticsUtils) {
+            klevu.analyticsUtils(mainScope);
+        }
+        mainScope.analyticsUtils.quick = {
+            /**
+             * Function to bind and fire analytics event on Quick Search products
+             */
+            fireAnalyticsOnProducts: function () {
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(".klevuProduct", target), function (key, value) {
+                    klevu.event.attach(value, "mousedown", function (event) {
+                        var productId = value.dataset.id;
+                        var searchResultContainer = klevu.dom.find(".klevuQuickSearchResults", target)[0];
+                        var dataSection;
+                        if (searchResultContainer) {
+                            dataSection = searchResultContainer.dataset.section;
+                        }
+                        if (!dataSection) {
+                            return;
+                        }
+                        mainScope.data.context.section = dataSection;
+                        if (productId) {
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if (product) {
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.productId = product.id;
+                                termOptions.productName = product.name;
+                                termOptions.productUrl = product.url;
+                                termOptions.src = product.typeOfRecord + ":quick-search";
+                                klevu.analyticsEvents.click(termOptions);
+                            }
+                        }
+                    }, true);
+                });
+            },
+            /**
+             * Function to bind and fire analytics event on Quick Search Categories
+             */
+            fireAnalyticsOnCategoriesAndPages: function (containerClass, dataListId) {
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(containerClass, target), function (key, value) {
+                    klevu.each(klevu.dom.find("a", value), function (key, catEle) {
+                        klevu.event.attach(catEle, "mousedown", function (event) {
+                            var url = catEle.getAttribute("href");
+                            var catName = catEle.innerHTML;
+                            var category = mainScope.analyticsUtils.base.getDetailsFromURLAndName(url, catName, mainScope, dataListId);
+                            var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                            termOptions.productName = category.name;
+                            termOptions.productUrl = category.url;
+                            termOptions.src = category.typeOfRecord + ":quick-search";
+                            klevu.analyticsEvents.click(termOptions);
+                        });
+                    });
+                });
+            },
+            /**
+             * Function to bind and fire analytics event on Auto suggestion items
+             */
+            fireAnalyticsOnSuggestions: function (containerClass) {
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(containerClass, target), function (key, value) {
+                    klevu.each(klevu.dom.find("a", value), function (key, sugEle) {
+                        klevu.event.attach(sugEle, "click", function (event) {
+                            event = event || window.event;
+                            event.preventDefault();
+                            var suggestionURL = sugEle.getAttribute("href");
+                            var suggestionText = (decodeURI(suggestionURL)).replace("/?q=", "");
+                            var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                            termOptions.originalTerm = termOptions.term;
+                            termOptions.term = suggestionText;
+                            termOptions.src = "ac-suggestions";
+                            klevu.analyticsEvents.term(termOptions);
+                            setTimeout(function () {
+                                window.location = sugEle.getAttribute("href");
+                            }, 500);
+                        });
+                    });
+                });
+            }
+        };
+    }
+});
+
+/**
+ * Attach core event to add quick search analytics
+ */
+klevu.coreEvent.attach("setRemoteConfigQuick", {
+    fire: "attachQuickSearchAnalyticsEvents",
+    fire: function () {
+        klevu.each(klevu.search.extraSearchBox, function (key, box) {
+            /**
+             * Initialize analytics utility
+             */
+            klevu.analyticsUtilsQuickSearch(box.getScope().element.kScope);
+            box.getScope().element.kScope.analyticsReqTimeOut = null;
+
+            /**
+             * Send term request for anaytics
+             */
+            box.getScope().chains.response.ajax.done.add({
+                name: "doAnalytics",
+                fire: function (data, scope) {
+                    if (box.getScope().element.kScope.analyticsReqTimeOut) {
+                        clearTimeout(box.getScope().element.kScope.analyticsReqTimeOut);
+                    }
+                    var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
+                    var searchResultContainer = klevu.dom.find(".klevuQuickSearchResults", target)[0];
+                    var dataSection;
+                    if (searchResultContainer) {
+                        dataSection = searchResultContainer.dataset.section;
+                    }
+                    if (!dataSection) {
+                        return;
+                    }
+                    scope.kScope.data.context.section = dataSection;
+                    box.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
+                        var termOptions = box.getScope().analyticsUtils.base.getTermOptions();
+                        termOptions.src += ":quick-search";
+                        klevu.analyticsEvents.term(termOptions);
+                        box.getScope().element.kScope.analyticsReqTimeOut = null;
+                    }, 500);
+                }
+            });
+
+            /**
+             * Function to add result product click analytics
+             */
+            box.getScope().chains.template.render.add({
+                name: "doResultProductsAnalytics",
+                fire: function (data, scope) {
+                    /**
+                     * Event to fire on quick search product click
+                     */
+                    box.getScope().analyticsUtils.quick.fireAnalyticsOnProducts();
+                    box.getScope().analyticsUtils.quick.fireAnalyticsOnCategoriesAndPages(".klevuCategorySuggestions", "categoryCompressed");
+                    box.getScope().analyticsUtils.quick.fireAnalyticsOnCategoriesAndPages(".klevuCmsSuggestions", "cmsCompressed");
+                    box.getScope().analyticsUtils.quick.fireAnalyticsOnSuggestions(".klevuAutosuggestions");
+                }
+            });
+        });
+    }
+});
