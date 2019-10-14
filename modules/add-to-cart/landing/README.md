@@ -1,7 +1,7 @@
 # Add to Cart - Search Results Landing Page
 
 > **Prerequisite:**  
-> This module requires the [add-to-cart](/components/add-to-cart) base component.
+> This module requires the [add-to-cart](/components/add-to-cart) and [analytics-utils](/components/analytics-utils) base components.
 
 ![Search-landing add-to-cart](/modules/add-to-cart/images/image001.png)
 
