@@ -24,6 +24,9 @@ function startup(klevu) {
     var options = {
         search : {
             apiKey: 'klevu-12345678901234567'
+        },
+        analytics: {
+            apiKey: 'klevu-12345678901234567'
         }
     };
 };

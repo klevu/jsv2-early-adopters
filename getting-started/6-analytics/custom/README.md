@@ -24,16 +24,17 @@ function startup(klevu) {
 };
 ```
 
-## Include Resources
+## Code Reference
 
-The assets you will need for this module can be found in the [resources](/getting-started/6-analytics/resources) folder.  
+Klevu Analytics can be added to both Quick Search and Search Results Landing Page,
+please find the corresponding instructions for each below:
 
-Next, we need to include these assets on our page. So, edit the file `index.php`.  
-Include the `klevu-quick-analytics.js` and `klevu-landing-analytics.js` by modifying the contents like this:
+[klevu-quick.js](/getting-started/1-hello-world/custom/resources/assets/js/quick/klevu-quick.js#L279)  
+contains Klevu Analytics extension for Quick Search results. By including this file to the application, it enables the analytics for the Quick Search input.  
 
-```html
-<script src="/assets/js/landing/klevu-quick-analytics.js"></script>
-<script src="/assets/js/landing/klevu-landing-analytics.js"></script>
-```
+[klevu-landing.js](/getting-started/1-hello-world/custom/resources/assets/js/landing/klevu-landing.js#L375)  
+contains Klevu Analytics extension for Search Results Landing Page. By including this file to the application, it enables the analytics of each search call fires from the landing page.  
+  
+Furthermore, by clicking on result products it will also track the click event to improve the results of your search.  
 
 Reload your page to **search your own data!**

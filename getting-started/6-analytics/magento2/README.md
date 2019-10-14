@@ -29,30 +29,18 @@ function startup(klevu) {
     };
 };
 ```
-## Include Resources
 
-The assets you will need for this module can be found in the [resources](/getting-started/6-analytics/resources) folder. 
+## Code Reference
 
-Next, we need to include these assets in our page,
-so edit the file `view/frontend/templates/quick.phtml`.
+Klevu Analytics can be added to both Quick Search and Search Results Landing Page,
+please find the corresponding instructions for each below:
+
+[klevu-quick.js](/getting-started/1-hello-world/magento2/resources/app/code/Klevu/JSv2/view/frontend/web/js/quick/klevu-quick.js#L279)  
+contains Klevu Analytics extension for Quick Search results. By including this file to the application, it enables the analytics for the Quick Search input.  
+
+[klevu-landing.js](/getting-started/1-hello-world/magento2/resources/app/code/Klevu/JSv2/view/frontend/web/js/landing/klevu-landing.js#L375)  
+contains Klevu Analytics extension for Search Results Landing Page. By including this file to the application, it enables the analytics of each search call fires from the landing page.  
   
-Include `klevu-quick-analytics.js` by modifying the contents like this:  
-```html
-...
-<script type="text/javascript" src="<?= $block->getViewFileUrl('Klevu_JSv2::js/quick/klevu-quick-analytics.js') ?>"></script>
-...
-```
-Next, edit the file `view/frontend/templates/landing.phtml`.
-  
-Include `klevu-landing-analytics.js` by modifying the contents like this: 
-```html
-...
-<script type="text/javascript" src="<?= $block->getViewFileUrl('Klevu_JSv2::js/landing/klevu-landing-analytics.js') ?>"></script>
-...
-```
+Furthermore, by clicking on result products it will also track the click event to improve the results of your search.  
 
-Flush your Magento cache then reload the frontend to **search your data!**
-
-## What's next?
-
-- [Click here for more tutorials](/modules)!
+Reload your page to **search your own data!**

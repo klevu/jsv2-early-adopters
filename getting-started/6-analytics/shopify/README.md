@@ -33,37 +33,17 @@ function startup(klevu) {
 
 Click on the Save button to store the settings.
 
-## Include Resources
+## Code Reference
 
-The assets you will need for this module can be found in the [resources](/getting-started/6-analytics/resources) folder. 
+Klevu Analytics can be added to both Quick Search and Search Results Landing Page,
+please find the corresponding instructions for each below:
 
-Edit the code of your current theme and create some assets in your theme.
-This time let’s do this directly within the Shopify Theme editor, rather than downloading and zipping.
+[klevu-quick.js](/getting-started/1-hello-world/shopify/resources/assets/klevu-quick.js#L279)  
+contains Klevu Analytics extension for Quick Search results. By including this file to the application, it enables the analytics for the Quick Search input.  
 
-- Navigate to Online Store > Themes.
-- On Current Theme, select Actions > Edit Code.
-- Assets > Add a new Asset > Upload `klevu-quick-analytics.js`.
-- Assets > Add a new Asset > Upload `klevu-landing-analytics.js`.
+[klevu-landing.js](/getting-started/1-hello-world/shopify/resources/assets/klevu-landing.js#L375)  
+contains Klevu Analytics extension for Search Results Landing Page. By including this file to the application, it enables the analytics of each search call fires from the landing page.  
   
-Next, we need to include these assets on our page,
-so edit Templates > `search.liquid`.  
+Furthermore, by clicking on result products it will also track the click event to improve the results of your search.  
 
-Include `klevu-quick-analytics.js` by modifying the contents like this:  
-
-```html
-...
-<script src="{{ 'klevu-quick-analytics.js' | asset_url }}"></script>
-```
-
-Click Save to persist your changes.
-
-Now, edit Templates > `page.klevuSearch.liquid`. 
-
-Include `klevu-landing-analytics.js` by modifying the contents like this:  
-```html
-...
-<script src="{{ 'klevu-landing-analytics.js' | asset_url }}"></script>
-```
-
-Click Save to persist your changes.  
 Reload your page to **search your own data!**

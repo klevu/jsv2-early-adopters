@@ -27,20 +27,18 @@ function startup(klevu) {
 };
 ```
 
-## Include Resources
 
-Once downloaded, copy the files from the [resources](/getting-started/6-analytics/resources)
-folder directly into your theme.
+## Code Reference
 
-Next, we need to include these assets and templates on our page,
-so edit the file `templates/pages/search.html`.  
-Include `klevu-quick-analytics.js` and `klevu-landing-analytics.js` by modifying the contents like this:
+Klevu Analytics can be added to both Quick Search and Search Results Landing Page,
+please find the corresponding instructions for each below:
 
-```html
-...
-<script src="{{cdn '/assets/klevu/js/quick/klevu-quick-analytics.js'}}" ></script>
-<script src="{{cdn '/assets/klevu/js/landing/klevu-landing-analytics.js'}}" ></script>
-```
+[klevu-quick.js](/getting-started/1-hello-world/bigcommerce/resources/assets/klevu/js/quick/klevu-quick.js#L279)  
+contains Klevu Analytics extension for Quick Search results. By including this file to the application, it enables the analytics for the Quick Search input.  
 
-Use `npm install` and `stencil bundle` to repackage the theme and upload once more.  
-Activate the new copy of your theme, then reload the frontend to **search your own data!**
+[klevu-landing.js](/getting-started/1-hello-world/bigcommerce/resources/assets/klevu/js/landing/klevu-landing.js#L375)  
+contains Klevu Analytics extension for Search Results Landing Page. By including this file to the application, it enables the analytics of each search call fires from the landing page.  
+  
+Furthermore, by clicking on result products it will also track the click event to improve the results of your search.  
+
+Reload your page to **search your own data!**
