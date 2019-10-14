@@ -27,7 +27,7 @@ var clickOptions = {
 	term: "bags",
 	productId: 40791907918,
 	productName: "Voyage Yoga Bag",
-	productUrl: "http://shopify-demo.klevu.com/products/voyage-yoga-bag"	
+	productUrl: "https://domain-name.com/products/voyage-yoga-bag"	
 };
 klevu.analyticsEvents.click(clickOptions);
 ```
