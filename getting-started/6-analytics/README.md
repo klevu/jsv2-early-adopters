@@ -8,7 +8,7 @@ Klevu Analytics is mainly focused on improving search results.
 
 The following code reference has two analytics functionality. Klevu Analytics functionality can be added in places based on the data you want to capture.
 
-**Term Analytics**
+**Term Analytics**  
 This functionality is for capturing search event data. In the code reference files, this functionality has been added on Quick Search and Search Result Landing Page. 
 Below snippet illustrates the usage of this functionality.
 ```js
@@ -19,7 +19,7 @@ var termOptions = {
 };
 klevu.analyticsEvents.term(termOptions);
 ```
-**Click Analytics**
+**Click Analytics**  
 This functionality is for capturing product click event. In the code reference file, this functionality has been added to capture details from Quick Search and Landing page products click.  
 Below snippet illustrates the usage of this functionality.  
 ```js
