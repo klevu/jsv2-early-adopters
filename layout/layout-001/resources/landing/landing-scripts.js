@@ -2080,7 +2080,7 @@ klevu.extend({
                         var productId = parent.dataset.id;
                         if (productId) {
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
-                            if(product){
+                            if (product) {
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
                                 termOptions.productId = product.id;
                                 termOptions.productName = product.name;
@@ -2099,7 +2099,7 @@ klevu.extend({
                         var productId = target.dataset.id;
                         if (productId) {
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
-                            if(product){
+                            if (product) {
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
                                 termOptions.productId = product.id;
                                 termOptions.productName = product.name;
@@ -2118,7 +2118,7 @@ klevu.extend({
                         var productId = target.dataset.id;
                         if (productId) {
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
-                            if(product){
+                            if (product) {
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
                                 termOptions.productId = product.id;
                                 termOptions.productName = product.name;
@@ -2163,5 +2163,65 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             }
         });
 
+    }
+});
+
+
+/**
+ * Klevu analytics implementation for Landing page add to cart button
+ */
+
+klevu.extend({
+    analyticsUtilsLandingAddToCart: function (mainScope) {
+        if (!mainScope.analyticsUtils) {
+            klevu.analyticsUtils(mainScope);
+        }
+        mainScope.analyticsUtils.landingAddToCart = {
+            /**
+             * Function to fire analytics click call on add to cart button
+             */
+            bindAddToCartClickAnalytics: function () {
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(".kuAddtocart", target), function (key, value) {
+                    klevu.event.attach(value, "mousedown", function (event) {
+                        var parent = klevu.dom.helpers.getClosest(value, ".klevuProduct");
+                        if (parent === null) {
+                            return;
+                        }
+                        var productId = parent.dataset.id;
+                        if (productId) {
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if (product) {
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.productId = product.id;
+                                termOptions.productName = product.name;
+                                termOptions.productUrl = product.url;
+                                termOptions.src = "shortlist:add-to-cart:landing";
+                                klevu.analyticsEvents.click(termOptions);
+                            }
+                        }
+                    });
+                });
+            }
+        };
+    }
+});
+
+
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "attachLandingProductAddToCartButtonAnalytics",
+    fire: function () {
+        /** initialize add to cart analytics functionality */
+        klevu.analyticsUtilsLandingAddToCart(klevu.search.landing.getScope().element.kScope);
+
+        /**
+         * Event to bind analytics on add to cart click event
+         */
+        klevu.search.landing.getScope().chains.template.events.add({
+            name: "bindAnalyticsOnAddToCartButtonEvent",
+            fire: function (data, scope) {
+                klevu.search.landing.getScope().analyticsUtils.landingAddToCart.bindAddToCartClickAnalytics();
+            }
+        });
     }
 });

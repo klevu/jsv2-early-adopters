@@ -284,7 +284,7 @@ klevu.extend({
             bindAddToCartButtonClick: function (dataListId, callSrc) {
                 var target = klevu.dom.find(".kuModal")[0];
                 klevu.each(klevu.dom.find(".kuModalProductCart", target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
+                    klevu.event.attach(value, "mousedown", function (event) {
                         var productId = target.dataset.id;
                         if (productId) {
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
