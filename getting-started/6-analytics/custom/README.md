@@ -30,10 +30,10 @@ Klevu Analytics can be added to both Quick Search and Search Results Landing Pag
 please find the corresponding instructions for each below:
 
 [klevu-quick.js](/getting-started/1-hello-world/custom/resources/assets/js/quick/klevu-quick.js#L279)  
-contains Klevu Analytics extension for Quick Search results. By including this file to the application, it enables the analytics for the Quick Search input.  
+This contains the initialization and implementation of analytics functionality for the Quick Search Getting started.   
 
 [klevu-landing.js](/getting-started/1-hello-world/custom/resources/assets/js/landing/klevu-landing.js#L375)  
-contains Klevu Analytics extension for Search Results Landing Page. By including this file to the application, it enables the analytics of each search call fires from the landing page.  
+This contains the initialization and implementation of analytics functionality for the Search Result Landing Page Getting started.   
   
 Furthermore, by clicking on result products it will also track the click event to improve the results of your search.  
 
