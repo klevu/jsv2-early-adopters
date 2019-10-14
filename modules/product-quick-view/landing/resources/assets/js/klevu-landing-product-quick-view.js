@@ -249,15 +249,15 @@ klevu.extend({
                         }
                         var productId = parent.dataset.id;
                         if (productId) {
-                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope, dataListId);
-                            var productOptions = {
-                                term: mainScope.data.context.term,
-                                productId: product.id,
-                                productName: product.name,
-                                productUrl: product.url,
-                                src: callSrc
-                            };
-                            klevu.analyticsEvents.click(productOptions);
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if(product){
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.productId = product.id;
+                                termOptions.productName = product.name;
+                                termOptions.productUrl = product.url;
+                                termOptions.src = callSrc;
+                                klevu.analyticsEvents.click(termOptions);
+                            }
                         }
                     });
                 });
@@ -268,15 +268,15 @@ klevu.extend({
                     klevu.event.attach(value, "click", function (event) {
                         var productId = target.dataset.id;
                         if (productId) {
-                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope, dataListId);
-                            var productOptions = {
-                                term: mainScope.data.context.term,
-                                productId: product.id,
-                                productName: product.name,
-                                productUrl: product.url,
-                                src: product.typeOfRecord + ":" + callSrc
-                            };
-                            klevu.analyticsEvents.click(productOptions);
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if(product){
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.productId = product.id;
+                                termOptions.productName = product.name;
+                                termOptions.productUrl = product.url;
+                                termOptions.src = product.typeOfRecord + ":" + callSrc;
+                                klevu.analyticsEvents.click(termOptions);
+                            }
                         }
                     });
                 });
@@ -287,15 +287,15 @@ klevu.extend({
                     klevu.event.attach(value, "click", function (event) {
                         var productId = target.dataset.id;
                         if (productId) {
-                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope, dataListId);
-                            var productOptions = {
-                                term: mainScope.data.context.term,
-                                productId: product.id,
-                                productName: product.name,
-                                productUrl: product.url,
-                                src: "shortlist:add-to-cart:" + callSrc
-                            };
-                            klevu.analyticsEvents.click(productOptions);
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if(product){
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.productId = product.id;
+                                termOptions.productName = product.name;
+                                termOptions.productUrl = product.url;
+                                termOptions.src = "shortlist:add-to-cart:" + callSrc;
+                                klevu.analyticsEvents.click(termOptions);
+                            }
                         }
                     });
                 });
