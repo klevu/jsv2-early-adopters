@@ -1,5 +1,9 @@
 # Getting Started
 
+> **Note:**  
+> Remember! anything you do, you must add analytics!    
+> Follow the [analytics](/getting-started/6-analytics) section.  
+
 Choose your preferred framework for trying out Klevu JS Library and we'll walk you through the rest.
 
 - **[Get started with Shopify](/getting-started/1-hello-world/shopify)**
