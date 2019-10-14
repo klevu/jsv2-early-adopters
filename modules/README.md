@@ -1,10 +1,10 @@
 # Modules
 
-> **Steps to enable Module**    
+> **Checklist for enabling Module to the application:**    
 > **1)** Go through with the  `README.md` file of a module.  
 > **2)** Download the module folder along with the Base Component if any.  
-> **3)** Each module has JavaScript, CSS and Template files based on the functionality.  
-> **4)** Go through with the resource folder of a module and paste related code in respective files of a framework.  
+> **3)** Each module has JavaScript, CSS and Template files based on the implementation.  
+> **4)** Go through with the resource folder of a module and add relevant code in the corresponding files of a framework.    
 
 These modules contain various search functionality that you may or may not
 want to include in your website.
