@@ -36,4 +36,4 @@ connects the base component to your search results landing page implementation
 and show how to enable the base component for your targeted scope.  
 
 > **Note:**
-> Added analytics on this functionality. [Line reference](modules/add-to-cart/landing/resources/assets/js/klevu-landing-add-to-cart.js#L89) in code file.
+> Added analytics on this functionality. [Line reference](/modules/add-to-cart/landing/resources/assets/js/klevu-landing-add-to-cart.js) in code file.
