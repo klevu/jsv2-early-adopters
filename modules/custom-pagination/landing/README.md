@@ -8,8 +8,8 @@ method appropriate to your chosen framework.
 
 ## Template Modifications
 
-Add the template for rendering pagination for related results,
-so edit the corresponding landing `landing-results.tpl` to add pagination renderer template.
+Add the template for rendering pagination for related results.  
+Edit the corresponding landing `landing-results.tpl` to add pagination renderer template.
 
 ```html
 ...

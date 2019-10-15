@@ -15,8 +15,8 @@ It extends the base component and add functions related to quick view functional
 
 ## Template Modifications
 
-Add the template for rendering Quick view for related results,
-so edit the corresponding `landing-product-block.tpl` to add a Quick view renderer template.
+Add the template for rendering Quick view for related results.  
+Edit the corresponding `landing-product-block.tpl` to add a Quick view renderer template.
 
 ```html
 ...

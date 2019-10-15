@@ -16,8 +16,8 @@ please follow the appropriate ['hello world'](/getting-started/1-hello-world) tu
 
 ## Template Modifications
 
-Add the template for rendering color swatch for related results,
-so edit the corresponding `landing-product-block.tpl` to add color swatch renderer template.
+Add the template for rendering color swatch for related results.  
+Edit the corresponding `landing-product-block.tpl` to add color swatch renderer template.
 
 ```html
 ...

@@ -12,8 +12,8 @@ method appropriate to your chosen framework.
 
 ## Template Modifications
 
-Add the template for rendering sliding filter for related results,
-so edit the corresponding `landing-results.tpl` to add sliding filter renderer template.
+Add the template for rendering sliding filter for related results.  
+Edit the corresponding `landing-results.tpl` to add sliding filter renderer template.
 
 ```html
 ...
@@ -30,8 +30,8 @@ so edit the corresponding `landing-results.tpl` to add sliding filter renderer t
 ...
 ```
 
-Next, Add the template for rendering sliding filter for related results,
-so edit the corresponding `landing-filters.tpl` to add sliding filter renderer template.
+Next, Add the template for rendering sliding filter for related results.  
+Edit the corresponding `landing-filters.tpl` to add sliding filter renderer template.
 
 ```html
 ...

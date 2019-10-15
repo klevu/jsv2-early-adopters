@@ -14,8 +14,8 @@ method appropriate to your chosen framework.
 
 ## Template Modifications
 
-Add the template for rendering filter collapse for related results,
-so edit the corresponding landing `landing-filters.tpl` to add filter collapse renderer template.
+Add the template for rendering filter collapse for related results.  
+Edit the corresponding landing `landing-filters.tpl` to add filter collapse renderer template.
 
 ```html
 ...
