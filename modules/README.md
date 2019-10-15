@@ -6,12 +6,11 @@
 > 3) Each module has JavaScript, CSS and Template files based on the implementation.  
 > 4) Go through with the resource folder of a module and add relevant code in the corresponding files of a framework.  
 
-```t
-/*
-*   Checklist for enabling Module to the application
-*/
 
-Step 1: Go through with the  "README.md" file of a module.  
+**Checklist for enabling Module to the application:**
+```t
+Step 1: Go through with the  "README.md" file of a module.
+Step 2: Download the module folder along with the Base Component if any.
 
 ```
 
