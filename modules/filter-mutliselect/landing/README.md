@@ -10,4 +10,4 @@ You will find the necessary resources for this module available here:
 method appropriate to your chosen framework.
 
 >**Note:**
->In order to enable multiselect functionality in filters, [klevu-landing-filter-mutliselect.js](/modules/filter-mutliselect/landing/resources/assets/js/klevu-landing-filter-mutliselect.js) and update `multiselectFiltersOptions` inside.
+>In order to enable multiselect functionality in filters, open [klevu-landing-filter-mutliselect.js](/modules/filter-mutliselect/landing/resources/assets/js/klevu-landing-filter-mutliselect.js) and update `multiselectFiltersOptions` inside.

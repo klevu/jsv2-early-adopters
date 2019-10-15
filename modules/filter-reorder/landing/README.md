@@ -4,7 +4,7 @@
 >This module requires the modules based on [facets](/components/facets) component. 
 
 >**Note:**  
->In order to modify filter sequence, [klevu-landing-filter-reorder.js](/modules/filter-reorder/landing/resources/assets/js/klevu-landing-filter-reorder.js) and update the `priorityFilters` list inside.  
+>In order to modify filter sequence, open [klevu-landing-filter-reorder.js](/modules/filter-reorder/landing/resources/assets/js/klevu-landing-filter-reorder.js) and update the `priorityFilters` list inside.  
 >In this example, filter reordering is based on the filter key.  
 
 You will find the necessary resources for this module available here:
