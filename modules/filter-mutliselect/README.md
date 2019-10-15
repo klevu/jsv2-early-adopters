@@ -5,4 +5,6 @@
 
 ![Filter multiselect](/modules/filter-mutliselect/images/image001.png)
 
-[Filter multiselect on the Search Results Landing Page](/modules/filter-mutliselect/landing).
+## Filter Multi-select - Search Results Landing Page
+
+You will find the module available [here](/modules/filter-mutliselect/landing).
