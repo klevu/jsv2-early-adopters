@@ -6,7 +6,7 @@
 > 3) Each module has JavaScript, CSS and Template files based on the implementation.  
 > 4) Go through with the resource folder of a module and add relevant code in the corresponding files of a framework.  
 
-```javascript
+```t
 /*
 *   Checklist for enabling Module to the application
 */
