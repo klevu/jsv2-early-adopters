@@ -1,6 +1,6 @@
 # Modules
 
-> **Checklist for enabling Module to the application:**    
+> **Checklist for enabling Module to the application:**  
 > 1) Go through with the  `README.md` file of a module.  
 > 2) Download the module folder along with the Base Component if any.  
 > 3) Each module has JavaScript, CSS and Template files based on the implementation.  
