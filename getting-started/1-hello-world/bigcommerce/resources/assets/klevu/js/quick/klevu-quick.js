@@ -472,7 +472,7 @@ klevu.extend({
                             event = event || window.event;
                             event.preventDefault();
                             var suggestionURL = sugEle.getAttribute("href");
-                            var suggestionText = (decodeURI(suggestionURL)).replace("/?q=", "");
+                            var suggestionText = sugEle.dataset.content;
                             var termOptions = mainScope.analyticsUtils.base.getTermOptions();
                             termOptions.originalTerm = termOptions.term;
                             termOptions.term = suggestionText;
