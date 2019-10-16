@@ -13,9 +13,9 @@ klevu.extend({
             getTermOptions: function () {
 
                 var analyticsTermOptions = {
-                    term: mainScope.data.context.term,
-                    pageNumber: 1,
-                    currentURL: window.location.href,
+                    klevu_term: mainScope.data.context.term,
+                    klevu_pageNumber: 1,
+                    klevu_currentURL: window.location.href,
                     filters: false
                 };
 
@@ -30,9 +30,9 @@ klevu.extend({
                         return obj.id == currentSection;
                     })[0];
                     if (reqQueryObj) {
-                        analyticsTermOptions.limit = (reqQueryObj.settings.limit) ? reqQueryObj.settings.limit : "";
-                        analyticsTermOptions.sort = (reqQueryObj.settings.sort) ? reqQueryObj.settings.sort : "";
-                        analyticsTermOptions.src = reqQueryObj.settings.typeOfRecords[0];
+                        analyticsTermOptions.klevu_limit = reqQueryObj.settings.limit;
+                        analyticsTermOptions.klevu_sort = reqQueryObj.settings.sort;
+                        analyticsTermOptions.klevu_src = reqQueryObj.settings.typeOfRecords[0];
 
                     }
                 }
@@ -43,11 +43,11 @@ klevu.extend({
                     })[0];
                     if (resQueryObj) {
 
-                        analyticsTermOptions.totalResults = resQueryObj.meta.totalResultsFound;
-                        analyticsTermOptions.typeOfQuery = resQueryObj.meta.typeOfSearch;
+                        analyticsTermOptions.klevu_totalResults = resQueryObj.meta.totalResultsFound;
+                        analyticsTermOptions.klevu_typeOfQuery = resQueryObj.meta.typeOfSearch;
 
                         var productListLimit = resQueryObj.meta.noOfResults;
-                        analyticsTermOptions.pageNumber = Math.ceil(resQueryObj.meta.offset / productListLimit) + 1;
+                        analyticsTermOptions.klevu_pageNumber = Math.ceil(resQueryObj.meta.offset / productListLimit) + 1;
 
                         var selectedFiltersStr = " [[";
                         var isAnyFilterSelected = false;
@@ -75,7 +75,7 @@ klevu.extend({
                         selectedFiltersStr += "]]";
                         if (isAnyFilterSelected) {
                             analyticsTermOptions.filters = true;
-                            analyticsTermOptions.term += selectedFiltersStr;
+                            analyticsTermOptions.klevu_term += selectedFiltersStr;
                         }
                     }
                 }

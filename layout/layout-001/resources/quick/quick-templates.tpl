@@ -21,13 +21,14 @@
                 </div>
                 <ul>
                     <% helper.each(data.suggestions.autosuggestion,function(key,suggestion){ %>
-                        <li><a href="<%=helper.buildUrl(data.settings.landingUrl,'q' , helper.stripHtml(suggestion.suggest))%>" data-content="<%=helper.stripHtml(suggestion.suggest) %>" class="klevu-track-click"> <%=suggestion.suggest %> </a></li>
+                        <li><a href="<%=helper.buildUrl(data.settings.landingUrl, 'q' , helper.stripHtml(suggestion.suggest))%>" data-content="<%=helper.stripHtml(suggestion.suggest) %>" class="klevu-track-click"> <%=suggestion.suggest %> </a></li>
                     <% }); %>
                 </ul>
             </div>
         <% } %>
     <% } %>
 </script>
+
 
 
 <script type="template/klevu" id="klevuQuickPageSuggestions">
@@ -37,13 +38,14 @@
                 <div class="klevuSuggestionHeading"><span class="klevuHeadingText"><%=helper.translate("Pages")%></span></div>
                 <ul>
                     <% helper.each(data.query.cmsCompressed.result,function(key,cms){ %>
-                        <li><a href="<%=cms.url%>"><%=cms.name%></a></li>
+                        <li><a href="<%=cms.url%>" class="klevu-track-click" data-url="<%=cms.url%>" data-name="<%=cms.name%>"><%=cms.name%></a></li>
                     <% }); %>
                 </ul>
             </div>
         <% } %>
     <% } %>
 </script>
+
 
 
 <script type="template/klevu" id="klevuQuickCategorySuggestions">
@@ -55,13 +57,14 @@
                 </div>
                 <ul>
                     <% helper.each(data.query.categoryCompressed.result,function(key,category){ %>
-                        <li><a href="<%=category.url%>"><%=category.name%></a></li>
+                        <li><a href="<%=category.url%>" class="klevu-track-click" data-url="<%=category.url%>" data-name="<%=category.name%>" ><%=category.name%></a></li>
                     <% }); %>
                 </ul>
             </div>
         <% } %>
     <% } %>
 </script>
+
 
 
 <script type="template/klevu" id="klevuQuickProducts">

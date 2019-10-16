@@ -391,11 +391,15 @@ klevu.extend({
                                 var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
                                 if (product) {
                                     var termOptions = mainScope.analyticsUtils.base.getTermOptions();
-                                    termOptions.productId = product.id;
-                                    termOptions.productName = product.name;
-                                    termOptions.productUrl = product.url;
-                                    termOptions.src = product.typeOfRecord + ":landing";
-                                    klevu.analyticsEvents.click(termOptions);
+                                    if(termOptions){
+                                        termOptions.klevu_keywords = termOptions.klevu_term;
+                                        termOptions.klevu_productId = product.id;
+                                        termOptions.klevu_productName = product.name;
+                                        termOptions.klevu_productUrl = product.url;
+                                        termOptions.klevu_src = product.typeOfRecord + ":landing";
+                                        delete termOptions.klevu_term;
+                                        klevu.analyticsEvents.click(termOptions);
+                                    }
                                 }
                             }
                         }
@@ -425,10 +429,11 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 }
                 klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
                     var termOptions = klevu.search.landing.getScope().analyticsUtils.base.getTermOptions();
-                    termOptions.src += (termOptions.filters) ? ":landing:filters" : ":landing";
+                    termOptions.klevu_src += (termOptions.filters) ? ":landing:filters" : ":landing";
+                    delete termOptions.filters;
                     klevu.analyticsEvents.term(termOptions);
                     klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut = null;
-                }, 500);
+                }, 300);
             }
         });
 
