@@ -15,9 +15,9 @@ Below snippet illustrates the usage of this functionality.
 
 ```js
 var termOptions = {
-	term: "bags",
-	totalResults: 100,
-	typeOfQuery: "WILDCARD_AND"	
+	klevu_term: "bags",
+	klevu_totalResults: 100,
+	klevu_typeOfQuery: "WILDCARD_AND"	
 };
 klevu.analyticsEvents.term(termOptions);
 ```
@@ -29,10 +29,10 @@ Below snippet illustrates the usage of this functionality.
 
 ```js
 var clickOptions = {
-	term: "bags",
-	productId: 40791907918,
-	productName: "Voyage Yoga Bag",
-	productUrl: "https://domain-name.com/products/voyage-yoga-bag"	
+	klevu_keywords: "bags",
+	klevu_productId: 40791907918,
+	klevu_productName: "Voyage Yoga Bag",
+	klevu_productUrl: "https://domain-name.com/products/voyage-yoga-bag"	
 };
 klevu.analyticsEvents.click(clickOptions);
 ```
