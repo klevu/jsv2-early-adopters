@@ -3,7 +3,7 @@
 > **Prerequisite:**  
 > This module requires the [facets](/components/facets) base component.
 
-You may notice that the search results page does not have a Facets. Let’s add one.
+You may notice that the search results page does not have any facets. Let’s add them.
 
 ![Facets left](/getting-started/2-facets/images/image001.png)
 

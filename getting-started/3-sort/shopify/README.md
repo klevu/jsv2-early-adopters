@@ -8,7 +8,7 @@ The files you will need for this module can be found in the
 [resources](/getting-started/3-sort/shopify/resources) folder.
 
 Edit the code of your current theme and create some assets and snippets in your theme.
-This time let’s do this directly within the Shopify Theme editor, rather than downloading and zipping.
+Once again let’s do this directly within the Shopify Theme editor, rather than downloading and zipping.
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.

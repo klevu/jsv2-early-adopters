@@ -3,7 +3,7 @@
 > **Prerequisite:**  
 > This module requires the [facets](/components/facets) base component.
 
-You may notice that the search results page does not have a Facets. Let’s add one.
+You may notice that the search results page does not have any facets. Let’s add them.
 
 ![Facets left](/getting-started/2-facets/images/image001.png)
 
@@ -15,7 +15,11 @@ This time let’s do this directly within the Shopify Theme editor, rather than 
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
-- Assets > Add a new Asset > Upload `klevu-landing-filter-left.js`.
+- Assets > Add a new Asset > Upload:
+    - `klevu-facets.js` from [facet component JS](/components/facets/resources/assets/js).
+    - `klevu-facets.css` from [facet component CSS](/components/facets/resources/assets/css).
+    - `klevu-landing-filter-left.js` from [this module's JS](/getting-started/2-facets/shopify/resources/assets).
+    - `klevu-landing-filter-left.css` from [this module's CSS](/getting-started/2-facets/shopify/resources/assets).
 - Snippets > Add a new Snippet:
     - Create a new Snippet called: `klevu-landing-filter-left`
     - Copy the content from `landing-filter-left.liquid` and and click on Save.
@@ -23,18 +27,22 @@ This time let’s do this directly within the Shopify Theme editor, rather than 
 Next we need to include these assets and snippets in our page,
 so edit Templates > `search.liquid`.
 
-Include `klevu-landing-filter-left.js` by modifying the contents like this:
+Include the new JavaScript and CSS files by modifying the contents like this:
 
 ```html
 ...
-<script src="{{ 'klevu-landing-filter-left.js' | asset_url }}"></script>
+<script src="{{ 'klevu-facets.js' | asset_url }}" ></script>
+<script src="{{ 'klevu-landing-filter-left.js' | asset_url }}" ></script>
+
+{{ 'klevu-facets.css' | asset_url | stylesheet_tag }}
+{{ 'klevu-landing.css' | asset_url | stylesheet_tag }}
 ...
 ```
 
 Include the `landing-filter-left.liquid` snippet by modifying the contents like this:
 
 ```html
-{% include "landing-filter-left" %}
+{% include "klevu-landing-filter-left" %}
 ```
 
 Click Save to persist your changes.
@@ -42,18 +50,15 @@ Click Save to persist your changes.
 Finally, we need to include this sort dropdown in our main template,
 so find and edit Snippets > `klevu-landing-results.liquid`.
 
-Locate the line that renders the pagination, and add a new sortBy render helper above it:
+Add a new filter renderer helper at the start of the `kuResultContent` div:
 
 ```html
-<div class="kuResultsListing">
-    <div class="productList klevuMeta" data-section="productList">
-        <div class="kuResultContent">
-            
-            <%=helper.render('filters',scope,data,"productList") %>
-            ...
+<div class="kuResultContent">
 
-        </div>        
-    </div>
+    <%=helper.render('filters',scope,data,"productList") %>
+
+    <div class="kuResultWrap <%=(data.query.productList.filters.length == 0 )?'kuBlockFullwidth':''%>">
+    ...
 </div>
 ```
 

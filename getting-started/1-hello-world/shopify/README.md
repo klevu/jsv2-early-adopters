@@ -6,6 +6,18 @@ a Klevu account and provide you with an API Key for use during this tutorial.
 
 ![Klevu Quick Search](/getting-started/1-hello-world/images/intro-quick-search.jpg)
 
+## Quick Start
+
+If you are already familiar with Shopify, these quick instructions
+will likely be enough for you to get started.
+
+1. Create a Shopify trial store
+1. Install the Klevu Search App
+1. Add [these files](/getting-started/1-hello-world/shopify/resources) to your Theme
+1. Scroll down to ["Activate Klevu JS Library"](/getting-started/1-hello-world/shopify#activate-klevu-js-library) to add a snippet to your `theme.liquid`
+
+If you struggle with any of the above, please refer to the detailed instructions below.
+
 ## Install the Klevu App on Shopify
 
 - Create a [Shopify free trial](https://www.shopify.com).
@@ -17,17 +29,18 @@ a Klevu account and provide you with an API Key for use during this tutorial.
     - Click on the Enterprise "Signup Now" button (_its Free, no CC needed_).
     - When you see "Congratulations!", click on the "Continue" button.
     - You should now see the Klevu Merchant Centre (_or KMC as we call it_).
-- Disable the Klevu App: (_why? see introduction notes below_)
+- Disable Klevu Search on Frontend: (_why? see introduction notes below_)
     - Click the "Settings" button at the top of the page.
     - Change the setting "Klevu Search on Frontend" to "Disable".
     - Scroll down and click the "Submit" button.
 
 **Why do we disable the Klevu App?**
 
-This is to remove Version 1 of the JavaScript Library,
+This is to remove our hosted version of the JavaScript Library,
 which is automatically installed with the App.
-We don’t need this since we will be using Klevu JS Library, however 
-the benefit of installing the App is that it creates us a Klevu API key
+We don’t need this since we will be using the new Klevu JS Library,
+however the benefit of installing the App is that it creates us a
+Klevu API key which can be used in a subsequent tutorial
 and will begin synchronising your Shopify products immediately.
 
 ## Configure Klevu JS Library on Shopify
@@ -49,27 +62,20 @@ and uploading themes, [click here](https://help.shopify.com/en/themes/customizat
     - Click the link in your email to download the theme and unzip locally.
 - Add Klevu JS Library to Theme
     - Next extract the copy the contents of [resources](/getting-started/1-hello-world/shopify/resources) into your theme.
-    - Zip the theme once again.
-    - Navigate to Online Store > Themes.
-    - Scroll down and click the "Upload theme" button, then select your Zip.
-    - Once imported, select your new theme > Actions > Publish.
+    - The next step contains the final manual modification required.
 
 ### Activate Klevu JS Library
 
-At this stage we have simply uploaded a number of files to our theme,
+At this stage we have simply added a number of files to your theme,
 they are not actually doing anything just yet. So finally, edit your Theme
 once more and modify the default Shopify layout file `theme.liquid`.
 
-- Navigate to Online Store > Themes.
-- Current Theme > Actions > Edit code.
-- Edit Layout > theme.liquid
-- Add the following snippet just before `</head>`
-- Click save in the top right.
+Add the following snippet just before `</head>`:
 
 ```html
 {% comment %} KLEVU - START {% endcomment %}
     {% comment %} KLEVU - JS AND CSS ASSETS {% endcomment %}
-    <script src="{{ '//jsv2.klevu.com/export/klevu.js' }}"></script>
+    <script src="{{ '//jsv2.klevu.com/dist/2.0/klevu.js' }}"></script>
     <script src="{{ 'klevu-settings.js' | asset_url }}" ></script>
     <script src="{{ 'klevu-quick.js' | asset_url }}" ></script>
     {{ 'klevu-quick.css' | asset_url | stylesheet_tag }}
@@ -85,6 +91,15 @@ once more and modify the default Shopify layout file `theme.liquid`.
 {% comment %} KLEVU - END {% endcomment %}
 ```
 
+### Upload and Apply your Theme
+
+Theme modifications are now complete, so upload and apply this new theme:
+
+- Zip the modified theme.
+- Navigate to Online Store > Themes.
+- Scroll down and click the "Upload theme" button, then select your Zip.
+- Once imported, select your new theme > Actions > Publish.
+
 Now visit the frontend of your Shopify store and **try searching for "bag"**.
 
 ## Using an alternative Search Results Landing Page
@@ -99,4 +114,4 @@ landing page for better performance. If you would like to use a different SRLP,
 Now you have Klevu functionality entirely hosted on your own infrastructure
 and are ready to make some more changes to customise your search results!
 
-Next, let's [Add a Sort-By Dropdown](/getting-started/3-sort/shopify)
+Next, let's [Add some Facets / Filters](/getting-started/2-facets/shopify)

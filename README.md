@@ -13,7 +13,7 @@ Once you've already completed the above,
 [try some other common customisations here](/modules).
 
 If you want to see an example of a number of these modules working together
-in a single layout, you can try this for yourself [here](/layout/layout-001).
+in a single example, click here to [try a full Layout](/layout/layout-001).
 
 ## Tell us what you think!
 
