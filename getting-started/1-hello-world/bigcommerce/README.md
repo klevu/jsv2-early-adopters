@@ -60,7 +60,7 @@ to modify the default BigCommerce layout file `base.html`.
 ```html
 {{!-- KLEVU - START --}}
     {{!-- KLEVU - JS AND CSS ASSETS --}}
-    <script src="//jsv2.klevu.com/export/klevu.js"></script>
+    <script src="//jsv2.klevu.com/dist/2.0/klevu.js"></script>
     <script src="{{cdn '/assets/klevu/js/klevu-settings.js'}}" ></script>
     <script src="{{cdn '/assets/klevu/js/quick/klevu-quick.js'}}" ></script>
     {{{stylesheet '/assets/klevu/css/quick/klevu-quick.css'}}}
