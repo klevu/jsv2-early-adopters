@@ -1,14 +1,22 @@
 # Hello World Tutorial for BigCommerce
 
 Klevu is working on a [BigCommerce App](https://www.klevu.com/bigcommerce)
-which is currently still in beta, so this tutorial will not include this App for now, since
+which is currently still in beta, so this tutorial will not include this App, for now, since
 not everybody will have access to it.
 
 ![Klevu Quick Search](/getting-started/1-hello-world/images/intro-quick-search.jpg)
 
-## Integrate Klevu JS Library with BigCommerce
+## Quick Start
+If you are new to BigCommerce then first create your [BigCommerce](https://www.bigcommerce.com) Trial login.
+If you are already familiar with BigCommerce, these quick instructions will likely be enough for you to get started.
+Create a BigCommerce trial store
+Install the Klevu Search App
+Add [resources](/getting-started/1-hello-world/bigcommerce/resources)  files to your theme
+Activate JS library
+If you struggle with any of the above, please refer to the detailed instructions below.
 
-First create a [BigCommerce free trial](https://www.bigcommerce.com).
+## Integrate Klevu JS Library with BigCommerce
+First, download the [resources](/getting-started/1-hello-world/bigcommerce/resources) folder in your local.
 
 ### Theme Modifications
 
@@ -17,17 +25,17 @@ Klevu JS Library is supported on legacy Blueprint Themes where you will need to 
 and syntax for the including of assets and templates.
 
 The only way to make changes to a Stencil theme is to download a copy,
-make the changes and then use `stencil bundle` to upload again as a new theme.
+make the changes and then use the `stencil bundle` to upload again as a new theme.
 For more information from BigCommerce on using Stencil to bundle themes,
 [click here](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil).
 
 - Navigate to Storefront > My Themes.
 - Download the Cornerstone theme.
     - On Current Theme, select Advanced > Download Current Theme.
-    - After a few moments the ZIP file containing the theme will download.
+    - After a few moments, the ZIP file containing the theme will download.
     - Unzip the theme locally ready to make some changes.
 - Add Klevu JS Library to Theme
-    - First remove all existing search functionality
+    - First, remove all existing search functionality
         - Delete the entire folder `templates/components/search`
     - Next extract the copy the contents of [resources](/getting-started/1-hello-world/bigcommerce/resources) into your theme.
     - Use `npm install` and `stencil bundle` to zip the theme once again.
@@ -37,8 +45,8 @@ For more information from BigCommerce on using Stencil to bundle themes,
 
 ### Activate Klevu JS Library
 
-At this stage we have simply uploaded a number of files to a new copy of our theme,
-they are not actually doing anything just yet. So finally, edit your Theme
+At this stage we have simply uploaded several files to a new copy of our theme,
+they are not doing anything just yet. So finally, edit your Theme
 to modify the default BigCommerce layout file `base.html`.
 
 - Navigate to Storefront > My Themes.
@@ -65,9 +73,8 @@ to modify the default BigCommerce layout file `base.html`.
     {{> klevu/quick/quick-no-results-found }}
 {{!-- KLEVU - END --}}
 ```
-
-Finally lets activate our new theme.
-
+### Apply your Theme
+Theme modifications are now complete, so upload and apply this new theme:
 - Navigate to Storefront > My Themes.
 - Select your new theme and click on Apply. 
 
@@ -75,7 +82,7 @@ Now visit the frontend of your BigCommerce store and **try searching for "bag"**
 
 ## Make some Changes!
 
-Now you have Klevu functionality entirely hosted on your own infrastructure
-and are ready to make some more changes to customise your search results!
+Now you have Klevu functionality entirely hosted on your infrastructure
+and are ready to make some more changes to customize your search results!
 
 Next, let's [Add some Facets / Filters](/getting-started/2-facets/bigcommerce)
