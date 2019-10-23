@@ -7,12 +7,12 @@ not everybody will have access to it.
 ![Klevu Quick Search](/getting-started/1-hello-world/images/intro-quick-search.jpg)
 
 ## Quick Start
-If you are new to BigCommerce then first create your [BigCommerce](https://www.bigcommerce.com) Trial login.
+If you are new to BigCommerce then first create your [BigCommerce](https://www.bigcommerce.com) trial login.
 
 If you are already familiar with BigCommerce, these quick instructions will likely be enough for you to get started.
 1. Create a BigCommerce trial store
 2. Install the Klevu Search App
-3. Add [resources](/getting-started/1-hello-world/bigcommerce/resources) files to your theme
+3. Add [resource](/getting-started/1-hello-world/bigcommerce/resources) files to your theme
 Activate JS library
 
 If you struggle with any of the above, please refer to the detailed instructions below.
