@@ -18,7 +18,7 @@ Activate JS library
 If you struggle with any of the above, please refer to the detailed instructions below.
 
 ## Integrate Klevu JS Library with BigCommerce
-First, download the [resources](/getting-started/1-hello-world/bigcommerce/resources) folder in your local.
+First, download the [resources](/getting-started/1-hello-world/bigcommerce/resources) folder in your local then make changes to the theme files.
 
 ### Theme Modifications
 
