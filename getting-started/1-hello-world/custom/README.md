@@ -8,11 +8,10 @@ but you can use any approach you like to achieve the same outcome.
 
 ## Integrate Klevu JS Library with static HTML
 
-First, create a web-accessible folder for you to copy the HTML files. In the resources folder, we have included an
+First, create a web-accessible folder for you to copy the HTML files.  
+In the resources folder, we have included an
 [example implementation](/getting-started/1-hello-world/custom/resources)
-for getting up and running with static HTML.
-
-Copy these files to your folder, load up the index.php in your browser and
+for getting up and running with static HTML. Copy these files to your folder, load up the index.php in your browser and
 **try searching for "bag"**.
 
 ## Make some Changes!
