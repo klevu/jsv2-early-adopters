@@ -39,7 +39,7 @@ For more information from BigCommerce on using Stencil to bundle themes,
 - Add Klevu JS Library to Theme
     - First, remove all existing search functionality
         - Delete the entire folder `templates/components/search`
-    - Next extract the copy the contents of [resources](/getting-started/1-hello-world/bigcommerce/resources) into your theme.
+    - Next extract the [resources](/getting-started/1-hello-world/bigcommerce/resources) and copy the contents of it into your theme.
     - Use `npm install` and `stencil bundle` to zip the theme once again.
         - _Important: you cannot simply zip the file using your operating system._
     - Navigate to Storefront > My Themes.
