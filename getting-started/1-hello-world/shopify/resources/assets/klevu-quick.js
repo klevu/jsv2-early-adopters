@@ -292,7 +292,6 @@ klevu.extend({
                 var analyticsTermOptions = {
                     klevu_term: mainScope.data.context.term,
                     klevu_pageNumber: 1,
-                    klevu_currentURL: window.location.href,
                     filters: false
                 };
 
