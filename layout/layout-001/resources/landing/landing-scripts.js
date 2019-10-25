@@ -2221,15 +2221,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "bindAnalyticsOnProductQuickView",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().analyticsUtils.quickView.bindQuickViewBtnClickAnalytics("productList", "quick-view:landing");
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindQuickViewBtnClickAnalytics("productList", "source:quick-view;;template:landing");
             }
         });
 
         klevu.search.landing.getScope().chains.quickView.add({
             name: "bindAnalyticsOnProductQuickViewEvents",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().analyticsUtils.quickView.bindProductDetailsButtonClick("productList", "quick-view");
-                klevu.search.landing.getScope().analyticsUtils.quickView.bindAddToCartButtonClick("productList", "quick-view");
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindProductDetailsButtonClick("productList", "source:quick-view");
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindAddToCartButtonClick("productList", "source:quick-view");
             }
         });
 

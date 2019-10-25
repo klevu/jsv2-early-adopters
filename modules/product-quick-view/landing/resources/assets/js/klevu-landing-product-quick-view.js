@@ -250,7 +250,7 @@ klevu.extend({
                         var productId = parent.dataset.id;
                         if (productId) {
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
-                            if(product){
+                            if (product) {
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
                                 termOptions.klevu_keywords = termOptions.klevu_term;
                                 termOptions.klevu_productId = product.id;
@@ -270,7 +270,7 @@ klevu.extend({
                         var productId = target.dataset.id;
                         if (productId) {
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
-                            if(product){
+                            if (product) {
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
                                 termOptions.klevu_keywords = termOptions.klevu_term;
                                 termOptions.klevu_productId = product.id;
@@ -290,7 +290,7 @@ klevu.extend({
                         var productId = target.dataset.id;
                         if (productId) {
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
-                            if(product){
+                            if (product) {
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
                                 termOptions.klevu_keywords = termOptions.klevu_term;
                                 termOptions.klevu_productId = product.id;
@@ -324,15 +324,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "bindAnalyticsOnProductQuickView",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().analyticsUtils.quickView.bindQuickViewBtnClickAnalytics("productList", "quick-view:landing");
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindQuickViewBtnClickAnalytics("productList", "source:quick-view;;template:landing");
             }
         });
 
         klevu.search.landing.getScope().chains.quickView.add({
             name: "bindAnalyticsOnProductQuickViewEvents",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().analyticsUtils.quickView.bindProductDetailsButtonClick("productList", "quick-view");
-                klevu.search.landing.getScope().analyticsUtils.quickView.bindAddToCartButtonClick("productList", "quick-view");
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindProductDetailsButtonClick("productList", "source:quick-view");
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindAddToCartButtonClick("productList", "source:quick-view");
             }
         });
 
