@@ -252,10 +252,11 @@ klevu.extend({
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
                             if(product){
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
-                                termOptions.productId = product.id;
-                                termOptions.productName = product.name;
-                                termOptions.productUrl = product.url;
-                                termOptions.src = callSrc;
+                                termOptions.klevu_keywords = termOptions.klevu_term;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = callSrc;
                                 klevu.analyticsEvents.click(termOptions);
                             }
                         }
@@ -271,10 +272,11 @@ klevu.extend({
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
                             if(product){
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
-                                termOptions.productId = product.id;
-                                termOptions.productName = product.name;
-                                termOptions.productUrl = product.url;
-                                termOptions.src = product.typeOfRecord + ":" + callSrc;
+                                termOptions.klevu_keywords = termOptions.klevu_term;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = product.typeOfRecord + ":" + callSrc;
                                 klevu.analyticsEvents.click(termOptions);
                             }
                         }
@@ -290,10 +292,11 @@ klevu.extend({
                             var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
                             if(product){
                                 var termOptions = mainScope.analyticsUtils.base.getTermOptions();
-                                termOptions.productId = product.id;
-                                termOptions.productName = product.name;
-                                termOptions.productUrl = product.url;
-                                termOptions.src = "shortlist:add-to-cart:" + callSrc;
+                                termOptions.klevu_keywords = termOptions.klevu_term;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = "shortlist:add-to-cart:" + callSrc;
                                 klevu.analyticsEvents.click(termOptions);
                             }
                         }
