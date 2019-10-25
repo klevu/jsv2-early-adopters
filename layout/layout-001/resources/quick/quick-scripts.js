@@ -506,7 +506,7 @@ klevu.extend({
                     if (reqQueryObj) {
                         analyticsTermOptions.klevu_limit = reqQueryObj.settings.limit;
                         analyticsTermOptions.klevu_sort = reqQueryObj.settings.sort;
-                        analyticsTermOptions.klevu_src = "[[typeOfRecords:" + reqQueryObj.settings.typeOfRecords[0] + "]]";
+                        analyticsTermOptions.klevu_src = "[[typeOfRecord:" + reqQueryObj.settings.typeOfRecords[0] + "]]";
 
                     }
                 }
