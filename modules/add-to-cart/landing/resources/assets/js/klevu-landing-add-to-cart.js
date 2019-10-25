@@ -115,7 +115,7 @@ klevu.extend({
                                 termOptions.klevu_productId = product.id;
                                 termOptions.klevu_productName = product.name;
                                 termOptions.klevu_productUrl = product.url;
-                                termOptions.klevu_src = "shortlist:add-to-cart:landing";
+                                termOptions.klevu_src = "[[shortlist:add-to-cart;;template:landing]]";
                                 klevu.analyticsEvents.click(termOptions);
                             }
                         }

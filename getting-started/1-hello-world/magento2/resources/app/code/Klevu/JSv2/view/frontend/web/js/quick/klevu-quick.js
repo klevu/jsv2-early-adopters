@@ -308,7 +308,7 @@ klevu.extend({
                     if (reqQueryObj) {
                         analyticsTermOptions.klevu_limit = reqQueryObj.settings.limit;
                         analyticsTermOptions.klevu_sort = reqQueryObj.settings.sort;
-                        analyticsTermOptions.klevu_src = reqQueryObj.settings.typeOfRecords[0];
+                        analyticsTermOptions.klevu_src = "[[typeOfRecords:" + reqQueryObj.settings.typeOfRecords[0] + "]]";
 
                     }
                 }
@@ -437,7 +437,7 @@ klevu.extend({
                                     termOptions.klevu_productId = product.id;
                                     termOptions.klevu_productName = product.name;
                                     termOptions.klevu_productUrl = product.url;
-                                    termOptions.klevu_src = product.typeOfRecord + ":quick-search";
+                                    termOptions.klevu_src = "[[typeOfRecord:"+product.typeOfRecord + ";;template:quick-search]]";
                                     delete termOptions.klevu_term;
                                     klevu.analyticsEvents.click(termOptions);
                                     setTimeout(function () {
@@ -466,7 +466,7 @@ klevu.extend({
                                 termOptions.klevu_productId = category.id;
                                 termOptions.klevu_productName = category.name;
                                 termOptions.klevu_productUrl = category.url;
-                                termOptions.klevu_src = category.typeOfRecord + ":quick-search";
+                                termOptions.klevu_src = "[[typeOfRecord:"+category.typeOfRecord + ";;template:quick-search]]";
                                 delete termOptions.klevu_term;
                                 klevu.analyticsEvents.click(termOptions);
                             }
@@ -490,7 +490,7 @@ klevu.extend({
                             if (termOptions) {
                                 termOptions.klevu_originalTerm = termOptions.term;
                                 termOptions.klevu_term = suggestionText;
-                                termOptions.klevu_src = "ac-suggestions";
+                                termOptions.klevu_src = "[[template:ac-suggestions]]";
                                 klevu.analyticsEvents.term(termOptions);
                             }
                             setTimeout(function () {
@@ -539,7 +539,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     box.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
                         var termOptions = box.getScope().analyticsUtils.base.getTermOptions();
                         if (termOptions) {
-                            termOptions.klevu_src += ":quick-search";
+                            termOptions.klevu_src = termOptions.klevu_src.replace("]]",";;template:quick-search]]");
                             klevu.analyticsEvents.term(termOptions);
                         }
                         box.getScope().element.kScope.analyticsReqTimeOut = null;

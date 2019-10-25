@@ -396,7 +396,7 @@ klevu.extend({
                                         termOptions.klevu_productId = product.id;
                                         termOptions.klevu_productName = product.name;
                                         termOptions.klevu_productUrl = product.url;
-                                        termOptions.klevu_src = product.typeOfRecord + ":landing";
+                                        termOptions.klevu_src = "[[typeOfRecord:"+product.typeOfRecord + ";;template:landing]]";
                                         delete termOptions.klevu_term;
                                         klevu.analyticsEvents.click(termOptions);
                                     }
@@ -429,7 +429,10 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 }
                 klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
                     var termOptions = klevu.search.landing.getScope().analyticsUtils.base.getTermOptions();
-                    termOptions.klevu_src += (termOptions.filters) ? ":landing:filters" : ":landing";
+                    termOptions.klevu_src = termOptions.klevu_src.replace("]]",";;template:landing]]");
+                    if(termOptions.filters){
+                        termOptions.klevu_src = termOptions.klevu_src.replace("]]",";;source:filters]]");
+                    }
                     delete termOptions.filters;
                     klevu.analyticsEvents.term(termOptions);
                     klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut = null;

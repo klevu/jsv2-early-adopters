@@ -256,7 +256,7 @@ klevu.extend({
                                 termOptions.klevu_productId = product.id;
                                 termOptions.klevu_productName = product.name;
                                 termOptions.klevu_productUrl = product.url;
-                                termOptions.klevu_src = callSrc;
+                                termOptions.klevu_src = "[[" + callSrc + "]]";
                                 klevu.analyticsEvents.click(termOptions);
                             }
                         }
@@ -276,7 +276,7 @@ klevu.extend({
                                 termOptions.klevu_productId = product.id;
                                 termOptions.klevu_productName = product.name;
                                 termOptions.klevu_productUrl = product.url;
-                                termOptions.klevu_src = product.typeOfRecord + ":" + callSrc;
+                                termOptions.klevu_src = "[[typeOfRecord:" + product.typeOfRecord + ";;" + callSrc + "]]";
                                 klevu.analyticsEvents.click(termOptions);
                             }
                         }
@@ -296,7 +296,7 @@ klevu.extend({
                                 termOptions.klevu_productId = product.id;
                                 termOptions.klevu_productName = product.name;
                                 termOptions.klevu_productUrl = product.url;
-                                termOptions.klevu_src = "shortlist:add-to-cart:" + callSrc;
+                                termOptions.klevu_src = "[[shortlist:add-to-cart;;" + callSrc + "]]";
                                 klevu.analyticsEvents.click(termOptions);
                             }
                         }
