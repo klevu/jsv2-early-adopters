@@ -356,7 +356,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             var klevuUrlParams = klevu.getAllUrlParameters();
             if (klevuUrlParams.length > 0) {
                 klevu.each(klevuUrlParams, function (key, elem) {
-                    if (elem.name == "q") {
+                    if (elem.name == "search_query") {
                         var tempElement = klevu.search.landing.getScope().element;
                         tempElement.value = decodeURIComponent(elem.value).split("+").join(" ");
                         tempElement.kScope.data = tempElement.kObject.resetData(tempElement);

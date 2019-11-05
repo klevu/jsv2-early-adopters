@@ -1,7 +1,7 @@
 # Add Facets with Shopify
 
 > **Prerequisite:**  
-> This module requires the [facets](/components/facets) base component.
+> This module requires the [facets](/components/facets) base component, usage instructions are included below.
 
 You may notice that the search results page does not have any facets. Let’s add them.
 
@@ -39,7 +39,7 @@ Include the new JavaScript and CSS files by modifying the contents like this:
 ...
 ```
 
-Include the `landing-filter-left.liquid` snippet by modifying the contents like this:
+Include the `landing-filter-left.liquid` snippet by adding:
 
 ```html
 {% include "klevu-landing-filter-left" %}
@@ -47,10 +47,10 @@ Include the `landing-filter-left.liquid` snippet by modifying the contents like 
 
 Click Save to persist your changes.
 
-Finally, we need to include this sort dropdown in our main template,
+Finally, we need to include the facets in our search results template,
 so find and edit Snippets > `klevu-landing-results.liquid`.
 
-Add a new filter renderer helper at the start of the `kuResultContent` div:
+Add a new filter renderer after the `kuResultContent` opening div:
 
 ```html
 <div class="kuResultContent">

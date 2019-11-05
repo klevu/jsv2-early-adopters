@@ -17,6 +17,9 @@ for getting up and running with Magento 2.
 Add this extension to your demo store, and once you have enabled the extension,
 **try searching for "bag"**.
 
+The results you see will be from our demo store since this example uses our API Key.
+To see your own product data, please complete the remaining hello-world tutorials below.
+
 _Note that Klevu JS Library is as flexible as Magento 2. This example is just one
 way to integrate Klevu JS Library for illustrative purposes and has settings such
 as the API key hard-coded into the JS files. Feel free to use your own preferred approach

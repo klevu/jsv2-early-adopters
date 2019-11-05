@@ -1,9 +1,5 @@
 # Modules
 
-> **Note:**  
-> Remember! anything you do, you must add analytics!    
-> Follow the [analytics](/getting-started/6-analytics) section. 
-
 >**Steps for adding Module to the application:**  
 > - Step 1: Go through with the `README.md` file of a module.  
 > - Step 2: Download the module folder along with the Base Component if any.  

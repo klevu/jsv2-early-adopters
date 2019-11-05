@@ -22,6 +22,11 @@ Please forward any feedback you may have to your Klevu contact
 
 ## Changelog
 
+**5th November 2019**
+
+Updated hello-world tutorials to include analytics, which is a vital part
+of Klevu integration due to its role in the machine learning from customer interactions.
+
 **30th September 2019**
 
 Updated tutorial structure to separate out 'getting-started' for each framework,
@@ -38,28 +43,12 @@ Re-structured to have 4x tutorials specific to each framework to
 [get started](/getting-started),
 then the remainder of the tutorials are platform agnostic.
 
-Plus [more tutorials](/modules) added:
-
-- filter-collapse
-- filter-option-reorder
-- filter-reorder
-- product-badge
-- product-stoke-label
-- product-VAT-label
-- mobile-sliding-filter
-- custom-pagination
+Plus additional [more tutorials](/modules).
 
 **6th September 2019**
 
 Added various [new tutorials](/modules) and a Hello World guide
 for both BigCommerce and Magento 2.
-
-- product-color-swatches
-- product-quick-view
-- product-quick-view-color-swatches
-- landing-product-add-to-cart
-- landing-quick-view
-- price-slider-filter
 
 **24th June 2019**
 

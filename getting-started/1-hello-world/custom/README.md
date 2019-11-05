@@ -14,6 +14,9 @@ In the resources folder, we have included an
 for getting up and running with static HTML. Copy these files to your folder, load up the index.php in your browser and
 **try searching for "bag"**.
 
+The results you see will be from our demo store since this example uses our API Key.
+To see your own product data, please complete the remaining hello-world tutorials below.
+
 ## Make some Changes!
 
 Now you have Klevu functionality entirely hosted on your infrastructure
