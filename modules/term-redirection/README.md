@@ -8,8 +8,9 @@ Once we have activated your API Key for APIv2 you can go ahead and change out
 our demo API Key for your own, then you can start customising your own products
 in the search results.
 
-First, navigate to your `klevu-settings.js`.
-Now, add your custom pairs of urls and search terms to the `redirect` object under the `search`. After completing modification, the updated code will look like below snippet. 
+First, navigate to your `klevu-settings.js`.  
+Now, add your custom pairs of urls and search terms to the `redirect` object under the `search`.  
+After completing modification, the updated code will look like below snippet. 
 
 ```js
 function startup(klevu) {
