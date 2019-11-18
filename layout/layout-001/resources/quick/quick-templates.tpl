@@ -142,18 +142,11 @@
     </div>
 </script>
 
-
-<!-- 
-    Quick search add to cart button template
--->
-
 <script type="template/klevu" id="quickSearchProductAddToCart">
     <div class="klevuQuickAddtoCart" data-id="<%=dataLocal.id%>" >
         <button class="klevuQuickCartBtn">Add to Cart</button>
     </div>
 </script>
-
-<!-- Product block template for Trending products in Quick Search Results -->
 
 <script type="template/klevu" id="klevuQuickTrendingProductBlock">
     <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
@@ -195,8 +188,6 @@
         </a>
     </li>
 </script>
-
-<!-- Trending products template for Quick Search Results -->
 
 <script type="template/klevu" id="klevuTrendingProducts">
     <% if(data.query.trendingProductList) { %>
