@@ -112,6 +112,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
             box.getScope().chains.request.build.add({
                 name: "addAutosugestions",
                 fire: function(data, scope) {
+                  if(data.context.term){
                     var  parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
                     var suggestion = klevu.extend( true , {}, parameterMap.suggestions );
 
@@ -122,12 +123,15 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
 
                     data.request.current.suggestions.push(suggestion);
                     data.context.doSearch = true;
+                  }
                 }
             });
 
             box.getScope().chains.request.build.add({
                 name: "addCategoryCompressed",
                 fire: function(data, scope) {
+                  if(data.context.term){
+                  
                     var  parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
 
                     var categoryCompressed = klevu.extend( true , {}  , parameterMap.recordQuery );
@@ -145,12 +149,14 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
                     data.request.current.recordQueries.push(categoryCompressed);
 
                     data.context.doSearch = true;
+                    }
 
                 }
             });
             box.getScope().chains.request.build.add({
                 name: "addCmsCompressed",
                 fire: function(data, scope) {
+                  if(data.context.term){
                     var  parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
 
                     var cmsCompressed = klevu.extend( true , {}  , parameterMap.recordQuery );
@@ -168,12 +174,14 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
                     data.request.current.recordQueries.push(cmsCompressed);
 
                     data.context.doSearch = true;
+                  }
                 }
             });
 
             box.getScope().chains.request.build.add({
                 name: "addProductList",
                 fire: function(data, scope) {
+                  if(data.context.term){
                     var  parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
 
                     var productList = klevu.extend( true , {}  , parameterMap.recordQuery );
@@ -191,12 +199,14 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
                     data.request.current.recordQueries.push(productList);
 
                     data.context.doSearch = true;
+                  }
 
                 }
             });
             box.getScope().chains.request.build.add({
                 name: "addProductListFallback",
                 fire: function(data, scope) {
+                  if(data.context.term){
                     var  parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
 
                     //setquery type
@@ -216,6 +226,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick",{
 
 
                     data.context.doSearch = true;
+                  }
 
                 }
             });
@@ -758,6 +769,39 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     box.getScope().analyticsUtils.quick.fireAnalyticsOnCategoriesAndPages(".klevuCategorySuggestions", "categoryCompressed");
                     box.getScope().analyticsUtils.quick.fireAnalyticsOnCategoriesAndPages(".klevuCmsSuggestions", "cmsCompressed");
                     box.getScope().analyticsUtils.quick.fireAnalyticsOnSuggestions(".klevuAutosuggestions");
+                }
+            });
+        });
+    }
+});
+
+/**
+ * Event to add trending products template and request
+ */
+klevu.coreEvent.attach("setRemoteConfigQuick", {
+    name: "attachTrendingProducts",
+    fire: function () {
+        klevu.each(klevu.search.extraSearchBox, function (key, box) {
+
+            box.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuQuickTrendingProductBlock"), "klevuQuickTrendingProductBlock", true);
+            box.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuTrendingProducts"), "klevuTrendingProducts", true);
+
+            box.getScope().chains.request.build.add({
+                name: "addTrendingProductsList",
+                fire: function (data, scope) {
+                    if (!data.context.term) {
+                        data.context.term = "*";
+                        var parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
+                        var trendingProductList = klevu.extend(true, {}, parameterMap.recordQuery);
+                        trendingProductList.id = "trendingProductList";
+                        trendingProductList.typeOfRequest = "SEARCH";
+                        trendingProductList.settings.query.term = data.context.term;
+                        trendingProductList.settings.typeOfRecords = ["KLEVU_PRODUCT"];
+                        trendingProductList.settings.limit = 3;
+                        trendingProductList.settings.sort = "RELEVANCE";
+                        data.request.current.recordQueries.push(trendingProductList);
+                        data.context.doSearch = true;
+                    }
                 }
             });
         });

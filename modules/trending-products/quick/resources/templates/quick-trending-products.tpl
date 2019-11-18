@@ -1,3 +1,5 @@
+<!-- Trending products template for Quick Search Results -->
+
 <script type="template/klevu" id="klevuTrendingProducts">
     <% if(data.query.trendingProductList) { %>
         <% if(data.query.trendingProductList.result.length > 0 ) { %>

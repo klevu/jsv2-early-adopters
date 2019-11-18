@@ -7,6 +7,7 @@
                 <%=helper.render('klevuQuickCategorySuggestions',scope) %>
             </div>
             <%=helper.render('klevuQuickProducts',scope) %>
+            <%=helper.render('klevuTrendingProducts',scope) %>
         </div>
       </div>
 </script>
@@ -86,8 +87,6 @@
         <% } else { %>
             <%=helper.render('klevuQuickNoResultFound',scope) %>
         <% } %>
-    <% } else { %>
-        <%=helper.render('klevuQuickNoResultFound',scope) %>
     <% } %>
 </script>
 
@@ -154,5 +153,65 @@
     </div>
 </script>
 
+<!-- Product block template for Trending products in Quick Search Results -->
 
+<script type="template/klevu" id="klevuQuickTrendingProductBlock">
+    <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
+        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
+            <div class="klevuProductItemTop">
+                <div class="klevuQuickImgWrap">
+                    <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.stickyLabelHead%></strong></div>
+                    <img src="<%=dataLocal.image%>" alt="<%=dataLocal.name%>" />
+                </div>
+            </div>
+            <div class="klevuProductItemBottom">
+                <div class="klevuQuickProductDescBlock">
+                    <div class="klevuQuickProductName"><%=dataLocal.name%></div>
+                    <div class="klevuQuickProductDesc">
+                        <div class="klevuSpectxt"><%=dataLocal.summaryAttribute%><span><%=dataLocal.stickyLabelText%></span></div>
+                    </div>
+                    <div class="klevuQuickProductPrice">
+                        <% if(dataLocal.ondiscount && dataLocal.ondiscount == "true") { %>
+                            <% if(dataLocal.salePrice ) { %>
+                                <span class="klevuQuickSalePrice klevuQuickSpecialPrice">
+                                    <%=helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.salePrice))%>
+                                </span>
+                            <% } %>
+                            <% if(dataLocal.price) { %>
+                                <span class="klevuQuickOrigPrice"><%=helper.translate("Original price %s",helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.price)))%></span>
+                            <% } %>
+                        <% } else { %>
+                            <% if(dataLocal.salePrice ) { %>
+                                <span class="klevuQuickSalePrice">
+                                    <span class="klevuQuickPriceGreyText"></span>
+                                    <%=helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.salePrice))%>
+                                </span>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="klevuClearLeft"></div>
+        </a>
+    </li>
+</script>
+
+<!-- Trending products template for Quick Search Results -->
+
+<script type="template/klevu" id="klevuTrendingProducts">
+    <% if(data.query.trendingProductList) { %>
+        <% if(data.query.trendingProductList.result.length > 0 ) { %>
+            <div class="klevuResultsBlock">
+                <div class="klevuSuggestionHeading"><span class="klevuHeadingText"><%=helper.translate("Trending Products")%></span></div>
+                <div class="klevuQuickSearchResults" data-section="trendingProductList" id="trendingProductList">
+                    <ul>
+                      <% helper.each(data.query.trendingProductList.result,function(key,product){ %>
+                          <%=helper.render('klevuQuickTrendingProductBlock',scope,data,product) %>
+                      <% }); %>
+                    </ul>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</script>
 

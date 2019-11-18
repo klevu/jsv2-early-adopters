@@ -1,3 +1,5 @@
+<!-- Product block template for Trending products in Quick Search Results -->
+
 <script type="template/klevu" id="klevuQuickTrendingProductBlock">
     <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
         <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
