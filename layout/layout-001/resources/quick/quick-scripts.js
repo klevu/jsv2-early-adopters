@@ -748,7 +748,10 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     box.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
                         var termOptions = box.getScope().analyticsUtils.base.getTermOptions();
                         if (termOptions) {
-                            termOptions.klevu_src = termOptions.klevu_src.replace("]]",";;template:quick-search]]");
+                            if(termOptions.klevu_src){
+                                termOptions.klevu_src = termOptions.klevu_src.replace("]]",";;template:quick-search]]");
+                            }
+                            
                             klevu.analyticsEvents.term(termOptions);
                         }
                         box.getScope().element.kScope.analyticsReqTimeOut = null;
