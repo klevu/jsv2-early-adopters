@@ -11,7 +11,7 @@ please follow the appropriate ['hello world'](/getting-started/1-hello-world) tu
 
 Open `klevu-settings.js` file,  
 Add/Update the `minChars` attribute to `0` under the `search` option.
-```json
+```js
 {
     ...
     search: {
@@ -39,7 +39,7 @@ Modify `quick-base.tpl` to add the trending products list in your quick search r
 ### Code Reference
 
 [klevu-quick-trending-products.js](/modules/trending-products/quick/resources/assets/js/klevu-quick-trending-products.js)  
-contains the preparation of the "trendingProductList" request object and show how to add that object in the search request.
+contains the preparation of the `trendingProductList` request object and show how to add that object in the search request.
 
 
 
