@@ -2580,3 +2580,26 @@ span.productQuick-label {
         padding: 0px;
     }
 }
+
+/*
+Style for landing page banner
+*/
+
+.kuBannerAd {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.kuBannerAd img {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

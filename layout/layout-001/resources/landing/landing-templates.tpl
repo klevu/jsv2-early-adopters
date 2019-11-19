@@ -1,6 +1,6 @@
 <script type="template/klevu" id="klevuLandingTemplateBase">
     <div class="kuContainer">
-    
+    	<%=helper.render('klevuLandingPromotionBanner',scope) %>
         <%=helper.render('tab-results', scope) %>
         
         <% if(!helper.hasResults(data,"productList")) { %>
@@ -500,4 +500,23 @@
     <% } %>
 </script>
 
-
+<!--
+Landing page banner template
+-->
+<script type="template/klevu" id="klevuLandingPromotionBanner">
+    
+    <% console.log(data); if(data.banners && data.banners.length) { klevu.each(data.banners, function(index, banner){ %>
+        <div class="kuBannerAd kuBannerContainer">
+            <a 
+            class="kuTrackBannerClick" 
+            target="_self" 
+            data-id="<%= banner.id %>" 
+            data-name="<%= banner.name %>"
+            data-image="<%= banner.src %>"
+            data-redirect="<%= banner.click %>" 
+            href="<%= banner.click %>">
+                <img src="<%= banner.src %>" alt="<%= banner.name %>" />
+            </a>
+        </div>
+    <% }); } %>
+</script>

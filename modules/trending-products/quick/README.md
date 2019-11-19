@@ -26,14 +26,12 @@ Add/Update the `minChars` attribute to `0` under the `search` option.
 Modify `quick-base.tpl` to add the trending products list in your quick search results.  
 
 ```html
-<script type="template/klevu" id="klevuQuickTemplateBase">
-    <div class="klevu-fluid">
-        <div id="klevuSearchingArea" class="klevuQuickSearchingArea">
-            ...
-            <%=helper.render('klevuTrendingProducts',scope) %>
-        </div>
-      </div>
-</script>
+<div class="klevu-fluid">
+    <div id="klevuSearchingArea" class="klevuQuickSearchingArea">
+        ...
+        <%=helper.render('klevuTrendingProducts',scope) %>
+    </div>
+</div>
 ```
 
 ### Code Reference

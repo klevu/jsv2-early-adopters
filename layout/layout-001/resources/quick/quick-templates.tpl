@@ -1,6 +1,7 @@
 <script type="template/klevu" id="klevuQuickTemplateBase">
     <div class="klevu-fluid">
         <div id="klevuSearchingArea" class="klevuQuickSearchingArea">
+        	<%=helper.render('klevuQuickPromotionBanner',scope) %>
             <div class="klevuSuggestionsBlock">
                 <%=helper.render('klevuQuickAutoSuggestions',scope) %>
                 <%=helper.render('klevuQuickPageSuggestions',scope) %>
@@ -142,11 +143,18 @@
     </div>
 </script>
 
+
+<!-- 
+    Quick search add to cart button template
+-->
+
 <script type="template/klevu" id="quickSearchProductAddToCart">
     <div class="klevuQuickAddtoCart" data-id="<%=dataLocal.id%>" >
         <button class="klevuQuickCartBtn">Add to Cart</button>
     </div>
 </script>
+
+<!-- Product block template for Trending products in Quick Search Results -->
 
 <script type="template/klevu" id="klevuQuickTrendingProductBlock">
     <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
@@ -189,6 +197,8 @@
     </li>
 </script>
 
+<!-- Trending products template for Quick Search Results -->
+
 <script type="template/klevu" id="klevuTrendingProducts">
     <% if(data.query.trendingProductList) { %>
         <% if(data.query.trendingProductList.result.length > 0 ) { %>
@@ -205,4 +215,27 @@
         <% } %>
     <% } %>
 </script>
+
+<!--
+Quick search results banner template
+-->
+<script type="template/klevu" id="klevuQuickPromotionBanner">
+    <% if(data.banners && data.banners.length) { klevu.each(data.banners, function(index, banner){ %>
+        <div class="klevu-banner-ad kuBannerContainer">
+            <a 
+            class="kuTrackBannerClick" 
+            target="_self" 
+            data-id="<%= banner.id %>" 
+            data-name="<%= banner.name %>"
+            data-image="<%= banner.src %>"
+            data-redirect="<%= banner.click %>" 
+            href="<%= banner.click %>">
+                <img src="<%= banner.src %>" alt="<%= banner.name %>" />
+            </a>
+        </div>
+    <% }); } %>
+</script>
+
+
+
 
