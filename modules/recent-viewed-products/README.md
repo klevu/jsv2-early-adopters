@@ -1,6 +1,6 @@
-# Trending Products
+# Recently Viewed Products
 
-![Trending products](/modules/recent-viewed-products/images/image001.png)
+![Recently Viewed products](/modules/recent-viewed-products/images/image001.png)
 
-Trending products list can be attached with Quick Search Results UI.
-- [Trending products in Quick Search Results](/modules/recent-viewed-products/quick).
+Recently Viewed products list can be attached with Quick Search Results UI.
+- [Recently Viewed products in Quick Search Results](/modules/recent-viewed-products/quick).

@@ -280,6 +280,7 @@ Quick search results banner template
 </script>
 
 <!-- Recent viewed products template for Quick Search Results -->
+
 <script type="template/klevu" id="klevuRecentViewedProducts">
     <% if(data.query.recentViewedProductList) { %>
         <% if(data.query.recentViewedProductList.result.length > 0 ) { %>

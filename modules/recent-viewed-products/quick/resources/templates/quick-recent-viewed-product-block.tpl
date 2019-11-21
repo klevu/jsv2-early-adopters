@@ -1,4 +1,5 @@
 <!-- Product block template for Recently viewed products in Quick Search Results -->
+
 <script type="template/klevu" id="klevuQuickRecentViewedProductBlock">
     <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
         <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">

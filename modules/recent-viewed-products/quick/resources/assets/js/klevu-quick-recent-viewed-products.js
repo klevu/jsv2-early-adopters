@@ -110,7 +110,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                         var limit = recentViewedProductIdList.length;
                         recentViewedProductIdList = recentViewedProductIdList.join(",");
                         data.context.term = recentViewedProductIdList;
-                        
+
                         var parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
                         var trendingProductList = klevu.extend(true, {}, parameterMap.recordQuery);
                         trendingProductList.id = "recentViewedProductList";

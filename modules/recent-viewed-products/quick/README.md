@@ -1,6 +1,6 @@
-# Trending Products - Quick Search Results
+# Recently Viewed Products - Quick Search Results
 
-![Trending products 001](/modules/recent-viewed-products/images/image001.png)
+![Recently Viewed products 001](/modules/recent-viewed-products/images/image001.png)
 
 _If you are not familiar with where to add these resources,
 please follow the appropriate ['hello world'](/getting-started/1-hello-world) tutorial._
@@ -9,7 +9,7 @@ please follow the appropriate ['hello world'](/getting-started/1-hello-world) tu
 
 ## Template Modifications
 
-Modify `quick-base.tpl` to add 'Trending Products' UI in your preferred location.
+Modify `quick-base.tpl` to add 'Recently Viewed Products' UI in your preferred location.
 
 ```html
 <div class="klevu-fluid">
@@ -23,5 +23,5 @@ Modify `quick-base.tpl` to add 'Trending Products' UI in your preferred location
 ### Code Reference
 
 [klevu-quick-recent-viewed-products.js](/modules/recent-viewed-products/quick/resources/assets/js/klevu-quick-recent-viewed-products.js)  
-contains the trending products implementation in Quick search results UI and show how product click click event can be captured and stored. 
+contains the recently viewed products implementation in Quick search results UI and show how product click event can be captured and stored. 
 
