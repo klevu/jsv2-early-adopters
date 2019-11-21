@@ -39,6 +39,9 @@ This layout example includes functionality from the below modules:
 - filter-collapse
 - custom-pagination
 - product-quick-view
+- term-redirection
+- trending-products
+- recent-viewed-products
 
 ## Screenshots
 

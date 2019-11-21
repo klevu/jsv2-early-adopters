@@ -9,6 +9,7 @@
             </div>
             <%=helper.render('klevuQuickProducts',scope) %>
             <%=helper.render('klevuTrendingProducts',scope) %>
+            <%=helper.render('klevuRecentViewedProducts',scope) %>
         </div>
       </div>
 </script>
@@ -94,7 +95,7 @@
 
 <script type="template/klevu" id="klevuQuickProductBlock">
     <li class="klevuProduct" data-id="<%=dataLocal.id%>">
-        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>"  class="klevuQuickProductInnerBlock trackProductClick">
+        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>"  class="klevuQuickProductInnerBlock trackProductClick kuTrackRecentView">
             <div class="klevuProductItemTop">
                 <div class="klevuQuickImgWrap">
                     <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.sku%></strong></div>
@@ -236,6 +237,64 @@ Quick search results banner template
     <% }); } %>
 </script>
 
+<!-- Product block template for Recently viewed products in Quick Search Results -->
+<script type="template/klevu" id="klevuQuickRecentViewedProductBlock">
+    <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
+        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
+            <div class="klevuProductItemTop">
+                <div class="klevuQuickImgWrap">
+                    <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.stickyLabelHead%></strong></div>
+                    <img src="<%=dataLocal.image%>" alt="<%=dataLocal.name%>" />
+                </div>
+            </div>
+            <div class="klevuProductItemBottom">
+                <div class="klevuQuickProductDescBlock">
+                    <div class="klevuQuickProductName"><%=dataLocal.name%></div>
+                    <div class="klevuQuickProductDesc">
+                        <div class="klevuSpectxt"><%=dataLocal.summaryAttribute%><span><%=dataLocal.stickyLabelText%></span></div>
+                    </div>
+                    <div class="klevuQuickProductPrice">
+                        <% if(dataLocal.ondiscount && dataLocal.ondiscount == "true") { %>
+                            <% if(dataLocal.salePrice ) { %>
+                                <span class="klevuQuickSalePrice klevuQuickSpecialPrice">
+                                    <%=helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.salePrice))%>
+                                </span>
+                            <% } %>
+                            <% if(dataLocal.price) { %>
+                                <span class="klevuQuickOrigPrice"><%=helper.translate("Original price %s",helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.price)))%></span>
+                            <% } %>
+                        <% } else { %>
+                            <% if(dataLocal.salePrice ) { %>
+                                <span class="klevuQuickSalePrice">
+                                    <span class="klevuQuickPriceGreyText"></span>
+                                    <%=helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.salePrice))%>
+                                </span>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="klevuClearLeft"></div>
+        </a>
+    </li>
+</script>
 
-
-
+<!-- Recent viewed products template for Quick Search Results -->
+<script type="template/klevu" id="klevuRecentViewedProducts">
+    <% if(data.query.recentViewedProductList) { %>
+        <% if(data.query.recentViewedProductList.result.length > 0 ) { %>
+            <div class="klevuResultsBlock">
+                <div class="klevuSuggestionHeading">
+                    <span class="klevuHeadingText"><%=helper.translate("Recently Viewed Products")%></span>
+                </div>
+                <div class="klevuQuickSearchResults" data-section="recentViewedProductList" id="recentViewedProductList">
+                    <ul>
+                      <% helper.each(data.query.recentViewedProductList.result,function(key,product){ %>
+                          <%=helper.render('klevuQuickRecentViewedProductBlock',scope,data,product) %>
+                      <% }); %>
+                    </ul>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</script>
