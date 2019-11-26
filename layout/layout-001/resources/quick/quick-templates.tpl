@@ -24,7 +24,7 @@
                 </div>
                 <ul>
                     <% helper.each(data.suggestions.autosuggestion,function(key,suggestion){ %>
-                        <li><a href="<%=helper.buildUrl(data.settings.landingUrl, 'q' , helper.stripHtml(suggestion.suggest))%>" data-content="<%=helper.stripHtml(suggestion.suggest) %>" class="klevu-track-click"> <%=suggestion.suggest %> </a></li>
+                        <li><a target="_self" href="<%=helper.buildUrl(data.settings.landingUrl, 'q' , helper.stripHtml(suggestion.suggest))%>" data-content="<%=helper.stripHtml(suggestion.suggest) %>" class="klevu-track-click"> <%=suggestion.suggest %> </a></li>
                     <% }); %>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
                 <div class="klevuSuggestionHeading"><span class="klevuHeadingText"><%=helper.translate("Pages")%></span></div>
                 <ul>
                     <% helper.each(data.query.cmsCompressed.result,function(key,cms){ %>
-                        <li><a href="<%=cms.url%>" class="klevu-track-click" data-url="<%=cms.url%>" data-name="<%=cms.name%>"><%=cms.name%></a></li>
+                        <li><a target="_self" href="<%=cms.url%>" class="klevu-track-click" data-url="<%=cms.url%>" data-name="<%=cms.name%>"><%=cms.name%></a></li>
                     <% }); %>
                 </ul>
             </div>
@@ -60,7 +60,7 @@
                 </div>
                 <ul>
                     <% helper.each(data.query.categoryCompressed.result,function(key,category){ %>
-                        <li><a href="<%=category.url%>" class="klevu-track-click" data-url="<%=category.url%>" data-name="<%=category.name%>" ><%=category.name%></a></li>
+                        <li><a target="_self" href="<%=category.url%>" class="klevu-track-click" data-url="<%=category.url%>" data-name="<%=category.name%>" ><%=category.name%></a></li>
                     <% }); %>
                 </ul>
             </div>
@@ -95,7 +95,7 @@
 
 <script type="template/klevu" id="klevuQuickProductBlock">
     <li class="klevuProduct" data-id="<%=dataLocal.id%>">
-        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>"  class="klevuQuickProductInnerBlock trackProductClick kuTrackRecentView">
+        <a target="_self" href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>"  class="klevuQuickProductInnerBlock trackProductClick kuTrackRecentView">
             <div class="klevuProductItemTop">
                 <div class="klevuQuickImgWrap">
                     <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.sku%></strong></div>

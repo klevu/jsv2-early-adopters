@@ -7,7 +7,7 @@
                 </div>
                 <ul>
                     <% helper.each(data.suggestions.autosuggestion,function(key,suggestion){ %>
-                        <li><a href="<%=helper.buildUrl(data.settings.landingUrl, 'q' , helper.stripHtml(suggestion.suggest))%>" data-content="<%=helper.stripHtml(suggestion.suggest) %>" class="klevu-track-click"> <%=suggestion.suggest %> </a></li>
+                        <li><a target="_self" href="<%=helper.buildUrl(data.settings.landingUrl, 'q' , helper.stripHtml(suggestion.suggest))%>" data-content="<%=helper.stripHtml(suggestion.suggest) %>" class="klevu-track-click"> <%=suggestion.suggest %> </a></li>
                     <% }); %>
                 </ul>
             </div>

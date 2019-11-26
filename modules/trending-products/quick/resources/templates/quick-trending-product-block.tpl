@@ -2,7 +2,7 @@
 
 <script type="template/klevu" id="klevuQuickTrendingProductBlock">
     <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
-        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
+        <a target="_self" href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
             <div class="klevuProductItemTop">
                 <div class="klevuQuickImgWrap">
                     <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.stickyLabelHead%></strong></div>
