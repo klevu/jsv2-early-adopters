@@ -15,7 +15,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "initializeFilterLeft",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().facets.base.attachFacetItemsClickEvent();
+                klevu.search.modules.facets.base.attachFacetItemsClickEvent(scope.kScope);
             }
         });
     }
