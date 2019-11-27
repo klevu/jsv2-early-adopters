@@ -74,9 +74,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "landingPageProductAddToCartEvent",
             fire: function (data, scope) {
-                try {
-                    klevu.search.modules.addToCart.base.bindLandingProductAddToCartBtnClickEvent(scope.kScope);
-                } catch (error) {}
+                klevu.search.modules.addToCart.base.bindLandingProductAddToCartBtnClickEvent(scope.kScope);
             }
         });
     }

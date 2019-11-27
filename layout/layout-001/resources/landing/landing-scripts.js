@@ -582,57 +582,60 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
  * Extend addToCart base module for landing page
  */
 
-klevu.extend({
-    addToCartLanding: function (mainScope) {
 
-        if (!mainScope.addToCart) {
-            console.log("Add to cart base module is missing!");
-            return;
+klevu.coreEvent.attach("addToCartModuleBuild", {
+    name: "extendModuleForLandingPage",
+    fire: function () {
+
+        /**
+         * Landing page Add to cart button click event
+         * @param {*} ele 
+         * @param {*} event 
+         * @param {*} productList 
+         */
+        function attachProductAddToCartBtnEvent(ele, event, productList) {
+            event = event || window.event;
+            event.preventDefault();
+
+            var selected_product;
+            var target = klevu.dom.helpers.getClosest(ele, ".kuAddtocart");
+            var productId = target.getAttribute("data-id");
+            klevu.each(productList, function (key, product) {
+                if (product.id == productId) {
+                    selected_product = product;
+                }
+            });
+            if (selected_product) {
+                ele.selected_product = selected_product;
+                if (selected_product) {
+                    klevu.search.modules.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
+                }
+            }
         }
 
-        mainScope.addToCart.landing = {
+        /**
+         * Function to bind events to landing page product add to cart button
+         * @param {*} scope 
+         */
+        function bindLandingProductAddToCartBtnClickEvent(scope) {
+            var self = this;
+            var target = klevu.getSetting(scope.settings, "settings.search.searchBoxTarget");
 
-            /**
-             * Landing page Add to cart button click event
-             * @param {*} ele 
-             * @param {*} event 
-             * @param {*} productList 
-             */
-            attachProductAddToCartBtnEvent: function (ele, event, productList) {
-                event = event || window.event;
-                event.preventDefault();
-                var selected_product;
-                var target = klevu.dom.helpers.getClosest(ele, ".kuAddtocart");
-                var productId = target.getAttribute("data-id");
-                klevu.each(productList, function (key, product) {
-                    if (product.id == productId) {
-                        selected_product = product;
-                    }
-                });
-                if (selected_product) {
-                    ele.selected_product = selected_product;
-                    if (selected_product) {
-                        mainScope.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
-                    }
-                }
-            },
-
-            /**
-             * Function to bind events to landing page product add to cart button
-             * @param {*} data 
-             * @param {*} scope 
-             */
-            bindLandingProductAddToCartBtnClickEvent: function (data, listName) {
-                var self = this;
-                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
-                var productList = klevu.getObjectPath(data.template.query, listName);
-                klevu.each(klevu.dom.find(".kuLandingAddToCartBtn", target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
+            klevu.each(klevu.dom.find(".kuLandingAddToCartBtn", target), function (key, value) {
+                klevu.event.attach(value, "click", function (event) {
+                    var parent = klevu.dom.helpers.getClosest(this, ".klevuMeta");
+                    if (parent && parent.dataset && parent.dataset.section) {
+                        var productList = klevu.getObjectPath(scope.data.template.query, parent.dataset.section);
                         self.attachProductAddToCartBtnEvent(this, event, productList.result);
-                    });
+                    }
                 });
-            }
-        };
+            });
+        }
+
+        klevu.extend(true, klevu.search.modules.addToCart.base, {
+            bindLandingProductAddToCartBtnClickEvent: bindLandingProductAddToCartBtnClickEvent,
+            attachProductAddToCartBtnEvent: attachProductAddToCartBtnEvent
+        });
     }
 });
 
@@ -644,21 +647,14 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "addAddToCartButtonLandingPage",
     fire: function () {
 
-        /** Include addToCart base module first to use base functionalities */
-        klevu.addToCart(klevu.search.landing.getScope().element.kScope);
-
-        /** Initalize add to cart service */
-        klevu.addToCartLanding(klevu.search.landing.getScope().element.kScope);
-
         /** Set Template */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#landingPageProductAddToCart"), "landingPageProductAddToCart", true);
-
 
         /** Bind landing page add to cart button click event */
         klevu.search.landing.getScope().chains.template.events.add({
             name: "landingPageProductAddToCartEvent",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().addToCart.landing.bindLandingProductAddToCartBtnClickEvent(data, "productList");
+                klevu.search.modules.addToCart.base.bindLandingProductAddToCartBtnClickEvent(scope.kScope);
             }
         });
     }
@@ -1203,57 +1199,82 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 /**
  * Extend klevu object for custom pagination functionality
  */
-klevu.extend({
-    customPagination: function (mainScope) {
-        mainScope.customPagination = {};
-        mainScope.customPagination.base = {
 
-            /**
-             * Paginate click event
-             * @param {*} scope 
-             * @param {*} event 
-             */
-            paginateClickEvent: function (event) {
-                event = event || window.event;
-                event.preventDefault();
+klevu.interactive(function () {
 
-                var element = event.target;
-                var target = klevu.dom.helpers.getClosest(element, ".klevuTarget");
-                if (target === null) {
-                    return;
-                }
-                var scope = target.kElem;
-                scope.kScope.data = scope.kObject.resetData(scope.kElem);
-                scope.kScope.data.context.keyCode = 0;
-                scope.kScope.data.context.eventObject = event;
-                scope.kScope.data.context.event = "keyUp";
-                scope.kScope.data.context.preventDefault = false;
+    /**
+     * Paginate click event
+     * @param {*} scope 
+     * @param {*} event 
+     */
+    function paginateClickEvent(event) {
+        event = event || window.event;
+        event.preventDefault();
 
-                var options = klevu.dom.helpers.getClosest(element, ".klevuMeta");
-                var offset = element.dataset.offset;
-                offset = (offset < 0) ? 0 : offset;
+        var element = event.target;
+        var target = klevu.dom.helpers.getClosest(element, ".klevuTarget");
+        if (target === null) {
+            return;
+        }
+        var scope = target.kElem;
+        scope.kScope.data = scope.kObject.resetData(scope.kElem);
+        scope.kScope.data.context.keyCode = 0;
+        scope.kScope.data.context.eventObject = event;
+        scope.kScope.data.context.event = "keyUp";
+        scope.kScope.data.context.preventDefault = false;
 
-                klevu.setObjectPath(scope.kScope.data, "localOverrides.query." + options.dataset.section + ".settings.offset", parseInt(offset));
-                klevu.event.fireChain(scope.kScope, "chains.events.keyUp", scope, scope.kScope.data, event);
-            },
+        var options = klevu.dom.helpers.getClosest(element, ".klevuMeta");
+        var offset = element.dataset.offset;
+        offset = (offset < 0) ? 0 : offset;
 
-            /**
-             * Function to bind pagination events
-             * @param {*} paginateClass paginate link container class
-             */
-            bindPaginationEvents: function (paginateClass) {
-                var self = this;
-                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
-                klevu.each(klevu.dom.find(paginateClass, target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
-                        self.paginateClickEvent(event);
-                    }, true);
-                });
-            }
-        };
-    }
+        klevu.setObjectPath(scope.kScope.data, "localOverrides.query." + options.dataset.section + ".settings.offset", parseInt(offset));
+        klevu.event.fireChain(scope.kScope, "chains.events.keyUp", scope, scope.kScope.data, event);
+    };
+
+    /**
+     * Function to bind pagination events
+     * @param {*} paginateClass paginate link container class
+     */
+    function bindPaginationEvents(scope, paginateClass) {
+        var self = this;
+        var target = klevu.getSetting(scope.settings, "settings.search.searchBoxTarget");
+        klevu.each(klevu.dom.find(paginateClass, target), function (key, value) {
+            klevu.event.attach(value, "click", function (event) {
+                self.paginateClickEvent(event);
+            }, true);
+        });
+    };
+
+    var customPagination = {
+        paginateClickEvent: paginateClickEvent,
+        bindPaginationEvents: bindPaginationEvents
+    };
+
+    klevu.extend(true, klevu.search.modules, {
+        customPagination: {
+            base: customPagination,
+            build: true
+        }
+    });
+
 });
 
+/**
+ * customPagination module build event
+ */
+klevu.coreEvent.build({
+    name: "paginationModuleBuild",
+    fire: function () {
+        if (!klevu.search.modules ||
+            !klevu.search.modules.customPagination ||
+            !klevu.search.modules.customPagination.build) {
+            return false;
+        }
+        return true;
+    },
+    maxCount: 500,
+    delay: 30
+});
 
 /**
  * Add landing page custom pagination bar
@@ -1261,9 +1282,6 @@ klevu.extend({
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "addLandingPageCustomPaginationBar",
     fire: function () {
-
-        /** Initializing custom pagination */
-        klevu.customPagination(klevu.search.landing.getScope().element.kScope);
 
         /** Set Template */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#customLandingPagePaginationBar"), "customLandingPagePagination", true);
@@ -1276,7 +1294,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             fire: function (data, scope) {
 
                 /** Binding events for pagination on landing page */
-                klevu.search.landing.getScope().customPagination.base.bindPaginationEvents(".kuPaginate");
+                klevu.search.modules.customPagination.base.bindPaginationEvents(scope.kScope, ".kuPaginate");
             }
         });
 
