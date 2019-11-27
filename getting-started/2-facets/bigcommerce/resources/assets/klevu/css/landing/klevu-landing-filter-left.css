@@ -1,0 +1,39 @@
+/* CSS for filters on left */
+.kuFilters {
+    float: left;
+    width: 20%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.kuResultWrap {
+    width: 80%;
+    padding-left: 20px;
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+    .kuResultWrap {
+        width: 72%;
+    }
+
+    .kuFilters {
+        width: 28%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .kuFilters {
+        width: 100%;
+    }
+
+    .kuFilterBox {
+        margin-bottom: 5px;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+
+    .kuResultWrap {
+        width: 100%;
+        padding: 0px;
+    }
+}

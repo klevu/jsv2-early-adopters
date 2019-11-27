@@ -1,7 +1,7 @@
 # Product Quick View - Search Results Landing Page
 
 >**Prerequisite:**  
->This module uses [add-to-cart](/components/add-to-cart) base component. Before starting the implementation of the module, add base component files and include initialization.  
+>This module requires the [add-to-cart](/components/add-to-cart) and [analytics-utils](/components/analytics-utils) base components.   
 
 ![Quick-view product-grid](/modules/product-quick-view/images/product-grid.png)
 ![Quick-view template](/modules/product-quick-view/images/product-quick-view.png) 
@@ -15,8 +15,8 @@ It extends the base component and add functions related to quick view functional
 
 ## Template Modifications
 
-Add the template for rendering Quick view for related results,
-so edit the corresponding `landing-product-block.tpl` to add a Quick view renderer template.
+Add the template for rendering Quick view for related results.  
+Edit the corresponding `landing-product-block.tpl` to add a Quick view renderer template.
 
 ```html
 ...

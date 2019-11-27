@@ -1,13 +1,16 @@
 # Filter Price Slider - Search Results Landing Page
 
+>**Prerequisite:**  
+>This module requires the modules based on [facets](/components/facets) component.  
+
 You will find the necessary resources for this module available here:
 [resources](/modules/filter-price-slider/landing/resources). Please add these with the
 method appropriate to your chosen framework. 
 
 ## Template Modifications
 
-Add the template for rendering price slider filter for related results,
-so edit the corresponding `landing-filters.tpl` to add price slider filter renderer template.  
+Add the template for rendering price slider filter for related results.  
+Edit the corresponding `landing-filters.tpl` to add price slider filter renderer template.  
 Replace below code  
 
 

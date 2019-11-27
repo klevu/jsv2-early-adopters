@@ -1,0 +1,188 @@
+/* CSS for filters on top */
+.kuFilters {
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px 25px;
+}
+
+.kuFilters:after {
+    clear: both;
+    display: block;
+}
+
+.kuFilterBox {
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    width: auto;
+    height: auto;
+}
+
+.kuFilters:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.kuFilterHead {
+    padding: 6px 15px 6px 0px;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    color: #333333;
+    border: 0px;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 5px;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+    pointer-events: initial;
+}
+
+.kuFilterNames {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 36px;
+    min-width: 260px;
+    width: 100%;
+    min-height: 80px;
+    max-height: 180px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    z-index: 100000000;
+    padding: 12px 12px;
+    height: auto;
+}
+
+.kuFilterNames:hover {
+    overflow-y: auto;
+}
+
+.kuFilterHead:hover {
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.kuFilterHead:hover+.kuFilterNames,
+.kuFilterNames:hover {
+    display: block !important;
+}
+
+.kuFilterHead::after,
+.kuFilterHead.kuCollapse::after,
+.kuFilterHead.kuExpand::after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #333333;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 3px;
+    top: 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+/* up arrow div in filters */
+.kuShowOpt,
+.kuHideOpt {
+    display: none;
+}
+
+@media only screen and (max-width: 640px) {
+    .kuFilters {
+        width: 100%;
+    }
+
+    .kuFilterBox {
+        margin-bottom: 5px;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+
+    .kuFilterHead {
+        border-bottom: 1px solid #EEEEEE;
+        margin: 0px auto;
+    }
+
+    .kuFilterHead:hover+.kuFilterNames,
+    .kuFilterNames:hover {
+        pointer-events: none;
+    }
+
+    .kuFilterHead.kuExpand::after {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #333333;
+        border-image: none;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        content: "";
+        display: inline-block;
+        padding: 3px;
+        position: absolute;
+        right: 3px;
+        top: 10px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        transition: all 0.3s ease 0s;
+    }
+
+    .kuFilterNames.kuFilterCollapse {
+        height: 0;
+        overflow: hidden;
+        min-height: unset;
+        padding: 0px;
+        border: none;
+        transition: none;
+    }
+
+    .kuFilterHead.kuCollapse::after {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #333333;
+        border-image: none;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        content: "";
+        display: inline-block;
+        padding: 3px;
+        position: absolute;
+        right: 3px;
+        top: 10px;
+        -webkit-transform: rotate(-135deg);
+        -moz-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        transition: all 0.3s ease;
+    }
+
+    .kuFilterNames.kuFilterCollapse .kuShowOpt {
+        display: none;
+    }
+}

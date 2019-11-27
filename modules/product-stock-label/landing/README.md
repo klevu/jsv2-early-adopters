@@ -11,8 +11,8 @@ method appropriate to your chosen framework.
 
 ## Template Modifications
 
-Add the template for rendering badge for related results,
-so edit the corresponding product `landing-product-block.tpl` to add badge renderer template.
+Add the template for rendering badge for related results.  
+Edit the corresponding product `landing-product-block.tpl` to add badge renderer template.
 
 ```html
 ...

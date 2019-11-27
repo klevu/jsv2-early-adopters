@@ -7,7 +7,7 @@
                 </div>
                 <ul>
                     <% helper.each(data.query.categoryCompressed.result,function(key,category){ %>
-                        <li><a href="<%=category.url%>"><%=category.name%></a></li>
+                        <li><a target="_self" href="<%=category.url%>" class="klevu-track-click" data-url="<%=category.url%>" data-name="<%=category.name%>" ><%=category.name%></a></li>
                     <% }); %>
                 </ul>
             </div>

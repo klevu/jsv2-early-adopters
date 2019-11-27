@@ -3,8 +3,6 @@
         <div class="productList klevuMeta" data-section="productList">
             <div class="kuResultContent">
 
-                <%=helper.render('filters',scope,data,"productList") %>
-
                 <div class="kuResultWrap <%=(data.query.productList.filters.length == 0 )?'kuBlockFullwidth':''%>">
 
                     <%=helper.render('pagination',scope,data,"productList") %>

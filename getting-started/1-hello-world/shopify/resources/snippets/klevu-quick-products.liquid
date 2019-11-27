@@ -3,7 +3,7 @@
         <% if(data.query.productList.result.length > 0 ) { %>
             <div class="klevuResultsBlock">
                 <div class="klevuSuggestionHeading"><span class="klevuHeadingText"><%=helper.translate("Products")%></span></div>
-                <div class="klevuQuickSearchResults" id="productsList">
+                <div class="klevuQuickSearchResults" data-section="productList" id="productsList">
                     <div class="klevuProductsViewAll">
                         <a href="<%=helper.buildUrl(data.settings.landingUrl,'q',helper.stripHtml(data.settings.term))%>" target="_parent"><%=helper.translate("View All")%></a>
                     </div>

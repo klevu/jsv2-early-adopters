@@ -1,5 +1,8 @@
 # Mobile View Filter Slider - Search Results Landing Page
 
+>**Prerequisite:**  
+>This module requires the modules based on [facets](/components/facets) component. 
+
 ![mobile-filter-slider closed](/modules/mobile-sliding-filter/images/image001.png)
 ![mobile-filter-slider opened](/modules/mobile-sliding-filter/images/image002.png)
 
@@ -9,8 +12,8 @@ method appropriate to your chosen framework.
 
 ## Template Modifications
 
-Add the template for rendering sliding filter for related results,
-so edit the corresponding `landing-results.tpl` to add sliding filter renderer template.
+Add the template for rendering sliding filter for related results.  
+Edit the corresponding `landing-results.tpl` to add sliding filter renderer template.
 
 ```html
 ...
@@ -27,8 +30,8 @@ so edit the corresponding `landing-results.tpl` to add sliding filter renderer t
 ...
 ```
 
-Next, Add the template for rendering sliding filter for related results,
-so edit the corresponding `landing-filters.tpl` to add sliding filter renderer template.
+Next, Add the template for rendering sliding filter for related results.  
+Edit the corresponding `landing-filters.tpl` to add sliding filter renderer template.
 
 ```html
 ...

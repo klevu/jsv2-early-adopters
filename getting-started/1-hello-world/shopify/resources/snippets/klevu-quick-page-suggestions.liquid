@@ -5,7 +5,7 @@
                 <div class="klevuSuggestionHeading"><span class="klevuHeadingText"><%=helper.translate("Pages")%></span></div>
                 <ul>
                     <% helper.each(data.query.cmsCompressed.result,function(key,cms){ %>
-                        <li><a href="<%=cms.url%>"><%=cms.name%></a></li>
+                        <li><a target="_self" href="<%=cms.url%>" class="klevu-track-click" data-url="<%=cms.url%>" data-name="<%=cms.name%>"><%=cms.name%></a></li>
                     <% }); %>
                 </ul>
             </div>

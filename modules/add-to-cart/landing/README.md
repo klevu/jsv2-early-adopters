@@ -1,7 +1,7 @@
 # Add to Cart - Search Results Landing Page
 
 > **Prerequisite:**  
-> This module requires the [add-to-cart](/components/add-to-cart) base component.
+> This module requires the [add-to-cart](/components/add-to-cart) and [analytics-utils](/components/analytics-utils) base components.
 
 ![Search-landing add-to-cart](/modules/add-to-cart/images/image001.png)
 
@@ -29,8 +29,11 @@ Modify `landing-product-block.tpl` to add the 'Add to Cart' button in your prefe
 ### Code Reference
 
 [klevu-add-to-cart.js](/components/add-to-cart/resources/assets/js/klevu-add-to-cart.js)
-contains your framework-specific functionality to connect add to cart to your chosen framework.
+contains your framework-specific functionality to connect add to cart to your chosen framework.  
 
 [klevu-landing-add-to-cart.js](/modules/add-to-cart/landing/resources/assets/js/klevu-landing-add-to-cart.js)
 connects the base component to your search results landing page implementation
-and show how to enable the base component for your targeted scope.
+and show how to enable the base component for your targeted scope.  
+
+> **Note:**  
+> Added analytics on this functionality. [Line reference](/modules/add-to-cart/landing/resources/assets/js/klevu-landing-add-to-cart.js#L89) in code file.

@@ -4,7 +4,7 @@
 >This is a base component for product add to cart functionality.
 >It won't have any output on user interface. It only initializes core functions.  
 
-You will find the necessary resources for this module available here:
+You will find the necessary resources for this component available here:
 [resources](/components/add-to-cart/resources). Please add these with the
 method appropriate to your chosen framework. 
 

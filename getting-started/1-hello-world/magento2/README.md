@@ -17,6 +17,9 @@ for getting up and running with Magento 2.
 Add this extension to your demo store, and once you have enabled the extension,
 **try searching for "bag"**.
 
+The results you see will be from our demo store since this example uses our API Key.
+To see your own product data, please complete the remaining hello-world tutorials below.
+
 _Note that Klevu JS Library is as flexible as Magento 2. This example is just one
 way to integrate Klevu JS Library for illustrative purposes and has settings such
 as the API key hard-coded into the JS files. Feel free to use your own preferred approach
@@ -28,4 +31,4 @@ configurable via Store Configuration, etc._
 Now you have Klevu functionality entirely hosted on your own infrastructure
 and are ready to make some more changes to customise your search results!
 
-Next, let's [Add a Sort-By Dropdown](/getting-started/2-sort/magento2)
+Next, let's [Add some Facets / Filters](/getting-started/2-facets/magento2)

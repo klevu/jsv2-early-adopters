@@ -98,6 +98,9 @@ klevu.extend({
                             applyFilters.push(sliderFilterReqObj);
                         }
                     }
+                    else{
+                        localQuery.filters.applyFilters.filters = [sliderFilterReqObj];
+                    }
                 }
 
                 /** reset offset after filter change */

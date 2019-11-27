@@ -99,14 +99,15 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 var landingStorage = klevu.getSetting(klevu.settings, "settings.storage");
                 var selectedTab = landingStorage.tabs.getElement("active");
                 value.classList.remove("kuTabSelected");
-                if (selectedTab && this.dataset && this.dataset.section) {
-                    if (selectedTab == this.dataset.section) {
+                if (selectedTab && value.dataset && value.dataset.section) {
+                    if (selectedTab == value.dataset.section) {
                         value.classList.add("kuTabSelected");
-                        var klevuWrap = klevu.dom.helpers.getClosest(this, ".klevuWrap");
+                        var klevuWrap = klevu.dom.helpers.getClosest(value, ".klevuWrap");
                         if (klevuWrap === null) {
                             return;
                         }
-                        klevuWrap.classList.add(this.dataset.section + "Active");
+                        data.context.section = value.dataset.section;
+                        klevuWrap.classList.add(value.dataset.section + "Active");
                         isTabSelected = true;
                     }
                 }
@@ -116,11 +117,11 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     value.classList.remove("kuTabSelected");
                     if (key == 0) {
                         value.classList.add("kuTabSelected");
-                        var klevuWrap = klevu.dom.helpers.getClosest(this, ".klevuWrap");
+                        var klevuWrap = klevu.dom.helpers.getClosest(value, ".klevuWrap");
                         if (klevuWrap === null) {
                             return;
                         }
-                        klevuWrap.classList.add(this.dataset.section + "Active");
+                        klevuWrap.classList.add(value.dataset.section + "Active");
                     }
                 });
             }
@@ -135,6 +136,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 klevu.each(klevu.dom.find(".kuTab", target), function (key, value) {
                     // onclick
                     klevu.event.attach(value, "click", function (event) {
+
                         event = event || window.event;
                         event.preventDefault();
 
@@ -159,11 +161,41 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         storageEngine.tabs.mergeToGlobal();
 
                         /** Initialize price filter slider on tab change */
-                        klevu.search.landing.getScope().sliderFilter.initSlider(data, scope);
+                        if (klevu.search.landing.getScope().filterPriceSlider) {
+                            klevu.search.landing.getScope().filterPriceSlider.base.initSlider(data, scope);
+                        }
                     });
                 });
             }
         });
 
+    }
+});
+
+
+/**
+ * Core event to attach content list in request
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "attachContentListRequest",
+    fire: function () {
+        klevu.search.landing.getScope().chains.request.build.add({
+            name: "addContentList",
+            fire: function (data, scope) {
+                var parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
+
+                var contentList = klevu.extend(true, {}, parameterMap.recordQuery);
+                contentList.id = "contentList";
+                contentList.typeOfRequest = "SEARCH";
+                contentList.settings.query.term = data.context.term;
+                contentList.settings.typeOfRecords = ["KLEVU_CMS"];
+                contentList.settings.searchPrefs = ["searchCompoundsAsAndQuery"];
+                contentList.settings.limit = 12;
+                contentList.filters.filtersToReturn.enabled = true;
+                data.request.current.recordQueries.push(contentList);
+
+                data.context.doSearch = true;
+            }
+        });
     }
 });

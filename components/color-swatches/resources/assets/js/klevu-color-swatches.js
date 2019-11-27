@@ -72,7 +72,7 @@ klevu.extend({
             parseProductColorSwatch: function (data, listName) {
                 var self = this;
                 var items = klevu.getObjectPath(data.template.query, listName);
-                if (items.result) {
+                if (items && items.result) {
                     klevu.each(items.result, function (key, value) {
                         if (value.swatchesInfo && value.swatchesInfo.length) {
                             value.swatchesInfo = self.getColorSwatchesInfoFromString(value.swatchesInfo);

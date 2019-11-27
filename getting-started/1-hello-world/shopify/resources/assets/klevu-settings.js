@@ -4,10 +4,6 @@ function startup(klevu) {
         url : {
             search: klevu.settings.url.protocol + '//cs2.ksearchnet.com/cs/v2/search',
             landing : '/search',
-            javascript: null,
-            analytics: null,
-            cmsSearchUrl: null,
-            cmsAnalyticsUrl: null,
             protocolFull: klevu.settings.url.protocol + "//"
 
         },
@@ -21,6 +17,9 @@ function startup(klevu) {
             fullPageLayoutEnabled : false,
             personalisation: false,
             redirects: [],
+            apiKey: 'klevu-14728819608184175'
+        },
+        analytics: {
             apiKey: 'klevu-14728819608184175'
         }
     };

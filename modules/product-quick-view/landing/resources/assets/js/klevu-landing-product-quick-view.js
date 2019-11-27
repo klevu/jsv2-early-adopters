@@ -180,7 +180,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         /** Initialize Quick view service */
         klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
 
-        
+
 
         /** Set template in landing UI */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuLandingTemplateQuickView"), "quick-view", true);
@@ -228,4 +228,113 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
             }
         });
     }
-})
+});
+
+/**
+ * Product Quick View page extension for Analytics utility
+ */
+klevu.extend({
+    analyticsUtilsQuickView: function (mainScope) {
+        if (!mainScope.analyticsUtils) {
+            klevu.analyticsUtils(mainScope);
+        }
+        mainScope.analyticsUtils.quickView = {
+            bindQuickViewBtnClickAnalytics: function (dataListId, callSrc) {
+                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function (key, value) {
+                    klevu.event.attach(value, "click", function (event) {
+                        var parent = klevu.dom.helpers.getClosest(value, ".klevuProduct");
+                        if (parent === null) {
+                            return;
+                        }
+                        var productId = parent.dataset.id;
+                        if (productId) {
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if (product) {
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.klevu_keywords = termOptions.klevu_term;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = "[[" + callSrc + "]]";
+                                klevu.analyticsEvents.click(termOptions);
+                            }
+                        }
+                    });
+                });
+            },
+            bindProductDetailsButtonClick: function (dataListId, callSrc) {
+                var target = klevu.dom.find(".kuModal")[0];
+                klevu.each(klevu.dom.find(".kuModalProductURL", target), function (key, value) {
+                    klevu.event.attach(value, "click", function (event) {
+                        var productId = target.dataset.id;
+                        if (productId) {
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if (product) {
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.klevu_keywords = termOptions.klevu_term;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = "[[typeOfRecord:" + product.typeOfRecord + ";;" + callSrc + "]]";
+                                klevu.analyticsEvents.click(termOptions);
+                            }
+                        }
+                    });
+                });
+            },
+            bindAddToCartButtonClick: function (dataListId, callSrc) {
+                var target = klevu.dom.find(".kuModal")[0];
+                klevu.each(klevu.dom.find(".kuModalProductCart", target), function (key, value) {
+                    klevu.event.attach(value, "mousedown", function (event) {
+                        var productId = target.dataset.id;
+                        if (productId) {
+                            var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
+                            if (product) {
+                                var termOptions = mainScope.analyticsUtils.base.getTermOptions();
+                                termOptions.klevu_keywords = termOptions.klevu_term;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = "[[shortlist:add-to-cart;;" + callSrc + "]]";
+                                klevu.analyticsEvents.click(termOptions);
+                            }
+                        }
+                    });
+                });
+            }
+        };
+    }
+});
+
+/**
+ *  Product Quick view attach analytics 
+ */
+
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "attachProductQuickViewAnalytics",
+    fire: function () {
+
+        /** Initialize analytics for Product Quick View */
+        klevu.analyticsUtilsQuickView(klevu.search.landing.getScope().element.kScope);
+
+        /**
+         * Attach events for quick view button
+         */
+        klevu.search.landing.getScope().chains.template.events.add({
+            name: "bindAnalyticsOnProductQuickView",
+            fire: function (data, scope) {
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindQuickViewBtnClickAnalytics("productList", "source:quick-view;;template:landing");
+            }
+        });
+
+        klevu.search.landing.getScope().chains.quickView.add({
+            name: "bindAnalyticsOnProductQuickViewEvents",
+            fire: function (data, scope) {
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindProductDetailsButtonClick("productList", "source:quick-view");
+                klevu.search.landing.getScope().analyticsUtils.quickView.bindAddToCartButtonClick("productList", "source:quick-view");
+            }
+        });
+
+    }
+});
