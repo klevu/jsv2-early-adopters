@@ -72,9 +72,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             box.getScope().chains.template.events.add({
                 name: "quickSearchProductAddToCartEvent",
                 fire: function (data, scope) {
-                    try {
-                        klevu.search.modules.addToCart.base.bindQuickSearchProductAddToCartBtnClickEvent(scope.kScope);
-                    } catch (error) {}
+                    klevu.search.modules.addToCart.base.bindQuickSearchProductAddToCartBtnClickEvent(scope.kScope);
                 }
             });
         });
