@@ -200,7 +200,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "multiselectFilters",
     fire: function () {
 
-        /** Initialze multiselectFilters module */
+        /** Initialize multiselectFilters module */
         klevu.multiselectFilters(klevu.search.landing.getScope().element.kScope);
 
         klevu.search.landing.getScope().chains.template.process.success.add({
