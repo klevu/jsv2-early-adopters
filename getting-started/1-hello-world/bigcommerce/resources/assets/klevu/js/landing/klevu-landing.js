@@ -165,32 +165,58 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 /**
  * Extension for multiselect filter functionality
  */
-klevu.extend({
-    multiselectFilters: function (mainScope) {
-        if (!mainScope.multiselectFilters) {
-            mainScope.multiselectFilters = {};
-        }
 
-        mainScope.multiselectFilters.base = {
-            initialize: function (dataOptions) {
-                var list = dataOptions.dataIdList;
-                klevu.each(list, function (key, value) {
-                    var items = klevu.getObjectPath(dataOptions.responseData.template.query, value);
-                    if (!klevu.isUndefined(items)) {
-                        klevu.each(items.filters, function (keyFilter, filter) {
-                            filter.multiselect = false;
-                            var isKeyFound = dataOptions.multiSelectFilterKeys.find(function (keyName) {
-                                return keyName == filter.key;
-                            });
-                            if (isKeyFound) {
-                                filter.multiselect = true;
-                            }
-                        })
+klevu.interactive(function () {
+
+    /**
+     * Function to initialize muliselect facet item
+     * @param {*} dataOptions 
+     */
+    function initialize(dataOptions) {
+        var list = dataOptions.dataIdList;
+        klevu.each(list, function (key, value) {
+            var items = klevu.getObjectPath(dataOptions.responseData.template.query, value);
+            if (!klevu.isUndefined(items)) {
+                klevu.each(items.filters, function (keyFilter, filter) {
+                    filter.multiselect = false;
+                    var isKeyFound = dataOptions.multiSelectFilterKeys.find(function (keyName) {
+                        return keyName == filter.key;
+                    });
+                    if (isKeyFound) {
+                        filter.multiselect = true;
                     }
-                });
+                })
             }
-        };
-    }
+        });
+    };
+
+    var multiselectFilters = {
+        initialize: initialize
+    };
+
+    klevu.extend(true, klevu.search.modules, {
+        multiselectFilters: {
+            base: multiselectFilters,
+            build: true
+        }
+    });
+});
+
+/**
+ * multiselectFilters module build event
+ */
+klevu.coreEvent.build({
+    name: "multiselectFiltersModuleBuild",
+    fire: function () {
+        if (!klevu.search.modules ||
+            !klevu.search.modules.multiselectFilters ||
+            !klevu.search.modules.multiselectFilters.build) {
+            return false;
+        }
+        return true;
+    },
+    maxCount: 500,
+    delay: 30
 });
 
 /**
@@ -200,9 +226,9 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "multiselectFilters",
     fire: function () {
 
-        /** Initialze multiselectFilters module */
-        klevu.multiselectFilters(klevu.search.landing.getScope().element.kScope);
-
+        /**
+         * Attach facet multi select
+         */
         klevu.search.landing.getScope().chains.template.process.success.add({
             name: "addMultiSelectFilters",
             fire: function (data, scope) {
@@ -214,7 +240,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     multiSelectFilterKeys: ["category"]
                 };
 
-                klevu.search.landing.getScope().multiselectFilters.base.initialize(multiselectFiltersOptions);
+                klevu.search.modules.multiselectFilters.base.initialize(multiselectFiltersOptions);
             }
         });
     }
