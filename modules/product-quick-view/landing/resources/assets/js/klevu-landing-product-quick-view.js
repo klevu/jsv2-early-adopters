@@ -2,72 +2,74 @@
  * Extend addToCart base module for Quick view
  */
 
-klevu.extend({
-    addToCartQuickView: function (mainScope) {
+klevu.coreEvent.attach("addToCartModuleBuild", {
+    name: "extendModuleForQuickView",
+    fire: function () {
 
-        if (!mainScope.addToCart) {
-            console.log("Add to cart base module is missing!");
-            return;
-        }
+        /*
+         *	Function to toggle Body scroll style
+         */
+        function toggleBodyScroll() {
+            var body = klevu.dom.find("body")[0];
+            var isScroll = '';
+            if (!body.style.overflow) {
+                isScroll = "hidden";
+            }
+            body.style.overflow = isScroll;
+        };
 
-        mainScope.addToCart.quickView = {
-
-            /*
-             *	Function to toggle Body scroll style
-             */
-            toggleBodyScroll: function () {
-                var body = klevu.dom.find("body")[0];
-                var isScroll = '';
-                if (!body.style.overflow) {
-                    isScroll = "hidden";
-                }
-                body.style.overflow = isScroll;
-            },
-
-            /*
-             *	Function to toggle modal UI
-             */
-            toggleModal: function () {
-                this.toggleBodyScroll();
-                var modalElement = klevu.dom.find("div.kuModal");
-                if (modalElement.length) {
-                    modalElement[0].classList.toggle("show-modal");
-                }
-            },
-
-            /**
-             * Function to attach add to cart button event
-             * @param {*} event 
-             */
-            attachKlevuQuickViewAddToCartBtnEvent: function (event) {
-                event = event || window.event;
-                event.preventDefault();
-                var selected_product;
-                var target = klevu.dom.find(".productQuickView");
-                if (target && target[0]) {
-                    selected_product = target[0].selected_product;
-                }
-                if (selected_product) {
-                    mainScope.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
-                }
-                this.toggleModal();
-            },
-
-            /**
-             * Function to bind add to cart button event
-             */
-            bindAddToCartEvent: function () {
-                var self = this;
-                var addToCartElement = klevu.dom.find(".kuModalProductCart", ".productQuickView");
-                if (addToCartElement.length) {
-                    klevu.event.attach(addToCartElement[0], "click", function (event) {
-                        self.attachKlevuQuickViewAddToCartBtnEvent(event);
-                    });
-                }
+        /*
+         *	Function to toggle modal UI
+         */
+        function toggleModal() {
+            this.toggleBodyScroll();
+            var modalElement = klevu.dom.find("div.kuModal");
+            if (modalElement.length) {
+                modalElement[0].classList.toggle("show-modal");
             }
         };
+
+        /**
+         * Function to attach add to cart button event
+         * @param {*} event 
+         */
+        function attachKlevuQuickViewAddToCartBtnEvent(event) {
+            event = event || window.event;
+            event.preventDefault();
+
+            var selected_product;
+            var target = klevu.dom.find(".productQuickView");
+            if (target && target[0]) {
+                selected_product = target[0].selected_product;
+            }
+            if (selected_product) {
+                klevu.search.modules.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
+            }
+            this.toggleModal();
+        };
+
+        /**
+         * Function to bind add to cart button event
+         */
+        function bindAddToCartEvent() {
+            var self = this;
+            var addToCartElement = klevu.dom.find(".kuModalProductCart", ".productQuickView");
+            if (addToCartElement.length) {
+                klevu.event.attach(addToCartElement[0], "click", function (event) {
+                    self.attachKlevuQuickViewAddToCartBtnEvent(event);
+                });
+            }
+        };
+
+        klevu.extend(true, klevu.search.modules.addToCart.base, {
+            bindAddToCartEvent: bindAddToCartEvent,
+            attachKlevuQuickViewAddToCartBtnEvent: attachKlevuQuickViewAddToCartBtnEvent,
+            toggleModal: toggleModal,
+            toggleBodyScroll: toggleBodyScroll
+        });
     }
 });
+
 
 /**
  * Quick view service file
@@ -171,16 +173,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "product-quick-view",
     fire: function () {
 
-        /** Include addToCart base module first to use base functionalities */
-        klevu.addToCart(klevu.search.landing.getScope().element.kScope);
-
-        /** Initalize add to cart service */
-        klevu.addToCartQuickView(klevu.search.landing.getScope().element.kScope);
-
         /** Initialize Quick view service */
         klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
-
-
 
         /** Set template in landing UI */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuLandingTemplateQuickView"), "quick-view", true);
@@ -207,7 +201,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 scope.kScope.template.insertTemplate(target, element);
 
                 klevu.search.landing.getScope().quickViewService.bindCloseBtnClick();
-                klevu.search.landing.getScope().addToCart.quickView.bindAddToCartEvent();
+                klevu.search.modules.addToCart.base.bindAddToCartEvent();
             }
         });
 
