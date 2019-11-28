@@ -262,7 +262,7 @@ klevu.interactive(function () {
             klevu.event.attach(value, "click", function (event) {
                 event = event || window.event;
                 event.preventDefault();
-                
+
                 this.classList.toggle("kuCollapse");
                 this.classList.toggle("kuExpand");
 
@@ -409,96 +409,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 });
             }
         }
-
-    }
-});
-
-
-
-/**
- * Search result landing page extension for Analytics utility
- */
-klevu.extend({
-    analyticsUtilsLandingPage: function (mainScope) {
-        if (!mainScope.analyticsUtils) {
-            klevu.analyticsUtils(mainScope);
-        }
-        mainScope.analyticsUtils.landing = {
-            bindProductClickAnalytics: function () {
-                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
-                klevu.each(klevu.dom.find(".klevuProductClick", target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
-                        var parent = klevu.dom.helpers.getClosest(value, ".klevuProduct");
-                        if (parent && parent != null) {
-                            var productId = parent.dataset.id;
-                            if (productId) {
-                                var product = mainScope.analyticsUtils.base.getProductDetailsFromId(productId, mainScope);
-                                if (product) {
-                                    var termOptions = mainScope.analyticsUtils.base.getTermOptions();
-                                    if(termOptions){
-                                        termOptions.klevu_keywords = termOptions.klevu_term;
-                                        termOptions.klevu_productId = product.id;
-                                        termOptions.klevu_productName = product.name;
-                                        termOptions.klevu_productUrl = product.url;
-                                        termOptions.klevu_src = "[[typeOfRecord:"+product.typeOfRecord + ";;template:landing]]";
-                                        delete termOptions.klevu_term;
-                                        klevu.analyticsEvents.click(termOptions);
-                                    }
-                                }
-                            }
-                        }
-                    });
-                });
-            }
-        };
-    }
-});
-
-/**
- * Attach core event to add landing page analytics
- */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "attachLandingPageAnalyticsEvents",
-    fire: function () {
-        /** Initialize analytics object */
-        klevu.analyticsUtilsLandingPage(klevu.search.landing.getScope().element.kScope);
-        klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut = null;
-
-        /** Send term request for anaytics */
-        klevu.search.landing.getScope().chains.response.ajax.done.add({
-            name: "doAnalytics",
-            fire: function (data, scope) {
-                if (klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut) {
-                    clearTimeout(klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut);
-                }
-                klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
-                    var termOptions = klevu.search.landing.getScope().analyticsUtils.base.getTermOptions();
-                    termOptions.klevu_src = termOptions.klevu_src.replace("]]",";;template:landing]]");
-                    if(termOptions.filters){
-                        termOptions.klevu_src = termOptions.klevu_src.replace("]]",";;source:filters]]");
-                    }
-                    delete termOptions.filters;
-                    klevu.analyticsEvents.term(termOptions);
-                    klevu.search.landing.getScope().element.kScope.analyticsReqTimeOut = null;
-                }, 300);
-            }
-        });
-
-        klevu.search.landing.getScope().chains.template.render.addAfter("renderResponse", {
-            name: "attachAnalyticsOnProduct",
-            fire: function (data, scope) {
-                var target = klevu.getSetting(klevu.search.landing.getScope().settings, "settings.search.searchBoxTarget");
-                klevu.each(klevu.dom.find(".klevuMeta", target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
-                        data.context.section = value.dataset.section;
-                    });
-                }, true);
-                if (klevu.dom.find(".klevuMeta", target)[0]) {
-                    klevu.dom.find(".klevuMeta", target)[0].click();
-                }
-                klevu.search.landing.getScope().analyticsUtils.landing.bindProductClickAnalytics();
-            }
-        });
 
     }
 });

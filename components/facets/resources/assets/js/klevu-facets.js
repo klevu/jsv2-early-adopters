@@ -31,11 +31,11 @@ klevu.interactive(function () {
                 }
 
                 var scope = target.kElem;
-                scope.kScope.data = scope.kObject.resetData(scope.kElem);
-                scope.kScope.data.context.keyCode = 0;
-                scope.kScope.data.context.eventObject = event;
-                scope.kScope.data.context.event = "keyUp";
-                scope.kScope.data.context.preventDefault = false;
+                elScope.kScope.data = elScope.kObject.resetData(elScope.kElem);
+                elScope.kScope.data.context.keyCode = 0;
+                elScope.kScope.data.context.eventObject = event;
+                elScope.kScope.data.context.event = "keyUp";
+                elScope.kScope.data.context.preventDefault = false;
 
                 //override local variables
 
@@ -68,13 +68,13 @@ klevu.interactive(function () {
                             }
                         }
                     });
-                    klevu.setObjectPath(scope.kScope.data, "localOverrides.query." + options.dataset.section + ".filters.applyFilters.filters", filterList);
+                    klevu.setObjectPath(elScope.kScope.data, "localOverrides.query." + options.dataset.section + ".filters.applyFilters.filters", filterList);
                 } else {
-                    klevu.setObjectPath(scope.kScope.data, "localOverrides.query." + options.dataset.section + ".filters.applyFilters", {});
+                    klevu.setObjectPath(elScope.kScope.data, "localOverrides.query." + options.dataset.section + ".filters.applyFilters", {});
                 }
                 //reset offset after filter change
-                klevu.setObjectPath(scope.kScope.data, "localOverrides.query." + options.dataset.section + ".settings.offset", 0);
-                klevu.event.fireChain(scope.kScope, "chains.events.keyUp", scope, scope.kScope.data, event);
+                klevu.setObjectPath(elScope.kScope.data, "localOverrides.query." + options.dataset.section + ".settings.offset", 0);
+                klevu.event.fireChain(elScope.kScope, "chains.events.keyUp", elScope, elScope.kScope.data, event);
             }, true);
         });
     }

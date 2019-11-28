@@ -156,9 +156,9 @@ klevu.interactive(function () {
     }
 
     var quickViewService = {
-        modal: modal,
-        closeButton: closeButton,
-        selected_product: selected_product,
+        modal: null,
+        closeButton: null,
+        selected_product: null,
         landingPageTemplateOnLoadEvent: landingPageTemplateOnLoadEvent,
         bindCloseBtnClick: bindCloseBtnClick,
         windowOnClick: windowOnClick,
@@ -206,7 +206,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.quickView = klevu.chain();
 
         /** Add Quick view wrapper container in body */
-        klevu.search.module.quickViewService.base.appendTemplateIntoBody();
+        klevu.search.modules.quickViewService.base.appendTemplateIntoBody();
 
         /*
          *	Add Quick view template and update data into that
@@ -222,7 +222,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 var element = scope.kScope.template.convertTemplate(scope.kScope.template.render("quick-view"));
                 scope.kScope.template.insertTemplate(target, element);
 
-                klevu.search.module.quickViewService.base.bindCloseBtnClick();
+                klevu.search.modules.quickViewService.base.bindCloseBtnClick();
                 klevu.search.modules.addToCart.base.bindAddToCartEvent();
             }
         });
