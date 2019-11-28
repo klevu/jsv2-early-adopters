@@ -897,98 +897,197 @@ klevu.extend({
 });
 
 /**
- * Quick view service file
+ * Extend addToCart base module for Quick view
  */
-klevu.extend({
-    quickViewService: function (mainScope) {
-        mainScope.quickViewService = {
-            modal: null,
-            closeButton: null,
-            selected_product: null,
-            /*
-             *	Add container for Product Quick view
-             */
-            appendTemplateIntoBody: function () {
-                var quickViewCont = document.createElement("div");
-                quickViewCont.className = "quickViewWrap productQuickView";
-                window.document.body.appendChild(quickViewCont);
-            },
-            /*
-             *	Function to toggle Body scroll style
-             */
-            toggleBodyScroll: function () {
-                var body = klevu.dom.find("body")[0];
-                var isScroll = '';
-                if (!body.style.overflow) {
-                    isScroll = "hidden";
-                }
-                body.style.overflow = isScroll;
-            },
-            /*
-             *	Function to toggle modal UI
-             */
-            toggleModal: function () {
-                this.toggleBodyScroll();
-                var modalElement = klevu.dom.find("div.kuModal", '.productQuickView');
-                if (modalElement.length) {
-                    this.modal = modalElement[0];
-                    this.modal.classList.toggle("show-modal");
-                }
-            },
-            /*
-             *	Function to fire on window click event to hide modal
-             */
-            windowOnClick: function (event) {
-                if (event.target === this.modal) {
-                    this.toggleModal();
-                }
-            },
-            /**
-             * Function to bind event on close button
-             */
-            bindCloseBtnClick: function () {
-                var self = this;
-                var closeElement = klevu.dom.find(".close-button", '.productQuickView');
-                if (closeElement.length) {
-                    self.closeButton = closeElement[0];
-                    klevu.event.attach(self.closeButton, "click", function () {
-                        self.toggleModal();
-                    });
-                }
-            },
-            /**
-             * Landing page onload event
-             * @param {*} data 
-             * @param {*} scope 
-             */
-            landingPageTemplateOnLoadEvent: function (data) {
-                var self = this;
-                var target = klevu.getSetting(mainScope.settings, "settings.search.searchBoxTarget");
-                klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function (key, value) {
-                    klevu.event.attach(value, "click", function (event) {
-                        event = event || window.event;
-                        event.preventDefault();
-                        var selected_product_id = (this.getAttribute("data-id")) ? this.getAttribute("data-id") : null;
-                        var items = klevu.getObjectPath(data.template.query, 'productList');
-                        if (items.result) {
-                            klevu.each(items.result, function (key, value) {
-                                if (value.id == selected_product_id) {
-                                    selected_product = value;
-                                }
-                            })
-                        }
-                        data.template.selected_product = selected_product;
-                        var target = klevu.dom.find(".productQuickView");
-                        if (target && target[0]) {
-                            target[0].selected_product = selected_product;
-                        }
-                        klevu.event.fireChain(mainScope, "chains.quickView", mainScope.element, mainScope.data, event);
-                        self.toggleModal();
-                    });
+
+klevu.coreEvent.attach("addToCartModuleBuild", {
+    name: "extendModuleForQuickView",
+    fire: function () {
+
+        /*
+         *	Function to toggle Body scroll style
+         */
+        function toggleBodyScroll() {
+            var body = klevu.dom.find("body")[0];
+            var isScroll = '';
+            if (!body.style.overflow) {
+                isScroll = "hidden";
+            }
+            body.style.overflow = isScroll;
+        };
+
+        /*
+         *	Function to toggle modal UI
+         */
+        function toggleModal() {
+            this.toggleBodyScroll();
+            var modalElement = klevu.dom.find("div.kuModal");
+            if (modalElement.length) {
+                modalElement[0].classList.toggle("show-modal");
+            }
+        };
+
+        /**
+         * Function to attach add to cart button event
+         * @param {*} event 
+         */
+        function attachKlevuQuickViewAddToCartBtnEvent(event) {
+            event = event || window.event;
+            event.preventDefault();
+
+            var selected_product;
+            var target = klevu.dom.find(".productQuickView");
+            if (target && target[0]) {
+                selected_product = target[0].selected_product;
+            }
+            if (selected_product) {
+                klevu.search.modules.addToCart.base.sendAddToCartRequest(selected_product.id, 1);
+            }
+            this.toggleModal();
+        };
+
+        /**
+         * Function to bind add to cart button event
+         */
+        function bindAddToCartEvent() {
+            var self = this;
+            var addToCartElement = klevu.dom.find(".kuModalProductCart", ".productQuickView");
+            if (addToCartElement.length) {
+                klevu.event.attach(addToCartElement[0], "click", function (event) {
+                    self.attachKlevuQuickViewAddToCartBtnEvent(event);
                 });
             }
         };
+
+        klevu.extend(true, klevu.search.modules.addToCart.base, {
+            bindAddToCartEvent: bindAddToCartEvent,
+            attachKlevuQuickViewAddToCartBtnEvent: attachKlevuQuickViewAddToCartBtnEvent,
+            toggleModal: toggleModal,
+            toggleBodyScroll: toggleBodyScroll
+        });
     }
+});
+
+klevu.interactive(function () {
+
+    /*
+     *	Add container for Product Quick view
+     */
+    function appendTemplateIntoBody() {
+        var quickViewCont = document.createElement("div");
+        quickViewCont.className = "quickViewWrap productQuickView";
+        window.document.body.appendChild(quickViewCont);
+    };
+    /*
+     *	Function to toggle Body scroll style
+     */
+    function toggleBodyScroll() {
+        var body = klevu.dom.find("body")[0];
+        var isScroll = '';
+        if (!body.style.overflow) {
+            isScroll = "hidden";
+        }
+        body.style.overflow = isScroll;
+    };
+    /*
+     *	Function to toggle modal UI
+     */
+    function toggleModal() {
+        this.toggleBodyScroll();
+        var modalElement = klevu.dom.find("div.kuModal", '.productQuickView');
+        if (modalElement.length) {
+            this.modal = modalElement[0];
+            this.modal.classList.toggle("show-modal");
+        }
+    };
+
+    /*
+     *	Function to fire on window click event to hide modal
+     */
+    function windowOnClick(event) {
+        if (event.target === this.modal) {
+            this.toggleModal();
+        }
+    };
+    /**
+     * Function to bind event on close button
+     */
+    function bindCloseBtnClick() {
+        var self = this;
+        var closeElement = klevu.dom.find(".close-button", '.productQuickView');
+        if (closeElement.length) {
+            self.closeButton = closeElement[0];
+            klevu.event.attach(self.closeButton, "click", function () {
+                self.toggleModal();
+            });
+        }
+    };
+    /**
+     * Landing page onload event
+     * @param {*} scope 
+     */
+    function landingPageTemplateOnLoadEvent(scope) {
+        var self = this;
+        var target = klevu.getSetting(scope.settings, "settings.search.searchBoxTarget");
+        klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function (key, value) {
+            klevu.event.attach(value, "click", function (event) {
+                event = event || window.event;
+                event.preventDefault();
+                var selected_product_id = (this.getAttribute("data-id")) ? this.getAttribute("data-id") : null;
+                var items = klevu.getObjectPath(scope.data.template.query, 'productList');
+                if (items.result) {
+                    klevu.each(items.result, function (key, value) {
+                        if (value.id == selected_product_id) {
+                            selected_product = value;
+                        }
+                    })
+                }
+                scope.data.template.selected_product = selected_product;
+                var target = klevu.dom.find(".productQuickView");
+                if (target && target[0]) {
+                    target[0].selected_product = selected_product;
+                }
+                klevu.event.fireChain(scope, "chains.quickView", scope.element, scope.data, event);
+                self.toggleModal();
+            });
+        });
+    }
+
+    var quickViewService = {
+        modal: modal,
+        closeButton: closeButton,
+        selected_product: selected_product,
+        landingPageTemplateOnLoadEvent: landingPageTemplateOnLoadEvent,
+        bindCloseBtnClick: bindCloseBtnClick,
+        windowOnClick: windowOnClick,
+        toggleModal: toggleModal,
+        toggleBodyScroll: toggleBodyScroll,
+        appendTemplateIntoBody: appendTemplateIntoBody
+    };
+
+    klevu.extend(true, klevu.search.modules, {
+        quickViewService: {
+            base: quickViewService,
+            build: true
+        }
+    });
+});
+
+/**
+ * quickViewService module build event
+ */
+klevu.coreEvent.build({
+    name: "quickViewServiceModuleBuild",
+    fire: function () {
+        if (!klevu.search.modules ||
+            !klevu.search.modules.quickViewService ||
+            !klevu.search.modules.quickViewService.build) {
+            return false;
+        }
+        return true;
+    },
+    maxCount: 500,
+    delay: 30
 });
 
 /**
@@ -998,17 +1097,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "product-quick-view",
     fire: function () {
 
-        /** Include addToCart base module first to use base functionalities */
-        klevu.addToCart(klevu.search.landing.getScope().element.kScope);
-
-        /** Initalize add to cart service */
-        klevu.addToCartQuickView(klevu.search.landing.getScope().element.kScope);
-
-        /** Initialize Quick view service */
-        klevu.quickViewService(klevu.search.landing.getScope().element.kScope);
-
-
-
         /** Set template in landing UI */
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuLandingTemplateQuickView"), "quick-view", true);
 
@@ -1016,8 +1104,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.quickView = klevu.chain();
 
         /** Add Quick view wrapper container in body */
-        klevu.search.landing.getScope().quickViewService.appendTemplateIntoBody();
-
+        klevu.search.module.quickViewService.base.appendTemplateIntoBody();
 
         /*
          *	Add Quick view template and update data into that
@@ -1033,8 +1120,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 var element = scope.kScope.template.convertTemplate(scope.kScope.template.render("quick-view"));
                 scope.kScope.template.insertTemplate(target, element);
 
-                klevu.search.landing.getScope().quickViewService.bindCloseBtnClick();
-                klevu.search.landing.getScope().addToCart.quickView.bindAddToCartEvent();
+                klevu.search.module.quickViewService.base.bindCloseBtnClick();
+                klevu.search.modules.addToCart.base.bindAddToCartEvent();
             }
         });
 
@@ -1042,7 +1129,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
          *  Bind body click event
          */
         klevu.event.attach(window, "click", function (event) {
-            klevu.search.landing.getScope().quickViewService.windowOnClick(event);
+            klevu.search.modules.quickViewService.base.windowOnClick(event);
         });
 
         /*
@@ -1051,7 +1138,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.template.events.add({
             name: "quickViewButtonClick",
             fire: function (data, scope) {
-                klevu.search.landing.getScope().quickViewService.landingPageTemplateOnLoadEvent(data);
+                klevu.search.modules.quickViewService.base.landingPageTemplateOnLoadEvent(scope.kScope);
             }
         });
     }
