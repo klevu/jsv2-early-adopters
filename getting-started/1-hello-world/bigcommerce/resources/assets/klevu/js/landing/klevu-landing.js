@@ -413,3 +413,61 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
     }
 });
+
+
+/**
+ * Attach code event to landing page analytics
+ */
+
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "attachSearchResultLandingPageAnalyticsEvents",
+    fire: function () {
+
+        klevu.search.landing.getScope().chains.template.render.add({
+            name: "attachAnalyticsActionEvent",
+            fire: function (data, scope) {
+
+                var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
+                klevu.each(klevu.dom.find(".klevuMeta", target), function (key, value) {
+                    klevu.event.attach(value, "click", function (event) {
+                        data.context.section = value.dataset.section;
+                        scope.kScope.data.context.section = value.dataset.section;
+                    });
+                }, true);
+
+                var tabStorage = klevu.getSetting(scope.kScope.settings, "settings.storage");
+                if (tabStorage && tabStorage.tabs) {
+                    tabStorage.tabs.setStorage("local");
+                    tabStorage.tabs.mergeFromGlobal();
+                    var currentSection = tabStorage.tabs.getElement("active");
+                    if (currentSection && currentSection.length) {
+                        data.context.section = currentSection;
+                        scope.kScope.data.context.section = currentSection;
+                    }
+                } else {
+                    if (klevu.dom.find(".klevuMeta", target)[0]) {
+                        klevu.dom.find(".klevuMeta", target)[0].click();
+                    }
+                }
+
+                var termOptions = klevu.analyticsUtil.base.getTermOptions(scope.kScope);
+                if (termOptions.klevu_src) {
+                    termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:landing]]");
+                    if (termOptions.filters) {
+                        termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;source:filters]]");
+                    }
+                }
+
+                delete termOptions.filters;
+                klevu.analyticsEvents.term(termOptions);
+
+                klevu.analyticsUtil.base.registerLandingProductClickEvent(
+                    scope.kScope,
+                    klevu.analyticsUtil.base.storage.dictionary,
+                    klevu.analyticsUtil.base.storage.click
+                );
+
+            }
+        });
+    }
+});
