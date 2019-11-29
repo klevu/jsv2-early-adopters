@@ -12,11 +12,8 @@ method appropriate to your chosen framework.
 
 
 ```javascript
-/** Initalize base component to the scope*/
-klevu.colorSwatches(TARGET_SCOPE);
-
 /** Usage of base component functions */
-TARGET_SCOPE.colorSwatches.base.FUNCTION_NAME();
+klevu.search.modules.colorSwatches.base.FUNCTION_NAME();
 ```
 
 Try accessing the color swatches base component.
