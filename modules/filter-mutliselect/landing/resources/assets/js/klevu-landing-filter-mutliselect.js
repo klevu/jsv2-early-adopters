@@ -2,7 +2,7 @@
  * Extension for multiselect filter functionality
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to initialize muliselect facet item
@@ -36,7 +36,7 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+})(klevu);
 
 /**
  * multiselectFilters module build event

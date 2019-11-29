@@ -79,3 +79,77 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         });
     }
 });
+
+/**
+ * Klevu analyticsUtil base extension
+ */
+klevu.coreEvent.attach("analyticsPowerUp", {
+    name: "extAddToCartAnalyticsUtil",
+    fire: function () {
+
+        /**
+         * Function to register analytics on landing page add to cart button
+         * @param {*} scope 
+         * @param {*} className 
+         * @param {*} dictionary 
+         * @param {*} element 
+         */
+        function registerProductAddToCartClickEvent(scope, className, dictionary, element) {
+            var target = klevu.getSetting(scope.settings, "settings.search.searchBoxTarget");
+            klevu.each(klevu.dom.find(className, target), function (key, value) {
+                klevu.event.attach(value, "click", function (event) {
+                    var parent = klevu.dom.helpers.getClosest(value, ".klevuProduct");
+                    if (parent === null) {
+                        return;
+                    }
+                    var productId = parent.dataset.id;
+                    if (productId) {
+                        var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
+                        if (product) {
+                            var termOptions = klevu.analyticsUtil.base.getTermOptions(scope);
+                            if (termOptions) {
+                                termOptions.klevu_keywords = termOptions.klevu_term;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = "[[shortlist:add-to-cart;;template:landing]]";
+                                delete termOptions.klevu_term;
+                                klevu.analyticsUtil.base.storeAnalyticsEvent(dictionary, element, termOptions);
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        klevu.extend(true, klevu.analyticsUtil.base, {
+            registerProductAddToCartClickEvent: registerProductAddToCartClickEvent
+        });
+
+    }
+});
+
+
+/**
+ * Function to attach analytics event on add to cart button
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "attachLandingProductAddToCartButtonAnalytics",
+    fire: function () {
+
+        /**
+         * Event to bind analytics on add to cart click event
+         */
+        klevu.search.landing.getScope().chains.template.events.add({
+            name: "bindAnalyticsOnAddToCartButtonEvent",
+            fire: function (data, scope) {
+                klevu.analyticsUtil.base.registerProductAddToCartClickEvent(
+                    scope.kScope,
+                    ".kuAddtocart",
+                    klevu.analyticsUtil.base.storage.dictionary,
+                    klevu.analyticsUtil.base.storage.click
+                );
+            }
+        });
+    }
+});

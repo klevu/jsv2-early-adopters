@@ -2,7 +2,7 @@
  * Initialize facets
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to attach event on facet items
@@ -90,7 +90,7 @@ klevu.interactive(function () {
         }
     });
 
-});
+})(klevu);
 
 /**
  * facets module build event

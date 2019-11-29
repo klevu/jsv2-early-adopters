@@ -2,7 +2,7 @@
  * Extension for filter price slider
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to initialize slider
@@ -123,7 +123,7 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+})(klevu);
 
 /**
  * filterPriceSlider module build event

@@ -2,7 +2,7 @@
  * Extend klevu object for custom pagination functionality
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Paginate click event
@@ -59,7 +59,7 @@ klevu.interactive(function () {
         }
     });
 
-});
+})(klevu);
 
 /**
  * customPagination module build event

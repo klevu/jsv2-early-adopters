@@ -2,7 +2,7 @@
  * Extension for collapse filter functionality
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Initialize collapsing for filter items
@@ -78,7 +78,7 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+})(klevu);
 
 /**
  * collapseFilters module build event

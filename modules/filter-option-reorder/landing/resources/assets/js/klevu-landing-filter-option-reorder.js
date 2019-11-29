@@ -2,7 +2,7 @@
  * Extension for reordering filter option functionality
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to reorder filter option list as per the priority list
@@ -62,7 +62,7 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+})(klevu);
 
 /**
  * reorderFilterOptions module build event

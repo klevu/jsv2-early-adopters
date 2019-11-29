@@ -2,7 +2,7 @@
  * Color swatch base extension
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to prepare keyvalue pair object
@@ -91,7 +91,8 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+
+})(klevu);
 
 
 /**

@@ -2,7 +2,7 @@
  * Extension for mobile sliding filter
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to manage slider status in target element
@@ -120,7 +120,7 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+})(klevu);
 
 /**
  * mobileFilterSlider module build event

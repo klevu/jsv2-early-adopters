@@ -242,7 +242,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                 }
             });
 
-            // where to render the responce
+            // where to render the response
             box.getScope().chains.template.render.add({
                 name: "renderResponse",
                 fire: function (data, scope) {
@@ -259,7 +259,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                 }
             });
 
-            // where to position the templace
+            // where to position the template
             box.getScope().chains.template.render.add({
                 name: "positionTemplate",
                 fire: function (data, scope) {
@@ -269,7 +269,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                 }
             });
 
-            // overide form action
+            // override form action
             box.getScope().element.kElem.form.action = klevu.getSetting(box.getScope().settings, "settings.url.landing", false);
         });
     }

@@ -166,7 +166,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
  * Extension for multiselect filter functionality
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to initialize muliselect facet item
@@ -200,7 +200,7 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+})(klevu);
 
 /**
  * multiselectFilters module build event
@@ -249,7 +249,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
  * Extension for collapse filter functionality
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Initialize collapsing for filter items
@@ -325,7 +325,7 @@ klevu.interactive(function () {
             build: true
         }
     });
-});
+})(klevu);
 
 /**
  * collapseFilters module build event

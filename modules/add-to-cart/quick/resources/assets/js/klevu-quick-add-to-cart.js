@@ -43,7 +43,9 @@ klevu.coreEvent.attach("addToCartModuleBuild", {
                     var parent = klevu.dom.helpers.getClosest(this, ".klevuQuickSearchResults");
                     if (parent && parent.dataset && parent.dataset.section) {
                         var productList = klevu.getObjectPath(scope.data.template.query, parent.dataset.section);
-                        self.attachQuickProductAddToCartBtnEvent(this, event, productList.result);
+                        if (productList) {
+                            self.attachQuickProductAddToCartBtnEvent(this, event, productList.result);
+                        }
                     }
                 });
             });

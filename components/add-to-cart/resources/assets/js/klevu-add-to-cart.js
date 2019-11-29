@@ -2,8 +2,8 @@
  * Add to cart base component
  */
 
-klevu.interactive(function () {
-
+(function (klevu) {
+    
     /**
      * Function to send Add to cart request
      * @param {*} scope 
@@ -45,7 +45,7 @@ klevu.interactive(function () {
         }
     });
 
-});
+})(klevu);
 
 /**
  * addToCart module build event
