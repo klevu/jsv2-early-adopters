@@ -75,7 +75,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.request.build.add({
             name: "addProductList",
             fire: function (data, scope) {
-                ;
+                
                 var parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
 
                 var productList = klevu.extend(true, {}, parameterMap.recordQuery);
