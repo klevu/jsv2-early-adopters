@@ -5,7 +5,7 @@
 (function (klevu) {
 
     /**
-     * Function to prepare keyvalue pair object
+     * Function to prepare keyValue pair object
      * @param {*} keyValuePair 
      */
     function parseKeyValuePairs(keyValuePair) {

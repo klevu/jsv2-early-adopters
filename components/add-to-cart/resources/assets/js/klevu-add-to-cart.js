@@ -3,7 +3,7 @@
  */
 
 (function (klevu) {
-    
+
     /**
      * Function to send Add to cart request
      * @param {*} scope 
