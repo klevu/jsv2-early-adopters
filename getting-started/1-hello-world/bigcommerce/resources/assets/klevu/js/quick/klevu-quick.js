@@ -823,7 +823,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                             klevu.analyticsEvents.term(termOptions);
                         }
                         box.getScope().element.kScope.analyticsReqTimeOut = null;
-                    }, 400);
+                    }, 300);
                 }
             });
 
