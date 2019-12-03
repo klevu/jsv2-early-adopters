@@ -41,5 +41,15 @@
     <script src="/assets/js/klevu-settings.js"></script>
     <script src="/assets/js/quick/klevu-quick.js"></script>
     <script src="/assets/js/landing/klevu-landing.js"></script>
+    <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.
+                </p>
+            </div>
+        </div>
+    </noscript>
 </body>
 </html>
