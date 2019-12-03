@@ -9,13 +9,13 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         var landing_promo_banners = [{
                 default: true,
                 id: "001",
-                name: "Default Shirts banner",
+                name: "Default Shirts Banner | Only the best sale 40% off on shirts",
                 src: "https://demo.ksearchmisc.com/klevusearch/skin/frontend/base/default/images/klevubanner/klevu-banner-ad-shirt-new.jpg",
                 click: "https://demo.ksearchmisc.com/klevusearch/men/shirts.html"
             },
             {
                 id: "002",
-                name: "shirts banner",
+                name: "Shirts Banner | New in premium Shirts | Shop Now!",
                 term: "shirts",
                 src: "https://demo.ksearchmisc.com/klevusearch/media/wysiwyg/slide-3.jpg",
                 click: "https://demo.ksearchmisc.com/klevusearch/men.html"
