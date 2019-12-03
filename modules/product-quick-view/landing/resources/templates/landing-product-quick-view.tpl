@@ -57,9 +57,9 @@
 							</div>
 						</div>
 						<div class="productQuick-addToCart">
-							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary-outline kuModalProductURL"><%=helper.translate("View details") %>
+							<a target="_self" href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary-outline kuModalProductURL"><%=helper.translate("View details") %>
 							</a>
-							<a href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary kuModalProductCart"><%=helper.translate("Add to cart") %></a>
+							<a target="_self" href="<%=data.selected_product.url%>" class="kuBtn kuBtn-primary kuModalProductCart"><%=helper.translate("Add to cart") %></a>
 						</div>
 					</div>
 					<div class="kuClearfix"></div>
