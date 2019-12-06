@@ -2346,6 +2346,11 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         data.context.section = currentSection;
                         scope.kScope.data.context.section = currentSection;
                     }
+                    else{
+                        if (klevu.dom.find(".klevuMeta", target)[0]) {
+                            klevu.dom.find(".klevuMeta", target)[0].click();
+                        }
+                    }
                 } else {
                     if (klevu.dom.find(".klevuMeta", target)[0]) {
                         klevu.dom.find(".klevuMeta", target)[0].click();
