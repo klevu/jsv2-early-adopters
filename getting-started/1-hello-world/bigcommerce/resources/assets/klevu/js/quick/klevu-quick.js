@@ -289,7 +289,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
     function getTermOptions(scope) {
 
         var analyticsTermOptions = {
-            klevu_term: scope.data.context.termOriginal,
+            klevu_term: (scope.data.context.termOriginal) ? scope.data.context.termOriginal : "*",
             klevu_pageNumber: "unknown",
             klevu_src: "unknown",
             klevu_limit: "unknown",
