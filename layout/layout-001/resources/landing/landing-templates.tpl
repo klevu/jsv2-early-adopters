@@ -3,7 +3,7 @@
     	<%=helper.render('klevuLandingPromotionBanner',scope) %>
         <%=helper.render('tab-results', scope) %>
         
-        <% if(!helper.hasResults(data,"productList")) { %>
+        <% if(!helper.hasResults(data,"productList") && !helper.hasResults(data,"contentList")) { %>
             <%=helper.render('noResultFound',scope) %>
         <% } else { %>
             <%=helper.render('results',scope) %>
