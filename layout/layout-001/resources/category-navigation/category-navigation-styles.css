@@ -1,11 +1,9 @@
-/* CSS of Klevu Search Result Landing Page */
 .klevu-fluid,
 .klevuTarget,
 .klevuTarget * {
     font-family: inherit;
 }
 
-/* klevu container for fix width layout*/
 .kuContainer * {
     margin: 0;
     padding: 0;
