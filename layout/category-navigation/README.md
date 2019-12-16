@@ -1,3 +1,20 @@
+# Layout - "Category-navigation"
+
+This category-navigation layout is an example of how you might bundle together various functionality
+from the [modules](/modules) available within this repository, as well as adding
+your own customizations.
+
+You will find the necessary resources for this layout 
+[available here](/layout/category-navigation/resources).
+Please add these with the method applicable to your chosen framework.
+
+## Usage
+
+- Include `//jsv2.klevu.com/dist/2.0/klevu.js` and `klevu-settings.js` on every page.
+- Add the [page resources](/layout/category-navigation/resources) to your category navigation landing page.
+
+Below code snippet is for Shopify framework to accommodate the Shopify Collection inputs to the Category/Collection page.
+
 ```js
 var klevu_collectionProductPath = '{{ collection.url | escape }}';
 var q = GetURLParameter('q');
