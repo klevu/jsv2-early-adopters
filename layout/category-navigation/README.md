@@ -2,14 +2,11 @@
 
 This category-navigation layout is an example of layout implementation extension for enabling 
 functionality for the Category.
-
 Before starting, first, follow the example layout implementation [available here](/layout/layout-001).
 
 You will find the necessary resources for this layout 
 [available here](/layout/category-navigation/resources).
 Please add these with the method applicable to your chosen framework.
-
-This category-navigation layout is an example for layout implementation  
 
 Below code snippet is for the Shopify framework to accommodate the Shopify Collection inputs to the Category/Collection page.
 
