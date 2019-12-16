@@ -52,4 +52,5 @@ Save the file and reload the frontend to **search your own data!**
 
 ## What's next?
 
+- [Click here for Category layout](/getting-started/6-category-navigation/shopify)
 - [Click here for more tutorials](/modules)!
