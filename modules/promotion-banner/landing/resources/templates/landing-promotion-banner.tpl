@@ -3,7 +3,7 @@ Landing page banner template
 -->
 <script type="template/klevu" id="klevuLandingPromotionBanner">
     
-    <% console.log(data); if(data.banners && data.banners.length) { klevu.each(data.banners, function(index, banner){ %>
+    <% if(data.banners && data.banners.length) { klevu.each(data.banners, function(index, banner){ %>
         <div class="kuBannerAd kuBannerContainer">
             <a 
             class="kuTrackBannerClick" 

@@ -2,7 +2,7 @@
  * Add recently viewed products in Quick search results
  */
 
-klevu.interactive(function () {
+(function (klevu) {
 
     /**
      * Function to register entry in local storage
@@ -88,7 +88,7 @@ klevu.interactive(function () {
         }
     });
 
-});
+})(klevu);
 
 /**
  * Event to add recent viewed products
