@@ -44,12 +44,6 @@
                             
                             <%=helper.render('quickViewProductSwatch',scope,data,data.selected_product) %>
                             
-                            
-							<div class="productQuick-sizeInStock">
-								<span class="productQuick-label"><%=helper.translate("Size Variants:") %></span>
-								<span><%=helper.translate(data.selected_product.size)%>
-								</span>
-							</div>
 							<div class="productQuick-tags">
 								<span class="productQuick-label"><%=helper.translate("Tags:") %></span>
 								<span><%=helper.translate(data.selected_product.tags)%>

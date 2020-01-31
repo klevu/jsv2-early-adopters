@@ -30,7 +30,7 @@
                     return;
                 }
 
-                var scope = target.kElem;
+                var elScope = target.kElem;
                 elScope.kScope.data = elScope.kObject.resetData(elScope.kElem);
                 elScope.kScope.data.context.keyCode = 0;
                 elScope.kScope.data.context.eventObject = event;
