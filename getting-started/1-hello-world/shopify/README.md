@@ -89,6 +89,8 @@ Add the following snippet just before `</head>`:
     {% include "klevu-quick-no-results-found" %}
 {% comment %} KLEVU - END {% endcomment %}
 ```
+Assign selector value to the Search input element same as the `searchBoxSelector` option from [klevu-settings.js](/getting-started/1-hello-world/shopify/resources/assets/klevu-settings.js) in your theme or implementation.  
+In the example we have added `search__input` class to the search input element. 
 
 ### Upload and Apply your Theme
 
