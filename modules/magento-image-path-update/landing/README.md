@@ -14,7 +14,7 @@ please follow the appropriate ['hello world'](/getting-started/1-hello-world) tu
 
 ### Code Reference
 
-[klevu-magento-image-path-update.js](modules/magento-image-path-update/landing/resources/assets/js/klevu-magento-image-path-update.js)  
+[klevu-magento-image-path-update.js](/modules/magento-image-path-update/landing/resources/assets/js/klevu-magento-image-path-update.js)  
 contains functionality to call the image update function for landing page to the base component.
 
 
