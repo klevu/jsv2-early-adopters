@@ -75,7 +75,7 @@ Add the following snippet just before `</head>`:
 ```html
 {{!-- KLEVU - START --}}
     {{!-- KLEVU - JS AND CSS ASSETS --}}
-    <script src="//jsv2.klevu.com/dist/2.0/klevu.js"></script>
+    <script src="//js.klevu.com/klevu-js-v2/2.0/klevu.js"></script>
     <script src="{{cdn '/assets/klevu/js/klevu-settings.js'}}" ></script>
     <script src="{{cdn '/assets/klevu/js/quick/klevu-quick.js'}}" ></script>
     {{{stylesheet '/assets/klevu/css/quick/klevu-quick.css'}}}

@@ -74,7 +74,7 @@ Add the following snippet just before `</head>`:
 ```html
 {% comment %} KLEVU - START {% endcomment %}
     {% comment %} KLEVU - JS AND CSS ASSETS {% endcomment %}
-    <script src="{{ '//jsv2.klevu.com/dist/2.0/klevu.js' }}"></script>
+    <script src="{{ '//js.klevu.com/klevu-js-v2/2.0/klevu.js' }}"></script>
     <script src="{{ 'klevu-settings.js' | asset_url }}" ></script>
     <script src="{{ 'klevu-quick.js' | asset_url }}" ></script>
     {{ 'klevu-quick.css' | asset_url | stylesheet_tag }}
