@@ -1,5 +1,7 @@
 # Klevu JS Library
 
+For the official documentation, please visit [https://developers.klevu.com/javascript-library](https://developers.klevu.com/javascript-library).
+
 _This is a **beta** version of Klevu JS Library and we expect some changes to occur,
 which will also be based on feedback from early adopters like yourselves,
 so please bear this in mind during testing._
