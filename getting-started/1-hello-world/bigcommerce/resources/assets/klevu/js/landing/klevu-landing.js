@@ -423,7 +423,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "attachSearchResultLandingPageAnalyticsEvents",
     fire: function () {
 
-        klevu.search.landing.getScope().chains.template.render.add({
+        klevu.search.landing.getScope().chains.template.events.add({
             name: "attachAnalyticsActionEvent",
             fire: function (data, scope) {
 
@@ -455,7 +455,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     }
                 }
 
-                var termOptions = klevu.analyticsUtil.base.getTermOptions(scope.kScope);
+                var termOptions = klevu.analyticsUtil.base.getTermOptions(scope.kScope, true);
                 if (termOptions.klevu_src) {
                     termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:landing]]");
                     if (termOptions.filters) {

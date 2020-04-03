@@ -7,8 +7,9 @@
     /**
      * Function to get term request option
      * @param {*} scope 
+     * @param {*} isExtended 
      */
-    function getTermOptions(scope) {
+    function getTermOptions(scope, isExtended) {
 
         var analyticsTermOptions = {
             klevu_term: (scope.data.context.termOriginal) ? scope.data.context.termOriginal : "*",
@@ -52,34 +53,37 @@
                 var productListLimit = resQueryObj.meta.noOfResults;
                 analyticsTermOptions.klevu_pageNumber = Math.ceil(resQueryObj.meta.offset / productListLimit) + 1;
 
-                var selectedFiltersStr = " [[";
-                var isAnyFilterSelected = false;
-                klevu.each(resQueryObj.filters, function (key, filter) {
-                    if (filter.type == "SLIDER") {
-                        if (filter.start != filter.min || filter.end != filter.max) {
-                            if (isAnyFilterSelected) {
-                                selectedFiltersStr += ";;";
-                            }
-                            isAnyFilterSelected = true;
-                            selectedFiltersStr += filter.key + ":" + filter.start + " - " + filter.end;
-                        }
-                    } else {
-                        klevu.each(filter.options, function (key, option) {
-                            if (option.selected) {
+                if (isExtended) {
+                    var selectedFiltersStr = " [[";
+                    var isAnyFilterSelected = false;
+                    klevu.each(resQueryObj.filters, function (key, filter) {
+                        if (filter.type == "SLIDER") {
+                            if (filter.start != filter.min || filter.end != filter.max) {
                                 if (isAnyFilterSelected) {
                                     selectedFiltersStr += ";;";
                                 }
                                 isAnyFilterSelected = true;
-                                selectedFiltersStr += filter.key + ":" + option.name;
+                                selectedFiltersStr += filter.key + ":" + filter.start + " - " + filter.end;
                             }
-                        });
+                        } else {
+                            klevu.each(filter.options, function (key, option) {
+                                if (option.selected) {
+                                    if (isAnyFilterSelected) {
+                                        selectedFiltersStr += ";;";
+                                    }
+                                    isAnyFilterSelected = true;
+                                    selectedFiltersStr += filter.key + ":" + option.name;
+                                }
+                            });
+                        }
+                    });
+                    selectedFiltersStr += "]]";
+                    if (isAnyFilterSelected) {
+                        analyticsTermOptions.filters = true;
+                        analyticsTermOptions.klevu_term += selectedFiltersStr;
                     }
-                });
-                selectedFiltersStr += "]]";
-                if (isAnyFilterSelected) {
-                    analyticsTermOptions.filters = true;
-                    analyticsTermOptions.klevu_term += selectedFiltersStr;
                 }
+                
             }
         }
         return analyticsTermOptions;
@@ -225,7 +229,7 @@
                     }
                     scope.data.context.section = dataSection;
                     var suggestionText = sugEle.dataset.content;
-                    var termOptions = klevu.analyticsUtil.base.getTermOptions(scope);
+                    var termOptions = klevu.analyticsUtil.base.getTermOptions(scope, true);
                     if (termOptions) {
                         termOptions.klevu_originalTerm = termOptions.klevu_term;
                         termOptions.klevu_term = suggestionText;
