@@ -1390,7 +1390,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             /**
              * Send term request for analytics
              */
-            box.getScope().chains.template.render.add({
+            box.getScope().chains.template.events.add({
                 name: "doAnalytics",
                 fire: function (data, scope) {
                     if (box.getScope().element.kScope.analyticsReqTimeOut) {
@@ -1420,7 +1420,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             /**
              * Function to add result product click analytics
              */
-            box.getScope().chains.template.render.add({
+            box.getScope().chains.template.events.add({
                 name: "doResultProductsAnalytics",
                 fire: function (data, scope) {
                     /**

@@ -160,7 +160,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     categoryCompressed.settings.query.term = data.context.term;
                     categoryCompressed.settings.typeOfRecords = ["KLEVU_CATEGORY"];
                     categoryCompressed.settings.searchPrefs = ["searchCompoundsAsAndQuery"];
-                    categoryCompressed.settings.fields = ["id","name", "shortDesc", "url", "typeOfRecord"];
+                    categoryCompressed.settings.fields = ["id", "name", "shortDesc", "url", "typeOfRecord"];
                     categoryCompressed.settings.limit = 3;
                     categoryCompressed.settings.sort = "RELEVANCE";
 
@@ -183,7 +183,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     cmsCompressed.settings.query.term = data.context.term;
                     cmsCompressed.settings.typeOfRecords = ["KLEVU_CMS"];
                     cmsCompressed.settings.searchPrefs = ["searchCompoundsAsAndQuery"];
-                    cmsCompressed.settings.fields = ["id","name", "shortDesc", "url", "typeOfRecord"];
+                    cmsCompressed.settings.fields = ["id", "name", "shortDesc", "url", "typeOfRecord"];
                     cmsCompressed.settings.limit = 3;
                     cmsCompressed.settings.sort = "RELEVANCE";
 
@@ -801,7 +801,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             /**
              * Send term request for analytics
              */
-            box.getScope().chains.template.render.add({
+            box.getScope().chains.template.events.add({
                 name: "doAnalytics",
                 fire: function (data, scope) {
                     if (box.getScope().element.kScope.analyticsReqTimeOut) {
@@ -831,7 +831,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             /**
              * Function to add result product click analytics
              */
-            box.getScope().chains.template.render.add({
+            box.getScope().chains.template.events.add({
                 name: "doResultProductsAnalytics",
                 fire: function (data, scope) {
                     /**
