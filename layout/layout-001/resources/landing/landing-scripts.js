@@ -2419,7 +2419,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     }
                 }
 
-                var termOptions = klevu.analyticsUtil.base.getTermOptions(scope.kScope);
+                var termOptions = klevu.analyticsUtil.base.getTermOptions(scope.kScope, true);
                 if (termOptions.klevu_src) {
                     termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:landing]]");
                     if (termOptions.filters) {

@@ -874,7 +874,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
      * Function to get term request option
      * @param {*} scope 
      */
-    function getTermOptions(scope) {
+    function getTermOptions(scope, isExtended) {
 
         var analyticsTermOptions = {
             klevu_term: (scope.data.context.termOriginal) ? scope.data.context.termOriginal : "*",
@@ -918,33 +918,35 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                 var productListLimit = resQueryObj.meta.noOfResults;
                 analyticsTermOptions.klevu_pageNumber = Math.ceil(resQueryObj.meta.offset / productListLimit) + 1;
 
-                var selectedFiltersStr = " [[";
-                var isAnyFilterSelected = false;
-                klevu.each(resQueryObj.filters, function (key, filter) {
-                    if (filter.type == "SLIDER") {
-                        if (filter.start != filter.min || filter.end != filter.max) {
-                            if (isAnyFilterSelected) {
-                                selectedFiltersStr += ";;";
-                            }
-                            isAnyFilterSelected = true;
-                            selectedFiltersStr += filter.key + ":" + filter.start + " - " + filter.end;
-                        }
-                    } else {
-                        klevu.each(filter.options, function (key, option) {
-                            if (option.selected) {
+                if (isExtended) {
+                    var selectedFiltersStr = " [[";
+                    var isAnyFilterSelected = false;
+                    klevu.each(resQueryObj.filters, function (key, filter) {
+                        if (filter.type == "SLIDER") {
+                            if (filter.start != filter.min || filter.end != filter.max) {
                                 if (isAnyFilterSelected) {
                                     selectedFiltersStr += ";;";
                                 }
                                 isAnyFilterSelected = true;
-                                selectedFiltersStr += filter.key + ":" + option.name;
+                                selectedFiltersStr += filter.key + ":" + filter.start + " - " + filter.end;
                             }
-                        });
+                        } else {
+                            klevu.each(filter.options, function (key, option) {
+                                if (option.selected) {
+                                    if (isAnyFilterSelected) {
+                                        selectedFiltersStr += ";;";
+                                    }
+                                    isAnyFilterSelected = true;
+                                    selectedFiltersStr += filter.key + ":" + option.name;
+                                }
+                            });
+                        }
+                    });
+                    selectedFiltersStr += "]]";
+                    if (isAnyFilterSelected) {
+                        analyticsTermOptions.filters = true;
+                        analyticsTermOptions.klevu_term += selectedFiltersStr;
                     }
-                });
-                selectedFiltersStr += "]]";
-                if (isAnyFilterSelected) {
-                    analyticsTermOptions.filters = true;
-                    analyticsTermOptions.klevu_term += selectedFiltersStr;
                 }
             }
         }
@@ -1091,7 +1093,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     }
                     scope.data.context.section = dataSection;
                     var suggestionText = sugEle.dataset.content;
-                    var termOptions = klevu.analyticsUtil.base.getTermOptions(scope);
+                    var termOptions = klevu.analyticsUtil.base.getTermOptions(scope, true);
                     if (termOptions) {
                         termOptions.klevu_originalTerm = termOptions.klevu_term;
                         termOptions.klevu_term = suggestionText;
@@ -1405,7 +1407,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     }
                     scope.kScope.data.context.section = dataSection;
                     box.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
-                        var termOptions = klevu.analyticsUtil.base.getTermOptions(box.getScope().element.kScope);
+                        var termOptions = klevu.analyticsUtil.base.getTermOptions(box.getScope().element.kScope, true);
                         if (termOptions) {
                             termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:quick-search]]");
                             klevu.analyticsEvents.term(termOptions);
