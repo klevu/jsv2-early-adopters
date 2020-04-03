@@ -2855,7 +2855,7 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
     name: "attachSearchResultLandingPageAnalyticsEvents",
     fire: function () {
 
-        klevu.search.categoryLanding.getScope().chains.template.render.add({
+        klevu.search.categoryLanding.getScope().chains.template.events.add({
             name: "attachAnalyticsActionEvent",
             fire: function (data, scope) {
 
