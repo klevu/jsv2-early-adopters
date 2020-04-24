@@ -17,7 +17,7 @@ Once you've already completed the above,
 If you want to see an example of a number of these modules working together
 in a single example, click here to [try a full Layout](/layout/layout-001).
 
->**Important**  
+>**Important:**  
 >The templates and functionality included in this repository are example implementations and are to be used as a starting point for your projects. They are not to be considered production-ready or ADA compliant. Please modify freely according to your own requirements.
 
 ## Tell us what you think!
