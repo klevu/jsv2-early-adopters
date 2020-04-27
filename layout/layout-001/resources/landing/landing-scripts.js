@@ -311,6 +311,10 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     var limit = (landingStorage.limits.getElement(query.id) == query.id) ? false : landingStorage.limits.getElement(query.id);
                     if (limit) {
                         query.settings.limit = limit;
+                    } else {
+                        query.settings.limit = 12;
+                        landingStorage.limits.addElement(query.id, 12);
+                        landingStorage.limits.mergeToGlobal();
                     }
                 });
             }
