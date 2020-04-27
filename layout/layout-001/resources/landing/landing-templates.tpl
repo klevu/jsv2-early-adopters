@@ -253,7 +253,7 @@
 -->
 
 <script type="template/klevu" id="landingPageProductColorSwatches">
-    <% if(dataLocal.swatchesInfo.length){ %>
+    <% if(dataLocal.swatchesInfo && dataLocal.swatchesInfo.length){ %>
         <div class="kuSwatches">
            <% var swatchIndex = 1; helper.each(dataLocal.swatchesInfo,function(key,item){ if(swatchIndex > 3){ return true; } %>
                <div class="kuSwatchItem"><a target="_self" href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuLandingSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
@@ -341,7 +341,7 @@
 
 <script type="template/klevu" id="quickViewProductColorSwatches">
     <% var swatchesInfoList = dataLocal.swatchesInfo; var quickViewSwatchIndex = 1; %>
-    <% if(swatchesInfoList.length){ %>
+    <% if(swatchesInfoList && swatchesInfoList.length){ %>
         <div class="productQuick-colorInStock">
             <span class="productQuick-label"><%=helper.translate("Color Variants:") %></span>								
             <div class="kuSwatches">
