@@ -3,7 +3,7 @@
 -->
 
 <script type="template/klevu" id="landingPageProductColorSwatches">
-    <% if(dataLocal.swatchesInfo.length){ %>
+    <% if(dataLocal.swatchesInfo && dataLocal.swatchesInfo.length){ %>
         <div class="kuSwatches">
            <% var swatchIndex = 1; helper.each(dataLocal.swatchesInfo,function(key,item){ if(swatchIndex > 3){ return true; } %>
                <div class="kuSwatchItem"> <a target="_self" href="javascript:void(0)" data-variant="<%=item.variantId%>" class="kuSwatchLink klevuLandingSwatchColorGrid" title="<%=item.variantColor%>" style="background-color:<%=item.variantColor%>"></a></div>
