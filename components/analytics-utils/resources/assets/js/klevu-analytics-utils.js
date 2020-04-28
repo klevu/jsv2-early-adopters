@@ -83,7 +83,7 @@
                         analyticsTermOptions.klevu_term += selectedFiltersStr;
                     }
                 }
-                
+
             }
         }
         return analyticsTermOptions;
@@ -323,6 +323,8 @@
                 delete value.filters;
                 if (element == klevu.analyticsUtil.base.storage.click) {
                     klevu.analyticsEvents.click(value);
+                } else if (element == klevu.analyticsUtil.base.storage.buy) {
+                    klevu.analyticsEvents.buy(value);
                 } else if (element == klevu.analyticsUtil.base.storage.categoryClick) {
 
                     //TO-DO: Send category product click event
@@ -445,7 +447,8 @@
         dictionary: "analytics-util",
         term: "termList",
         click: "clickList",
-        categoryClick: "categoryClickList"
+        categoryClick: "categoryClickList",
+        buy: "buyList"
     };
 
     klevu.extend({
@@ -509,6 +512,11 @@ klevu.coreEvent.attach("analyticsPowerUp", {
         klevu.analyticsUtil.base.sendAnalyticsEventsFromStorage(
             klevu.analyticsUtil.base.storage.dictionary,
             klevu.analyticsUtil.base.storage.categoryClick
+        );
+
+        klevu.analyticsUtil.base.sendAnalyticsEventsFromStorage(
+            klevu.analyticsUtil.base.storage.dictionary,
+            klevu.analyticsUtil.base.storage.buy
         );
     }
 });
