@@ -19,7 +19,7 @@ please follow the appropriate ['hello world'](/getting-started/1-hello-world) tu
 
 This extension module will enable the `sendCheckoutAnalyticsRequest` function to `analyticsUtil` base component.
 
-Function contains the product information as parameters. Based on the implementation, add the product data inputs to the function parameters and it will fire the Klevu checkout analytics request to the server.
+The function contains the product information as parameters. Based on the implementation, add the product data inputs to the function parameters and it will fire the Klevu checkout analytics request to the server.
 
 ```javascript
 /**
@@ -41,4 +41,6 @@ klevu.analyticsUtil.base.sendCheckoutAnalyticsRequest(
 ### Code Reference
 
 [klevu-checkout-analytics-request.js](/modules/checkout-analytics-request/resources/assets/js/klevu-checkout-analytics-request.js)  
-contains the component extension code for Klevu checkout analytics request. It has the standalone function with necessary product data inputs as parameters.
+contains the component extension code for the Klevu checkout analytics request. It has the standalone function with necessary product data inputs as parameters.
+
+For further reference to the checkout analytics request, follow the [Analytics Checked Out Products developers guide](https://developers.klevu.com/api/#checked-out-products).
