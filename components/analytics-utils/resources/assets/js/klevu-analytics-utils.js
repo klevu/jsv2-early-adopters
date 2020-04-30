@@ -443,6 +443,47 @@
         });
     }
 
+    /**
+     * Function store custom analytics click event
+     * @param {*} scope 
+     * @param {*} dictionary 
+     * @param {*} element 
+     * @param {*} targetContainerClass 
+     * @param {*} parentProductClass 
+     * @param {*} termName 
+     * @param {*} srcTemplateName 
+     */
+    function registerAnalyticsClickEvent(scope, dictionary, element, targetContainerClass, parentProductClass, termName, srcTemplateName) {
+        var target = klevu.dom.find(targetContainerClass);
+        target = (target && target.length) ? target[0] : undefined;
+        if (!target) {
+            return;
+        }
+        klevu.each(klevu.dom.find(".klevuProductClick", target), function (key, value) {
+            klevu.event.attach(value, "click", function (event) {
+                var parent = klevu.dom.helpers.getClosest(value, parentProductClass);
+                if (parent && parent != null) {
+                    var productId = parent.dataset.id;
+                    if (productId) {
+                        var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
+                        if (product) {
+                            var termOptions = klevu.analyticsUtil.base.getTermOptions(scope);
+                            if (termOptions) {
+                                termOptions.klevu_keywords = termName;
+                                termOptions.klevu_productId = product.id;
+                                termOptions.klevu_productName = product.name;
+                                termOptions.klevu_productUrl = product.url;
+                                termOptions.klevu_src = "[[typeOfRecord:" + product.typeOfRecord + ";;template:" + srcTemplateName + "]]";
+                                delete termOptions.klevu_term;
+                                klevu.analyticsUtil.base.storeAnalyticsEvent(dictionary, element, termOptions);
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    }
+
     var storageOptions = {
         dictionary: "analytics-util",
         term: "termList",
@@ -465,7 +506,8 @@
                 registerLandingProductClickEvent: registerLandingProductClickEvent,
                 sendAnalyticsEventsFromStorage: sendAnalyticsEventsFromStorage,
                 getCategoryViewOptions: getCategoryViewOptions,
-                registerCategoryProductClickEvent: registerCategoryProductClickEvent
+                registerCategoryProductClickEvent: registerCategoryProductClickEvent,
+                registerAnalyticsClickEvent: registerAnalyticsClickEvent
             }
         }
     });
