@@ -492,25 +492,31 @@
         buy: "buyList"
     };
 
-    klevu.extend({
-        analyticsUtil: {
-            base: {
-                storage: storageOptions,
-                getTermOptions: getTermOptions,
-                getProductDetailsFromId: getProductDetailsFromId,
-                getDetailsFromURLAndName: getDetailsFromURLAndName,
-                storeAnalyticsEvent: storeAnalyticsEvent,
-                registerAutoSuggestProductClickEvent: registerAutoSuggestProductClickEvent,
-                registerAutoSuggestTermEvent: registerAutoSuggestTermEvent,
-                registerAutoSuggestPageClickEvent: registerAutoSuggestPageClickEvent,
-                registerLandingProductClickEvent: registerLandingProductClickEvent,
-                sendAnalyticsEventsFromStorage: sendAnalyticsEventsFromStorage,
-                getCategoryViewOptions: getCategoryViewOptions,
-                registerCategoryProductClickEvent: registerCategoryProductClickEvent,
-                registerAnalyticsClickEvent: registerAnalyticsClickEvent
+    var analyticsUtilBase = {
+        storage: storageOptions,
+        getTermOptions: getTermOptions,
+        getProductDetailsFromId: getProductDetailsFromId,
+        getDetailsFromURLAndName: getDetailsFromURLAndName,
+        getCategoryViewOptions: getCategoryViewOptions,
+        registerAutoSuggestProductClickEvent: registerAutoSuggestProductClickEvent,
+        registerAutoSuggestTermEvent: registerAutoSuggestTermEvent,
+        registerAutoSuggestPageClickEvent: registerAutoSuggestPageClickEvent,
+        registerLandingProductClickEvent: registerLandingProductClickEvent,
+        registerCategoryProductClickEvent: registerCategoryProductClickEvent,
+        registerAnalyticsClickEvent: registerAnalyticsClickEvent,
+        sendAnalyticsEventsFromStorage: sendAnalyticsEventsFromStorage,
+        storeAnalyticsEvent: storeAnalyticsEvent
+    };
+
+    if (klevu.analyticsUtil && klevu.analyticsUtil.base) {
+        klevu.extend(true, klevu.analyticsUtil.base, analyticsUtilBase);
+    } else {
+        klevu.extend({
+            analyticsUtil: {
+                base: analyticsUtilBase
             }
-        }
-    });
+        });
+    }
 
     klevu.analyticsUtil.build = true;
 
