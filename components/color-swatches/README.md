@@ -1,7 +1,7 @@
 # Color Swatches - Base Component
 
 >**Note:**  
->This is a base component for product add to cart functionality.
+>This is a base component for product color swatches functionality.
 >It won't have any output on user interface. It only initializes core functions.  
 
 You will find the necessary resources for this component available here:
