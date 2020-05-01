@@ -93,7 +93,7 @@ Include assets:
 </script>
 ```
 
-### Step 4: Add library Components / Modules
+### Step 4: Add JSv2 library Components / Modules
 
 Import Klevu JSv2 library Components or Modules to the website.
 
