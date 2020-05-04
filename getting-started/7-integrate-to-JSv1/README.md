@@ -16,7 +16,7 @@ For **_EVERY PAGE_** of your Klevu JSv1 website, include the following initializ
 Before start adding or implementing any JSv2 module, it is **_important_** to add [analytics-utils](/components/analytics-utils) component to fire analytics events.
 You will find the necessary resources for this component available here: [resources](/components/analytics-utils/resources).
 
-Include assets:
+###### Include assets:
 
 ```html
 <script src="/path/to/folder/klevu-analytics-utils.js"></script>
@@ -96,14 +96,14 @@ Include assets:
 
 Import Klevu JSv2 library Components or Modules to the website.
 
-Include assets:
+###### Include assets:
 
 ```html
 <link rel="stylesheet" href="/path/to/folder/styles.css" />
 <script src="/path/to/folder/scripts.js"></script>
 ```
 
-Add templates:
+###### Add templates:
 
 ```html
 <body>
