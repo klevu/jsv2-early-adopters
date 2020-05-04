@@ -13,8 +13,7 @@ For **_EVERY PAGE_** of your Klevu JSv1 website, include the following initializ
 
 ### Step 2: Add component for analytics utility
 
-Before start adding or implementing any JSv2 module, it is ***important*** to add [analytics-utils](/components/analytics-utils) component to fire analytics events.
-
+Before start adding or implementing any JSv2 module, it is **_important_** to add [analytics-utils](/components/analytics-utils) component to fire analytics events.
 You will find the necessary resources for this component available here: [resources](/components/analytics-utils/resources).
 
 Include assets:
@@ -112,7 +111,7 @@ Add templates:
 	Include the Template file.
 	You can either copy+paste the HTML content directly,
 	or you can use your programming language to include them.
-	eg. with PHP <?php include('/path/to/zip/templates.tpl'); ?>
+	eg. with PHP <?php include('/path/to/folder/templates.tpl'); ?>
 	-->
   <!-- ADD TEMPLATES HERE, USING YOUR PREFERRED APPROACH -->
 </body>
