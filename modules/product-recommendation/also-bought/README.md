@@ -45,7 +45,7 @@ To fire up the `alsoBought` module you need to add the below given code with the
 klevu.search.modules.productsRecommendation.base.alsoBought(
   "#klevuLandingTemplateAlsoBought",
   ".klevuAlsoBoughtProductsTemplate",
-  ["40792255502"],
+  ["40792255502", "40792256014"],
   null
 );
 ```
