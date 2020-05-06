@@ -18,3 +18,5 @@ klevu.search.modules.productsRecommendation.base.FUNCTION_NAME();
 Try accessing the `productsRecommendation` base component.
 
 **Reference modules based on this component:**
+
+- [Also bought products module](/modules/product-recommendation/also-bought)
