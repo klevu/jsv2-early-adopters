@@ -147,8 +147,7 @@ klevu.coreEvent.build({
         if (!klevu.search.modules ||
             !klevu.search.modules.productsRecommendation ||
             !klevu.search.modules.productsRecommendation.build ||
-            !klevu.getSetting(klevu.settings, "settings.localSettings", false) ||
-            klevu.isUndefined(klevu.search.landing)) {
+            !klevu.getSetting(klevu.settings, "settings.localSettings", false)) {
             return false;
         }
         return true;
