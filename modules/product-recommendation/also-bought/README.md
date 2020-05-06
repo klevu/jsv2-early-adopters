@@ -60,3 +60,6 @@ contains the HTML for the of the module. You can also add or modify the function
 
 [klevu-product-recommendation-also-bought.css](/modules/product-recommendation/also-bought/resources/assets/css/klevu-product-recommendation-also-bought.css)  
 contains the styles of a module.
+
+> **Note:**  
+> Added analytics on this functionality. [Line reference](//modules/product-recommendation/also-bought/resources/assets/js/klevu-product-recommendation-also-bought.js#L96) in code file.
