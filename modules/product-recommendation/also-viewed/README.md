@@ -37,7 +37,6 @@ To fire up the `alsoViewed` module you need to add the below given code with the
 
 ```javascript
 /**
- * Function to get inputs for also Viewed products
  * @param {*} templateId
  * @param {*} appendToClass
  * @param {*} productIds
@@ -63,4 +62,4 @@ contains the HTML for the of the module. You can also add or modify the function
 contains the styles of a module.
 
 > **Note:**  
-> Added analytics on this functionality. [Line reference](/modules/product-recommendation/also-bought/resources/assets/js/klevu-product-recommendation-also-bought.js#L96) in code file.
+> Added analytics on this functionality. [Line reference](/modules/product-recommendation/also-viewed/resources/assets/js/klevu-product-recommendation-also-viewed.js#L96) in code file.
