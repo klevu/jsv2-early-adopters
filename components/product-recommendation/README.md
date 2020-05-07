@@ -24,3 +24,4 @@ Try accessing the `productsRecommendation` base component.
 - [hand-picked](/modules/product-recommendation/hand-picked)
 - [in-trends](/modules/product-recommendation/in-trends)
 - [new-arrivals](/modules/product-recommendation/new-arrivals)
+- [related](/modules/product-recommendation/related)
