@@ -45,7 +45,6 @@ To fire up the `inTrends` module you need to add the below-given code with the a
 
 ```javascript
 /**
- * Function to append trending products
  * @param {*} templateId
  * @param {*} appendToClass
  */
