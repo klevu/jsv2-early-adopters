@@ -19,4 +19,8 @@ Try accessing the `productsRecommendation` base component.
 
 **Reference modules based on this component:**
 
-- [Also bought products module](/modules/product-recommendation/also-bought)
+- [also-bought](/modules/product-recommendation/also-bought)
+- [also-viewed](/modules/product-recommendation/also-viewed)
+- [hand-picked](/modules/product-recommendation/hand-picked)
+- [in-trends](/modules/product-recommendation/in-trends)
+- [new-arrivals](/modules/product-recommendation/new-arrivals)
