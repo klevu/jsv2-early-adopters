@@ -4,7 +4,7 @@
 > This module requires the [product-recommendation](/components/product-recommendation) base component.  
 > This module requires the [analytics-utils](/components/analytics-utils) component to fire up the analytics events within this module.
 
-![in-trends Products Banner](/modules/product-recommendation/images/prc-new-arrivals.png)
+![in-trends Products Banner](/modules/product-recommendation/images/prc-related.png)
 
 This module is to append related products of a particular product(s).
 
