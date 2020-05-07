@@ -1,4 +1,4 @@
-# Also Viewed Products
+# Hand-picked Products
 
 > **Prerequisite:**  
 > This module requires the [product-recommendation](/components/product-recommendation) base component.  
@@ -68,4 +68,4 @@ contains the HTML for the of the module. You can also add or modify the function
 contains the styles of a module.
 
 > **Note:**  
-> Added analytics on this functionality. [Line reference](/modules/product-recommendation/also-viewed/resources/assets/js/klevu-product-recommendation-also-viewed.js#L96) in code file.
+> Added analytics on this functionality. [Line reference](/modules/product-recommendation/hand-picked/resources/assets/js/klevu-product-recommendation-hand-picked.js#L94) in code file.
