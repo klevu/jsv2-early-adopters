@@ -27,6 +27,14 @@ As other JSv2 modules, this module will also have the HTML, JS and CSS files to 
 
 ```html
 <body>
+  <!--
+	Include the Template file.
+	You can either copy+paste the HTML content directly,
+	or you can use your programming language to include them.
+	eg. with PHP <?php include('/path/to/folder/templates.tpl'); ?>
+	-->
+  <!-- ADD TEMPLATES HERE, USING YOUR PREFERRED APPROACH -->
+
   ...
   <div class="klevuAlsoViewedProductsTemplate"></div>
   ...
