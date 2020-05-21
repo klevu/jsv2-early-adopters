@@ -2547,7 +2547,7 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
                 var parentElem = klevu.dom.helpers.getClosest(this, ".klevuMeta");
                 klevu.each(klevu.dom.find(".kuFilters", parentElem), function (index, ele) {
                     ele.classList.add("kuFiltersIn");
-                    self.manageSliderStatus(true);
+                    self.manageSliderStatus(true,scope);
                 });
 
             });
@@ -2569,7 +2569,7 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
                 var parentElem = klevu.dom.helpers.getClosest(this, ".klevuMeta");
                 klevu.each(klevu.dom.find(".kuFilters", parentElem), function (index, ele) {
                     ele.classList.remove("kuFiltersIn");
-                    self.manageSliderStatus(false);
+                    self.manageSliderStatus(false,scope);
                 });
 
             });
