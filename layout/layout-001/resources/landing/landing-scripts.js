@@ -1643,6 +1643,12 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         ele.slider.destroy();
                     }
                     ele.sliderData = sliderData;
+                    if(sliderData.start === undefined || sliderData.start == null){
+                        sliderData.start = sliderData.min;
+                    }
+                    if(sliderData.end === undefined || sliderData.end == null){
+                        sliderData.end = sliderData.max;
+                    }
                     ele.slider = noUiSlider.create(ele, {
                         start: [parseInt(sliderData.start), parseInt(sliderData.end)],
                         connect: true,
