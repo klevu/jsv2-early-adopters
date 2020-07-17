@@ -1,0 +1,23 @@
+/*
+    Styles for the popular searches module
+*/
+
+.kuPopularSearchesTermContainer ul {
+    margin-left: 0px;
+    margin-left: -30px;
+    padding-right: 10px;
+}
+
+.kuPopularSearchesTermContainer li {
+    display: inline-block;
+    padding: 3px 12px;
+    background-color: #f3f3f3;
+    border-radius: 14px;
+    margin-right: 2px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.kuPopularSearchesTermContainer li:hover {
+    background-color: #eaeaea;
+}
