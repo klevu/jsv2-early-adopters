@@ -29,7 +29,9 @@ Modify `quick-base.tpl` to add the popular searches in your quick search results
 ```html
 <div class="klevu-fluid">
   <div id="klevuSearchingArea" class="klevuQuickSearchingArea">
-    ... <%=helper.render('kuTemplatePopularSearches',scope) %> ...
+    ... 
+    <%=helper.render('kuTemplatePopularSearches',scope) %> 
+    ...
   </div>
 </div>
 ```
