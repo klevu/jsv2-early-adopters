@@ -7,12 +7,20 @@
         popularSearch: {
             base: {
                 init: function () {
+                    klevu.setSetting(klevu.settings, "settings.localSettings", false)
                     var apiKey = klevu.settings.search.apiKey;
                     if (apiKey) {
-                        var head = document.getElementsByTagName("head");
                         var script = document.createElement("script");
+                        script.type = "text/javascript";
+                        script.async = false;
+                        script.onload = function () {
+                            klevu.setSetting(klevu.settings, "settings.localSettings", true)
+                        };
+                        script.onerror = function () {
+                            klevu.setSetting(klevu.settings, "settings.localSettings", true)
+                        };
                         script.src = "https://js.klevu.com/klevu-js-v1/klevu-js-api/" + apiKey + ".js";
-                        head[0].appendChild(script);
+                        document.head.appendChild(script);
                     }
                 }
             },
