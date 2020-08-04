@@ -19,5 +19,5 @@ klevu.search.modules.colorSwatches.base.FUNCTION_NAME();
 Try accessing the color swatches base component.
 
 **Reference modules based on this component:**
-- [Landing page product color swatches](/modules/color-swatches-landing-page)
-- [Product quick view color swatches](/modules/color-swatches-quick-view)
+- [Landing page product color swatches](/modules/color-swatches/landing)
+- [Product quick view color swatches](/modules/color-swatches/quick-view)
