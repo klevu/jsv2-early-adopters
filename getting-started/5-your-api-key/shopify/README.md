@@ -4,14 +4,6 @@ _This tutorial assumes you already completed the
 [Shopify Hello World](/getting-started/1-hello-world/shopify)
 tutorial, which included installing the Shopify Klevu App on your store._
 
-## Add some dummy Products
-
-In order that you can get started as soon as we activate your API Key,
-begin populating your Shopify store with some sample Products, Categories and CMS Pages.
-This way we can synchronise your data so it is ready to go as soon as we enable your API Key.
-
-All you need to do is create the Products and publish them, the Klevu App will do the rest.
-
 ## File modification
 
 - Navigate to Online Store > Themes.
