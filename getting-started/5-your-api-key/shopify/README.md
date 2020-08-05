@@ -4,6 +4,8 @@ _This tutorial assumes you already completed the
 [Shopify Hello World](/getting-started/1-hello-world/shopify)
 tutorial, which included installing the Shopify Klevu App on your store._
 
+To find your API Key:
+
 - Log in to your Shopify Store Admin Panel.
 - Navigate to Apps > Klevu Search.
 - Next, click the Shop Info link near the top right.
@@ -11,35 +13,11 @@ tutorial, which included installing the Shopify Klevu App on your store._
 
 ![Shop Info](/getting-started/5-your-api-key/images/shop-info.jpg)
 
-## Where to add API key and Search endpoint?
+## Where to your JS API Key and Search URL?
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
 - Modify Assets > `klevu-settings.js`
-
-**API key:**  
-Add your own API Key (i.e., `klevu-12345678901234567`) in the appropriate location. Please, find the reference code snippet at the bottom of this page [here](#reference-code-snippet).
-
-**Search endpoint:**  
-The search endpoint looks like the following:
-
-```js
-https://<subdomain>v2.ksearchnet.com/cs/v2/search
-```
-
-A subdomain is assigned to your store depending on the plan of your account and the country of your store. The inclusion of **v2** is important. Omitting this will cause degraded performance as it will not utilize our Content Delivery Network (CDN).
-
-For example:
-
-```js
-https://eucs18v2.ksearchnet.com/cs/v2/search
-```
-
-> **Note:**  
-> As we maintain a separate index for each of your stores, it is possible that you have totally different sub-domains assigned to your other stores.
-
-It is important to take note of these parameters and use the relevant values when firing search queries to the Klevu Search engine.
-Add your own search endpoint in the appropriate location.
 
 #### Reference code snippet:
 
@@ -48,20 +26,34 @@ function startup(klevu) {
   var options = {
     url: {
       search:
-        klevu.settings.url.protocol +
-        "//<subdomain>v2.ksearchnet.com/cs/v2/search",
+        klevu.settings.url.protocol
+          + "//<your-subdomain>v2.ksearchnet.com/cs/v2/search",
     },
     search: {
-      apiKey: "<API-key>",
+      apiKey: "<your-js-api-key>",
     },
     analytics: {
-      apiKey: "<API-key>",
+      apiKey: "<your-js-api-key>",
     },
   };
 }
 ```
 
-Save the file and reload the frontend to **search your own data!**
+**JS API Key:**  
+Your JS API Key will look something like this: `klevu-12345678901234567`.
+
+**Search URL:**  
+The search endpoint looks like the following:
+
+```js
+https://<subdomain>v2.ksearchnet.com/cs/v2/search
+```
+
+**The inclusion of v2 is important.** Omitting this will cause degraded performance as it will not utilize our Content Delivery Network (CDN). For example, if your Cloud Search URL was 'eucs18.ksearchnet.com', you should use the following value:
+
+```js
+https://eucs18v2.ksearchnet.com/cs/v2/search
+```
 
 ## What's next?
 
