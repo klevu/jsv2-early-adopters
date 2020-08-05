@@ -11,14 +11,14 @@ tutorial, which included installing the Shopify Klevu App on your store._
 
 ![Shop Info](/getting-started/5-your-api-key/images/shop-info.jpg)
 
-## Where to add API keys and Search endpoint?
+## Where to add API key and Search endpoint?
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
 - Modify Assets > `klevu-settings.js`
 
-**API keys:**  
-Add your own API Key (i.e., `klevu-12345678901234567`) in the appropriate location. Please, find the reference code snippet at the bottom of this page [here](#whats-next).
+**API key:**  
+Add your own API Key (i.e., `klevu-12345678901234567`) in the appropriate location. Please, find the reference code snippet at the bottom of this page [here](#reference-code-snippet).
 
 **Search endpoint:**  
 The search endpoint looks like the following:
@@ -41,7 +41,7 @@ https://eucs18v2.ksearchnet.com/cs/v2/search
 It is important to take note of these parameters and use the relevant values when firing search queries to the Klevu Search engine.
 Add your own search endpoint in the appropriate location.
 
-#### Reference code snippet
+#### Reference code snippet:
 
 ```js
 function startup(klevu) {
