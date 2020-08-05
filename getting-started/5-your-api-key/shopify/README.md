@@ -40,7 +40,7 @@ function startup(klevu) {
 **JS API Key:**  
 Your JS API Key will look something like this: `klevu-12345678901234567`.
 
-**Search URL:** 
+**Search URL:**  
 The search endpoint looks like the following:
 
 ```js
