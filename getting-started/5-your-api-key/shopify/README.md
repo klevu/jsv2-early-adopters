@@ -53,7 +53,7 @@ https://eucs18v2.ksearchnet.com/cs/v2/search
 
 It is important to take a note of these parameters and use the relevant values when firing search queries to the Klevu Search engine.
 
-Add your own API Key in the appropriate location.
+Add your own search endpoint in the appropriate location.
 
 ```js
 function startup(klevu) {
