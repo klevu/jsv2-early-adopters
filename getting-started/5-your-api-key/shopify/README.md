@@ -7,7 +7,7 @@ tutorial, which included installing the Shopify Klevu App on your store._
 - Log in to your Shopify Store Admin Panel.
 - Navigate to Apps > Klevu Search.
 - Next, click the Shop Info link near the top right.
-- Copy the value of your "JS API Key" and the subdomain from "Cloud Search URL".
+- Copy the value of your `JS API Key` and the subdomain from `Cloud Search URL`.
 
 ![Shop Info](/getting-started/5-your-api-key/images/shop-info.jpg)
 
@@ -27,7 +27,7 @@ The search endpoint looks like the following:
 https://<subdomain>v2.ksearchnet.com/cs/v2/search
 ```
 
-A subdomain is assigned to your store depending on the plan of your account and the country of your store. The inclusion of **_v2_** is important. Omitting this will cause degraded performance as it will not utilize our Content Delivery Network (CDN).
+A subdomain is assigned to your store depending on the plan of your account and the country of your store. The inclusion of **v2** is important. Omitting this will cause degraded performance as it will not utilize our Content Delivery Network (CDN).
 
 For example:
 
@@ -52,10 +52,10 @@ function startup(klevu) {
         "//<subdomain>v2.ksearchnet.com/cs/v2/search",
     },
     search: {
-      apiKey: "klevu-12345678901234567",
+      apiKey: "<API-key>",
     },
     analytics: {
-      apiKey: "klevu-12345678901234567",
+      apiKey: "<API-key>",
     },
   };
 }
