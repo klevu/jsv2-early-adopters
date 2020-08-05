@@ -10,7 +10,7 @@ Simply modify the following file to add your own API Key in the appropriate loca
 
 `app/code/Klevu/JSv2/view/frontend/web/js/klevu-settings.js`
 
-````js
+```js
 function startup(klevu) {
   var options = {
     url: {
@@ -36,7 +36,7 @@ The search endpoint looks like the following:
 
 ```js
 https://<subdomain>v2.ksearchnet.com/cs/v2/search
-````
+```
 
 **The inclusion of v2 is important.** Omitting this will cause degraded performance as it will not utilize our Content Delivery Network (CDN). For example, if your Cloud Search URL was `eucs18.ksearchnet.com`, you should use the following value:
 
