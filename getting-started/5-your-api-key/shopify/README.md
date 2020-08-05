@@ -13,13 +13,11 @@ To find your API Key:
 
 ![Shop Info](/getting-started/5-your-api-key/images/shop-info.jpg)
 
-## Where to your JS API Key and Search URL?
+## Where to add your JS API Key and Search URL
 
 - Navigate to Online Store > Themes.
-- On Current Theme, select Actions > Edit Code.
+- On your Klevu integrated theme, select Actions > Edit Code.
 - Modify Assets > `klevu-settings.js`
-
-#### Reference code snippet:
 
 ```js
 function startup(klevu) {
@@ -42,7 +40,7 @@ function startup(klevu) {
 **JS API Key:**  
 Your JS API Key will look something like this: `klevu-12345678901234567`.
 
-**Search URL:**  
+**Search URL:** 
 The search endpoint looks like the following:
 
 ```js
