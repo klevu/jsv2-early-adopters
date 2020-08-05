@@ -17,7 +17,7 @@ tutorial, which included installing the Shopify Klevu App on your store._
 - On Current Theme, select Actions > Edit Code.
 - Modify Assets > `klevu-settings.js`
 
-**API keys**  
+**API keys:**  
 Add your own API Key in the appropriate location.
 
 ```js
@@ -33,7 +33,7 @@ function startup(klevu) {
 }
 ```
 
-**Search endpoint**  
+**Search endpoint:**  
 The search endpoint looks like the following:
 
 ```js
