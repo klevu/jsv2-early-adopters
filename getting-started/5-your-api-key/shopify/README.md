@@ -24,8 +24,8 @@ function startup(klevu) {
   var options = {
     url: {
       search:
-        klevu.settings.url.protocol
-          + "//<your-subdomain>v2.ksearchnet.com/cs/v2/search",
+        klevu.settings.url.protocol +
+        "//<your-subdomain>v2.ksearchnet.com/cs/v2/search",
     },
     search: {
       apiKey: "<your-js-api-key>",
@@ -47,7 +47,7 @@ The search endpoint looks like the following:
 https://<subdomain>v2.ksearchnet.com/cs/v2/search
 ```
 
-**The inclusion of v2 is important.** Omitting this will cause degraded performance as it will not utilize our Content Delivery Network (CDN). For example, if your Cloud Search URL was 'eucs18.ksearchnet.com', you should use the following value:
+**The inclusion of v2 is important.** Omitting this will cause degraded performance as it will not utilize our Content Delivery Network (CDN). For example, if your Cloud Search URL was `eucs18.ksearchnet.com`, you should use the following value:
 
 ```js
 https://eucs18v2.ksearchnet.com/cs/v2/search
