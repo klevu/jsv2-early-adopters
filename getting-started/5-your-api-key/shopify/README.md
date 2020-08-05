@@ -4,9 +4,14 @@ _This tutorial assumes you already completed the
 [Shopify Hello World](/getting-started/1-hello-world/shopify)
 tutorial, which included installing the Shopify Klevu App on your store._
 
-## Where to find API keys and Search endpoint?
+- Login to your Shopify Store Admin Panel.
+- Navigate to Apps > Klevu Search.
+- Next click the Shop Info link near the top right.
+- Copy the value of your “JS API Key”.
 
-![Shopify info](/getting-started/5-your-api-key/images/shop-info.jpg)
+![Shop Info](/getting-started/5-your-api-key/images/shop-info.jpg)
+
+## Where to find API keys and Search endpoint?
 
 - Navigate to Online Store > Themes.
 - On Current Theme, select Actions > Edit Code.
@@ -47,6 +52,20 @@ https://eucs18v2.ksearchnet.com/cs/v2/search
 > As we maintain a separate index for each of your stores, it is possible that you have totally different sub-domains assigned to your other stores.
 
 It is important to take a note of these parameters and use the relevant values when firing search queries to the Klevu Search engine.
+
+Add your own API Key in the appropriate location.
+
+```js
+function startup(klevu) {
+  var options = {
+    url: {
+      search:
+        klevu.settings.url.protocol +
+        "//<subdomain>v2.ksearchnet.com/cs/v2/search",
+    },
+  };
+}
+```
 
 Save the file and reload the frontend to **search your own data!**
 
