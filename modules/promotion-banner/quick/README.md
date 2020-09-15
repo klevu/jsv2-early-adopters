@@ -15,8 +15,10 @@ Modify `quick-base.tpl` to add promotion banner in your preferred location.
 ```html
 <div class="klevu-fluid">
     <div id="klevuSearchingArea" class="klevuQuickSearchingArea">
-        <%=helper.render('klevuQuickPromotionBanner',scope) %>
+        <%=helper.render('klevuQuickPromotionBanner',scope, data, "top") %>
         ...
+        ...
+        <%=helper.render('klevuQuickPromotionBanner',scope, data, "bottom") %>
     </div>
 </div>
 ```

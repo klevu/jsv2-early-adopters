@@ -11,8 +11,10 @@ Modify `landing-base.tpl` to add promotion banner in your preferred location.
 
 ```html
 <div class="kuContainer">
-    <%=helper.render('klevuLandingPromotionBanner',scope) %>
+    <%=helper.render('klevuLandingPromotionBanner',scope, data, "top") %>
     ...
+    ...
+    <%=helper.render('klevuLandingPromotionBanner',scope, data, "bottom") %>
 </div>
 ```
 
