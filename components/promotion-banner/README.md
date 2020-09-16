@@ -5,10 +5,10 @@
 > It won't have any output on user interface. It only initializes core functions.
 
 You will find the necessary resources for this component available here:
-[resources](/components/banner/resources). Please add these with the
+[resources](/components/promotion-banner/resources). Please add these with the
 method appropriate to your chosen framework.
 
-[Base file](/components/banner/resources/assets/js/klevu-banner.js) contains the core logic of the functionality.
+[Base file](/components/promotion-banner/resources/assets/js/klevu-promotion-banner.js) contains the core logic of the functionality.
 
 Below code snippet is to show, how to use base component.
 

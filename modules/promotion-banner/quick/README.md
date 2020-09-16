@@ -1,5 +1,8 @@
 # Add Promotion Banner - Quick Search Results
 
+> **Prerequisite:**  
+> This module requires the [promotion-banner](/components/promotion-banner) and [analytics-utils](/components/analytics-utils) base components.
+
 ![quick promotion banner 001](/modules/promotion-banner/images/image001.png)
 ![quick promotion banner 002](/modules/promotion-banner/images/image002.png)
 

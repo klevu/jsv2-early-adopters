@@ -1,5 +1,8 @@
 # Add Promotion Banner
 
+> **Prerequisite:**  
+> This module requires the [promotion-banner](/components/promotion-banner) base component.
+
 ![quick promotion banner 001](/modules/promotion-banner/images/image001.png)
 ![quick promotion banner 002](/modules/promotion-banner/images/image002.png)
 

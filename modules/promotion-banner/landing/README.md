@@ -1,5 +1,8 @@
 # Add Promotion Banner - Search Results Landing Page
 
+> **Prerequisite:**  
+> This module requires the [promotion-banner](/components/promotion-banner) and [analytics-utils](/components/analytics-utils) base components.
+
 _If you are not familiar with where to add these resources,
 please follow the appropriate ['hello world'](/getting-started/1-hello-world) tutorial._
 
