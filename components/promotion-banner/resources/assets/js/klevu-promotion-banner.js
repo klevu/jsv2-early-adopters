@@ -74,7 +74,7 @@
     }
 
     /**
-     * Function to get the product ids
+     * Function to validate banners based on the date.
      * @param {*} klevu_banner: Array of banner objects
      */
     function validateBanners(klevu_banner) {
