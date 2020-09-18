@@ -16,9 +16,6 @@ Once you've already completed the above,
 If you want to see an example of a number of these modules working together
 in a single example, click here to [try a full Layout](/layout/layout-001).
 
-> **Note:**  
-> If you are existing Klevu JS version 1 user and want to try out JS version 2 functionalities on your website, please follow the [integration steps document](/getting-started/7-integrate-to-JSv1).
-
 ## Tell us what you think!
 
 Please forward any feedback you may have to your Klevu contact
