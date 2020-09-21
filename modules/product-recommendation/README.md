@@ -1,5 +1,9 @@
 # Product Recommendation Modules
 
+> :warning: **This is a beta feature, it is not yet ready for Production use.**  
+Product recommendations have not yet been officially released.
+Please do not use these examples unless you have been explicitly instructed to by a member of the Klevu Support team.
+
 > **Prerequisite:**  
 > This module requires the [product-recommendation](/components/product-recommendation) base component.  
 > This module requires the [analytics-utils](/components/analytics-utils) component to fire up the analytics events within this module.
