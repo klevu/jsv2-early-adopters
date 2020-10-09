@@ -10,7 +10,7 @@ Please add these with the method applicable to your chosen framework.
 
 ## Usage
 
-- Include `//js.klevu.com/klevu-js-v2/2.0/klevu.js` and `klevu-settings.js` on every page.
+- Include `//js.klevu.com/klevu-js-v2/2.3.1/klevu.js` and `klevu-settings.js` on every page.
 - Add the [quick search resources](/layout/layout-001/resources/quick) to every page with a search input.
 - Finally add the [landing page resources](/layout/layout-001/resources/landing) to your search landing page.
 
