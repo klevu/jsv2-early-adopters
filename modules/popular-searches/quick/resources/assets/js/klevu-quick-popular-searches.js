@@ -48,7 +48,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                         inputValue = inputElement.value;
                     }
                     if (!inputValue || inputValue.length == 0) {
-                        if (klevu_webstorePopularTerms) {
+                        if (typeof klevu_webstorePopularTerms !== "undefined" && klevu_webstorePopularTerms) {
                             data.template.popularSearches = klevu_webstorePopularTerms;
                         }
                     }
