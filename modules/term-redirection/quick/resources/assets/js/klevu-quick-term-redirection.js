@@ -38,7 +38,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             box.getScope().chains.template.process.success.add({
                 name: "addRedirectURLs",
                 fire: function (data, scope) {
-                    if (!klevu.isUndefined(klevu_keywordUrlMap) && !klevu.isEmptyObject(klevu_keywordUrlMap)) {
+                    if (typeof klevu_keywordUrlMap !== "undefined" && !klevu.isEmptyObject(klevu_keywordUrlMap)) {
                         var redirectsFromSettings = klevu.getSetting(scope.kScope.settings, "settings.search.redirects");
                         redirectsFromSettings = !klevu.isUndefined(redirectsFromSettings) ? redirectsFromSettings : {};
                         var redirects = klevu.extend(true, {}, redirectsFromSettings);
