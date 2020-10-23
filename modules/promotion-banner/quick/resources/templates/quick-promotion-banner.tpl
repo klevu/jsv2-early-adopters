@@ -2,7 +2,7 @@
 Quick search results banner template
 -->
 <script type="template/klevu" id="klevuQuickPromotionBanner">
-    <% if(data.banners[dataLocal] && data.banners[dataLocal].length) { 
+    <% if(data.banners && data.banners[dataLocal] && data.banners[dataLocal].length) { 
         klevu.each(data.banners[dataLocal], function(index, banner){ %>
         <div class="klevu-banner-ad kuBannerContainer">
             <a 

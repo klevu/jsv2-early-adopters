@@ -2,7 +2,7 @@
 Landing page banner template
 -->
 <script type="template/klevu" id="klevuLandingPromotionBanner">
-    <% if(data.banners[dataLocal] && data.banners[dataLocal].length) { 
+    <% if(data.banners && data.banners[dataLocal] && data.banners[dataLocal].length) { 
         klevu.each(data.banners[dataLocal], function(index, banner){ %>
         <div class="kuBannerAd kuBannerContainer">
             <a 
