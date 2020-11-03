@@ -1,7 +1,7 @@
 # Facets - Base component
 
 >**Note:**  
->This is a base component for product add to cart functionality.
+>This is a base component for filters functionality.
 >It won't have any output on user interface. It only initializes core functions.  
 
 You will find the necessary resources for this component available here:
@@ -12,11 +12,8 @@ method appropriate to your chosen framework.
 [Base styles](/components/facets/resources/assets/css/klevu-facets.css) contains the core styles of the functionality.
 
 ```javascript
-/** Initalize base component to the scope*/
-klevu.facets(TARGET_SCOPE);
-
 /** Usage of base component functions */
-TARGET_SCOPE.facets.base.FUNCTION_NAME();
+klevu.search.modules.facets.base.FUNCTION_NAME();
 ```
 
 Try accessing the Facets base component.

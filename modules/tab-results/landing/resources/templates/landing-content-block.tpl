@@ -9,13 +9,13 @@
             <div class="kuProdTop">
                 <% if(dataLocal["image"] != undefined && dataLocal.image !== "") { %>
                 <div class="klevuImgWrap">
-                    <a href="<%=dataLocal.url%>" class="klevuProductClick"><span class="kuprodImgSpan"><img src="<%=dataLocal.image%>" alt="<%=dataLocal.name%>" class="kuProdImg"></span></a> </div>
+                    <a target="_self" href="<%=dataLocal.url%>" class="klevuProductClick"><span class="kuprodImgSpan"><img src="<%=dataLocal.image%>" alt="<%=dataLocal.name%>" class="kuProdImg"></span></a> </div>
                 <% } %>
                 </div>
                 <% var desc = [dataLocal.summaryAttribute,dataLocal.packageText,dataLocal.summaryDescription].filter(function(el) { return el; }); desc = desc.join(" "); %>
             <div class="kuProdBottom">
                 <div class="kuNameDesc">
-                      <div class="kuName"><a href="<%=dataLocal.url%>" class="klevuProductClick"><%=dataLocal.name%></a></div>
+                      <div class="kuName"><a target="_self" href="<%=dataLocal.url%>" class="klevuProductClick"><%=dataLocal.name%></a></div>
                       <div class="kuDesc"><%=desc%></div>
                 </div>
             </div>

@@ -74,7 +74,7 @@ Add the following snippet just before `</head>`:
 ```html
 {% comment %} KLEVU - START {% endcomment %}
     {% comment %} KLEVU - JS AND CSS ASSETS {% endcomment %}
-    <script src="{{ '//jsv2.klevu.com/dist/2.0/klevu.js' }}"></script>
+    <script src="{{ '//js.klevu.com/klevu-js-v2/2.3.1/klevu.js' }}"></script>
     <script src="{{ 'klevu-settings.js' | asset_url }}" ></script>
     <script src="{{ 'klevu-quick.js' | asset_url }}" ></script>
     {{ 'klevu-quick.css' | asset_url | stylesheet_tag }}
@@ -89,6 +89,9 @@ Add the following snippet just before `</head>`:
     {% include "klevu-quick-no-results-found" %}
 {% comment %} KLEVU - END {% endcomment %}
 ```
+Assign selector value to the Search input element same as the `searchBoxSelector` option from [klevu-settings.js](/getting-started/1-hello-world/shopify/resources/assets/klevu-settings.js) in your theme or implementation.  
+In the example we have added `search__input` class to the search input element. 
+
 
 ### Upload and Apply your Theme
 

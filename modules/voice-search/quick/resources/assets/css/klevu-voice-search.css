@@ -1,0 +1,15 @@
+/*
+    Styles for voice search functionality
+*/
+
+.klevuVoiceSearchImage {
+    position: relative;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: #ededed;
+    border-radius: 50px;
+    padding: 3px;
+    margin-top: 0px;
+    box-sizing: border-box;
+}

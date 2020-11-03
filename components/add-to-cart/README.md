@@ -10,14 +10,11 @@ method appropriate to your chosen framework.
 
 [Base file](/components/add-to-cart/resources/assets/js/klevu-add-to-cart.js) contains the core logic of the functionality.
 
-Below code snippet is to show, how to initialize and use base component into the relevant scope.
+Below code snippet is to show, how to use base component.
 
 ```javascript
-/** Initalize base component to the scope*/
-klevu.addToCart(TARGET_SCOPE);
-
 /** Usage of base component functions */
-TARGET_SCOPE.addToCart.base.FUNCTION_NAME();
+klevu.search.modules.addToCart.base.FUNCTION_NAME();
 ```
 
 Try accessing addToCart base component.

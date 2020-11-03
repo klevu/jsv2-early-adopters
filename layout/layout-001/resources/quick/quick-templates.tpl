@@ -77,7 +77,7 @@
                 <div class="klevuSuggestionHeading"><span class="klevuHeadingText"><%=helper.translate("Products")%></span></div>
                 <div class="klevuQuickSearchResults" data-section="productList" id="productsList">
                     <div class="klevuProductsViewAll">
-                        <a href="<%=helper.buildUrl(data.settings.landingUrl,'q',helper.stripHtml(data.settings.term))%>" target="_parent"><%=helper.translate("View All")%></a>
+                        <a target="_self" href="<%=helper.buildUrl(data.settings.landingUrl,'q',helper.stripHtml(data.settings.term))%>" target="_parent"><%=helper.translate("View All")%></a>
                     </div>
                     <ul>
                       <% helper.each(data.query.productList.result,function(key,product){ %>
@@ -159,7 +159,7 @@
 
 <script type="template/klevu" id="klevuQuickTrendingProductBlock">
     <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
-        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
+        <a target="_self" href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
             <div class="klevuProductItemTop">
                 <div class="klevuQuickImgWrap">
                     <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.stickyLabelHead%></strong></div>
@@ -240,7 +240,7 @@ Quick search results banner template
 <!-- Product block template for Recently viewed products in Quick Search Results -->
 <script type="template/klevu" id="klevuQuickRecentViewedProductBlock">
     <li class="klevuProduct kuQSMenuItem" data-id="<%=dataLocal.id%>">
-        <a href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
+        <a  target="_self" href="<%=dataLocal.url%>" data-id="<%=dataLocal.id%>" class="klevuQuickProductInnerBlock trackProductClick kuQSMenuItemTarget">
             <div class="klevuProductItemTop">
                 <div class="klevuQuickImgWrap">
                     <div class="klevuQuickDiscountBadge"><strong><%=dataLocal.stickyLabelHead%></strong></div>

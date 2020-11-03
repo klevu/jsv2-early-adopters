@@ -10,13 +10,13 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
         var quick_promo_banners = [{
                 default: true,
                 id: "001",
-                name: "Default Shirts banner",
+                name: "Default Shirts banner | Only the best sale 40% off on shirts",
                 src: "https://demo.ksearchmisc.com/klevusearch/skin/frontend/base/default/images/klevubanner/klevu-banner-ad-shirt-new.jpg",
                 click: "https://demo.ksearchmisc.com/klevusearch/men/shirts.html"
             },
             {
                 id: "002",
-                name: "Bags banner",
+                name: "Bags banner | Travel Gear",
                 term: "bags",
                 src: "https://demo.ksearchmisc.com/klevusearch/media/wysiwyg/homepage-three-column-promo-03.png",
                 click: "https://demo.ksearchmisc.com/klevusearch/accessories/bags-luggage.html"

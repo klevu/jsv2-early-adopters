@@ -13,7 +13,7 @@
                             <ul>
                                 <% helper.each(filter.options,function(key,filterOption){ %>
                                     <li <% if(filterOption.selected ==true) { %> class="kuSelected"<% } %>>
-                                        <a href="#" title="<%=filterOption.value%>" class="klevuFilterOption<% if(filterOption.selected ==true) { %> klevuFilterOptionActive<% } %>" data-value="<%=filterOption.value%>">
+                                        <a target="_self" href="#" title="<%=filterOption.value%>" class="klevuFilterOption<% if(filterOption.selected ==true) { %> klevuFilterOptionActive<% } %>" data-value="<%=filterOption.value%>">
                                             <span class="kuFilterIcon"></span>
                                             <span class="kufacet-text"><%=filterOption.name%></span>
                                             <% if(filterOption.selected ==true) { %>
@@ -64,7 +64,7 @@
             <% }); %>
             
             <div class="kuFiltersFooter">
-            	<a href="javascript:void(0)" class="kuBtn kuFacetsSlideOut kuMobileFilterCloseBtn"><%=helper.translate("Close")%></a>
+            	<a target="_self" href="javascript:void(0)" class="kuBtn kuFacetsSlideOut kuMobileFilterCloseBtn"><%=helper.translate("Close")%></a>
   			</div>
             
             

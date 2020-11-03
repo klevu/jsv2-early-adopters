@@ -161,8 +161,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         storageEngine.tabs.mergeToGlobal();
 
                         /** Initialize price filter slider on tab change */
-                        if (klevu.search.landing.getScope().filterPriceSlider) {
-                            klevu.search.landing.getScope().filterPriceSlider.base.initSlider(data, scope);
+                        if (klevu.search.modules.filterPriceSlider) {
+                            klevu.search.modules.filterPriceSlider.base.initSlider(data, scope.kScope);
                         }
                     });
                 });
