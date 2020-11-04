@@ -12,7 +12,7 @@ You will find the necessary resources for this module available here:
 - In the resources, you will find the separate `.js` file for the initialization request of landing page [here](/modules/filter-price-slider/landing/resources/assets/js/klevu-landing-init.js). 
 You can also choose this way to create a separate file for the landing init and remove the event code from the landing file. Then import the init `.js` file at the end of your Klevu JSv2 `JavaScript` imports.  
 
-### Slider UI Framework Usage
+## Slider UI Framework Usage
 
 You need to add the slider UI framework for this module. In this example, we have used the [nouislider](https://refreshless.com/nouislider/). All the resources related to the slider framework have been added [here](/modules/filter-price-slider/landing/resources/assets/lib).
 
