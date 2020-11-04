@@ -8,7 +8,7 @@ You will find the necessary resources for this module available here:
 
 **Important**
 
-- This module contains the updates/addition in the request header attributes. It is important to place the module's `JavaScript` implementation before this [line](https://github.com/klevu/jsv2-early-adopters/blob/master/getting-started/1-hello-world/custom/resources/assets/js/landing/klevu-landing.js#L453) in the `klevu-landing.js`.
+- This module contains the updates/addition in the request header attributes. It is important to place the module's `JavaScript` implementation before this [line](/getting-started/1-hello-world/custom/resources/assets/js/landing/klevu-landing.js#L453) in the `klevu-landing.js`.
 - In the resources, you will find the separate `.js` file for the initialization request of landing page [here](/modules/filter-price-slider/landing/resources/assets/js/klevu-landing-init.js). 
 You can also choose this way to create a separate file for the landing init and remove the event code from the landing file. Then import the init `.js` file at the end of your Klevu JSv2 `JavaScript` imports.  
 
