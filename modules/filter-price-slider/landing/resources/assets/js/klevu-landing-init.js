@@ -1,12 +1,9 @@
 /**
- *  search request fire 
+ * Event to fire landing search request
  */
-
-/** add landing init */
 klevu.coreEvent.attach("setRemoteConfigLanding", {
     name: "search-landing-init",
     fire: function () {
-        /** read query param */
         if (klevu.dom.find(".klevuLanding").length > 0) {
             klevu.search.landing.setTarget(klevu.dom.find(".klevuLanding")[0]);
             klevu.setSetting(klevu.search.landing.getScope().settings, "settings.search.fullPageLayoutEnabled", true);
