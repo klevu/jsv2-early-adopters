@@ -599,14 +599,17 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             klevu.each(storedEvents, function (index, value) {
                 delete value.filters;
                 if (element == klevu.analyticsUtil.base.storage.click) {
-                    klevu.analyticsEvents.click(value);
+                    if (klevu.analyticsEvents.click) {
+                        klevu.analyticsEvents.click(value);
+                    }
                 } else if (element == klevu.analyticsUtil.base.storage.buy) {
-                    klevu.analyticsEvents.buy(value);
+                    if (klevu.analyticsEvents.buy) {
+                        klevu.analyticsEvents.buy(value);
+                    }
                 } else if (element == klevu.analyticsUtil.base.storage.categoryClick) {
-
-                    //TO-DO: Send category product click event
-                    console.log(value);
-
+                    if (klevu.analyticsEvents.catclick) {
+                        klevu.analyticsEvents.catclick(value);
+                    }
                 } else {
                     klevu.analyticsEvents.term(value);
                 }
@@ -614,7 +617,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             autoSug.addElement(element, "");
             autoSug.mergeToGlobal();
         }
-    };
+    }
 
     /**
      * Function to get Category view options

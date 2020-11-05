@@ -87,7 +87,7 @@
             }
         }
         return analyticsTermOptions;
-    };
+    }
 
     /**
      * Function to get product details  
@@ -113,7 +113,7 @@
             }
         }
         return product;
-    };
+    }
 
     /**
      * Function to get object details from URL and Name
@@ -140,7 +140,7 @@
             }
         }
         return category;
-    };
+    }
 
     /**
      * Function to store analytics event data
@@ -207,7 +207,7 @@
                 }
             }, true);
         });
-    };
+    }
 
     /**
      * Function to register search auto suggestion click event
@@ -239,7 +239,7 @@
                 });
             });
         });
-    };
+    }
 
     /**
      * Function to register auto-suggestion page click event
@@ -270,7 +270,7 @@
                 });
             });
         });
-    };
+    }
 
 
     /**
@@ -284,7 +284,7 @@
         klevu.each(klevu.dom.find(".klevuProductClick", target), function (key, value) {
             klevu.event.attach(value, "click", function (event) {
                 var parent = klevu.dom.helpers.getClosest(value, ".klevuProduct");
-                if (parent && parent != null) {
+                if (parent && parent !== null) {
                     var productId = parent.dataset.id;
                     if (productId) {
                         var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
@@ -322,14 +322,17 @@
             klevu.each(storedEvents, function (index, value) {
                 delete value.filters;
                 if (element == klevu.analyticsUtil.base.storage.click) {
-                    klevu.analyticsEvents.click(value);
+                    if (klevu.analyticsEvents.click) {
+                        klevu.analyticsEvents.click(value);
+                    }
                 } else if (element == klevu.analyticsUtil.base.storage.buy) {
-                    klevu.analyticsEvents.buy(value);
+                    if (klevu.analyticsEvents.buy) {
+                        klevu.analyticsEvents.buy(value);
+                    }
                 } else if (element == klevu.analyticsUtil.base.storage.categoryClick) {
-
-                    //TO-DO: Send category product click event
-                    console.log(value);
-
+                    if (klevu.analyticsEvents.catclick) {
+                        klevu.analyticsEvents.catclick(value);
+                    }
                 } else {
                     klevu.analyticsEvents.term(value);
                 }
@@ -337,7 +340,7 @@
             autoSug.addElement(element, "");
             autoSug.mergeToGlobal();
         }
-    };
+    }
 
     /**
      * Function to get Category view options
@@ -417,7 +420,7 @@
         klevu.each(klevu.dom.find(".klevuProductClick", target), function (key, value) {
             klevu.event.attach(value, "click", function (event) {
                 var parent = klevu.dom.helpers.getClosest(value, ".klevuProduct");
-                if (parent && parent != null) {
+                if (parent && parent !== null) {
                     var productId = parent.dataset.id;
                     if (productId) {
                         var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
@@ -462,7 +465,7 @@
         klevu.each(klevu.dom.find(".klevuProductClick", target), function (key, value) {
             klevu.event.attach(value, "click", function (event) {
                 var parent = klevu.dom.helpers.getClosest(value, parentProductClass);
-                if (parent && parent != null) {
+                if (parent && parent !== null) {
                     var productId = parent.dataset.id;
                     if (productId) {
                         var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
