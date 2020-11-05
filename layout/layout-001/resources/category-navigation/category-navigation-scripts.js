@@ -386,14 +386,17 @@ klevu.coreEvent.build({
             klevu.each(storedEvents, function (index, value) {
                 delete value.filters;
                 if (element == klevu.analyticsUtil.base.storage.click) {
-                    klevu.analyticsEvents.click(value);
+                    if (klevu.analyticsEvents.click) {
+                        klevu.analyticsEvents.click(value);
+                    }
                 } else if (element == klevu.analyticsUtil.base.storage.buy) {
-                    klevu.analyticsEvents.buy(value);
+                    if (klevu.analyticsEvents.buy) {
+                        klevu.analyticsEvents.buy(value);
+                    }
                 } else if (element == klevu.analyticsUtil.base.storage.categoryClick) {
-
-                    //TO-DO: Send category product click event
-                    //console.log(value);
-
+                    if (klevu.analyticsEvents.catclick) {
+                        klevu.analyticsEvents.catclick(value);
+                    }
                 } else {
                     klevu.analyticsEvents.term(value);
                 }
@@ -401,7 +404,7 @@ klevu.coreEvent.build({
             autoSug.addElement(element, "");
             autoSug.mergeToGlobal();
         }
-    };
+    }
 
     /**
      * Function to get Category view options
@@ -2266,10 +2269,10 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
                         ele.slider.destroy();
                     }
                     ele.sliderData = sliderData;
-                    if(sliderData.start === undefined || sliderData.start == null){
+                    if (sliderData.start === undefined || sliderData.start == null) {
                         sliderData.start = sliderData.min;
                     }
-                    if(sliderData.end === undefined || sliderData.end == null){
+                    if (sliderData.end === undefined || sliderData.end == null) {
                         sliderData.end = sliderData.max;
                     }
                     ele.slider = noUiSlider.create(ele, {
@@ -2553,7 +2556,7 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
                 var parentElem = klevu.dom.helpers.getClosest(this, ".klevuMeta");
                 klevu.each(klevu.dom.find(".kuFilters", parentElem), function (index, ele) {
                     ele.classList.add("kuFiltersIn");
-                    self.manageSliderStatus(true,scope);
+                    self.manageSliderStatus(true, scope);
                 });
 
             });
@@ -2575,7 +2578,7 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
                 var parentElem = klevu.dom.helpers.getClosest(this, ".klevuMeta");
                 klevu.each(klevu.dom.find(".kuFilters", parentElem), function (index, ele) {
                     ele.classList.remove("kuFiltersIn");
-                    self.manageSliderStatus(false,scope);
+                    self.manageSliderStatus(false, scope);
                 });
 
             });
@@ -2956,6 +2959,10 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
                     if (currentSection && currentSection.length) {
                         data.context.section = currentSection;
                         scope.kScope.data.context.section = currentSection;
+                    } else {
+                        if (klevu.dom.find(".klevuMeta", target)[0]) {
+                            klevu.dom.find(".klevuMeta", target)[0].click();
+                        }
                     }
                 } else {
                     if (klevu.dom.find(".klevuMeta", target)[0]) {
@@ -2963,27 +2970,22 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
                     }
                 }
 
-
-                //TO-DO: Add Category analytics
-
-                var termOptions = klevu.analyticsUtil.base.getTermOptions(scope.kScope, true);
+                var termOptions = klevu.analyticsUtil.base.getCategoryViewOptions(scope.kScope, true);
                 if (termOptions.klevu_src) {
-                    termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:landing]]");
+                    termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:category]]");
                     if (termOptions.filters) {
                         termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;source:filters]]");
                     }
                 }
 
                 delete termOptions.filters;
-                klevu.analyticsEvents.term(termOptions);
+                klevu.analyticsEvents.catview(termOptions);
 
-                klevu.analyticsUtil.base.registerLandingProductClickEvent(
+                klevu.analyticsUtil.base.registerCategoryProductClickEvent(
                     scope.kScope,
                     klevu.analyticsUtil.base.storage.dictionary,
-                    klevu.analyticsUtil.base.storage.click
+                    klevu.analyticsUtil.base.storage.categoryClick
                 );
-
-
 
             }
         });
@@ -2991,8 +2993,9 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
 });
 
 /**
- * Klevu analyticsUtil base extension
+ * Add to cart module landing override for catnav
  */
+
 klevu.coreEvent.attach("analyticsPowerUp", {
     name: "extAddToCartAnalyticsUtil",
     fire: function () {
@@ -3004,7 +3007,7 @@ klevu.coreEvent.attach("analyticsPowerUp", {
          * @param {*} dictionary 
          * @param {*} element 
          */
-        function registerProductAddToCartClickEvent(scope, className, dictionary, element) {
+        function registerCatNavProductAddToCartClickEvent(scope, className, dictionary, element) {
             var target = klevu.getSetting(scope.settings, "settings.search.searchBoxTarget");
             klevu.each(klevu.dom.find(className, target), function (key, value) {
                 klevu.event.attach(value, "click", function (event) {
@@ -3016,16 +3019,20 @@ klevu.coreEvent.attach("analyticsPowerUp", {
                     if (productId) {
                         var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
                         if (product) {
-                            var termOptions = klevu.analyticsUtil.base.getTermOptions(scope);
-                            if (termOptions) {
-                                termOptions.klevu_keywords = termOptions.klevu_term;
-                                termOptions.klevu_productId = product.id;
-                                termOptions.klevu_productName = product.name;
-                                termOptions.klevu_productUrl = product.url;
-                                termOptions.klevu_src = "[[shortlist:add-to-cart;;template:landing]]";
-                                delete termOptions.klevu_term;
-                                klevu.analyticsUtil.base.storeAnalyticsEvent(dictionary, element, termOptions);
-                            }
+                            var categoryOptions = klevu.analyticsUtil.base.getCategoryViewOptions(scope);
+                            categoryOptions.klevu_productId = product.id;
+                            categoryOptions.klevu_productName = product.name;
+                            categoryOptions.klevu_productUrl = product.url;
+                            categoryOptions.klevu_src = "[[typeOfRecord:" + product.typeOfRecord + ";;template:category]]";
+                            categoryOptions.klevu_productSku = product.sku;
+                            categoryOptions.klevu_salePrice = product.salePrice;
+                            categoryOptions.klevu_productRatings = product.rating;
+                            categoryOptions.klevu_productPosition = categoryOptions.klevu_pageStartsFrom;
+
+                            delete categoryOptions.klevu_term;
+                            delete categoryOptions.klevu_pageStartsFrom;
+
+                            klevu.analyticsUtil.base.storeAnalyticsEvent(dictionary, element, categoryOptions);
                         }
                     }
                 });
@@ -3033,7 +3040,7 @@ klevu.coreEvent.attach("analyticsPowerUp", {
         }
 
         klevu.extend(true, klevu.analyticsUtil.base, {
-            registerProductAddToCartClickEvent: registerProductAddToCartClickEvent
+            registerCatNavProductAddToCartClickEvent: registerCatNavProductAddToCartClickEvent
         });
 
     }
@@ -3053,11 +3060,11 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
         klevu.search.categoryLanding.getScope().chains.template.events.add({
             name: "bindAnalyticsOnAddToCartButtonEvent",
             fire: function (data, scope) {
-                klevu.analyticsUtil.base.registerProductAddToCartClickEvent(
+                klevu.analyticsUtil.base.registerCatNavProductAddToCartClickEvent(
                     scope.kScope,
                     ".kuAddtocart",
                     klevu.analyticsUtil.base.storage.dictionary,
-                    klevu.analyticsUtil.base.storage.click
+                    klevu.analyticsUtil.base.storage.categoryClick
                 );
             }
         });
@@ -3065,7 +3072,7 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
 });
 
 /**
- * Klevu AnalyticsUtil base extension for Product Quick view
+ * Overrides for catnav
  */
 
 klevu.coreEvent.attach("analyticsPowerUp", {
@@ -3076,7 +3083,7 @@ klevu.coreEvent.attach("analyticsPowerUp", {
          * @param {*} scope 
          * @param {*} srcTerm 
          */
-        function registerLandingProductQuickViewClickEvent(scope, srcTerm) {
+        function registerCatNavProductQuickViewClickEvent(scope, srcTerm) {
             var target = klevu.getSetting(scope.settings, "settings.search.searchBoxTarget");
             klevu.each(klevu.dom.find(".kuQuickViewBtn", target), function (key, value) {
                 klevu.event.attach(value, "click", function (event) {
@@ -3088,16 +3095,21 @@ klevu.coreEvent.attach("analyticsPowerUp", {
                     if (productId) {
                         var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
                         if (product) {
-                            var termOptions = klevu.analyticsUtil.base.getTermOptions(scope);
-                            if (termOptions) {
-                                termOptions.klevu_keywords = termOptions.klevu_term;
-                                termOptions.klevu_productId = product.id;
-                                termOptions.klevu_productName = product.name;
-                                termOptions.klevu_productUrl = product.url;
-                                termOptions.klevu_src = "[[" + srcTerm + "]]";
-                                delete termOptions.klevu_term;
-                                klevu.analyticsEvents.click(termOptions);
-                            }
+
+                            var categoryOptions = klevu.analyticsUtil.base.getCategoryViewOptions(scope);
+                            categoryOptions.klevu_productId = product.id;
+                            categoryOptions.klevu_productName = product.name;
+                            categoryOptions.klevu_productUrl = product.url;
+                            categoryOptions.klevu_src = "[[" + srcTerm + "]]";
+                            categoryOptions.klevu_productSku = product.sku;
+                            categoryOptions.klevu_salePrice = product.salePrice;
+                            categoryOptions.klevu_productRatings = product.rating;
+                            categoryOptions.klevu_productPosition = categoryOptions.klevu_pageStartsFrom;
+
+                            delete categoryOptions.klevu_term;
+                            delete categoryOptions.klevu_pageStartsFrom;
+
+                            klevu.analyticsEvents.catclick(categoryOptions);
                         }
                     }
                 });
@@ -3112,7 +3124,7 @@ klevu.coreEvent.attach("analyticsPowerUp", {
          * @param {*} dictionary 
          * @param {*} element 
          */
-        function registerQuickViewButtonClickEvent(scope, srcTerm, className, dictionary, element) {
+        function registerCatNavQuickViewButtonClickEvent(scope, srcTerm, className, dictionary, element) {
             var target = klevu.dom.find(".kuModal")[0];
             klevu.each(klevu.dom.find(className, target), function (key, value) {
                 klevu.event.attach(value, "click", function (event) {
@@ -3120,16 +3132,21 @@ klevu.coreEvent.attach("analyticsPowerUp", {
                     if (productId) {
                         var product = klevu.analyticsUtil.base.getProductDetailsFromId(productId, scope);
                         if (product) {
-                            var termOptions = klevu.analyticsUtil.base.getTermOptions(scope);
-                            if (termOptions) {
-                                termOptions.klevu_keywords = termOptions.klevu_term;
-                                termOptions.klevu_productId = product.id;
-                                termOptions.klevu_productName = product.name;
-                                termOptions.klevu_productUrl = product.url;
-                                termOptions.klevu_src = "[[typeOfRecord:" + product.typeOfRecord + ";;" + srcTerm + "]]";
-                                delete termOptions.klevu_term;
-                                klevu.analyticsUtil.base.storeAnalyticsEvent(dictionary, element, termOptions);
-                            }
+
+                            var categoryOptions = klevu.analyticsUtil.base.getCategoryViewOptions(scope);
+                            categoryOptions.klevu_productId = product.id;
+                            categoryOptions.klevu_productName = product.name;
+                            categoryOptions.klevu_productUrl = product.url;
+                            categoryOptions.klevu_src = "[[typeOfRecord:" + product.typeOfRecord + ";;" + srcTerm + "]]";
+                            categoryOptions.klevu_productSku = product.sku;
+                            categoryOptions.klevu_salePrice = product.salePrice;
+                            categoryOptions.klevu_productRatings = product.rating;
+                            categoryOptions.klevu_productPosition = categoryOptions.klevu_pageStartsFrom;
+
+                            delete categoryOptions.klevu_term;
+                            delete categoryOptions.klevu_pageStartsFrom;
+
+                            klevu.analyticsUtil.base.storeAnalyticsEvent(dictionary, element, categoryOptions);
                         }
                     }
                 });
@@ -3137,8 +3154,8 @@ klevu.coreEvent.attach("analyticsPowerUp", {
         }
 
         klevu.extend(true, klevu.analyticsUtil.base, {
-            registerLandingProductQuickViewClickEvent: registerLandingProductQuickViewClickEvent,
-            registerQuickViewButtonClickEvent: registerQuickViewButtonClickEvent
+            registerCatNavProductQuickViewClickEvent: registerCatNavProductQuickViewClickEvent,
+            registerCatNavQuickViewButtonClickEvent: registerCatNavQuickViewButtonClickEvent
         });
     }
 });
@@ -3158,9 +3175,9 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
         klevu.search.categoryLanding.getScope().chains.template.events.add({
             name: "bindAnalyticsOnProductQuickView",
             fire: function (data, scope) {
-                klevu.analyticsUtil.base.registerLandingProductQuickViewClickEvent(
+                klevu.analyticsUtil.base.registerCatNavProductQuickViewClickEvent(
                     scope.kScope,
-                    "source:quick-view;;template:landing"
+                    "source:quick-view;;template:category"
                 );
             }
         });
@@ -3169,20 +3186,20 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
             name: "bindAnalyticsOnProductQuickViewEvents",
             fire: function (data, scope) {
 
-                klevu.analyticsUtil.base.registerQuickViewButtonClickEvent(
+                klevu.analyticsUtil.base.registerCatNavQuickViewButtonClickEvent(
                     scope.kScope,
                     "source:quick-view",
                     ".kuModalProductURL",
                     klevu.analyticsUtil.base.storage.dictionary,
-                    klevu.analyticsUtil.base.storage.click
+                    klevu.analyticsUtil.base.storage.categoryClick
                 );
 
-                klevu.analyticsUtil.base.registerQuickViewButtonClickEvent(
+                klevu.analyticsUtil.base.registerCatNavQuickViewButtonClickEvent(
                     scope.kScope,
                     "source:quick-view;;shortlist:add-to-cart",
                     ".kuModalProductCart",
                     klevu.analyticsUtil.base.storage.dictionary,
-                    klevu.analyticsUtil.base.storage.click
+                    klevu.analyticsUtil.base.storage.categoryClick
                 );
             }
         });
