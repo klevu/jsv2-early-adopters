@@ -37,7 +37,7 @@
     <div class="klevuLanding"></div>
 
     <!-- js -->
-    <script src="//js.klevu.com/klevu-js-v2/2.3.1/klevu.js"></script>
+    <script src="//js.klevu.com/klevu-js-v2/2.3.2/klevu.js"></script>
     <script src="/assets/js/klevu-settings.js"></script>
     <script src="/assets/js/quick/klevu-quick.js"></script>
     <script src="/assets/js/landing/klevu-landing.js"></script>
