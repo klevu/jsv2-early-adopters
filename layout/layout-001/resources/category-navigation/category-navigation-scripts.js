@@ -2727,42 +2727,6 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
     }
 });
 
-
-/**
- *  search request fire 
- */
-
-/** add landing init */
-klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
-    name: "search-landing-init",
-    fire: function () {
-        /** read query param */
-        if (klevu.dom.find(".klevuCategoryPage").length) {
-
-            var klevu_pageCategory = sessionStorage.getItem("klevu_pageCategory");
-            var klevu_userLandingFilterResults = sessionStorage.getItem("klevu_userLandingFilterResults");
-
-            sessionStorage.removeItem("klevu_pageCategory");
-            sessionStorage.removeItem("klevu_userLandingFilterResults");
-
-            if (klevu_pageCategory || klevu_userLandingFilterResults) {
-                klevu.search.categoryLanding.setTarget(klevu.dom.find(".klevuCategoryPage")[0]);
-                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.fullPageLayoutEnabled", true);
-                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.minChars", 0);
-
-                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.categoryPath", klevu_pageCategory);
-                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.categoryFilters", klevu_userLandingFilterResults);
-
-                var tempElement = klevu.search.categoryLanding.getScope().element;
-                tempElement.kScope.data = tempElement.kObject.resetData(tempElement);
-                klevu.event.fireChain(tempElement.kScope, "chains.events.keyUp", tempElement, tempElement.kScope.data, null);
-            }
-
-        }
-    }
-});
-
-
 /**
  * facets module build event
  */
@@ -3204,5 +3168,74 @@ klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
             }
         });
 
+    }
+});
+
+/**
+ * Important: 
+ * 
+ * Any new module added to this landing JS should be added here, after this comment line ends
+ * and before the 'search-landing-init' event added.
+ * 
+ * 'search-landing-init' will fire the /search request and if your module has a change in the
+ * request header then it will not consider after the 'search-landing-init' event.
+ * 
+ */
+
+/**
+ * =============================
+ * Module implementation starts
+ * =============================
+ */
+
+klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
+    name: "attachModuleImplementation",
+    fire: function () {
+
+        /**
+         * Module implementation for landing
+         */
+
+
+
+    }
+});
+
+/**
+ * =============================
+ * Module implementation ends
+ * =============================
+ */
+
+
+/**
+ * Event to fire landing search request
+ */
+klevu.coreEvent.attach("setRemoteConfigCategoryLanding", {
+    name: "search-landing-init",
+    fire: function () {
+        /** read query param */
+        if (klevu.dom.find(".klevuCategoryPage").length) {
+
+            var klevu_pageCategory = sessionStorage.getItem("klevu_pageCategory");
+            var klevu_userLandingFilterResults = sessionStorage.getItem("klevu_userLandingFilterResults");
+
+            sessionStorage.removeItem("klevu_pageCategory");
+            sessionStorage.removeItem("klevu_userLandingFilterResults");
+
+            if (klevu_pageCategory || klevu_userLandingFilterResults) {
+                klevu.search.categoryLanding.setTarget(klevu.dom.find(".klevuCategoryPage")[0]);
+                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.fullPageLayoutEnabled", true);
+                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.minChars", 0);
+
+                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.categoryPath", klevu_pageCategory);
+                klevu.setSetting(klevu.search.categoryLanding.getScope().settings, "settings.search.categoryFilters", klevu_userLandingFilterResults);
+
+                var tempElement = klevu.search.categoryLanding.getScope().element;
+                tempElement.kScope.data = tempElement.kObject.resetData(tempElement);
+                klevu.event.fireChain(tempElement.kScope, "chains.events.keyUp", tempElement, tempElement.kScope.data, null);
+            }
+
+        }
     }
 });

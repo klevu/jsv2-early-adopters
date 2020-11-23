@@ -388,33 +388,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 });
 
 /**
- * Event to fire landing search request
- */
-klevu.coreEvent.attach("setRemoteConfigLanding", {
-    name: "search-landing-init",
-    fire: function () {
-
-        if (klevu.dom.find(".klevuLanding").length > 0) {
-            klevu.search.landing.setTarget(klevu.dom.find(".klevuLanding")[0]);
-            klevu.setSetting(klevu.search.landing.getScope().settings, "settings.search.fullPageLayoutEnabled", true);
-            klevu.setSetting(klevu.search.landing.getScope().settings, "settings.search.minChars", 0);
-            var klevuUrlParams = klevu.getAllUrlParameters();
-            if (klevuUrlParams.length > 0) {
-                klevu.each(klevuUrlParams, function (key, elem) {
-                    if (elem.name == "q") {
-                        var tempElement = klevu.search.landing.getScope().element;
-                        tempElement.value = decodeURIComponent(elem.value).split("+").join(" ");
-                        tempElement.kScope.data = tempElement.kObject.resetData(tempElement);
-                        klevu.event.fireChain(tempElement.kScope, "chains.events.keyUp", tempElement, tempElement.kScope.data, null);
-                    }
-                });
-            }
-        }
-
-    }
-});
-
-/**
  * Attach code event to landing page analytics
  */
 
@@ -442,8 +415,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     if (currentSection && currentSection.length) {
                         data.context.section = currentSection;
                         scope.kScope.data.context.section = currentSection;
-                    }
-                    else{
+                    } else {
                         if (klevu.dom.find(".klevuMeta", target)[0]) {
                             klevu.dom.find(".klevuMeta", target)[0].click();
                         }
@@ -473,5 +445,68 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
             }
         });
+    }
+});
+
+
+/**
+ * Important: 
+ * 
+ * Any new module added to this landing JS should be added here, after this comment line ends
+ * and before the 'search-landing-init' event added.
+ * 
+ * 'search-landing-init' will fire the /search request and if your module has a change in the
+ * request header then it will not consider after the 'search-landing-init' event.
+ * 
+ */
+
+/**
+ * =============================
+ * Module implementation starts
+ * =============================
+ */
+
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "attachModuleImplementation",
+    fire: function () {
+
+        /**
+         * Module implementation for landing
+         */
+
+
+
+    }
+});
+
+/**
+ * =============================
+ * Module implementation ends
+ * =============================
+ */
+
+
+/**
+ * Event to fire landing search request
+ */
+klevu.coreEvent.attach("setRemoteConfigLanding", {
+    name: "search-landing-init",
+    fire: function () {
+        if (klevu.dom.find(".klevuLanding").length > 0) {
+            klevu.search.landing.setTarget(klevu.dom.find(".klevuLanding")[0]);
+            klevu.setSetting(klevu.search.landing.getScope().settings, "settings.search.fullPageLayoutEnabled", true);
+            klevu.setSetting(klevu.search.landing.getScope().settings, "settings.search.minChars", 0);
+            var klevuUrlParams = klevu.getAllUrlParameters();
+            if (klevuUrlParams.length > 0) {
+                klevu.each(klevuUrlParams, function (key, elem) {
+                    if (elem.name == "q") {
+                        var tempElement = klevu.search.landing.getScope().element;
+                        tempElement.value = decodeURIComponent(elem.value).split("+").join(" ");
+                        tempElement.kScope.data = tempElement.kObject.resetData(tempElement);
+                        klevu.event.fireChain(tempElement.kScope, "chains.events.keyUp", tempElement, tempElement.kScope.data, null);
+                    }
+                });
+            }
+        }
     }
 });
