@@ -3,9 +3,8 @@
 The files you will need for this module can be found in the
 [resources](/getting-started/6-category-navigation/resources) folder.
 
-This will build on steps 1-5 of th is guide, so please open up the Magento extension you have created so far.
-
-Add the following assets to your theme, from the above 'resources' folder:
+This guide will build upon the steps 1-5, and assumes you have already completed them, so please open up the Magento extension you have created in those steps.
+Add the following assets to your extension, from the above 'resources' folder:
 
 - `view/frontend/web/js/category/klevu-category.js`
     - Copy the content from `category-navigation-scripts.js`
