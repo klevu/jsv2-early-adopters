@@ -2,7 +2,7 @@
 function startup(klevu) {
     var options = {
         url : {
-            search: klevu.settings.url.protocol + '//cs2.ksearchnet.com/cs/v2/search',
+            search: klevu.settings.url.protocol + '//eucs3.klevu.com/cs/v2/search',
             landing : '/search.php',
             protocolFull: klevu.settings.url.protocol + "//"
         },
