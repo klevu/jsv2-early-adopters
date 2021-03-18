@@ -34,7 +34,7 @@ Include the `landing-filter-left.phtml` template by modifying `catalogsearch_res
 Include the new JavaScript and CSS files by modifying the contents like this:
 
 ```html
-<block class="Magento\Framework\View\Element\Template" name="klevu_landing_sort" template="Klevu_JSv2::landing/landing-filter-left.phtml" after="-" />
+<block class="Magento\Framework\View\Element\Template" name="klevu_landing_filter_left" template="Klevu_JSv2::landing/landing-filter-left.phtml" after="-" />
 ```
 
 Finally, we need to include the facets in our search results template,
