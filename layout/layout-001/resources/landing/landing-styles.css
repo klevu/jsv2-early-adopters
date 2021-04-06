@@ -1,112 +1,289 @@
-/* CSS of Klevu Search Result Landing Page */
-.klevu-fluid, .klevuTarget, .klevuTarget * {
-    font-family: inherit;
-}
-/* klevu container for fix width layout*/
-.kuContainer * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-}
-.kuContainer *:before, .kuContainer *:after, .kuContainer * {
-    box-sizing: inherit;
-    -webkit-font-smoothing: antialiased;
-}
-.kuContainer {
-    width: 100%;
-    margin: 0 auto;
-    font-family: inherit;
-    font-size: 12px;
-    background-color: #ffffff;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    max-width: 1280px;
-}
-.kuBlockFullwidth {
-    width: 100% !important;
-    box-sizing: border-box;
-}
-/* klevu container for fluid layout*/
-.kuProListing {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-/* klevu filters */
-.kuFilters {
-    float: left;
-    width: 20%;
-}
-/* set the height of each filter*/
-.kuFilterBox {
-    margin-top: 0px;
-    margin-bottom: 15px;
-    background: none;
-    padding-bottom: 18px;
-    position: relative;
-}
-.kuFilterNames {
-    height: 120px;
-    overflow: hidden;
-}
-.kuFilterNames.kuFilterCollapse {
-    height: 0;
-    overflow: hidden;
-}
-.kuFilterNames.kuFilterShowAll {
-    height: auto;
-    overflow: unset;
-}
-/* heading of filters i.e brand, color */
-.kuFilterHead {
+[ku-container] a,
+[ku-container] p,
+[ku-container] div,
+[ku-container] ul li {
     font-family: inherit;
     font-size: 13px;
-    padding: 5px 10px;
-    color: #333333;
-    display: block;
-    line-height: 1.8;
-    text-transform: uppercase;
-    border-bottom: 1px solid #c7c8ca;
-    background: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    margin-top: 0px;
-    position: relative;
-}
-/* down arrow div in filters */
-.kuShowOpt {
-    padding: 0px 10px;
-    cursor: pointer;
-    position: absolute;
-    bottom: -5px;
-}
-/* up arrow div in filters */
-.kuFilterNames.kuFilterCollapse .kuShowOpt {
-    display: none;
-}
-/* down & up arrow link color in filters */
-.kuShowOpt a, .kuHideOpt a {
-    color: #4d7abf;
+    line-height: 130%;
     text-decoration: none;
+    font-weight: normal;
 }
-/* show more dot icon*/
-.kuFilterDot {
-    height: 5px;
-    width: 5px;
-    background-color: #888888;
-    border-radius: 50%;
+
+[ku-container] * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: top;
+}
+
+/* Base Classes */
+.kuBase {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container],
+[ku-block] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/* main Container */
+[ku-container][data-container-role="main"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*==========
+---Header--- 
+============*/
+/* main Header */
+[ku-container][data-container-role="header"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="subPanel"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="banner"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="navigation"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/*=================== 
+---Result Wrapper---
+=====================*/
+.kuResultContent {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+.kuResultContent [ku-container]:empty {
+    display: none !important;
+    width: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Results container 
+--------------------- */
+[ku-container][data-container-role="content"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+    display: table;
+    width: 100%;
+}
+
+[ku-container][data-container-role="content"] [ku-block]:empty {
+    display: none !important;
+    width: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+[ku-block][ku-empty],
+[ku-container][ku-empty] {
+    display: none !important;
+    width: 0px !important;
+    padding: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* results left 
+----------------- */
+[ku-container][data-container-role="left"] {
+    display: table-cell;
+    width: 22%;
+    height: auto;
+    max-width: 275px;
+}
+
+/* results right
+------------------ */
+[ku-container][data-container-role="right"] {
+    display: table-cell;
+    width: 22%;
+    height: auto;
+    max-width: 275px;
+}
+
+/* results main center body 
+---------------------------- */
+[ku-container][data-container-role="content"] [ku-container][data-container-role="results"] {
+    display: table-cell;
+    width: auto;
+    height: auto;
+}
+
+[ku-container][data-container-role="content"]:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+[ku-block]:empty {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+    min-height: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/*==========
+---footer--- 
+============*/
+/* main Footer */
+/*==========
+---Responsive--- 
+============*/
+@media only screen and (max-width: 1100px) {
+    .kuResults ul li {
+        width: 33%;
+        padding: 5px;
+    }
+
+    .kuFilterBox .kuFilterNames ul li a span.kufacet-text {
+        max-width: 60%;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+
+    [ku-container][data-container-role="left"],
+    [ku-container][data-container-role="right"] {
+        width: 32%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    [ku-container][data-container-role="content"],
+    [ku-container][data-container-role="content"] [ku-container][data-container-role="results"],
+    [ku-container][data-container-role="left"],
+    [ku-container][data-container-role="right"] {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .kuContainer .kuTabs a {
+        display: inline-block;
+    }
+
+    .kuContainer .kuTabs a:hover {
+        border-bottom: 0px solid #dddddd;
+        text-decoration: none;
+        background: #f5f5f5;
+    }
+
+    .kuContainer a.kuTabSelected {
+        border-bottom: 0px solid #dddddd;
+        background: #f5f5f5;
+    }
+
+    .kuLandingNoResultsMessage {
+        font-size: 15px;
+        line-height: 1.2em;
+        padding: 10px 5%;
+        text-align: center;
+    }
+
+    .kuFilterBox {
+        margin-bottom: 5px;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+}
+
+/* Rating */
+.klevu-stars-small-l2 {
+    height: 13px;
     display: inline-block;
-    margin: 2px;
+    vertical-align: bottom;
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-gray.png) top left repeat-x;
+    width: 65px;
+    margin-top: 5px;
 }
-/* set list for filters */
+
+.klevu-stars-small-l2 .klevu-rating-l2 {
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-yellow.png) top left repeat-x;
+    height: 13px;
+}
+
+.kuFilterNames {
+    height: 118px;
+    overflow: hidden;
+}
+
 .kuFilterNames ul {
     margin: 0px;
     padding: 0px;
 }
-/* style for each list item in filter */
+
 .kuFilterNames ul li {
     list-style: none;
     text-align: left;
@@ -115,71 +292,51 @@
     margin: 0px;
     padding: 0px;
 }
+
 .kuFilterNames ul li a {
     display: block;
     position: relative;
     overflow: hidden;
     padding: 0px;
-    font-size: 13px;
     text-decoration: none;
     cursor: pointer;
     font-style: normal;
     color: #333333;
     background: none;
-    margin: 2px 10px;
+    margin: 2px;
+    margin-left: 5px;
 }
-/* set color for selected filter */
-.kuFilterNames ul li.kuSelected a {
-    color: #333333;
-}
+
 .kuFilterNames ul li a span {
     display: inline-block;
     vertical-align: middle;
-    line-height: 120%;
 }
+
 .kuFilterNames ul li a span.kufacet-text {
-    max-width: 75%;
-    width: 75%;
+    max-width: 74%;
+    width: 74%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     float: left;
 }
-/* Radio button for the filter */
+
 .kuFilterNames ul li a span.kuFilterIcon {
     float: left;
     margin: 0px;
     padding: 0px;
     font-weight: normal;
 }
-.kuFilterIcon:before {
-    content: '';
-    border: 2px solid #CCCCCC;
-    border-radius: 50%;
-    margin: 0px;
-    margin-right: 8px;
-    height: 18px;
-    width: 18px;
-    display: inline-block;
-    color: #CCCCCC;
-    position: relative;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    transition: background 200ms;
-    -webkit-transition: background 200ms;
-    -moz-transition: background 200ms;
-    -webkit-transition: border-color 200ms;
-    -moz-transition: border-color 200ms;
-    transition: border-color 200ms;
+
+.kuFilterNames ul li a:hover {
+    cursor: pointer;
 }
+
 .kuFilterNames ul li a:hover span.kuFilterIcon:before {
-    background: #ffffff;
+    background: #FFFFFF;
 }
-.kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
-    background: #ffffff;
-}
-.kuFilterNames ul li a:hover span.kuFilterIcon:after, .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+
+.kuFilterNames ul li a:hover span.kuFilterIcon:after {
     content: '';
     position: absolute;
     width: 8px;
@@ -200,59 +357,157 @@
     transform: rotate(-45deg);
     border-radius: 50%;
 }
+
+.kuFilterNames ul li a span.kuFilterTotal {
+    float: right;
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+.kuFilterNames ul li a span.kuFilterCancel {
+    float: right;
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+.kuFilterNames ul li.kuSelected a {
+    color: #333333;
+}
+
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #FFFFFF;
+}
+
 .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #333333;
+    top: 5px;
+    left: 5px;
+    border: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 50%;
     border-color: #333333;
 }
+
 .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-color: #333333;
 }
-/* total nos of results available for filter & shows cancel button if filter is selected */
-.kuFilterNames ul li a span.kuFilterTotal, .kuFilterNames ul li a span.kuFilterCancel {
-    float: right;
-    text-align: right;
-    margin: 0px;
-    padding: 3px;
+
+.kuFilterNames.kuFilterShowAll {
+    height: auto;
+    overflow: unset;
 }
-/* set background color on hover of filter */
-.kuFilterNames ul li a:hover {
-    cursor: pointer;
-}
-/* set background color for selected filter */
-.kuFilterNames ul li.kuSelected a {
+
+.kuFilterHead {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px;
     color: #333333;
+    display: block;
+    line-height: 1.8;
+    text-transform: uppercase;
+    border-bottom: 1px solid #EEEEEE;
+    background: none;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
+.kuShowOpt {
+    padding: 0px 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5px;
+}
+
+.kuShowOpt a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.kuHideOpt a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.kuFilterDot {
+    height: 5px;
+    width: 5px;
+    background-color: #333333;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+}
+
+.kuFilterIcon:before {
+    content: '';
+    border: 2px solid #DDDDDD;
+    border-radius: 50%;
+    margin: 0px;
+    margin-right: 6px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #DDDDDD;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: background 200ms;
+    -webkit-transition: background 200ms;
+    -moz-transition: background 200ms;
+    -webkit-transition: border-color 200ms;
+    -moz-transition: border-color 200ms;
+    transition: border-color 200ms;
+}
+
 .kuMulticheck .kuFilterIcon:before {
     content: '';
-    border: 1px solid #CCCCCC;
+    border: 1px solid #DDDDDD;
     border-radius: 0px;
     margin: 0px;
     margin-right: 8px;
     height: 18px;
     width: 18px;
     display: inline-block;
-    color: #CCCCCC;
+    color: #DDDDDD;
     position: relative;
 }
+
 .kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:before {
-    background: #ffffff;
+    background: #FFFFFF;
     border: 1px solid #333333;
 }
-.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
-    background: #ffffff;
-    border: 1px solid #333333;
-}
-.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:after, .kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+
+.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:after {
     content: '';
     position: absolute;
     width: 10px;
     height: 5px;
     background: transparent;
-    top: 4px;
+    top: 5px;
     left: 4px;
-    border: 2px solid #cccccc;
+    border: 2px solid #333333;
     border-top: none;
     border-right: none;
     border-radius: 0px;
@@ -265,836 +520,650 @@
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
+
+.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #FFFFFF;
+    border: 1px solid #333333;
+}
+
+.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background: transparent;
+    top: 4px;
+    left: 4px;
+    border: 2px solid #DDDDDD;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
 .kuMulticheck .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-color: #333333;
 }
-/* klevu results box */
-.kuResultWrap {
-    float: left;
-    width: 80%;
+
+.kuCarousel {
     box-sizing: border-box;
-    padding-left: 20px;
-    margin: 0px;
-}
-/* div for Sorting, pagination, change result view icons*/
-.kuSortHeader {
-    padding-top: 0px;
-    margin-top: 0px;
-    float: left;
+    position: relative;
     width: 100%;
+    height: 210px;
 }
-.kuResultInfo {
-    border-bottom: 1px solid #c7c8ca;
-    padding: 0px;
+
+.kuCarousel *:before {
+    box-sizing: border-box;
 }
-/* div to display total no of results */
-.kuTotalResultsTab {
-    float: left;
-    width: 40%;
+
+.kuCarousel *:after {
+    box-sizing: border-box;
 }
-.kuTotResults {
-    text-align: left;
-    margin-bottom: 10px;
-    line-height: 24px;
-    font-weight: bold;
-    font-size: 14px;
-    float: left;
-    color: #333333;
-}
-.kuContainer .kuTabs {
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border-bottom: 1px solid #eee;
-}
-.kuContainer .kuTabs a {
-    padding: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    margin-right: 5px;
-    transition: background 200ms;
-    -webkit-transition: background 300ms;
-    -moz-transition: background 200ms;
-    color: #333333;
-    display: inline-block;
+
+.kuCarousel .kuCarousel-content {
     position: relative;
-}
-.kuContainer .kuTabs a:hover {
-    border-bottom: 3px solid #c7c8ca;
-    text-decoration: none;
-}
-.kuContainer a.kuTabSelected {
-    border-bottom: 3px solid #c7c8ca;
-}
-.kuContainer a.kuTabSelected:hover {
-    background: none;
-}
-.kuSortingOpt {
-    width: 100%;
-    padding: 12px 10px;
-}
-/* to display sorting dropdown */
-.kuDropdown {
-    margin: 5px 10px;
-    position: relative;
-    display: inline-block;
-    min-width: 175px;
-    float: left;
-    z-index: 100;
-}
-.kuDropdownLabel {
-    background-color: #FFF;
-    color: #333333;
-    padding: 8px 12px;
-    font-size: 13px;
-    border: none;
-    display: inline-block;
-    text-transform: capitalize;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    padding-right: 35px;
-    position: relative;
-}
-.kuDropdownOptions {
-    display: none;
-    position: absolute;
-    background-color: #efefef;
-    min-width: 150px;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-.kuDropdownOptions .kuDropOption {
-    color: #333333;
-    padding: 8px 12px;
-    text-decoration: none;
-    display: block;
-    cursor: pointer;
-}
-.kuDropdown:hover .kuDropdownOptions {
-    display: block;
-}
-.kuDropdownOptions .kuDropOption:hover, .kuDropdown:hover .kuDropdownLabel {
-    background-color: #ddd;
-}
-/* ends code for sorting dropdown */
-/* Icons to change the view of result (grid/view) */
-.kuView {
-    float: left;
-    min-width: 70px;
-    text-align: center;
-    margin: 8px 5px;
-}
-/* display GRID view icon */
-.kuView .kuGridviewBtn {
-    background: url(https://js.klevu.com/klevu-js-v1/img-1-1/ku-gridview.png) no-repeat 0 0;
-    cursor: pointer;
-}
-/* display LIST view icon */
-.kuView .kuListviewBtn {
-    background: url(https://js.klevu.com/klevu-js-v1/img-1-1/ku-listview.png) no-repeat 0 0;
-    cursor: pointer;
-}
-/* set width and height of view icons box*/
-.kuView a {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    margin-left: 4px;
-    text-align: center;
-    vertical-align: middle;
     overflow: hidden;
-    -webkit-transition: background-position .1s ease-in;
-    -moz-transition: background-position .1s ease-in;
-    -o-transition: background-position .1s ease-in;
-    transition: background-position .1s ease-in;
+    transition: width 0.4s;
+    height: 100%;
 }
-/* changing background position on hover of GRID/LIST view icons */
-.kuView a:hover {
-    background-position: 0 -25px;
-    text-decoration: none;
+
+.kuCarousel .kuSlide {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: left 0.4s cubic-bezier(0.47, 0.13, 0.15, 0.89);
 }
-/* change background position to set current view */
-.kuView a.kuCurrent {
-    background-position: 0 -25px;
-    text-decoration: none;
-}
-/* dropdown to select no of results per page*/
-/*.kuPerPage {
-    float: left;
-    width: 40%;
-    padding-left: 10px;
-    text-align: left;
-    box-sizing: border-box;
-}
-.kuSortingOpt select, .kuBottomPagi select {
-    width: auto !important;
-    height: auto;
-    min-height: 25px;
-    min-width: 60px;
-}*/
-/* div for pagination */
-.kuPagination {
-    width: auto;
-    float: right;
-    text-align: right;
-    box-sizing: border-box;
-    padding: 10px 5px;
-}
-/* style to display page nos in line */
-.kuPagination a {
-    margin: 0px;
-    position: relative;
-    display: inline-block;
-    padding-left: 4px;
-    padding-right: 5px;
-    color: #333333;
+
+.kuCarousel .nav {
+    position: absolute;
+    top: 50%;
+    margin-top: -8%;
+    background-color: #FFF;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
     cursor: pointer;
-    text-decoration: none;
-    border-right: 1px solid #c7c8ca;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: white;
+    -webkit-user-select: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+}
+
+.kuCarousel .nav-left {
+    left: -5px;
+    background-image: url(https://js.klevu.com/klevu-js-v1/img-1-1/icon-prev.png);
+}
+
+.kuCarousel .nav-right {
+    right: -5px;
+    background-image: url(https://js.klevu.com/klevu-js-v1/img-1-1/icon-next.png);
+}
+
+.kuCarousel .kuCarousel-arrow-icon-left {
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.kuCarousel .kuCarousel-arrow-icon-right {
+    margin-left: 7px;
+    margin-top: 2px;
+}
+
+.klevu-fluid,
+.klevu-fluid *,
+.klevuTarget,
+.klevuTarget *,
+.kuContainer * {
+    font-family: inherit;
+}
+
+/*========Common Style============= */
+[ku-container] a,
+[ku-container] p,
+[ku-container] div,
+[ku-container] ul li {
+    font-family: inherit;
     font-size: 13px;
+    line-height: 130%;
+    text-decoration: none;
+    font-weight: normal;
 }
-/* style on hover of page links */
-.kuPagination a:hover {
-    color: #333333;
+
+[ku-container] * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: top;
 }
-/* style to show current page */
-.kuPagination a.kuCurrent {
-    background: #fff;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    font-weight: bold;
-}
-.kuPagination a:last-child {
-    border-right: none;
-}
-.kuOtherContent .kuPagination {
-    float: right;
-}
-.kuOtherContent .kuPerPage {
-    margin-left: 0px;
-    text-align: left;
-}
+
 .kuClearLeft {
     clear: left;
 }
+
 .kuClearRight {
     clear: right;
 }
-.kuClearBoth {
+
+.kuClearBoth,
+.kuClearBoth:after {
     clear: both;
 }
-.kuDiscountBadge {
-    top: 6px;
-    right: 6px;
-    position: absolute;
-    background: #333333;
-    padding: 0px;
-    color: #FFFFFF;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    font-weight: normal;
-    text-align: center;
-    box-sizing: border-box;
-    z-index: 1;
-    font-size: 12px;
-    font-style: italic;
-    display: flex;
-    align-items: center;
-    line-height: 100%;
-}
-.kuDiscountBadge span {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-}
-/* klevu results div */
-.kuResults {
-    margin-top: 10px;
-}
-/* In GRIDVIEW: list style for each result */
-.kuResults ul li {
-    display: inline-block;
-    width: 25%;
-    vertical-align: top;
-    font-style: normal;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 10px;
-    border-radius: 0px;
-    position: relative;
-    float: left;
-}
-.kuProdTop {
-    margin: 0px;
-    box-sizing: border-box;
-    float: none;
-    padding: 10px;
-    position: relative;
-}
-.kuProdBottom {
-    margin: 0px;
-    box-sizing: border-box;
-    float: none;
-    padding: 10px;
-    position: relative;
-    min-height: 170px;
-}
-.kuResults.kuGridView .kuProdBottom {
-    min-height: 185px;
-    padding-bottom: 35px;
-    box-sizing: border-box;
-}
-.kuResults ul li:hover .kuProdWrap {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-color: transparent;
-    transition: box-shadow 400ms ease-out;
-    -moz-transition: box-shadow 400ms ease-out;
-    -webkit-transition: box-shadow 400ms ease-out;
-    -o-transition: box-shadow 400ms ease-out;
-}
-/* In GRIDVIEW:  for wrapping the image in fixed size div */
-.kuProdWrap {
-    display: block;
-    height: auto;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid #eeeeee;
-    position: relative;
-    transition: all 0.3s ease;
-}
-.klevuImgWrap {
-    float: none;
-    overflow: hidden;
-    width: 100% !important;
-    height: 130px !important;
-    text-align: center;
-    margin: 0 auto;
-    position: relative;
-    margin-bottom: 10px;
-}
-.klevuImgWrap .kuprodImgSpan {
-    display: block;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    height: auto;
-    width: auto;
-}
-/* In GRIDVIEW: thumbnail of the product */
-.klevuImgWrap .kuprodImgSpan img {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    height: auto;
-    width: auto;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border: none;
-    outline: none;
-    display: inline-block;
-    position: absolute;
-}
-/* In GRIDVIEW: remove float value for name and description div */
-.kuResults .kuNameDesc {
-    float: none;
-    text-align: left;
-    margin-top: 10px;
-}
-/* In GRIDVIEW: discription is not displayed in grid layout*/
-.kuResults.kuGridView .kuDesc {
-    /*display: none;*/
-    font-size: 12px;
-    line-height: 18px;
-    color: #757575;
-    margin-top: 3px;
-    min-height: 35px;
-}
-.kuResults ul li .kuName {
-    margin-bottom: 5px;
-}
-.kuResults .kuStarsSmall {
-    height: 13px;
-    display: inline-block;
-    vertical-align: bottom;
-    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-gray.png) top left repeat-x;
-    width: 66px;
-}
-.kuResults .kuStarsSmall .kuRating {
-    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-yellow.png) top left repeat-x;
-    height: 13px;
-}
-.kuAddtocart {
-    margin: 10px auto;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    vertical-align: middle;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: block;
-    transition: all 0.3s ease;
-    float: none;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
-}
-.kuAddtocart input[type="text"] {
-    width: 25%;
-    max-width: 48px;
-    height: 30px;
-    line-height: 30px;
-    padding: 0px 3px;
-    box-sizing: border-box;
-    text-align: center;
-    margin: 0px;
-    margin-right: -5px;
-    border: 1px solid #333333;
-    vertical-align: middle;
-    outline: none;
-    color: #333;
-    font-size: 13px;
-}
-.kuAddtocart input[type="text"]:focus {
-    outline: none;
-}
-.kuAddtocart a.kuAddtocartBtn {
-    background: #333333;
-    color: #FFFFFF;
-    padding: 0px 8px;
-    margin-bottom: 0;
-    vertical-align: middle;
-    cursor: pointer;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    text-decoration: none;
-    font-size: 12px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin: 0px;
-    border: none;
-    height: 30px;
-    transition: all 0.3s ease;
-    border-radius: 0px;
-    text-align: right;
-    font-weight: normal;
-    line-height: 30px;
-}
-.kuAddtocart a.kuAddtocartBtn:hover, .kuAddtocart a.kuAddtocartBtn:focus {
-    background-color: #666666;
-    outline: none;
-}
-.kuResults ul li:hover .kuAddtocart {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-}
-.kuPriceAndBtnWrap {
-    margin-top: 20px;
-    margin-bottom: 5px;
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    padding: 10px;
-    box-sizing: border-box;
-}
-/* In GRIDVIEW: set product name color and font size */
-.kuResults ul li .kuName a {
-    font-size: 13px;
-    text-decoration: none;
-    color: #000000;
-    font-weight: normal;
-}
-.kuResults ul li .kuName a:hover {
-    text-decoration: underline;
-}
-/* In GRIDVIEW: div to display saleprice and original price */
-.kuResults ul li .kuPrice {
-    margin-top: 12px;
-    text-align: left;
-    color: #333333;
-    width: 100%;
-    box-sizing: border-box;
-}
-/* In GRIDVIEW: div to display saleprice */
-.kuResults ul li .kuSalePrice {
-    font-size: 13px;
-    font-weight: bold;
-    font-family: inherit;
-    text-align: left;
-    display: inline;
-    margin-right: 5px;
-    color: #333333;
-    float:left;
-}
-.kuResults ul li .kuSalePrice.kuSpecialPrice {
-    float: left;
-    display: inline-block;
-}
-.kuAddtocartBtnWrap span.kuStockStatus {
-    display: block;
-    margin-top: 5px;
-    font-size: 13px;
-    font-weight: bold;
-}
-.kuColorGreen {
+
+.kuGreen {
     color: #009b46 !important;
 }
-.kuColorBlack {
-    color: #000000 !important;
+
+.kuBlack {
+    color: #333333 !important;
 }
-.priceGreyText {
-    font-size: 11px;
-    color: #636363;
+
+.kuClipped {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
-/* In GRIDVIEW: div to display original price with line-through style */
-.kuResults ul li .kuOrigPrice {
-    text-decoration: line-through;
-    text-align: left;
-    display: block;
-    font-size: 12px;
-    font-weight: normal;
-    float: left;
-    color: #757575;
+
+.kuClippedOne {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
-.kuResults ul li .kuVariants {
-    text-align: left;
+
+.kuClippedTwo {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
-/* In GRIDVIEW: set color to highlight search keyowrd in name and description */
-.kuResults ul li strong {
-    color: #2980B9;
-}
-.kuPagination a {
-    font-style: normal;
-}
-/* To Display product results in list view */
-.kuResults.kuListView {
-    width: 100% !important;
-}
-.kuResults.kuListView ul li {
-    display: block;
-    width: 100%;
-    float: left;
-}
-.kuResults.kuListView .kuProdTop {
-    width: 20%;
-    float: left;
-}
-.kuResults.kuListView .kuProdBottom {
-    width: 80%;
-    float: left;
-    min-height: 150px;
-}
-.kuResults.kuListView .kuDesc {
-    display: block;
-    line-height: 18px;
-    font-style: normal;
-    color: #333333;
-    width: 78%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.kuResults.kuListView .klevuImgWrap img {
-    margin-left: auto;
-    margin-right: auto;
-}
-/* To display other content in list view  */
-.contentCompressedActive .kuResults {
-    width: 100% !important;
-}
-.contentCompressedActive .kuView {
-    display: none !important;
-}
-.contentCompressedActive .kuResults {
-    width: 100% !important;
-}
-.contentCompressedActive .kuResults ul li, .contentCompressedActive .kuResults ul li {
-    display: block;
-    width: 100%;
-    float: none;
-}
-.contentCompressedActive .kuResults .kuProdTop, .contentCompressedActive .kuResults .kuProdTop {
-    width: 20%;
-    float: left;
-}
-.contentCompressedActive .kuResults .kuProdBottom {
-    width: 80%;
-    float: left;
-    min-height: 150px;
-}
-.contentCompressedActive .kuResults .kuProdBottom, .contentCompressedActive .kuResults .klevuImgWrap {
-    width: 80%;
-    float: left;
-    min-height: 90px;
-}
-.contentCompressedActive .kuResults .klevuImgWrap {
-    height: 90px !important;
-}
-.contentCompressedActive .kuResults .kuDesc {
-    display: block;
-    line-height: 18px;
-    font-style: normal;
-    color: #333333;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 13px;
-}
-.contentCompressedActive .kuResults img {
-    margin: 0px auto;
-}
-/* To display product results (by default GridView)*/
-.kuResults ul {
-    margin: 0px !important;
-    padding: 0px !important;
-    width: 100%;
-}
-/* div to display No records found message */
-/* No result found css*/
-.kuNoRecordFound {
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    color: #333333;
-    font-size: 13px;
-    background: #FFF;
-    display: block;
-}
-.kuLandingNoResults {
-    background: #FFF;
-    width: 100%;
-    margin: 30px auto;
-    max-width: 850px;
-}
-.kuLandingNoResultsMessage {
-    font-size: 18px;
-    padding: 25px 5%;
-    text-align: center;
-}
-.kuLandingNoResultsMessage span {
-    font-weight: bold;
-    font-style: italic;
-}
-/* ends No result found css */
-/* div to display or query message */
-.kuOrQueryMessage {
-    text-align: center;
-    margin-top: 10px;
-    color: #333333;
-    background: #ebebeb;
-    font-size: 13px;
-    padding: 7px 0px !important;
-    margin: 10px 0px;
-    box-sizing: border-box;
-    max-width: 100%;
-}
-.kuOrQueryMessage span {
-    font-weight: 600;
-}
-/* show variants */
-.kuVariants {
-    font-size: 10px;
-    margin-top: 2px;
-    color: #333333;
-}
-/* height for loader div */
+
 #loader {
     height: 400px;
 }
+
 #loader img {
     margin-top: 10%;
     display: inline-block;
     width: auto !important;
 }
-.kuOtherContent {
-    display: none;
-}
-.disableKuFilter {
-    opacity: 0.3;
-    pointer-events: none;
-}
-/* Klevu Price slider style */
-.kuPriceRangeSlider {
 
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 30px;
-    min-height: 50px;
-}
-.kuPS-target, .kuPS-target * {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -ms-touch-action: none;
-    touch-action: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.kuPS-target {
-    position: relative;
-    direction: ltr;
-}
-.kuPS-base {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1;
-}
-.kuPS-origin {
-    position: absolute;
-    right: 0;
-    top: 0;
-    left: 0;
-    bottom: 0;
-}
-.kuPS-handle {
-    position: relative;
-    z-index: 1;
-}
-.kuPS-stacking .kuPS-handle {
-    z-index: 10;
-}
-.kuPS-state-tap .kuPS-origin {
-    -webkit-transition: left 0.3s, top 0.3s;
-    transition: left 0.3s, top 0.3s;
-}
-.kuPS-base, .kuPS-handle {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-.kuPS-horizontal {
-    height: 4px;
-}
-.kuPS-horizontal .kuPS-handle {
-    width: 18px;
-    height: 18px;
-    left: -9px;
-    top: -7px;
-}
-.kuPS-vertical {
-    width: 18px;
-}
-.kuPS-vertical .kuPS-handle {
-    width: 28px;
-    height: 34px;
-    left: -6px;
-    top: -17px;
-}
-.kuPS-background {
-    background: #c7c8ca;
-}
-.kuPS-connect {
-    background: #333333;
-    -webkit-transition: background 450ms;
-    transition: background 450ms;
-}
-.kuPS-origin {
-    border-radius: 2px;
-}
-.kuPS-target {
-    border-radius: 4px;
-}
-.kuPS-draggable {
-    cursor: w-resize;
-}
-.kuPS-vertical .kuPS-draggable {
-    cursor: n-resize;
-}
-.kuPS-handle {
-    border: 1px solid #333333;
-    border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
-}
-.kuPS-tooltip {
-    display: block;
-    position: absolute;
-    text-align: center;
-    font-size: 13px;
-    margin-left: -9px;
-    background-color: #ffffff;
-}
-.kuPS-horizontal .kuPS-handle-lower .kuPS-tooltip {
-    bottom: -24px;
-    color: #333333;
-}
-.kuPS-horizontal .kuPS-handle-upper .kuPS-tooltip {
-    bottom: -24px;
-    color: #333333;
-}
-/* set opacity to filter */
-.disableKlevuFilter {
-    opacity: 0.3;
-    pointer-events: none;
-}
-/*--- for enabling filters in mobile  and filter tags ---*/
-/* css for filter tags*/
-.kuContainer .ku-search-filter-tags {
-    display: block;
-    color: #222222;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    width: 100%;
-    text-align: left;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    position: relative;
-}
-.ku-search-filter-tag {
-    background: #eee;
-    border: none;
-    margin-right: 5px;
-    border-radius: 0px;
-    font-size: 12px;
-    padding: 0px 5px;
-    color: #333333;
-    margin-bottom: 4px;
+/*========Button Style============= */
+.kuBtn {
     display: inline-block;
-    line-height: 20px;
-}
-.ku-search-filter-remove, .ku-search-filter-remove-all {
+    padding: 5px 10px;
     cursor: pointer;
-    font-size: 12px;
-    color: #222222;
-    text-decoration: none;
+    font-size: 11px !important;
     text-transform: uppercase;
+    text-decoration: none;
+    margin: 5px 5px 5px 0px;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.kuBtnDark {
+    background: #333333;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+.kuBtnLight {
+    background: #ddd;
+    color: #333333;
+    border-color: #dedede;
+}
+
+.kuBtnDarkOutline {
+    background: transparent;
+    color: #333333;
+    border: 2px solid #333333;
+}
+
+.kuBtnLightOutline {
+    background: transparent;
+    color: #dddddd;
+    border: 2px solid #dddddd;
+}
+
+.kuBtnDark:hover,
+.kuBtnLight:hover,
+.kuBtnDarkOutline:hover,
+.kuBtnLightOutline:hover {
+    background: #757575;
+    color: #ffffff;
+    border-color: #757575;
+}
+
+/* Base Classes */
+.kuBase {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container],
+[ku-block] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/* main Container */
+[ku-container][data-container-role="main"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*==========
+---Header--- 
+============*/
+/* main Header */
+[ku-container][data-container-role="header"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="subPanel"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="banner"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="navigation"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/*=================== 
+---Result Wrapper---
+=====================*/
+.kuResultContent {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+.kuResultContent [ku-container]:empty {
+    display: none !important;
+    width: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+[ku-block][ku-empty],
+[ku-container][ku-empty] {
+    display: none !important;
+    width: 0px !important;
+    padding: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* results left 
+----------------- */
+[ku-container][data-container-role="left"] {
+    display: table-cell;
+    width: 22%;
+    height: auto;
+    max-width: 275px;
+}
+
+/* results right
+------------------ */
+[ku-container][data-container-role="right"] {
+    display: table-cell;
+    width: 22%;
+    height: auto;
+    max-width: 275px;
+}
+
+/* results main center body 
+---------------------------- */
+[ku-block]:empty {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+    min-height: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/*==========
+---footer--- 
+============*/
+/* main Footer */
+.kuContainer {
+    width: 100%;
+    margin: 0 auto;
+    font-family: inherit;
+    font-size: 12px;
+    background-color: #ffffff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 1280px;
+    width: 100% !important;
+    /*========Tabs Style============= */
+}
+
+.kuContainer .kuTabs {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.kuContainer .kuTabs a {
+    padding: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: #333333;
+    display: inline-block;
+    position: relative;
+}
+
+.kuContainer .kuTabs a:hover {
+    border-bottom: 3px solid #dddddd;
+    text-decoration: none;
+}
+
+.kuContainer .kuTabs a.kuTabSelected {
+    border-bottom: 3px solid #dddddd;
+}
+
+.kuContainer .kuTabs a.kuTabSelected:hover {
+    background: none;
+}
+
+/*======Filters======
+=================== */
+.kuFiltersTitleHeading {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.kuFilterBox {
+    margin-bottom: 12px;
+    background: none;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.kuFilterBox .kuFilterHead {
+    padding: 5px 0px;
+    color: #333333;
+    display: block;
+    text-transform: uppercase;
+    border-bottom: 1px solid #dddddd;
+    background: none;
+    margin-bottom: 0px;
+}
+
+.kuFilterBox .kuFilterNames {
+    height: 125px;
+    overflow: hidden;
+}
+
+.kuFilterBox .kuFilterNames ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.kuFilterBox .kuFilterNames ul li {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.kuFilterBox .kuFilterNames ul li a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 0px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #333333;
+    background: none;
+    margin: 2px 5px 2px 0px;
+}
+
+.kuFilterBox .kuFilterNames ul li a span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.kuFilterBox .kuFilterNames ul li a span.kufacet-text {
+    max-width: 75%;
+    width: 75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+.kuFilterBox .kuFilterNames ul li a span.kuFilterIcon {
+    float: left;
+    margin: 0px;
+    padding: 0px;
     font-weight: normal;
 }
-.ku-search-filter-remove-all a {
+
+.kuFilterBox .kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #ffffff;
+}
+
+.kuFilterBox .kuFilterNames ul li a:hover span.kuFilterIcon:after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 5px;
+    left: 5px;
+    border: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 50%;
+    background: #dddddd;
+}
+
+.kuFilterBox .kuFilterNames ul li.kuSelected a {
     color: #333333;
-    font-size: 12px;
+}
+
+.kuFilterBox .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #ffffff;
+}
+
+.kuFilterBox .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 5px;
+    left: 5px;
+    border: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 50%;
+    background: #dddddd;
+    border-color: #333333 !important;
+}
+
+.kuFilterBox .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333333;
+}
+
+.kuFilterBox .kuFilterIcon:before {
+    content: "";
+    border: 2px solid #cccccc;
+    border-radius: 50%;
+    margin: 0px;
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #cccccc;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: background 200ms;
+    -webkit-transition: background 200ms;
+    -moz-transition: background 200ms;
+    -webkit-transition: border-color 200ms;
+    -moz-transition: border-color 200ms;
+    transition: border-color 200ms;
+}
+
+.kuFilterBox .kuFilterNames.kuFilterCollapse {
+    height: 0;
+    overflow: hidden;
+}
+
+.kuFilterBox .kuFilterNames.kuFilterCollapse .kuShowOpt {
+    display: none;
+}
+
+.kuFilterBox .kuFilterNames.kuFilterShowAll {
+    height: auto;
+    overflow: unset;
+}
+
+.kuFilterBox .kuShowOpt {
+    padding: 0px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -12px;
+}
+
+.kuFilterBox .kuShowOpt a {
+    color: #4d7abf;
     text-decoration: none;
-    cursor: pointer;
-    text-transform: uppercase;
 }
-.ku-search-filter-remove-all a:hover, .ku-search-filter-remove:hover {
-    color: #757575;
+
+.kuFilterBox .kuShowOpt .kuFilterDot {
+    height: 5px;
+    width: 5px;
+    background-color: #888888;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
 }
-/* ends css for filter tags*/
-.kuFilterHead {
-    cursor: pointer;
-}
-.kuExpand {
+
+.kuFilterBox .kuExpand {
     position: relative !important;
     transition: all 0.3s ease;
 }
-.kuFilterHead.kuExpand::after, .kuDropdownLabel:after {
+
+.kuFilterBox .kuCollapse {
+    position: relative !important;
+    transition: all 0.3s ease;
+}
+
+.kuFilterBox .kuFilterHead.kuCollapse {
+    margin-bottom: 10px;
+}
+
+.kuFilterBox .kuFilterHead.kuCollapse::after {
+    border-color: #333333;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 4px;
+    position: absolute;
+    right: 12px;
+    top: 14px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    transition: all 0.3s ease;
+}
+
+.kuFilterBox .kuFilterHead.kuExpand::after {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -1116,11 +1185,348 @@
     transform: rotate(45deg);
     transition: all 0.3s ease 0s;
 }
-.kuCollapse {
-    position: relative !important;
-    transition: all 0.3s ease;
+
+.kuFilterBox.kuMulticheck .kuFilterIcon:before {
+    content: "";
+    border: 1px solid #cccccc;
+    border-radius: 0px;
 }
-.kuFilterHead.kuCollapse::after {
+
+.kuFilterBox.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:after {
+    width: 10px;
+    height: 5px;
+    background: transparent;
+    top: 4px;
+    left: 4px;
+    border: 2px solid #dddddd;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px;
+}
+
+.kuFilterBox.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #ffffff;
+    border: 1px solid #333333;
+}
+
+.kuFilterBox.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    width: 10px;
+    height: 5px;
+    background: transparent;
+    top: 4px;
+    left: 4px;
+    border: 2px solid #dddddd;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px;
+}
+
+.kuFilterBox.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #ffffff;
+    border: 1px solid #333333;
+}
+
+.kuFilterBox.kuMulticheck .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    border-color: #333333;
+}
+
+/*====Ends Filters====*/
+.kuBlockFullwidth {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+.kuProListing {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.kuPagination {
+    width: auto;
+    float: right;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 10px 5px;
+}
+
+.kuPagination a {
+    margin: 0px;
+    position: relative;
+    display: inline-block;
+    padding-left: 0px;
+    padding-right: 10px;
+    color: #333333;
+    cursor: pointer;
+    text-decoration: none;
+    border-right: 1px solid #dddddd;
+}
+
+.kuPagination a:hover {
+    color: #333333;
+}
+
+.kuPagination a:last-child {
+    border-right: none;
+}
+
+.kuPagination a.kuCurrent {
+    background: #fff;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-weight: bold;
+}
+
+.kuOtherContent {
+    display: none;
+}
+
+.kuResults ul {
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100%;
+}
+
+.kuResults ul li {
+    display: inline-block;
+    width: 25%;
+    font-style: normal;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 0px;
+    position: relative;
+    float: left;
+}
+
+.kuResults ul li .kuProdWrap {
+    display: block;
+    height: auto;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #ececec;
+    position: relative;
+}
+
+.kuResults ul li .kuProdWrap .kuProdTop {
+    margin: 0px;
+    padding: 10px;
+    position: relative;
+}
+
+.kuResults ul li .kuProdWrap .kuProdTop .klevuImgWrap {
+    overflow: hidden;
+    width: 100% !important;
+    height: 130px !important;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.kuResults ul li .kuProdWrap .kuProdTop .klevuImgWrap a {
+    display: block;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: auto;
+    width: auto;
+}
+
+.kuResults ul li .kuProdWrap .kuProdTop .klevuImgWrap a img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: inline-block;
+    position: absolute;
+}
+
+.kuResults ul li .kuProdWrap .kuProdBottom {
+    margin: 0px;
+    box-sizing: border-box;
+    float: none;
+    padding: 10px;
+    position: relative;
+    height: 82px;
+}
+
+.kuResults ul li .kuProdWrap .kuProdBottom .kuDesc {
+    font-size: 12px;
+    line-height: 18px;
+    color: #757575;
+}
+
+.kuResults ul li .kuProdWrap .kuProdAdditional {
+    position: absolute;
+    background: #fff;
+    padding: 0px;
+    margin: 0px;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 1;
+    width: 101%;
+    left: -1px;
+    right: 0;
+    top: 98%;
+    border: 1px solid #ececec;
+    border-top: 0px;
+}
+
+.kuResults ul li .kuProdWrap .kuProdAdditional .kuProdAdditionalData {
+    position: relative;
+    padding: 10px 12px;
+}
+
+@media (max-width: 767px) {
+    .kuResults ul li .kuProdWrap .kuProdAdditional {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.kuResults ul li:hover .kuProdAdditional {
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0px 10px 10px 0px rgba(17, 17, 17, 0.1);
+}
+
+.kuResults ul li .kuName {
+    margin-bottom: 5px;
+}
+
+.kuResults ul li .kuName a {
+    font-size: 115%;
+    text-decoration: none;
+    color: #333333;
+    font-weight: normal;
+}
+
+.kuResults ul li .kuName a:hover {
+    text-decoration: underline;
+}
+
+.kuResults .kuStarsSmall {
+    height: 13px;
+    display: inline-block;
+    vertical-align: bottom;
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-gray.png) top left repeat-x;
+    width: 66px;
+}
+
+.kuResults .kuStarsSmall .kuRating {
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-yellow.png) top left repeat-x;
+    height: 13px;
+}
+
+.klevuNoResultsRecs-itemPrice,
+.productQuick-Price,
+.kuPrice {
+    margin-top: 5px;
+    text-align: left;
+    color: #333333;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 115%;
+}
+
+.klevuNoResultsRecs-itemPrice .klevuQuickPriceGreyText,
+.productQuick-Price .klevuQuickPriceGreyText,
+.kuPrice .klevuQuickPriceGreyText {
+    font-weight: normal !important;
+    color: #393939 !important;
+    font-size: 11px !important;
+}
+
+.klevuNoResultsRecs-itemPrice .kuSalePrice,
+.productQuick-Price .kuSalePrice,
+.kuPrice .kuSalePrice {
+    font-weight: bold;
+    font-family: inherit;
+    text-align: left;
+    display: inline;
+    margin-right: 5px;
+    color: #333333;
+    float: left;
+}
+
+.klevuNoResultsRecs-itemPrice .kuSalePrice.kuSpecialPrice,
+.productQuick-Price .kuSalePrice.kuSpecialPrice,
+.kuPrice .kuSalePrice.kuSpecialPrice {
+    float: left;
+    display: inline-block;
+}
+
+.klevuNoResultsRecs-itemPrice .kuOrigPrice,
+.productQuick-Price .kuOrigPrice,
+.kuPrice .kuOrigPrice {
+    margin-right: 5px;
+    text-decoration: line-through;
+    text-align: left;
+    display: block;
+    float: left;
+    color: #757575;
+    font-weight: 400;
+}
+
+.kuLandingNoResults {
+    background: #fff;
+    width: 100%;
+    margin: 30px auto;
+    max-width: 850px;
+}
+
+.kuLandingNoResultsMessage {
+    font-size: 18px;
+    padding: 10px 5%;
+    text-align: center;
+}
+
+.kuLandingNoResultsMessage span {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.productList {
+    display: block;
+}
+
+.kuDropdown {
+    margin: 5px;
+    position: relative;
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    z-index: 11;
+}
+
+.kuDropdown:first-child {
+    margin-left: 10px;
+}
+
+.kuDropdown:hover .kuDropdownOptions {
+    display: block;
+}
+
+.kuDropdown .kuDropdownLabel {
+    background-color: #fff;
+    color: #333333;
+    padding: 8px 12px;
+    display: inline-block;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding-right: 35px;
+    position: relative;
+}
+
+.kuDropdown .kuDropdownLabel:after {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -1134,354 +1540,380 @@
     padding: 4px;
     position: absolute;
     right: 12px;
-    top: 16px;
-    -webkit-transform: rotate(-135deg);
-    -moz-transform: rotate(-135deg);
-    -o-transform: rotate(-135deg);
-    -ms-transform: rotate(-135deg);
-    transform: rotate(-135deg);
-    transition: all 0.3s ease;
-}
-/* to remove arrow border when filtrs on top*/
-.kuContainer.kuFiltersTop .kuFilterHead.kuCollapse::after {
-    border-width: 1px 0px 0px 1px;
-    position: initial;
-}
-.kuContainer.kuFiltersTop .kuFilterHead.kuExpand::after {
-    border-width: 0 1px 1px 0;
-    position: initial;
-}
-/*-----------------------ends filters in mobile and filter tags------*/
-/* additional CSS */
-.productList {
-    display: block;
+    top: 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.3s ease 0s;
 }
 
-/* for result view Icons */
-.kuContainer .kuTabs {
-    text-align: center;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    border-bottom: 1px solid #EEEEEE;
+.kuDropdown .kuDropdownOptions {
+    display: none;
+    position: absolute;
+    background-color: #efefef;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    z-index: 12;
 }
-.kuContainer .kuTabs a {
-    padding: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    margin-right: 5px;
-    transition: background 200ms;
-    -webkit-transition: background 300ms;
-    -moz-transition: background 200ms;
+
+.kuDropdown .kuDropdownOptions .kuDropOption {
     color: #333333;
-    display: inline-block;
-    position: relative;
-}
-.kuContainer .kuTabs a:hover {
-    border-bottom: 3px solid #DDDDDD;
+    padding: 8px 12px;
     text-decoration: none;
-}
-.kuContainer a.kuTabSelected {
-    border-bottom: 3px solid #DDDDDD;
-}
-.kuContainer a.kuTabSelected:hover {
-    background: none;
+    display: block;
+    cursor: pointer;
 }
 
-
-.kuContainer {
-    width: 100% !important;
+.kuDropdown .kuDropdownOptions .kuDropOption:hover {
+    background-color: #ddd;
 }
-@media only screen and (max-width: 1024px) {
-    .kuResultWrap {
-        width: 72%;
-    }
-    .kuFilters {
-        width: 28%;
-    }
-    .kuFilterNames ul li a span.kufacet-text {
-        max-width: 60%;
-        width: 60%;
-    }
-    .kuSortingOpt label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    .kuSortHeader {
-        width: 100%;
-    }
+
+/*==========
+---Responsive--- 
+============*/
+@media only screen and (max-width: 1100px) {
     .kuResults ul li {
         width: 33%;
         padding: 5px;
     }
-    .kuDropdown {
-        min-width: 150px;
+
+    .kuFilterBox .kuFilterNames ul li a span.kufacet-text {
+        max-width: 60%;
+        width: 60%;
     }
 }
-@media only screen and (max-width:900px) {
-    .kuResults ul li {
-        width: 50%;
+
+@media only screen and (max-width: 991px) {
+
+    [ku-container][data-container-role="left"],
+    [ku-container][data-container-role="right"] {
+        width: 32%;
     }
 }
-@media only screen and (max-width:767px) {
-    .kuResults ul li {
-        width: 50%;
+
+@media only screen and (max-width: 767px) {
+    .kuContainer .kuTabs a {
+        display: inline-block;
     }
-    .kuFilters {
-        display: block !important;
-        float: none !important;
-        width: 100% !important;
-        margin-bottom: 20px;
+
+    .kuContainer .kuTabs a:hover {
+        border-bottom: 0px solid #dddddd;
+        text-decoration: none;
+        background: #f5f5f5;
     }
-    .kuTotResults {
-        float: none;
-        width: 100%;
-        text-align: center;
+
+    .kuContainer a.kuTabSelected {
+        border-bottom: 0px solid #dddddd;
+        background: #f5f5f5;
     }
-    .kuResultWrap {
-        float: none;
-        width: 100%;
-        margin-left: 0px;
-        padding: 0px;
-    }
-    .kuSortHeader {
-        margin: 0px;
-    }
+
     .kuLandingNoResultsMessage {
         font-size: 15px;
         line-height: 1.2em;
         padding: 10px 5%;
         text-align: center;
     }
-}
-/*--- for enabling filters in mobile and filter tags--*/
-@media only screen and (max-width: 640px) {
-    .kuContainer .kuTabs a {
-        display: inline-block;
-    }
-    .kuContainer .kuTabs a:hover {
-        border-bottom: 0px solid #dddddd;
-        text-decoration: none;
-        background: #f5f5f5;
-    }
-    .kuContainer a.kuTabSelected {
-        border-bottom: 0px solid #dddddd;
-        background: #f5f5f5;
-        transition: all 0.3s ease;
-    }
-    .kuFilterRefineMobile {
-        border: none;
-        display: block;
-        font-size: 13px;
-        font-weight: 600;
-        height: 32px;
-        line-height: 32px;
-        margin: 10px 0px;
-        padding-right: 30px;
-        text-align: center;
-        text-transform: uppercase;
-        color: #333333;
-        background-color: #f5f5f5;
-        cursor: pointer;
-    }
-    .kuFilterRefineMobile.kuExpand::after {
-        top: 10px
-    }
-    .kuFilterRefineMobile.kuCollapse::after {
-        top: 14px
-    }
+
     .kuFilterBox {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         padding-bottom: 10px;
-    }
-    .kuFilterRefineMobile .KuFilterLabelTxt {
-        position: relative
-    }
-    .kuFilterRefineMobile.kuExpand .KuFilterLabelTxt::after {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        border-color: #333333;
-        border-image: none;
-        border-style: solid;
-        border-width: 0 1px 1px 0;
-        content: "";
-        display: inline-block;
-        padding: 3px;
-        position: absolute;
-        right: -18px;
-        top: 3px;
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        transition: all 0.3s ease;
-    }
-    .kuFilterRefineMobile.kuCollapse .KuFilterLabelTxt::after {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        border-color: #333333;
-        border-image: none;
-        border-style: solid;
-        border-width: 0 1px 1px 0;
-        content: "";
-        display: inline-block;
-        padding: 3px;
-        position: absolute;
-        right: -18px;
-        top: 8px;
-        -webkit-transform: rotate(-135deg);
-        -moz-transform: rotate(-135deg);
-        -o-transform: rotate(-135deg);
-        -ms-transform: rotate(-135deg);
-        transform: rotate(-135deg);
-        transition: all 0.3s ease;
-    }
-    /* css for filter tags*/
-    .kuContainer #ku-search-filter-tags {
-        display: block !important;
-        color: #333333;
-        margin-bottom: 10px;
         width: 100%;
-        text-align: left;
-        padding-bottom: 8px;
-        padding-left: 0px;
-        position: relative;
     }
-    .ku-search-filter-tag {
-        background: #eee;
-        border: 0px solid #f8f8f8;
-        margin-right: 4px;
-        border-radius: 0px;
-        font-size: 11px;
-        padding: 0px 5px;
-        color: #333333;
-        margin-bottom: 4px;
-        display: inline-block;
-        line-height: 20px;
-    }
-    .ku-search-filter-remove, .ku-search-filter-remove-all {
-        cursor: pointer;
-        font-size: 12px;
-        color: #333333;
-        text-decoration: none;
-    }
-    .ku-search-filter-remove-all a {
-        color: #333333;
-        font-size: 12px;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    .ku-search-filter-remove-all a:hover {
-        color: #333333;
+
+    .kuResults ul li {
+        width: 50%;
     }
 }
-/* ends filters in mobile and filter tags----------*/
-@media only screen and (max-width: 480px) {
-    .kuOrQueryMessage {
-        margin: 10px 5px;
+
+@media only screen and (max-width: 576px) {
+    .kuResults ul li {
+        width: 100%;
     }
-    .kuDropdown {
-        min-width: 140px;
-        margin-right: 5px;
-    }
-    .kuDropdownLabel {
+
+    .kuDropdown .kuDropdownLabel {
         display: inline-block;
         padding: 5px 5px;
         padding-right: 20px;
         font-size: 11px;
     }
-    .kuDropdownLabel:after {
+
+    .kuDropdown .kuDropdownLabel:after {
         right: 5px;
         padding: 3px;
         top: 7px;
     }
-    .kuView {
-        min-width: 60px;
-        margin: 5px;
-    }
-    .kuResults ul li .kuAddtocart, .kuResults ul li .kuPrice {
-        width: 100%;
-        float: none;
-        text-align: left;
-    }
-    .kuSortingOpt {
-        padding: 5px 0px;
-
-    }
-}
-@media only screen and (max-width: 400px) {
-    .kuResults ul li {
-        width: 100%;
-    }
 }
 
+.searchRequestLoading .kuResultsListing .kuResults {
+    opacity: 0.6;
+    pointer-events: none;
+}
 
-.productList,
-.contentList {
+@-webkit-keyframes load7 {
+
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+@keyframes load7 {
+
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+.kuResourceLoader {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+    color: #dcdcdc;
+    font-size: 10px;
+    margin: 80px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+.kuResourceLoader:before {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.kuResourceLoader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3.5em;
+}
+
+.kuResultsHeadingTitleContainer {
+    margin: 6px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.kuFilters[data-position="top"] {
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 5px;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox {
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    width: auto;
+    height: auto;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterHead {
+    padding: 6px 15px 6px 0px;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    color: #333333;
+    border: 0px;
+    font-weight: bold;
+    margin: 5px;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+    pointer-events: initial;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterHead:hover {
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterHead:hover+.kuFilterNames {
+    display: block !important;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterHead::after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #333333;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 3px;
+    top: 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterNames {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 30px;
+    min-width: 260px;
+    width: 100%;
+    min-height: 80px;
+    max-height: 180px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    z-index: 100000000;
+    padding: 12px 10px;
+    height: auto;
+    margin-top: -1px;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterNames:hover {
+    overflow-y: auto;
+    display: block !important;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterHead.kuCollapse::after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #333333;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 3px;
+    top: 8px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.kuFilters[data-position="top"] .kuFilterBox .kuFilterHead.kuExpand::after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #333333;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 3px;
+    top: 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.kuFilters[data-position="top"] .kuShowOpt {
     display: none;
 }
 
-.productListActive .productList,
-.contentListActive .contentList {
-    display: block;
+@media only screen and (max-width: 767px) {
+    .kuFilters[data-position="top"] {
+        width: 100%;
+    }
+
+    .kuFilters[data-position="top"] .kuFilterHead {
+        border-bottom: 1px solid #EEEEEE;
+        margin: 0px auto;
+    }
+
+    .kuFilters[data-position="top"] .kuFilterHead:hover+.kuFilterNames {
+        pointer-events: none;
+    }
+
+    .kuFilters[data-position="top"] .kuFilterNames:hover {
+        pointer-events: none;
+    }
+
+    .kuFilters[data-position="top"] .kuFilterNames.kuFilterCollapse {
+        height: 0;
+        overflow: hidden;
+        min-height: unset;
+        padding: 0px;
+        border: none;
+        transition: none;
+    }
 }
-
-
-/*
-*   Styles for Landing page Add to cart button 
-*/
 
 .kuAddtocart {
     margin: 10px auto;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    vertical-align: middle;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+}
+
+.kuAddtocart .kuBtn {
     display: block;
-    transition: all 0.3s ease;
-    float: none;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
 }
 
-.kuAddtocart a.kuAddtocartBtn {
-    background: #333333;
-    color: #FFFFFF;
-    padding: 0px 8px;
-    margin-bottom: 0;
-    vertical-align: middle;
-    cursor: pointer;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    text-decoration: none;
-    font-size: 12px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin: 0px;
-    border: none;
-    height: 30px;
-    transition: all 0.3s ease;
-    border-radius: 0px;
-    text-align: right;
-    font-weight: normal;
-    line-height: 30px;
+.kuAddtocart img {
+    width: auto;
+    height: auto;
+    max-height: 35px;
+    max-width: 100%;
 }
-
-/*
-*   Color Swatches styles
-*/
 
 .kuSwatches {
     width: 100%;
@@ -1492,344 +1924,75 @@
     float: none;
     box-sizing: border-box;
     position: relative;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0px;
     text-align: left;
 }
 
-.kuSwatchItem {
+.kuSwatches .kuSwatchItem {
     display: inline-block;
     height: 28px;
     width: 28px;
     max-height: 28px;
     max-width: 28px;
+    line-height: 28px;
     border: none;
     padding: 0px;
     box-sizing: border-box;
-    line-height: 28px;
     vertical-align: top;
     text-align: center;
     margin: 2px;
 }
 
-.kuSwatchItem a.kuSwatchLink {
+.kuSwatches .kuSwatchItem .kuSwatchLink {
     display: block;
     width: 100%;
     height: 100%;
     border: 0px;
     margin: 0px;
     padding: 0px;
-    background-size: contain;
+    background-size: 100% 100% !important;
     background-repeat: no-repeat !important;
     background-position: center;
     border-radius: 0px;
-    transition: all 0.1s;
     background-color: transparent;
     text-decoration: none;
-    color: #000;
+    color: #333333;
     box-sizing: border-box;
     outline: 1px solid #dedede;
+    font-size: 12px;
 }
 
-.kuSwatchItem a.kuSwatchLink.active,
-.kuSwatchItem a.kuSwatchLink:hover,
-.kuSwatchItem a.kuSwatchLink:focus {
+.kuSwatches .kuSwatchItem .kuSwatchLink:hover,
+.kuSwatches .kuSwatchItem .kuSwatchLink:focus {
+    text-decoration: none;
+    box-shadow: none;
+    outline-width: 2px;
+}
+
+.kuSwatches .kuSwatchItem .kuSwatchLink.active {
     text-decoration: none;
     box-shadow: none;
     outline-width: 2px;
 }
 
 .kuSwatchItem.kuSwatchMore {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
-    color: #000;
+    color: #333333;
     background-color: transparent;
 }
 
-.kuSwatchMoreText {
-
+.kuSwatchItem.kuSwatchMore .kuSwatchMoreText {
     display: block;
     height: 100%;
     width: 100%;
     text-align: center;
-
+    padding-top: 5px;
 }
 
 .kuSwatchItem.kuDefaultSwatch a.kuSwatchLink {
     background-color: #eee !important;
 }
-
-/*
-*   Styels for Product grid quick view
-*/
-
-.kuClearfix {
-    clear: both !important;
-}
-
-.kuModal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden !important;
-}
-
-.productQuickView .kuModal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 1rem 2.5rem;
-    width: 65%;
-    border-radius: 4px;
-}
-
-.productQuickView .close-button {
-    width: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    overflow: visible;
-    cursor: pointer;
-    background: none;
-    border: 0;
-    -webkit-appearance: none;
-    display: block;
-    outline: 0;
-    padding: 0;
-    box-shadow: none;
-    touch-action: manipulation;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 2rem;
-    opacity: 0.5;
-    transition: all 0.2s ease;
-    color: #000;
-}
-
-.productQuickView .close-button:hover {
-    opacity: 1;
-}
-
-.productQuickView .show-modal {
-    z-index: 999;
-    opacity: 1;
-    visibility: visible !important;
-    display: block !important;
-}
-
-.productQuick-imgBlock {
-    float: left;
-    display: inline-block;
-    width: 50%;
-    max-width: 50%;
-    box-sizing: border-box;
-    padding: 10px;
-    position: relative;
-    font-family: inherit;
-}
-
-.productQuick-imgBlock img {
-    max-width: 100%;
-    margin: 0px;
-    padding: 0px;
-}
-
-.productQuick-contentBlock {
-    float: left;
-    display: inline-block;
-    width: 50%;
-    max-width: 50%;
-    box-sizing: border-box;
-    padding: 10px;
-    font-family: inherit;
-}
-
-.productQuickView .imgWrap {
-    padding: 5px;
-    background: transparent;
-    border: 1px solid #F2F2F2;
-    outline: none;
-    text-align: center;
-}
-
-.productQuick-title {
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 130%;
-    color: #000;
-    margin-bottom: 10px;
-}
-
-.productQuick-divider {
-    display: block;
-    width: 100%;
-    margin: 1rem auto;
-    height: 1px;
-    background: #ddd;
-}
-
-.productQuickView .kuBtn {
-    display: inline-block;
-    padding: 8px 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-    border: 2px solid transparent;
-    margin-right: 10px;
-}
-
-.productQuickView .kuBtn-primary {
-    background: #000000;
-    color: #FFFFFF;
-    border-color: #000000;
-}
-
-.productQuickView .kuBtn-primary-outline {
-    background: transparent;
-    color: #000000;
-    border: 2px solid #000000;
-}
-
-.productQuickView .kuBtn-primary:hover {
-    background: transparent;
-    color: #000000;
-}
-
-.productQuickView .kuBtn-primary-outline:hover {
-    background: #f9f9f9;
-}
-
-.productQuick-Price {
-    font-size: 1.5rem;
-    line-height: 150%;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #000;
-}
-
-span.productQuick-origPrice {
-    display: inline-block;
-    margin-right: 5px;
-    color: #888;
-    text-decoration: line-through;
-    font-weight: normal;
-}
-
-.productQuick-shortDesc {
-    font-size: 1.1rem;
-    line-height: 135%;
-    color: inherit;
-    margin-top: 20px;
-    margin-bottom: 25px;
-}
-
-span.productQuick-label {
-    font-size: 1rem;
-    opacity: 0.80;
-    color: #444;
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.productQuick-extraInfo>div {
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.kuQuickView {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: inline-block;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s ease;
-    margin-left: -50px;
-    width: 100px;
-    text-align: center;
-}
-
-.kuProdWrap:hover .kuQuickView {
-    right: 5px;
-    visibility: visible;
-    opacity: 1;
-}
-
-.kuQuickViewBtn {
-    background: #ececec;
-    border: 1px solid #d6d5d5;
-    color: #000000;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    padding: 5px 10px;
-}
-
-.kuQuickViewBtn:hover {
-    opacity: 0.80;
-}
-
-@media (max-width:1366px) {
-    .productQuickView .kuModal-content {
-        width: 85%;
-    }
-}
-
-@media (max-width:850px) {
-    .productQuickView .kuModal-content {
-        width: 65%;
-    }
-
-    .productQuick-imgBlock,
-    .productQuick-contentBlock {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .kuQuickView {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .productQuickView .kuModal-content {
-        overflow: auto;
-        max-height: 96%;
-    }
-}
-
-@media (max-width:640px) {
-    .productQuickView .kuModal-content {
-        width: 85%;
-        padding: 2rem 1rem;
-    }
-
-    .productQuick-title {
-        font-size: 1.25rem;
-    }
-
-    .productQuickView .kuBtn {
-        padding: 5px 10px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        font-size: 0.85rem;
-    }
-}
-
-/*
-*   Color Swatches styles
-*/
 
 .kuSwatches {
     width: 100%;
@@ -1868,21 +2031,31 @@ span.productQuick-label {
     border: 0px;
     margin: 0px;
     padding: 2px;
-    background-size: contain;
+    background-size: 100% 100% !important;
     background-repeat: no-repeat !important;
     background-position: center;
     border-radius: 0px;
-    transition: all 0.1s;
     background-color: transparent;
     text-decoration: none;
     color: #000;
     box-sizing: border-box;
     outline: 1px solid #dedede;
+    font-size: 12px;
 }
 
-.kuSwatchItem a.kuSwatchLink.active,
-.kuSwatchItem a.kuSwatchLink:hover,
+.kuSwatchItem a.kuSwatchLink:hover {
+    text-decoration: none;
+    box-shadow: none;
+    outline-width: 2px;
+}
+
 .kuSwatchItem a.kuSwatchLink:focus {
+    text-decoration: none;
+    box-shadow: none;
+    outline-width: 2px;
+}
+
+.kuSwatchItem a.kuSwatchLink.active {
     text-decoration: none;
     box-shadow: none;
     outline-width: 2px;
@@ -1895,288 +2068,69 @@ span.productQuick-label {
     background-color: transparent;
 }
 
-.kuSwatchMoreText {
-
-    display: block;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-
-}
-
 .kuSwatchItem.kuDefaultSwatch a.kuSwatchLink {
     background-color: #eee !important;
 }
 
-/*
-*   Custom pagination bar styles
-*/
-
-.kuPaginationBar {
-  width: auto;
-  float: right;
-  text-align: left;
-  box-sizing: border-box;
-  padding: 0px;
-  border: 1px solid #ddd;
-  background: #FFF;
-  margin: 4px 8px 0px 0px;
-  border-radius: 3px;
+.productQuick-colorInStock .kuSwatchMoreText {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 0px !important;
 }
 
-
-.kuPaginationBar a {
-  font-style: normal;
-  margin: 0px;
-  position: relative;
-  display: inline-block;
-  padding: 6px 12px;
-  color: #333333;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 13px;
-  transition: all 0.1s ease;
-  border-right: 1px solid #ddd;
-  float: left;
-}
-
-.kuPaginationBar .kuActive {
-  background: #333333;
-  color: #fff;
-  border-radius: 0px;
-  border-width: 0px;
-}
-
-.kuPaginationBar a:hover {
-  background: #ececec;
-}
-
-.kuPaginationBar .kuActive:hover {
-  background: #333333;
-  color: #fff;
-}
-
-.kuPaginationBar a:last-child {
-  border-right: 0px;
-}
-
-.kuPaginationBar .kuActive:hover,
-.kuPaginationBar .kuActive:focus {
-  color: #ffffff !important;
-}
-
-.kuPaginationBar a:first-child {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.kuPaginationBar a:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-/*
-*   Price slider filter styles
-*/
-
-.kuPriceSlider {
-    width: 350px;
-    max-width: 100%;
-    padding: 10px 20px 80px 20px;
-    margin: 20px auto;
-    position: relative;
+.kuCaptionStockIn {
+    margin-top: 12px;
+    text-align: left;
+    color: green;
+    width: 100%;
     box-sizing: border-box;
+    font-size: 115%;
 }
 
-.kuSliderVal {
-    font-size: 1rem;
-    line-height: 130%;
-    margin: 50px 0px 20px 0px;
+.kuCaptionStockOut {
+    margin-top: 5px;
+    text-align: left;
+    color: #F00;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 115%;
+}
+
+.kuCaptionVat {
+    display: block;
+    font-size: 11px;
+    color: #767676;
+    width: 100%;
+    float: left;
+    margin: 0px;
     padding: 0px;
-    position: relative;
-}
-
-.kuSliderVal-min,
-.kuSliderVal-max {
-    padding: 5px 10px;
-    display: inline-block;
-    border: 1px solid #ddd;
-    color: #333;
-    outline: none;
-    position: absolute;
-    min-width: 85px;
-    margin: 5px;
-    line-height: 100%;
     box-sizing: border-box;
-    background: #eee;
+    margin: 2px 0px;
 }
 
-.kuSliderVal span.kulabel {
-    position: absolute;
-    top: -24px;
-    left: 0;
-    color: #888;
-    font-size: 90%;
+.productList,
+.contentList {
+    display: none;
 }
 
-.kuSliderVal-min {
-    left: -17px;
+.productListActive .productList {
+    display: block;
 }
 
-.kuSliderVal-max {
-    right: -10px;
+.contentListActive .contentList {
+    display: block;
 }
 
-.kuPriceSlider span.kuSliderTo {
-    position: absolute;
-    left: 50%;
-    top: 10px;
-    margin-left: -15px;
-    width: 30px;
-    display: inline-block;
-    opacity: 0.45;
+[data-result-view='list'] footer.kuCMSProductNoImageFound {
+    width: 100% !important;
 }
 
-.sliderFilterNames {
-    height: 150px;
+[data-result-view='list'] .kuProdBottom {
+    height: auto !important;
 }
 
-/*
-*   Mobile view slider filter 
-*/
-
-.kuFiltersHeader,
-.kuFiltersFooter,
-.kuBtn.kuFacetsSlideIn {
-    display: none !important;
-}
-
-@media only screen and (max-width:768px) {
-
-    .kuResultWrap {
-        float: none;
-        width: 100%;
-        margin-left: 0px;
-        padding: 0px;
-    }
-
-    .kuFiltersHeader,
-    .kuFiltersFooter {
-        display: block !important;
-    }
-
-    .kuFilters {
-        height: 100%;
-        width: 0 !important;
-        position: fixed;
-        z-index: 101;
-        top: 0;
-        left: 0;
-        background-color: #FFF;
-        overflow-x: hidden;
-        transition: 0.2s;
-        padding: 55px 0px;
-        max-width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    .kuFilters .kuFilterHead {
-        padding-left: 0px;
-
-    }
-
-    .kuFilters.kuFiltersIn {
-        width: 100% !important;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .kuFiltersHeader {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: #F5F5F5;
-        padding: 0px 10px;
-        text-align: left;
-    }
-
-    .kuFiltersFooter {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #F5F5F5;
-        padding: 0px 10px;
-        text-align: right;
-    }
-
-    .kuFilters.kuFiltersIn .kuFiltersHeader,
-    .kuFilters.kuFiltersIn .kuFiltersFooter {
-        position: fixed;
-        z-index: 1000;
-    }
-
-    .kuBtn {
-        display: inline-block;
-        padding: 5px 10px;
-        text-decoration: none;
-        text-transform: uppercase;
-        margin: 10px !important;
-        transition: all 0.3s ease;
-        border: 1px solid transparent;
-        margin-right: 10px !important;
-        font-size: 0.80rem;
-        border-radius: 4px;
-        cursor: pointer;
-        min-width: 70px;
-        text-align: center;
-    }
-
-    .kuBtn.kuFacetsSlideIn {
-        background: #000000;
-        color: #FFF;
-        border-color: #000;
-        z-index: 1;
-        display: inline-block !important;
-        margin: 0px;
-    }
-
-    .kuBtn.kuFacetsSlideOut {
-        background: #000;
-        color: #FFF;
-        border-color: #000;
-        z-index: 2;
-    }
-
-    .kuFiltersHeader .kuBtn.kuFacetsSlideOut {
-        border: none;
-        margin-left: 0px;
-        background: none;
-        color: #000;
-        border: none;
-    }
-
-    .kuBtn:hover,
-    .kuBtn:focus {
-        opacity: 0.80;
-
-    }
-
-    .kuFiltersFooter.kuFixed {
-        position: fixed;
-    }
-
-    .kuMobileFilterCloseBtn {
-        color: #000000 !important;
-        background: #f5f5f5 !important;
-    }
-
-}
-
-/*
-*   Product badge styles
-*/
 .kuDiscountBadge {
     top: 6px;
     right: 6px;
@@ -2191,7 +2145,6 @@ span.productQuick-label {
     text-align: center;
     box-sizing: border-box;
     z-index: 1;
-    font-size: 12px;
     font-style: italic;
     display: flex;
     align-items: center;
@@ -2202,388 +2155,8 @@ span.productQuick-label {
     width: 100%;
     align-items: center;
     text-align: center;
-}
-
-/*
-*   Product stock label styles
-*/
-
-.kuCaptionStockIn {
     font-size: 11px;
-    color: green;
-    display: inline-block;
-    padding: 0px;
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 2px 0px;
 }
-
-.kuCaptionStockOut {
-    font-size: 11px;
-    color: Red;
-    display: inline-block;
-    padding: 0px;
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 2px 0px;
-}
-
-/*
-*   Product VAT label styles
-*/
-
-.kuCaptionVat {
-    display: block;
-    font-size: 11px;
-    color: #767676;
-    width: 100%;
-    float: left;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin: 2px 0px;
-}
-
-
-/* Common CSS for default filters */
-.kuFilters {
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-    float: none;
-}
-
-/* set the height of each filter*/
-
-.kuFilterBox {
-    margin-top: 0px;
-    margin-bottom: 15px;
-    background: none;
-    padding-bottom: 18px;
-    position: relative;
-    float: none;
-    width: 100%;
-}
-
-.kuFilterNames {
-    height: 118px;
-    overflow: hidden;
-}
-
-.kuFilterNames.kuFilterShowAll {
-    height: auto;
-    overflow: unset;
-}
-
-/* heading of filters i.e brand, color */
-
-.kuFilterHead {
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 5px;
-    color: #333333;
-    display: block;
-    line-height: 1.8;
-    text-transform: uppercase;
-    border-bottom: 1px solid #EEEEEE;
-    background: none;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    margin-top: 0px;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-
-/* down arrow div in filters */
-
-.kuShowOpt {
-    padding: 0px 5px;
-    cursor: pointer;
-    position: absolute;
-    bottom: -5px;
-}
-
-
-/* up arrow div in filters */
-
-
-/* down & up arrow link color in filters */
-
-.kuShowOpt a,
-.kuHideOpt a {
-    color: #333333;
-    text-decoration: none;
-}
-
-
-/* show more dot icon*/
-
-.kuFilterDot {
-    height: 5px;
-    width: 5px;
-    background-color: #333333;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 2px;
-}
-
-
-/* set list for filters */
-
-.kuFilterNames ul {
-    margin: 0px;
-    padding: 0px;
-}
-
-
-/* style for each list item in filter */
-
-.kuFilterNames ul li {
-    list-style: none;
-    text-align: left;
-    width: 100%;
-    display: inline-block;
-    margin: 0px;
-    padding: 0px;
-}
-
-.kuFilterNames ul li a {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    padding: 0px;
-    font-size: 13px;
-    text-decoration: none;
-    cursor: pointer;
-    font-style: normal;
-    color: #333333;
-    background: none;
-    margin: 2px;
-    margin-left: 5px;
-}
-
-
-/* set color for selected filter */
-
-.kuFilterNames ul li.kuSelected a {
-    color: #333333;
-}
-
-.kuFilterNames ul li a span {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 120%;
-}
-
-.kuFilterNames ul li a span.kufacet-text {
-    max-width: 74%;
-    width: 74%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    float: left;
-}
-
-
-/* Radio button for the filter */
-
-.kuFilterNames ul li a span.kuFilterIcon {
-    float: left;
-    margin: 0px;
-    padding: 0px;
-    font-weight: normal;
-}
-
-.kuFilterIcon:before {
-    content: '';
-    border: 2px solid #DDDDDD;
-    border-radius: 50%;
-    margin: 0px;
-    margin-right: 6px;
-    height: 18px;
-    width: 18px;
-    display: inline-block;
-    color: #DDDDDD;
-    position: relative;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    transition: background 200ms;
-    -webkit-transition: background 200ms;
-    -moz-transition: background 200ms;
-    -webkit-transition: border-color 200ms;
-    -moz-transition: border-color 200ms;
-    transition: border-color 200ms;
-}
-
-.kuFilterNames ul li a:hover span.kuFilterIcon:before {
-    background: #FFFFFF;
-}
-
-.kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
-    background: #FFFFFF;
-}
-
-.kuFilterNames ul li a:hover span.kuFilterIcon:after,
-.kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #333333;
-    top: 5px;
-    left: 5px;
-    border: 0px;
-    margin-top: 0px;
-    margin-left: 0px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    border-radius: 50%;
-}
-
-.kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
-    border-color: #333333;
-}
-
-.kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-color: #333333;
-}
-
-
-/* total nos of results available for filter & shows cancel button if filter is selected */
-
-.kuFilterNames ul li a span.kuFilterTotal,
-.kuFilterNames ul li a span.kuFilterCancel {
-    float: right;
-    text-align: right;
-    margin: 0px;
-    padding: 0px;
-}
-
-
-/* set background color on hover of filter */
-
-.kuFilterNames ul li a:hover {
-    cursor: pointer;
-}
-
-
-/* set background color for selected filter */
-
-.kuFilterNames ul li.kuSelected a {
-    color: #333333;
-}
-
-.kuMulticheck .kuFilterIcon:before {
-    content: '';
-    border: 1px solid #DDDDDD;
-    border-radius: 0px;
-    margin: 0px;
-    margin-right: 8px;
-    height: 18px;
-    width: 18px;
-    display: inline-block;
-    color: #DDDDDD;
-    position: relative;
-}
-
-.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:before {
-    background: #FFFFFF;
-    border: 1px solid #333333;
-}
-
-.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
-    background: #FFFFFF;
-    border: 1px solid #333333;
-}
-
-.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:after,
-.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 5px;
-    background: transparent;
-    top: 4px;
-    left: 4px;
-    border: 2px solid #DDDDDD;
-    border-top: none;
-    border-right: none;
-    border-radius: 0px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-.kuMulticheck .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-color: #333333;
-}
-
-/* CSS for filters on left */
-.kuFilters {
-    float: left;
-    width: 20%;
-    padding: 0px;
-    margin: 0px;
-}
-
-.kuResultWrap {
-    width: 80%;
-    padding-left: 20px;
-}
-
-@media only screen and (min-width: 641px) and (max-width: 1024px) {
-    .kuResultWrap {
-        width: 72%;
-    }
-
-    .kuFilters {
-        width: 28%;
-    }
-}
-
-@media only screen and (max-width: 640px) {
-    .kuFilters {
-        width: 100%;
-    }
-
-    .kuFilterBox {
-        margin-bottom: 5px;
-        padding-bottom: 10px;
-        width: 100%;
-    }
-
-    .kuResultWrap {
-        width: 100%;
-        padding: 0px;
-    }
-}
-
-/*
-Style for landing page banner
-*/
 
 .kuBannerAd {
     text-align: center;
@@ -2602,4 +2175,388 @@ Style for landing page banner
     width: auto;
     max-width: 100%;
     max-height: 100%;
+}
+
+.kuLandingNoRecordFound {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #333333;
+    font-size: 13px;
+    background: #fff;
+    display: block;
+}
+
+.kuLandingNoRecordFound .kuLandingNoResultsMessage {
+    font-size: 22px !important;
+    margin-bottom: 20px;
+}
+
+.kuLandingNoRecordFound .klevu-no-results-banner-ad {
+    clear: both;
+    text-align: center;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.kuLandingNoRecordFound .klevu-no-results-banner-ad img {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    max-height: 185px;
+    margin-bottom: 20px;
+}
+
+.kuLandingNoRecordFound .kuNoResultsProductRecommendationSlider {
+    font-family: sans-serif;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsWrap {
+    max-width: 100%;
+    position: relative;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: inherit;
+    overflow: hidden;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsWrap * {
+    outline: none;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecs {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    word-wrap: wrap;
+    text-overflow: ellipsis;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecs h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResults {
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner {
+    transition: -ms-transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s, transform 0.5s ease 0s;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 0.5s ease;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner .klevuNoResultsRecs-item {
+    margin: 0 auto;
+    border: 1px solid #eee;
+    background: #fff;
+    transition: all 0.5s ease;
+    transform: scale(1);
+    min-height: 240px;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner .klevuNoResultsRecs-itemImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner a.klevuNoResultsRecsImg img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    display: inline-block;
+    margin: 0;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner a.klevuNoResultsRecsTitle {
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    color: #000;
+    overflow: hidden;
+    line-height: 180%;
+    text-overflow: ellipsis;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner .klevuNoResultsRecs-itemDesc {
+    box-sizing: border-box;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner .klevuNoResultsRecs-itemSku {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 80%;
+    line-height: 110%;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner .klevuNoResultsRecs-itemPrice {
+    margin-top: 0px;
+    font-size: 14px;
+    color: #000;
+    text-align: left;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsResultsInner .klevuNoResultsRecs-itemPrice .kuSalePrice {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecs-itemWrap {
+    margin: 8px;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsControl-left {
+    left: -24px;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsControl-right {
+    right: -18px;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsControl {
+    bottom: 0;
+    display: block;
+    padding: 0;
+    width: 24px;
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+    height: 28px;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsControl-btn {
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+}
+
+.kuLandingNoRecordFound .klevuNoResultsRecsControl-btn svg {
+    width: 24px;
+    height: 24px;
+    outline: none;
+}
+
+.kuLandingNoRecordFound #klevuNoResultsRecsControl-left {
+    display: none;
+}
+
+.kuLandingNoRecordFound .kuNoResultsContainer {
+    max-width: 100%;
+}
+
+.kuLandingNoRecordFound .klevuHeadingText {
+    font-weight: bold;
+    display: inline-block;
+}
+
+.kuLandingNoRecordFound .kuNoResultsLandingPopularSearchesBlock {
+    text-align: center;
+}
+
+.kuLandingNoRecordFound .kuNoResultsLandingPopularSearchTerms ul {
+    margin: 0px;
+    padding: 0;
+    display: inline-block;
+}
+
+.kuLandingNoRecordFound .kuNoResultsLandingPopularSearchTerms li {
+    display: inline-block;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.kuLandingNoRecordFound .kuNoResultsLandingPopularSearchTerms li a {
+    color: #333333;
+}
+
+@media (min-width: 768px) {
+    .kuLandingNoRecordFound .klevuNoResultsRecs-itemImg {
+        min-height: 170px;
+    }
+
+    .kuLandingNoRecordFound .klevuNoResultsRecs-itemWrap {
+        flex: 22%;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .kuLandingNoRecordFound .klevuNoResultsRecsResultsInner {
+        max-width: 60%;
+        margin: 0 auto;
+    }
+
+    .kuLandingNoRecordFound .klevuNoResultsRecsResultsInner .klevuNoResultsRecs-item {
+        min-height: 200px;
+    }
+
+    .kuLandingNoRecordFound .klevuNoResultsRecs-itemWrap {
+        flex: 44%;
+    }
+}
+
+@media (max-width: 480px) {
+    .kuLandingNoRecordFound .klevuNoResultsRecsResultsInner {
+        flex-direction: column;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .kuLandingNoRecordFound .klevuNoResultsRecsResultsInner a.klevuNoResultsRecsImg img {
+        min-height: 160px;
+    }
+
+    .kuLandingNoRecordFound .kuLandingNoResultsMessage {
+        font-size: 16px !important;
+    }
+
+    .kuLandingNoRecordFound .klevuNoResultsRecs-itemWrap {
+        flex: 50%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .kuLandingNoRecordFound .klevuNoResultsRecs {
+        max-width: 80%;
+    }
+}
+
+.kuFilterTagsContainer {
+    margin-bottom: 3px;
+    padding: 3px;
+}
+
+.kuFilterTagsContainer .kuFilterTagKey {
+    color: gray;
+    display: inline-block;
+    padding: 2px;
+    margin: 2px;
+}
+
+.kuFilterTagsContainer .kuFilterTagValue {
+    padding: 2px 7px;
+    border-radius: 2px;
+    background-color: #f3f2f2;
+    margin: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.kuFilterTagsContainer .kuFilterTagValue:hover {
+    background-color: #ece9e9;
+}
+
+.kuFilterTagsContainer .kuFilterTagClearAll {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1px 7px;
+    margin: 2px;
+    margin-left: 8px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.kuLandingResultsViewSwitchContainer {
+    position: relative;
+    display: inline-block;
+    z-index: 11;
+    width: auto;
+    padding: 10px 5px;
+}
+
+.kuLandingResultsViewSwitchContainer a {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-left: 4px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    -webkit-transition: background-position 0.1s ease-in;
+    -moz-transition: background-position 0.1s ease-in;
+    -o-transition: background-position 0.1s ease-in;
+    transition: background-position 0.1s ease-in;
+}
+
+.kuLandingResultsViewSwitchContainer a.kuCurrent {
+    background-position: 0 -25px;
+    text-decoration: none;
+}
+
+.kuLandingResultsViewSwitchContainer .kuGridViewBtn {
+    background: url(https://js.klevu.com/klevu-js-v1/img-1-1/ku-gridview.png) no-repeat 0 0;
+    cursor: pointer;
+}
+
+.kuLandingResultsViewSwitchContainer .kuListViewBtn {
+    background: url(https://js.klevu.com/klevu-js-v1/img-1-1/ku-listview.png) no-repeat 0 0;
+    cursor: pointer;
+}
+
+[data-result-view='list'] .klevuProduct {
+    width: 100% !important;
+}
+
+[data-result-view='list'] .klevuProduct:hover .kuProdAdditional {
+    box-shadow: none !important;
+}
+
+[data-result-view='list'] .klevuProduct main {
+    display: inline-block;
+    width: 30%;
+}
+
+[data-result-view='list'] .klevuProduct footer {
+    display: inline-block;
+    width: 69%;
+}
+
+[data-result-view='list'] .klevuProduct .kuProdAdditional {
+    position: relative !important;
+    visibility: unset !important;
+    border: 0px !important;
+}
+
+[data-result-view='list'] .klevuProduct .kuAddtocart .kuBtn {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 576px) {
+    [data-result-view='list'] .klevuProduct main {
+        width: 100%;
+    }
+
+    [data-result-view='list'] .klevuProduct footer {
+        width: 100%;
+    }
+
+    [data-result-view='list'] .klevuProduct .kuAddtocart .kuBtn {
+        display: block;
+    }
+}
+
+.kuSearchResultsSearchBarContainer input {
+    width: 100%;
 }

@@ -1,50 +1,634 @@
-/*===============================================================
-========= CSS for Klevu Quick Search Autosuggest layout =========
-=================================================================*/
-.klevuClearLeft {
-    clear: left;
+[ku-container] a,
+[ku-container] p,
+[ku-container] div,
+[ku-container] ul li {
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 130%;
+    text-decoration: none;
+    font-weight: normal;
 }
-.klevuClearRight {
-    clear: left;
+
+[ku-container] * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: top;
 }
-.klevuClearBoth {
+
+/* Base Classes */
+.kuBase {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container],
+[ku-block] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/* main Container */
+[ku-container][data-container-role="main"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*==========
+---Header--- 
+============*/
+/* main Header */
+[ku-container][data-container-role="header"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="subPanel"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="banner"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="navigation"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/*=================== 
+---Result Wrapper---
+=====================*/
+.kuResultContent {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+.kuResultContent [ku-container]:empty {
+    display: none !important;
+    width: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Results container 
+--------------------- */
+[ku-container][data-container-role="content"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+    display: table;
+    width: 100%;
+}
+
+[ku-container][data-container-role="content"] [ku-block]:empty {
+    display: none !important;
+    width: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+[ku-block][ku-empty],
+[ku-container][ku-empty] {
+    display: none !important;
+    width: 0px !important;
+    padding: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* results left 
+----------------- */
+[ku-container][data-container-role="left"] {
+    display: table-cell;
+    width: 22%;
+    height: auto;
+    max-width: 275px;
+}
+
+/* results right
+------------------ */
+[ku-container][data-container-role="right"] {
+    display: table-cell;
+    width: 22%;
+    height: auto;
+    max-width: 275px;
+}
+
+/* results main center body 
+---------------------------- */
+[ku-container][data-container-role="content"] [ku-container][data-container-role="results"] {
+    display: table-cell;
+    width: auto;
+    height: auto;
+}
+
+[ku-container][data-container-role="content"]:after {
+    content: '';
+    display: block;
     clear: both;
 }
+
+[ku-block]:empty {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+    min-height: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/*==========
+---footer--- 
+============*/
+/* main Footer */
+/*==========
+---Responsive--- 
+============*/
+@media only screen and (max-width: 1100px) {
+    .kuResults ul li {
+        width: 33%;
+        padding: 5px;
+    }
+
+    .kuFilterBox .kuFilterNames ul li a span.kufacet-text {
+        max-width: 60%;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+
+    [ku-container][data-container-role="left"],
+    [ku-container][data-container-role="right"] {
+        width: 32%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    [ku-container][data-container-role="content"],
+    [ku-container][data-container-role="content"] [ku-container][data-container-role="results"],
+    [ku-container][data-container-role="left"],
+    [ku-container][data-container-role="right"] {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .kuContainer .kuTabs a {
+        display: inline-block;
+    }
+
+    .kuContainer .kuTabs a:hover {
+        border-bottom: 0px solid #dddddd;
+        text-decoration: none;
+        background: #f5f5f5;
+    }
+
+    .kuContainer a.kuTabSelected {
+        border-bottom: 0px solid #dddddd;
+        background: #f5f5f5;
+    }
+
+    .kuLandingNoResultsMessage {
+        font-size: 15px;
+        line-height: 1.2em;
+        padding: 10px 5%;
+        text-align: center;
+    }
+
+    .kuFilterBox {
+        margin-bottom: 5px;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+}
+
+/* Rating */
+.klevu-stars-small-l2 {
+    height: 13px;
+    display: inline-block;
+    vertical-align: bottom;
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-gray.png) top left repeat-x;
+    width: 65px;
+    margin-top: 5px;
+}
+
+.klevu-stars-small-l2 .klevu-rating-l2 {
+    background: transparent url(https://js.klevu.com/klevu-js-v1/img-1-1/star-yellow.png) top left repeat-x;
+    height: 13px;
+}
+
+.kuCarousel {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 210px;
+}
+
+.kuCarousel *:before {
+    box-sizing: border-box;
+}
+
+.kuCarousel *:after {
+    box-sizing: border-box;
+}
+
+.kuCarousel .kuCarousel-content {
+    position: relative;
+    overflow: hidden;
+    transition: width 0.4s;
+    height: 100%;
+}
+
+.kuCarousel .kuSlide {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: left 0.4s cubic-bezier(0.47, 0.13, 0.15, 0.89);
+}
+
+.kuCarousel .nav {
+    position: absolute;
+    top: 50%;
+    margin-top: -8%;
+    background-color: #FFF;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: white;
+    -webkit-user-select: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+}
+
+.kuCarousel .nav-left {
+    left: -5px;
+    background-image: url(https://js.klevu.com/klevu-js-v1/img-1-1/icon-prev.png);
+}
+
+.kuCarousel .nav-right {
+    right: -5px;
+    background-image: url(https://js.klevu.com/klevu-js-v1/img-1-1/icon-next.png);
+}
+
+.kuCarousel .kuCarousel-arrow-icon-left {
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.kuCarousel .kuCarousel-arrow-icon-right {
+    margin-left: 7px;
+    margin-top: 2px;
+}
+
+.klevu-fluid,
+.klevu-fluid *,
+.klevuTarget,
+.klevuTarget *,
+.kuContainer * {
+    font-family: inherit;
+}
+
+/*========Common Style============= */
+[ku-container] a,
+[ku-container] p,
+[ku-container] div,
+[ku-container] ul li {
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 130%;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+[ku-container] * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: top;
+}
+
+.kuClearLeft {
+    clear: left;
+}
+
+.kuClearRight {
+    clear: right;
+}
+
+.kuClearBoth,
+.kuClearBoth:after {
+    clear: both;
+}
+
+.kuGreen {
+    color: #009b46 !important;
+}
+
+.kuBlack {
+    color: #333333 !important;
+}
+
+.kuClipped {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.kuClippedOne {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.kuClippedTwo {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
 .klevuTarget * {
     box-sizing: border-box;
 }
-/* Klevu search result Area*/
-.klevuTarget.klevu-fluid > div {
+
+.kuBtn {
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 5px 5px 5px 0px;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.kuBtnDark {
+    background: #333333;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+.kuBtnLight {
+    background: #ddd;
+    color: #333333;
+    border-color: #dedede;
+}
+
+.kuBtnDarkOutline {
+    background: transparent;
+    color: #333333;
+    border: 2px solid #333333;
+}
+
+.kuBtnLightOutline {
+    background: transparent;
+    color: #dddddd;
+    border: 2px solid #dddddd;
+}
+
+.kuBtnDark:hover,
+.kuBtnLight:hover,
+.kuBtnDarkOutline:hover,
+.kuBtnLightOutline:hover {
+    background: #757575;
+    color: #ffffff;
+    border-color: #757575;
+}
+
+.klevuTarget.klevu-fluid>div {
     position: absolute;
     z-index: 20000000000;
     width: 35%;
     max-width: 450px;
     font-family: inherit;
     font-size: 13px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 3px;
     color: #333333;
 }
+
+/* Base Classes */
+.kuBase {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container],
+[ku-block] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/* main Container */
+[ku-container][data-container-role="main"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*==========
+---Header--- 
+============*/
+/* main Header */
+[ku-container][data-container-role="header"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="subPanel"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="banner"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+[ku-container][data-container-role="header"] [ku-block][data-container-role="navigation"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+/*=================== 
+---Result Wrapper---
+=====================*/
+.kuResultContent {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+}
+
+.kuResultContent [ku-container]:empty {
+    display: none !important;
+    width: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Results container 
+--------------------- */
+[ku-container][data-container-role="content"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    position: relative;
+    max-width: 100%;
+    display: table;
+    width: 100%;
+}
+
+[ku-container][data-container-role="content"] [ku-block]:empty {
+    display: none !important;
+    width: 0px !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+[ku-block][ku-empty],
+[ku-container][ku-empty] {
+    display: none !important;
+    width: 0px !important;
+    padding: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
 .klevuQuickSearchingArea {
     width: 100%;
     max-width: 100%;
-    border: 1px solid #dddddd;
-    -webkit-box-shadow: 0 3px 5px rgba(50, 50, 50, 0.25);
-    -moz-box-shadow: 0 3px 5px rgba(50, 50, 50, 0.25);
-    box-shadow: 0 3px 5px rgba(50, 50, 50, 0.25);
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 5px rgba(50, 50, 50, 0.4);
+    -moz-box-shadow: 0 1px 5px rgba(50, 50, 50, 0.4);
+    box-shadow: 0 1px 5px rgba(50, 50, 50, 0.4);
 }
-/* Auto suggestion style */
+
+.klevuQuickSearchingArea .klevuLoader img {
+    display: inline-block;
+    width: 22px !important;
+}
+
+.klevuQuickSearchingArea span.klevuLoader img {
+    margin-right: 10px;
+}
+
 .klevuSuggestionsBlock {
     position: relative;
 }
-.klevuSuggestionHeading {
-    overflow: visible;
-    padding-left: 8px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: left;
-    text-transform: uppercase;
-}
+
 .klevuSuggestionsBlock .klevuLoader {
     position: absolute;
     top: 0;
@@ -52,39 +636,40 @@
     display: inline-block;
     padding: 6px 10px;
 }
-.klevuQuickSearchingArea .klevuLoader img {
-    display: inline-block;
-    width: 22px !important;
+
+.klevuSuggestionHeading {
+    text-transform: uppercase;
+    padding: 10px 5px;
 }
-.klevuQuickSearchingArea span.klevuLoader img {
-    margin-right: 10px;
-}
-.klevuSuggestionHeading .klevuHeadingText {
+
+.klevuHeadingText {
     color: #333333;
     display: inline-block;
-    padding: 0 4px;
-    font-size: 12px;
-    margin-right: 12px;
 }
-.klevuSuggestionHeading a {
+
+.klevuHeadingText a {
     float: right;
     margin-right: 10px;
     color: #333333;
     font-weight: normal;
     text-decoration: none;
 }
-.klevuSuggestionHeading a:hover {
+
+.klevuHeadingText a:hover {
     text-decoration: underline;
 }
+
 .klevuAutoSuggestionsWrap {
     border-bottom: 1px solid #dddddd;
-    padding-bottom: 10px;
+    padding: 5px 10px;
 }
+
 .klevuAutoSuggestionsWrap ul {
     margin: 0px;
     padding: 0px;
     text-align: left;
 }
+
 .klevuAutoSuggestionsWrap ul li {
     display: block;
     list-style: none;
@@ -92,62 +677,72 @@
     cursor: default;
     text-align: left;
 }
+
 .klevuAutoSuggestionsWrap ul li a {
     display: block;
-    padding: 4px 10px 4px 20px;
+    padding: 5px;
     line-height: 14px;
     color: #333333;
     text-decoration: none;
     font-size: 13px;
 }
+
 .klevuAutoSuggestionsWrap ul li:hover {
     background-color: #f5f5f5;
 }
-.klevuAutoSuggestionsWrap ul li.klevu-hovered {
+
+.klevuAutoSuggestionsWrap ul li:focus {
     background-color: #f5f5f5;
 }
+
 .klevuAutoSuggestionsWrap ul li ul li a {
-    padding-left: 35px
+    padding-left: 35px;
 }
+
 .klevuAutoSuggestionsWrap ul li strong {
     color: #333333;
 }
-/* List of search result products */
-.klevuQuickSearchResults {
+
+.klevuAutoSuggestionsWrap ul li.klevu-hovered {
+    background-color: #f5f5f5;
+}
+
+.klevuResultsBlock .klevuSuggestionHeading {
+    padding: 12px 15px;
+}
+
+.klevuResultsBlock .klevuProductsViewAll {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.klevuResultsBlock .klevuProductsViewAll a {
+    color: #333333;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid #ccc;
+    padding: 2px 0px;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults {
     position: relative;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-.klevuQuickSearchResults ul {
+
+.klevuResultsBlock .klevuQuickSearchResults ul {
     margin: 0px;
     padding-left: 0px;
     text-align: left;
 }
-.klevuQuickSearchResults .klevuProductsViewAll {
-    display: inline-block;
-    position: absolute;
-    top: -24px;
-    right: 0;
-    padding: 3px 6px;
-}
-.klevuProductsViewAll a {
-    float: right;
-    margin-right: 10px;
-    color: #333333;
-    font-weight: normal;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 12px;
-    cursor: pointer;
-    border-bottom: 2px solid #CCC;
-}
-.klevuProductsViewAll a:hover {
-    text-decoration: nonr;
-    color: #333333;
-    border-bottom: 2px solid #000;
-}
-.klevuQuickSearchResults ul li {
+
+.klevuResultsBlock .klevuQuickSearchResults ul li {
     display: block;
     width: 100%;
     height: auto;
@@ -155,7 +750,8 @@
     position: relative;
     border-bottom: 1px solid #dddddd;
 }
-.klevuQuickSearchResults ul li a.klevuQuickProductInnerBlock {
+
+.klevuResultsBlock .klevuQuickSearchResults ul li a.klevuQuickProductInnerBlock {
     text-decoration: none;
     color: #333333;
     outline: none;
@@ -164,8 +760,58 @@
     height: auto;
     line-height: 20px;
 }
-/* Product left/top block*/
-.klevuQuickSearchResults .klevuProductItemTop {
+
+.klevuResultsBlock .klevuQuickSearchResults ul li .klevuQuickProductDescBlock {
+    float: left;
+    width: 100%;
+    margin-left: 8px;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li .klevuQuickProductName {
+    font-weight: bold;
+    color: #333333;
+    word-wrap: break-word;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li .klevuQuickPriceGreyText {
+    font-weight: normal !important;
+    color: #393939 !important;
+    font-size: 11px !important;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li .klevuQuickProductDesc {
+    color: #333333;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li .klevuQuickSalePrice {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li .klevuQuickOrigPrice {
+    margin-right: 5px;
+    text-decoration: line-through;
+    color: #333333;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li:hover {
+    background-color: #f5f5f5;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li:hover .klevuQuickSearchResults ul li div {
+    color: #ffffff !important;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li:focus {
+    background-color: #f5f5f5;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults ul li:focus .klevuQuickSearchResults ul li div {
+    color: #ffffff !important;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults .klevuProductItemTop {
     margin: 0px;
     box-sizing: border-box;
     float: left;
@@ -173,8 +819,8 @@
     position: relative;
     width: 20%;
 }
-/* Product right/bottom block*/
-.klevuQuickSearchResults .klevuProductItemBottom {
+
+.klevuResultsBlock .klevuQuickSearchResults .klevuProductItemBottom {
     margin: 0px;
     box-sizing: border-box;
     padding: 5px;
@@ -183,16 +829,21 @@
     float: left;
     width: 80%;
 }
-/* Image thumbnail for top products */
-.klevuQuickSearchResults .klevuQuickImgWrap {
+
+.klevuResultsBlock .klevuQuickSearchResults .klevuProductItemBottom .klevu-desc-l2 {
+    color: #8a8a8a;
+    font-size: 13px;
+}
+
+.klevuResultsBlock .klevuQuickSearchResults .klevuQuickImgWrap {
     float: none;
     overflow: hidden;
     width: 100% !important;
     height: 70px !important;
     text-align: center;
 }
-/* image style for top products */
-.klevuQuickSearchResults img {
+
+.klevuResultsBlock .klevuQuickSearchResults img {
     max-width: 100% !important;
     max-height: 100% !important;
     width: auto;
@@ -203,7 +854,8 @@
     margin: 0 auto;
     opacity: 1;
 }
-.klevuQuickSearchResults .klevuQuickDiscountBadge {
+
+.klevuResultsBlock .klevuQuickSearchResults .klevuQuickDiscountBadge {
     background: #ffcc01;
     padding: 0px 5px;
     color: #333333;
@@ -212,190 +864,172 @@
     top: 6px;
     left: 4px;
 }
-.klevuQuickSearchResults .klevuQuickDiscountBadge strong {
+
+.klevuResultsBlock .klevuQuickSearchResults .klevuQuickDiscountBadge strong {
     color: #333333;
 }
-/* product title and description of top products */
-.klevuQuickSearchResults ul li .klevuQuickProductDescBlock {
-    float: left;
-    width: 100%;
-    margin-left: 8px;
-}
-/* style for product title */
-.klevuQuickSearchResults ul li .klevuQuickProductName {
-    font-size: 13px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #333333;
-    word-wrap: break-word;
-    text-transform: none;
-}
-/* style for product description */
-.klevuQuickSearchResults ul li .klevuQuickProductDesc {
-    color: #333333;
-    font-size: 13px;
-}
-/* Price container */
-/* style for saleprice */
-.klevuQuickSearchResults ul li .klevuQuickSalePrice {
-    font-weight: bold;
-    font-size: 13px;
-    margin-bottom: 5px;
-    color: #333333;
-}
-/* style for original price */
-.klevuQuickSearchResults ul li .klevuQuickOrigPrice {
-    margin-left: 5px;
-    font-size: 12px;
-    text-decoration: line-through;
-    color: #333333;
-}
-.klevuQuickSearchResults ul li:hover {
-    background-color: #f5f5f5;
-}
-.klevuQuickSearchResults ul li a.klevuQuickProductInnerBlock:hover .klevuQuickProductName {
-    text-decoration: underline;
-}
-.klevuQuickSearchResults ul li:hover .klevuQuickSearchResults ul li div {
-    color: #FFFFFF !important;
-}
-/* No result found css*/
-.klevuQuickNoResults {
+
+.klevuResultsBlock .klevuQuickNoResults {
     text-align: center;
     font-size: 13px;
     padding: 0px;
 }
-.klevuQuickNoResults .klevuQuickNoResultsInner {
+
+.klevuResultsBlock .klevuQuickNoResults .klevuQuickNoResultsInner {
     padding: 15px;
     margin: 0px;
 }
-/* noresult message*/
-.klevuQuickNoResultsMessage {
+
+.klevuResultsBlock .klevuQuickNoResultsMessage {
     background: transparent;
     font-size: 13px;
     padding: 20px;
     text-align: center;
     border: none;
 }
-/* For Rupee Symbol*/
-@font-face {
-    font-family: 'WebRupee';
-    src: url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.eot');
-    src: local('WebRupee'), url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.ttf') format('truetype'), url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.woff') format('woff'), url('https://js.klevu.com/klevu-css/kuwebrupeefont/WebRupee.V2.0.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-.klevuwebrupee {
-    font-family: 'WebRupee';
-}
-/*for Ruble Symbol*/
-@font-face {
-    font-family: 'FontAwesome';
-    src: url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.eot?v=4.5.0');
-    src: url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('https://js.klevu.com/klevu-css/kuwebiconsfont/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-.klevu-ruble {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.klevu-ruble:before {
-    content: "\f158";
-}
-/*---------------iPad & Samsung Galaxy Tablets portrait---------------*/
+
 @media only screen and (max-width: 1024px) {
-    /* Klevu search result box*/
-    .klevuTarget.klevu-fluid > div {
+    .klevuTarget.klevu-fluid>div {
         width: 50%;
     }
+
     .klevuQuickSearchResults .klevuQuickImgWrap {
         height: 55px !important;
     }
 }
-/*---------------iPhone & Samsung Mobiles landscape---------------*/
-@media only screen and (min-width: 641px) and (max-width: 768px) {}
-/*---------------iPhone & Samsung Mobiles portrait---------------*/
+
 @media only screen and (max-width: 767px) {
-    .klevuTarget.klevu-fluid > div {
-        width: 70%;
+    .klevuTarget.klevu-fluid>div {
         max-width: 400px;
-    }
-    .klevuTarget.klevu-fluid > div {
         width: 70%;
     }
 }
+
 @media only screen and (max-width: 480px) {
-    .klevuTarget.klevu-fluid > div {
+    .klevuTarget.klevu-fluid>div {
         width: 98%;
         left: 1% !important;
     }
+
     .klevu-fluid .klevuQuickSearchResults ul li .klevuQuickProductDesc {
         display: none;
     }
 }
+
 @media only screen and (max-width: 420px) {
-    .klevuTarget.klevu-fluid > div {
+    .klevuTarget.klevu-fluid>div {
         max-width: 100%;
     }
 }
 
-
-/*
-*   Quicksearch:: Additional CSS changes
-*/
-
-
-/*
-*   Styles for quick search Add to cart button 
-*/
-
-.klevuQuickCartBtn {
-    background: #333333;
-    color: #FFFFFF;
-    padding: 6px;
-    vertical-align: middle;
-    cursor: pointer;
-    white-space: nowrap;
-    text-decoration: none;
-    font-size: 11px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin: 0px;
-    border: none;
-    transition: all 0.3s ease;
-    text-align: center;
-    font-weight: normal;
-    line-height: 100%;
-    border-radius: 3px;
-    margin-top: 5px;
-    position: relative;
+.searchRequestLoading .klevuQuickSearchingArea {
+    opacity: 0.6;
+    pointer-events: none;
+    height: 40px;
 }
 
-.klevuQuickCartBtn:hover,
-.klevuQuickCartBtn:focus {
-    color: #333;
-    background: #ddd;
-    text-decoration: none;
+.searchRequestLoading .klevuQuickSearchingArea * {
+    display: none;
 }
 
-.klevuQuickAddtoCart {
-    margin: 0px;
+.searchRequestLoading .klevuQuickSearchingArea::after {
+    content: url("https://js.klevu.com/klevu-js-v1/img/klevu-loader.GIF");
     position: absolute;
-    display: inline-block;
-    bottom: 5px;
-    right: 5px;
-    width: auto;
-    padding: 5px;
+    margin-left: 45%;
+    margin-top: 12px;
 }
 
-/*
-Style for quick search result banner
-*/
+/* Without personalized search*/
+.kuEmptySearchBox.klevuTarget.kuQuickSearchResultsContainer [ku-container][data-container-role="left"] {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* With personalized search*/
+.kuEmptySearchBox.klevuTarget.kuQuickSearchResultsContainer.kuPersonalizedSearchRecsEnabled>div {
+    width: 100%;
+    max-width: 550px;
+}
+
+.kuEmptySearchBox.klevuTarget.kuQuickSearchResultsContainer.kuPersonalizedSearchRecsEnabled [ku-container][data-container-role="left"] {
+    width: 33%;
+    padding-right: 2%;
+}
+
+.kuEmptySearchBox.klevuTarget.kuQuickSearchResultsContainer.kuPersonalizedSearchRecsEnabled [ku-container][data-container-role="right"] {
+    width: Calc(65%);
+}
+
+.kuRecommendationSlider {
+    display: none;
+}
+
+.kuRecommendationSlider .klevuProductItemTop .klevuQuickImgWrap {
+    float: none;
+    overflow: hidden;
+    width: 100% !important;
+    height: 155px !important;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    border: 1px solid #eee;
+    max-height: 155px !important;
+}
+
+.kuEmptySearchBox.kuPersonalizedSearchRecsEnabled .kuRecommendationSlider {
+    display: block;
+}
+
+.kuEmptySearchBox.klevuTarget.kuPersonalizedSearchRecsEnabled .klevuQuickSearchingArea {
+    padding: 5px 8px;
+}
+
+.kuEmptySearchBox.klevuTarget.kuPersonalizedSearchRecsEnabled .klevuProductItemTop {
+    width: 100%;
+    display: block;
+    float: none;
+}
+
+.kuEmptySearchBox.klevuTarget.kuPersonalizedSearchRecsEnabled .klevuProductItemBottom {
+    width: 100%;
+    display: block;
+    float: none;
+}
+
+.kuEmptySearchBox.klevuTarget.kuPersonalizedSearchRecsEnabled .klevuResultsBlock .klevuSuggestionHeading {
+    padding: 10px 3px;
+}
+
+.kuEmptySearchBox.klevuTarget.kuPersonalizedSearchRecsEnabled .klevuResultsBlock .klevuProductItemBottom {
+    font-size: 12px;
+    color: #666;
+}
+
+.kuEmptySearchBox.klevuTarget.kuPersonalizedSearchRecsEnabled .kuRecentSearchTerms {
+    border: none;
+}
+
+.kuEmptySearchBox.klevuTarget.kuPersonalizedSearchRecsEnabled .kuPopularSearchTerms {
+    border: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .kuEmptySearchBox.klevuTarget.kuQuickSearchResultsContainer.kuPersonalizedSearchRecsEnabled [ku-container][data-container-role="left"] {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .kuEmptySearchBox.klevuTarget.kuQuickSearchResultsContainer.kuPersonalizedSearchRecsEnabled [ku-container][data-container-role="right"] {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .kuEmptySearchBox.klevuTarget.kuQuickSearchResultsContainer.kuPersonalizedSearchRecsEnabled>div {
+        max-width: 85%;
+    }
+}
 
 .klevu-banner-ad {
     clear: both;
@@ -412,4 +1046,404 @@ Style for quick search result banner
     width: auto;
     max-width: 100%;
     max-height: 100%;
+}
+
+.kuPopularSearchTerms ul {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+.kuPopularSearchTerms li {
+    display: block;
+    list-style: none;
+    margin: 0px;
+    text-transform: capitalize;
+    cursor: default;
+    text-align: left;
+}
+
+.kuPopularSearchTerms li a {
+    display: block;
+    padding: 5px;
+    line-height: 14px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.kuPopularSearchTerms li:hover {
+    background-color: #f5f5f5;
+}
+
+.kuRecentSearchTerms {
+    /* border-bottom: 1px solid #dddddd;
+    padding: 5px 10px; */
+}
+
+.kuRecentSearchTerms ul {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+.kuRecentSearchTerms li {
+    display: block;
+    list-style: none;
+    margin: 0px;
+    text-transform: capitalize;
+    cursor: default;
+    text-align: left;
+}
+
+.kuRecentSearchTerms li a {
+    display: block;
+    padding: 5px;
+    line-height: 14px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.kuRecentSearchTerms li:hover {
+    background-color: #f5f5f5;
+}
+
+.kuQuickSearchNoRecordFound {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #333333;
+    font-size: 13px;
+    background: #FFF;
+    display: block;
+}
+
+.kuQuickSearchNoRecordFound .klevuQuickPriceGreyText {
+    font-weight: normal !important;
+    color: #393939 !important;
+    font-size: 11px !important;
+}
+
+.kuQuickSearchNoRecordFound .kuQuickNoResults {
+    max-width: 90%;
+    margin: auto;
+    text-align: justify;
+}
+
+.kuQuickSearchNoRecordFound .kuQuickNoResultsMessage {
+    display: block;
+    text-align: center;
+    line-height: 14px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.kuQuickSearchNoRecordFound .kuDividerLine {
+    margin: 10px 0;
+    border-bottom: #ccc 1px solid;
+    width: 100%;
+}
+
+.kuQuickSearchNoRecordFound .klevu-no-results-banner-ad-quick {
+    clear: both;
+    text-align: center;
+    width: 100%;
+    padding: 8px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.kuQuickSearchNoRecordFound .klevu-no-results-banner-ad-quick img {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuPopularProductsViewAll {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.kuQuickSearchNoRecordFound .kuNoResultsPopularSearchHeading {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuPopularProductsViewAll a {
+    color: #333333;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid #CCC;
+    padding: 2px 0px;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul {
+    margin: 0px;
+    padding-left: 0px;
+    text-align: left;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li {
+    display: block;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    position: relative;
+    border-bottom: 1px solid #dddddd;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li a.klevuQuickPopularProductInnerBlock {
+    text-decoration: none;
+    color: #333333;
+    outline: none;
+    display: block;
+    padding: 8px;
+    height: auto;
+    line-height: 20px;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li .klevuQuickPopularProductDescBlock {
+    float: left;
+    width: 100%;
+    margin-left: 8px;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li .klevuQuickProductName {
+    font-weight: bold;
+    color: #333333;
+    word-wrap: break-word;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li .klevuQuickProductDesc {
+    color: #333333;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li .klevuQuickSalePrice {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li .klevuQuickOrigPrice {
+    margin-left: 5px;
+    text-decoration: line-through;
+    color: #333333;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li:hover {
+    background-color: #f5f5f5;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular ul li:hover .klevuQuickSearchNoResultsPopular ul li div {
+    color: #FFFFFF !important;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular .klevuPopularProductItemTop {
+    margin: 0px;
+    box-sizing: border-box;
+    float: left;
+    padding: 5px;
+    position: relative;
+    width: 20%;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular .klevuPopularProductItemBottom {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 5px;
+    position: relative;
+    min-height: 60px;
+    float: left;
+    width: 80%;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular .klevuPopularProductItemBottom .klevu-desc-l2 {
+    color: #8a8a8a;
+    font-size: 13px;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular .klevuQuickImgWrap {
+    float: none;
+    overflow: hidden;
+    width: 100% !important;
+    height: 70px !important;
+    text-align: center;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto;
+    height: auto;
+    border: none;
+    outline: none;
+    display: inline-block;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular .klevuQuickDiscountBadge {
+    background: #ffcc01;
+    padding: 0px 5px;
+    color: #333333;
+    font-size: 9px;
+    position: absolute;
+    top: 6px;
+    left: 4px;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickSearchNoResultsPopular .klevuQuickDiscountBadge strong {
+    color: #333333;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickNoResults {
+    text-align: center;
+    font-size: 13px;
+    padding: 0px;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickNoResults .klevuQuickNoResultsInner {
+    padding: 15px;
+    margin: 0px;
+}
+
+.kuQuickSearchNoRecordFound .klevuNoResultsProductsBlock .klevuQuickNoResultsMessage {
+    background: transparent;
+    font-size: 13px;
+    padding: 20px;
+    text-align: center;
+    border: none;
+}
+
+.kuQuickSearchNoRecordFound .searchRequestLoading .klevuQuickSearchingArea {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.kuQuickSearchNoRecordFound .klevuPopularProductsHeading {
+    text-align: left;
+    padding: 8px 15px;
+    text-transform: uppercase;
+}
+
+.kuQuickSearchNoRecordFound .kuNoResultsContainer {
+    max-width: 100%;
+}
+
+.kuQuickSearchNoRecordFound .kuNoResultsPopularSearchesBlock {
+    padding: 10px;
+}
+
+.kuQuickSearchNoRecordFound .kuNoResultsPopularSearchTerms ul {
+    margin: 0px;
+    padding: 0px 3px;
+    text-align: left;
+}
+
+.kuQuickSearchNoRecordFound .kuNoResultsPopularSearchTerms li {
+    display: block;
+    list-style: none;
+    margin: 0px;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-align: left;
+}
+
+.kuQuickSearchNoRecordFound .kuNoResultsPopularSearchTerms li:hover {
+    background-color: #f5f5f5;
+}
+
+.kuQuickSearchNoRecordFound .kuNoResultsPopularSearchTerms li a {
+    display: block;
+    padding: 5px;
+    line-height: 14px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .kuQuickSearchNoRecordFound .klevuTarget.klevu-fluid>div {
+        width: 50%;
+    }
+
+    .kuQuickSearchNoRecordFound .klevuQuickSearchNoResultsPopular .klevuQuickImgWrap {
+        height: 55px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .kuQuickSearchNoRecordFound .klevuTarget.klevu-fluid>div {
+        max-width: 400px;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .kuQuickSearchNoRecordFound .klevuTarget.klevu-fluid>div {
+        width: 98%;
+        left: 1% !important;
+    }
+
+    .kuQuickSearchNoRecordFound .klevu-fluid .klevuQuickSearchNoResultsPopular ul li .klevuQuickProductDesc {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .kuQuickSearchNoRecordFound .klevuTarget.klevu-fluid>div {
+        max-width: 100%;
+    }
+}
+
+.kuCaptionStockIn {
+    font-size: 11px;
+    color: green;
+    display: inline-block;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+.kuQuickCaptionStockOut {
+    font-size: 11px;
+    color: Red;
+    display: inline-block;
+    padding: 0px;
+    float: left;
+    min-height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+.kuCaptionVat {
+    display: block;
+    font-size: 11px;
+    color: #767676;
+    width: 100%;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 2px 0px;
 }
