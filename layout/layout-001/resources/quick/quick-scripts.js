@@ -967,7 +967,6 @@ klevu.coreEvent.attach("setRemoteKMCInputs", {
     fire: function () {
         klevu_urlProtocol = klevu.settings.url.protocol;
         klevu.search.modules.kmcInputs.base.appendScriptsToHeader(klevu.settings.search.apiKey);
-        //klevu.search.modules.kmcInputs.base.appendScriptsToHeader("klevu-160320037354512854"); //Dev live store
     }
 });
 /**
