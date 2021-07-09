@@ -289,12 +289,12 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
 
         var analyticsTermOptions = {
             klevu_term: (scope.data.context.termOriginal) ? scope.data.context.termOriginal : "*",
-            klevu_pageNumber: "unknown",
-            klevu_src: "unknown",
-            klevu_limit: "unknown",
-            klevu_sort: "unknown",
-            klevu_totalResults: "unknown",
-            klevu_typeOfQuery: "unknown",
+            klevu_pageNumber: "",
+            klevu_src: "",
+            klevu_limit: "",
+            klevu_sort: "",
+            klevu_totalResults: "0",
+            klevu_typeOfQuery: "WILDCARD_AND",
             filters: false
         };
 
@@ -623,11 +623,11 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
      */
     function getCategoryViewOptions(scope) {
         var analyticsCategoryOptions = {
-            klevu_categoryName: "unknown",
-            klevu_src: "unknown",
-            klevu_categoryPath: "unknown",
-            klevu_productIds: "unknown",
-            klevu_pageStartsFrom: "unknown",
+            klevu_categoryName: "",
+            klevu_src: "",
+            klevu_categoryPath: "",
+            klevu_productIds: "",
+            klevu_pageStartsFrom: "",
             filters: false
         };
 
@@ -664,7 +664,7 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
                     analyticsCategoryOptions.klevu_productIds = "";
                     klevu.each(resQueryObj.records, function (key, value) {
                         if (analyticsCategoryOptions.klevu_productIds &&
-                            analyticsCategoryOptions.klevu_productIds !== "unknown") {
+                            analyticsCategoryOptions.klevu_productIds !== "") {
                             if (value.id) {
                                 analyticsCategoryOptions.klevu_productIds += ",";
                             }
@@ -807,7 +807,11 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
     name: "attachQuickSearchAnalyticsEvents",
     fire: function () {
         klevu.each(klevu.search.extraSearchBox, function (key, box) {
-            box.getScope().element.kScope.analyticsReqTimeOut = null;
+            
+            box.getScope().element.kScope.analyticsDelay = {
+                analyticsReqTimeOut: null,
+                delay: 1000
+            };
 
             /**
              * Send term request for analytics
@@ -815,27 +819,29 @@ klevu.coreEvent.attach("setRemoteConfigQuick", {
             box.getScope().chains.template.events.add({
                 name: "doAnalytics",
                 fire: function (data, scope) {
-                    if (box.getScope().element.kScope.analyticsReqTimeOut) {
-                        clearTimeout(box.getScope().element.kScope.analyticsReqTimeOut);
+                    if (box.getScope().element.kScope.analyticsDelay.analyticsReqTimeOut) {
+                        clearTimeout(box.getScope().element.kScope.analyticsDelay.analyticsReqTimeOut);
                     }
                     var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
                     var searchResultContainer = klevu.dom.find(".klevuQuickSearchResults", target)[0];
-                    var dataSection;
-                    if (searchResultContainer) {
-                        dataSection = searchResultContainer.dataset.section;
-                    }
-                    if (!dataSection) {
-                        return;
-                    }
+
+                    var dataSection = (searchResultContainer && searchResultContainer.dataset.section) ? searchResultContainer.dataset.section : "unknown";
                     scope.kScope.data.context.section = dataSection;
-                    box.getScope().element.kScope.analyticsReqTimeOut = setTimeout(function () {
-                        var termOptions = klevu.analyticsUtil.base.getTermOptions(box.getScope().element.kScope, true);
+
+                    var boxScope = box.getScope().element.kScope;
+                    box.getScope().element.kScope.analyticsDelay.analyticsReqTimeOut = setTimeout(function () {
+                        var termOptions = klevu.analyticsUtil.base.getTermOptions(boxScope, true);
                         if (termOptions) {
-                            termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:quick-search]]");
-                            klevu.analyticsEvents.term(termOptions);
+                            termOptions.klevu_term = (termOptions.klevu_term) ? termOptions.klevu_term.trim() : "";
+                            if (termOptions.klevu_term != "" && termOptions.klevu_term != "*") {
+                                termOptions.klevu_src = termOptions.klevu_src.replace("]]", ";;template:quick-search]]");
+                                klevu.analyticsEvents.term(termOptions);
+                            }
                         }
-                        box.getScope().element.kScope.analyticsReqTimeOut = null;
-                    }, 300);
+                        if (boxScope.analyticsDelay) {
+                            boxScope.analyticsDelay.analyticsReqTimeOut = null;
+                        }
+                    }, boxScope.analyticsDelay.delay);
                 }
             });
 

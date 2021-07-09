@@ -13,12 +13,12 @@
 
         var analyticsTermOptions = {
             klevu_term: (scope.data.context.termOriginal) ? scope.data.context.termOriginal : "*",
-            klevu_pageNumber: "unknown",
-            klevu_src: "unknown",
-            klevu_limit: "unknown",
-            klevu_sort: "unknown",
-            klevu_totalResults: "unknown",
-            klevu_typeOfQuery: "unknown",
+            klevu_pageNumber: "",
+            klevu_src: "",
+            klevu_limit: "",
+            klevu_sort: "",
+            klevu_totalResults: "0",
+            klevu_typeOfQuery: "WILDCARD_AND",
             filters: false
         };
 
@@ -348,11 +348,11 @@
      */
     function getCategoryViewOptions(scope) {
         var analyticsCategoryOptions = {
-            klevu_categoryName: "unknown",
-            klevu_src: "unknown",
-            klevu_categoryPath: "unknown",
-            klevu_productIds: "unknown",
-            klevu_pageStartsFrom: "unknown",
+            klevu_categoryName: "",
+            klevu_src: "",
+            klevu_categoryPath: "",
+            klevu_productIds: "",
+            klevu_pageStartsFrom: "",
             filters: false
         };
 
@@ -389,7 +389,7 @@
                     analyticsCategoryOptions.klevu_productIds = "";
                     klevu.each(resQueryObj.records, function (key, value) {
                         if (analyticsCategoryOptions.klevu_productIds &&
-                            analyticsCategoryOptions.klevu_productIds !== "unknown") {
+                            analyticsCategoryOptions.klevu_productIds !== "") {
                             if (value.id) {
                                 analyticsCategoryOptions.klevu_productIds += ",";
                             }
