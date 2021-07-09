@@ -2,6 +2,8 @@
 
 For the official documentation, please visit [https://developers.klevu.com/javascript-library](https://developers.klevu.com/javascript-library).
 
+> **June 2021:** You can now build custom quick search, search results and category pages using our JavaScript Library powered theme. Click here to find out more: **[Klevu JSv2 Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme/)**
+
 > **Important:**  
 > The templates and functionality included in this repository are example implementations and are to be used as a starting point for your projects. They are not to be considered production-ready or ADA compliant. Please modify freely according to your own requirements.
 
