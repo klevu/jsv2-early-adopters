@@ -1,5 +1,8 @@
 # Hello World Tutorial for Shopify
 
+> :bulb: **Update June 2021**  
+> Get up and running even faster with our fully functional, production-ready **[Klevu Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme)**.
+
 Klevu already has a [Shopify App](https://apps.shopify.com/klevu-smart-search)
 which will automatically create a Klevu account and provide you with an API Key for use during this tutorial.
 
