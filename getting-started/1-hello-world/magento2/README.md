@@ -1,5 +1,8 @@
 # Hello World Tutorial for Magento 2
 
+> :bulb: **Update June 2021**  
+> Get up and running even faster with our fully functional, production-ready **[Klevu Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme)**.
+
 The current Klevu Magento extension currently automatically integrates JSv1,
 so for the time being this tutorial will not include a full data integration with Klevu
 and will instead be used to showcase the templating and frontend functionality only.
