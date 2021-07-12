@@ -1,61 +1,26 @@
 # Klevu JS Library
 
-For the official documentation, please visit [https://developers.klevu.com/javascript-library](https://developers.klevu.com/javascript-library).
+> :bulb: **Update June 2021**  
+> Get up and running even faster with our fully functional, production-ready **[Klevu Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme)**.
 
-> **June 2021:** You can now build custom quick search, search results and category pages using our JavaScript Library powered theme. Click here to find out more: **[Klevu JSv2 Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme/)**
-
-> **Important:**  
-> The templates and functionality included in this repository are example implementations and are to be used as a starting point for your projects. They are not to be considered production-ready or ADA compliant. Please modify freely according to your own requirements.
+For the official Klevu JavaScript Library documentation, please visit [https://developers.klevu.com/javascript-library](https://developers.klevu.com/javascript-library). You can still browse the following getting started guides, but **we recommend using [Klevu Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme) for your next integration**.
 
 - **[Get started with Shopify](/getting-started/1-hello-world/shopify)**
 - **[Get started with BigCommerce](/getting-started/1-hello-world/bigcommerce)**
 - **[Get started with Magento 2](/getting-started/1-hello-world/magento2)**
 - **[Get started with any other framework](/getting-started/1-hello-world/custom)**
 
-Once you've already completed the above,
+Once you've completed the above,
 [try some other common customizations here](/modules).
 
 If you want to see an example of a number of these modules working together
 in a single example, click here to [try a full Layout](/layout/layout-001).
 
+> :warning: **Warning:**
+> The templates and functionality included in this repository are example implementations and are to be used as a starting point for your projects. They are not to be considered production-ready or ADA compliant. Please modify freely according to your own requirements.
+> **For production-ready code, please check out [Klevu Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme).**
+
 ## Tell us what you think!
 
 Please forward any feedback you may have to your Klevu contact
 (_the person that told you about this programme_).
-
-## Changelog
-
-**5th November 2019**
-
-Updated hello-world tutorials to include analytics, which is a vital part
-of Klevu integration due to its role in the machine learning from customer interactions.
-
-**30th September 2019**
-
-Updated tutorial structure to separate out 'getting-started' for each framework,
-components and modules for a more guided on-boarding process.
-
-**13th September 2019**
-
-Added tutorial for [getting started with any other framework](/getting-started/1-hello-world/custom),
-using static HTML, JS and CSS to integrate Klevu JS Library with just a few lines of code.
-
-**12th September 2019**
-
-Re-structured to have 4x tutorials specific to each framework to
-[get started](/getting-started),
-then the remainder of the tutorials are platform agnostic.
-
-Plus additional [more tutorials](/modules).
-
-**6th September 2019**
-
-Added various [new tutorials](/modules) and a Hello World guide
-for both BigCommerce and Magento 2.
-
-**24th June 2019**
-
-Added a short introduction to take you from _nothing_ to a Shopify store using
-Klevu Search with our new JavaScript Library Version 2, in around 10-15 minutes.
-We will then introduce some further examples to help you understand more about
-the power of Klevu JS Library.
