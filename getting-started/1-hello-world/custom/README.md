@@ -1,5 +1,8 @@
 # Hello World Tutorial in any framework
 
+> :bulb: **Update June 2021**  
+> Get up and running even faster with our fully functional, production-ready **[Klevu Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme)**.
+
 This example uses primarily static HTML, JS and CSS to showcase Klevu JS Library.
 A tiny bit of PHP is used to include the micro-templates,
 but you can use any approach you like to achieve the same outcome.
