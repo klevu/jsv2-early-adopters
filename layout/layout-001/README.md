@@ -1,5 +1,8 @@
 # Layout - "layout-001"
 
+> :bulb: **Update June 2021**  
+> Get up and running even faster with our fully functional, production-ready **[Klevu Theme](https://developers.klevu.com/javascript-library/integration/klevu-theme)**.
+
 This layout is an example of how you might bundle together various functionality
 from the [modules](/modules) available within this repository, as well as adding
 your own customisations.
