@@ -412,7 +412,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     tabStorage.tabs.setStorage("local");
                     tabStorage.tabs.mergeFromGlobal();
                     var currentSection = tabStorage.tabs.getElement("active");
-                    if (currentSection && currentSection.length) {
+                    if (currentSection && currentSection.length && currentSection != "active") {
                         data.context.section = currentSection;
                         scope.kScope.data.context.section = currentSection;
                     } else {
